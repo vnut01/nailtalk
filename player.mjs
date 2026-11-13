@@ -63,7 +63,7 @@ export class AudioPlayer {
         const compact = this.options.compact && this.cues.length === 1;
         root.innerHTML = this.options.scene ? `<button class="audio-toggle primary" type="button"></button>
 <span class="listen-count"></span><span class="listen-limit" role="status"></span>
-<div class="scene-transport"><button data-action="prev" aria-label="Câu trước">‹</button><button data-action="restart" aria-label="Nghe lại câu này">↺</button><button data-action="next" aria-label="Câu sau">›</button></div>
+<div class="scene-transport">${this.options.slower ? '<button data-action="speed" aria-label="Tốc độ nghe">1×</button>' : ""}<button data-action="prev" aria-label="Câu trước">‹</button><button data-action="restart" aria-label="Nghe lại câu này">↺</button><button data-action="next" aria-label="Câu sau">›</button></div>
 <div class="audio-progress" role="progressbar" aria-label="Tiến độ nghe" aria-valuemin="0" aria-valuemax="${this.track.total}" aria-valuenow="0"><div class="progress-fill"></div></div>` : compact ? `<button class="audio-toggle primary" type="button"></button>${this.options.slower ? '<button data-action="speed" aria-label="Tốc độ nghe">1×</button>' : ''}` : `<button class="audio-toggle primary" type="button">
 </button>
       <p class="now-playing" aria-live="polite">
@@ -162,7 +162,7 @@ export class AudioPlayer {
         const speed = this.root.querySelector('[data-action="speed"]');
         if (speed) speed.textContent = this.rate === 1 ? "1×" : "0,75×";
         if (this.options.scene) {
-            this.root.querySelector(".listen-count").textContent = `${this.options.count()}/2`;
+            this.root.querySelector(".listen-count").textContent = `${this.options.count ? this.options.count() + "/2" : ""}`;
             this.root.querySelector(".listen-limit").textContent = toggle.disabled ? "Đã dùng 2 lượt nghe" : "";
             toggle.setAttribute("aria-describedby", "listen-reason");
             this.root.querySelector(".listen-limit").id = "listen-reason";

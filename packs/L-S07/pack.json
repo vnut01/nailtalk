@@ -32,7 +32,8 @@
       "sha256_ogg": "872d6eff049e29da2fa70a0a5c54a23fb5a7af7fd8d0f8919d7142329b86127e",
       "delivery": "natural, friendly",
       "audio_speaker": "LINH",
-      "audio_fallback": "audio/S07_B_01.mp3"
+      "audio_fallback": "audio/S07_B_01.mp3",
+      "question": "S07_B_MARK_01"
     },
     {
       "id": "S07_B_02",
@@ -51,7 +52,8 @@
       "sha256_ogg": "64a702a132741234ad7f4d87661409c8a794329697c303d5e4bb8c4e89d05de9",
       "delivery": "natural, friendly",
       "audio_speaker": "LINH",
-      "audio_fallback": "audio/S07_B_02.mp3"
+      "audio_fallback": "audio/S07_B_02.mp3",
+      "question": "S07_B_MARK_01"
     },
     {
       "id": "S07_B_03",
@@ -70,7 +72,8 @@
       "sha256_ogg": "d89c499315fe62796fa5fba9eb9a5e7b4af53627c8e020f35daa862cec6a193d",
       "delivery": "natural, friendly",
       "audio_speaker": "LINH",
-      "audio_fallback": "audio/S07_B_03.mp3"
+      "audio_fallback": "audio/S07_B_03.mp3",
+      "question": "S07_B_MARK_01"
     },
     {
       "id": "S07_B_04",
@@ -89,7 +92,8 @@
       "sha256_ogg": "a3ee40267b2dea506b551e30ba0e11f07d91901c8fd38f19d342d8f181bd18c6",
       "delivery": "natural, friendly",
       "audio_speaker": "LINH",
-      "audio_fallback": "audio/S07_B_04.mp3"
+      "audio_fallback": "audio/S07_B_04.mp3",
+      "question": "S07_B_MARK_01"
     },
     {
       "id": "S07_B_05",
@@ -108,7 +112,8 @@
       "sha256_ogg": "7c66bcba7d9ee76179a1615e56f6b65610e04462e5c7f2390c51e800b2c70267",
       "delivery": "natural, friendly",
       "audio_speaker": "LINH",
-      "audio_fallback": "audio/S07_B_05.mp3"
+      "audio_fallback": "audio/S07_B_05.mp3",
+      "question": "S07_B_MARK_01"
     },
     {
       "id": "S07_B_06",
@@ -127,7 +132,8 @@
       "sha256_ogg": "0c221029b00773cdc598ecc29caa2d5f923fe7d660250ee54de5825c395b8942",
       "delivery": "natural, friendly",
       "audio_speaker": "LINH",
-      "audio_fallback": "audio/S07_B_06.mp3"
+      "audio_fallback": "audio/S07_B_06.mp3",
+      "question": "S07_B_MARK_01"
     },
     {
       "id": "S07_B_07",
@@ -146,7 +152,8 @@
       "sha256_ogg": "e81801113061fdaef08329fee87522bb1e7a3df659e173750b5f79d4fedacf89",
       "delivery": "natural, friendly",
       "audio_speaker": "LINH",
-      "audio_fallback": "audio/S07_B_07.mp3"
+      "audio_fallback": "audio/S07_B_07.mp3",
+      "question": "S07_B_MARK_01"
     }
   ],
   "c": {
@@ -167,6 +174,23 @@
       "Nói rõ số để sửa hiểu nhầm.",
       "Xác nhận nhầm giá.",
       "Lặp lại mà không làm rõ có thể chưa sửa được hiểu nhầm."
+    ],
+    "lead_in": [
+      "S07_MARK_01",
+      "S07_LINH_01",
+      "S07_MARK_02"
+    ],
+    "responses": [
+      [
+        "S07_LINH_02",
+        "S07_MARK_03"
+      ],
+      [
+        "S07_C_LINH_02"
+      ],
+      [
+        "S07_C_LINH_03"
+      ]
     ]
   },
   "feedback": [
@@ -488,6 +512,48 @@
       "delivery": "warm, clear, polite",
       "audio_speaker": "LINH",
       "audio_fallback": "audio/S07_G_LINH_02.mp3"
+    },
+    "S07_B_MARK_01": {
+      "id": "S07_B_MARK_01",
+      "english": "How much is it?",
+      "speaker": "Mark",
+      "vietnamese": "Bao nhiêu tiền?",
+      "condition": "v008 supplemental exchange",
+      "status": "DRAFT",
+      "audio": "audio/S07_B_MARK_01.ogg",
+      "audio_fallback": "audio/S07_B_MARK_01.mp3",
+      "duration_ms": 1160,
+      "sha256_ogg": "c56b38b7a53c7f0426060c804e778cfd92cd2e8ef78e42062051fb8364ac14e7",
+      "provenance": "07_Production_Assets/audio/app_v008/CUE_MANIFEST_v008_DRAFT.json",
+      "audio_speaker": "MARK"
+    },
+    "S07_C_LINH_02": {
+      "id": "S07_C_LINH_02",
+      "english": "Yes.",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "v008 supplemental exchange",
+      "status": "DRAFT",
+      "audio": "audio/S07_C_LINH_02.ogg",
+      "audio_fallback": "audio/S07_C_LINH_02.mp3",
+      "duration_ms": 640,
+      "sha256_ogg": "64a7389c534512b32baa5da42b735648397da0d54f6ab5c9836e083cd4b23087",
+      "provenance": "07_Production_Assets/audio/app_v008/CUE_MANIFEST_v008_DRAFT.json",
+      "audio_speaker": "LINH"
+    },
+    "S07_C_LINH_03": {
+      "id": "S07_C_LINH_03",
+      "english": "Thirty.",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "v008 supplemental exchange",
+      "status": "DRAFT",
+      "audio": "audio/S07_C_LINH_03.ogg",
+      "audio_fallback": "audio/S07_C_LINH_03.mp3",
+      "duration_ms": 640,
+      "sha256_ogg": "1d86bff67476c1755e65615ffa273e2f6467cf3730f8bc32fcc6a1f548804d52",
+      "provenance": "07_Production_Assets/audio/app_v008/CUE_MANIFEST_v008_DRAFT.json",
+      "audio_speaker": "LINH"
     }
   },
   "cinematic": {
@@ -817,7 +883,8 @@
         "options": [
           "13",
           "30"
-        ]
+        ],
+        "question": "S07_B_MARK_01"
       },
       {
         "cue": "S07_B_02",
@@ -826,7 +893,8 @@
         "options": [
           "14",
           "40"
-        ]
+        ],
+        "question": "S07_B_MARK_01"
       },
       {
         "cue": "S07_B_03",
@@ -835,7 +903,8 @@
         "options": [
           "15",
           "50"
-        ]
+        ],
+        "question": "S07_B_MARK_01"
       },
       {
         "cue": "S07_B_04",
@@ -844,7 +913,8 @@
         "options": [
           "16",
           "60"
-        ]
+        ],
+        "question": "S07_B_MARK_01"
       },
       {
         "cue": "S07_B_05",
@@ -853,7 +923,8 @@
         "options": [
           "17",
           "70"
-        ]
+        ],
+        "question": "S07_B_MARK_01"
       },
       {
         "cue": "S07_B_06",
@@ -862,7 +933,8 @@
         "options": [
           "18",
           "80"
-        ]
+        ],
+        "question": "S07_B_MARK_01"
       },
       {
         "cue": "S07_B_07",
@@ -871,7 +943,8 @@
         "options": [
           "19",
           "90"
-        ]
+        ],
+        "question": "S07_B_MARK_01"
       }
     ],
     "stress": "THIRty nhấn âm đầu, thirTEEN nhấn âm sau.",
@@ -889,7 +962,7 @@
     }
   },
   "schema_version": 1,
-  "pack_version": "APP_PROTO_v006b_DRAFT",
+  "pack_version": "APP_PROTO_v008_DRAFT",
   "min_shell_version": 1,
   "rubric_version": "lesson-set-v1.0",
   "id": "L-S07",
@@ -1854,6 +1927,105 @@
           "value": "X"
         }
       ]
+    },
+    "S07_B_MARK_01": {
+      "character": "mark",
+      "duration": 1.16,
+      "wav": "07_Production_Assets/audio/app_v008/S07_B_MARK_01.wav",
+      "sha256_wav": "1e3529e9866fb9df8a779b82d0d797389ea3374ee521e6de619bfb6c6daaf30f",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.23,
+          "value": "B"
+        },
+        {
+          "start": 0.23,
+          "end": 0.37,
+          "value": "C"
+        },
+        {
+          "start": 0.37,
+          "end": 0.48,
+          "value": "A"
+        },
+        {
+          "start": 0.48,
+          "end": 0.59,
+          "value": "C"
+        },
+        {
+          "start": 0.59,
+          "end": 1.01,
+          "value": "B"
+        },
+        {
+          "start": 1.01,
+          "end": 1.16,
+          "value": "X"
+        }
+      ]
+    },
+    "S07_C_LINH_02": {
+      "character": "linh",
+      "duration": 0.64,
+      "wav": "07_Production_Assets/audio/app_v008/S07_C_LINH_02.wav",
+      "sha256_wav": "494ebfd8026784630d7e73fa83e63cf9e0109fb8da94b89130d96af394ec68d9",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.3,
+          "value": "C"
+        },
+        {
+          "start": 0.3,
+          "end": 0.51,
+          "value": "B"
+        },
+        {
+          "start": 0.51,
+          "end": 0.64,
+          "value": "X"
+        }
+      ]
+    },
+    "S07_C_LINH_03": {
+      "character": "linh",
+      "duration": 0.64,
+      "wav": "07_Production_Assets/audio/app_v008/S07_C_LINH_03.wav",
+      "sha256_wav": "3711bcb17904b1192787f3b177986ab6847e818e09f70671d0e65d8ff2477153",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.35,
+          "value": "B"
+        },
+        {
+          "start": 0.35,
+          "end": 0.49,
+          "value": "C"
+        },
+        {
+          "start": 0.49,
+          "end": 0.64,
+          "value": "X"
+        }
+      ]
     }
   },
   "files": [
@@ -2028,6 +2200,36 @@
       "sha256": "e81801113061fdaef08329fee87522bb1e7a3df659e173750b5f79d4fedacf89"
     },
     {
+      "path": "audio/S07_B_MARK_01.mp3",
+      "bytes": 9816,
+      "sha256": "14241a4343673293498d8c447472afdbf3b199948a5187b21bed2c5435c6d42e"
+    },
+    {
+      "path": "audio/S07_B_MARK_01.ogg",
+      "bytes": 6061,
+      "sha256": "c56b38b7a53c7f0426060c804e778cfd92cd2e8ef78e42062051fb8364ac14e7"
+    },
+    {
+      "path": "audio/S07_C_LINH_02.mp3",
+      "bytes": 5304,
+      "sha256": "1169e83656d5ca3b25e7c2a39a98a616134f2873ae611d9f83f171900efb77da"
+    },
+    {
+      "path": "audio/S07_C_LINH_02.ogg",
+      "bytes": 3631,
+      "sha256": "64a7389c534512b32baa5da42b735648397da0d54f6ab5c9836e083cd4b23087"
+    },
+    {
+      "path": "audio/S07_C_LINH_03.mp3",
+      "bytes": 4752,
+      "sha256": "e529922bd3b46d98386782dee32d0e07e28c066644746934e9a9087c7ae568d3"
+    },
+    {
+      "path": "audio/S07_C_LINH_03.ogg",
+      "bytes": 3804,
+      "sha256": "1d86bff67476c1755e65615ffa273e2f6467cf3730f8bc32fcc6a1f548804d52"
+    },
+    {
       "path": "audio/S07_G_CUST_01.mp3",
       "bytes": 14400,
       "sha256": "d6be1d7ff25ad878624bfd444635eb05925ab872ad54f4502ac0eea456f478b7"
@@ -2172,5 +2374,46 @@
       "bytes": 19047,
       "sha256": "26b54c512a3cb5ca578de2d94a7cfe023270cf00e07b8e4676ce0d34eb51fa12"
     }
-  ]
+  ],
+  "steps": {
+    "A": {
+      "topic": "Linh và khách trao đổi về giá dịch vụ",
+      "goal": "Nghe trọn đoạn hội thoại ở quầy."
+    },
+    "B": {
+      "topic": "Nghe và phân biệt các con số về giá",
+      "goal": "Nghe khách hỏi và Linh đáp, rồi chọn giá bạn nghe được."
+    },
+    "C": {
+      "topic": "Giúp khách hiểu đúng giá ba mươi đô",
+      "goal": "Nghe khách hiểu nhầm, rồi chọn câu làm rõ con số."
+    },
+    "D": {
+      "topic": "Khám phá cách báo giá và xác nhận dịch vụ",
+      "goal": "Nghe từng cặp hỏi đáp để nhận ra cách nói rõ, lịch sự."
+    },
+    "E": {
+      "topic": "Đóng vai Linh trả lời khách về giá",
+      "goal": "Nói có câu mẫu trước, rồi thử trả lời khi ẩn câu mẫu."
+    },
+    "F": {
+      "topic": "Xem lại cách trả lời và nói rõ con số",
+      "goal": "Đối chiếu câu trả lời mục tiêu với mẫu và tự đánh giá của bạn."
+    },
+    "G": {
+      "topic": "Báo giá dịch vụ mới và xin kiểm tra giá chưa biết",
+      "goal": "Nhìn thẻ để trả lời khách; xin kiểm tra khi chưa biết giá."
+    }
+  },
+  "questions": {
+    "S07_LINH_01": "S07_MARK_01",
+    "S07_LINH_02": "S07_MARK_02",
+    "S07_LINH_03": "S07_MARK_03",
+    "S07_G_LINH_01": "S07_G_CUST_01",
+    "S07_G_LINH_02": "S07_G_CUST_02"
+  },
+  "supplement_manifest": {
+    "path": "07_Production_Assets/audio/app_v008/CUE_MANIFEST_v008_DRAFT.json",
+    "sha256": "67898184cfc65b40f30972bd2087050ace774040646d51b266a5e98aed6a5716"
+  }
 }

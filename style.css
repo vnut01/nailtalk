@@ -42,3 +42,13 @@ dialog{width:96vw;max-width:1600px;border:0;border-radius:14px;padding:16px;back
  .scene-frame{container-type:inline-size;aspect-ratio:var(--phone-scene-ratio)}
  .scene-canvas{position:absolute;width:var(--phone-scene-width);left:var(--phone-scene-left);top:var(--phone-scene-top)}
 }
+
+/* v008 DRAFT: purpose first, two-row navigation, safe sticky app header. */
+header{position:sticky;top:0;z-index:6;background:#faf7f2;padding-top:calc(5px + env(safe-area-inset-top))}
+body{padding-top:0}.player>aside{top:80px}
+.step-heading{margin:0 0 12px}.step-heading h1{font-size:1.18rem;letter-spacing:0;line-height:1.3;margin:0 0 4px}.step-heading p{font-size:.88rem;margin:0;color:var(--muted)}
+.scene #scene-enlarge{top:8px;right:8px;width:44px;height:44px;min-width:44px;border-radius:50%;background:#ffffffa8;backdrop-filter:blur(5px)}
+.nav{flex-direction:column;gap:2px}.steps{width:100%;justify-content:space-between;gap:2px}.steps button{border-radius:50%;width:44px;height:44px;padding:0;min-width:40px;min-height:44px;font-size:13px;background:transparent;border-color:var(--border)}.steps .current{background:var(--green);color:white}.steps .done:not(.current){background:#e4eee7;color:#234f43;border-color:var(--green)}
+.nav-actions{display:flex;gap:8px;width:100%;justify-content:flex-end;align-items:center}.nav-actions .primary{flex:1}
+.listen-count:empty{display:none}.question{font-size:1rem}.exchange{border-bottom:1px solid var(--border);padding-bottom:8px}
+@media(max-width:650px){.in-lesson main{padding-bottom:calc(130px + env(safe-area-inset-bottom))}.nav{padding-top:4px;padding-bottom:calc(4px + env(safe-area-inset-bottom))}.player>aside{position:static}.step-heading{margin-bottom:10px}.step-heading h1{font-size:1.1rem}.step-heading p{font-size:.82rem}.nav-actions{gap:6px}}
