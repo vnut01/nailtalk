@@ -31,7 +31,7 @@ export class CinematicScene {
         if (!root || !this.pack.cinematic) return;
         const c = this.pack.cinematic;
         root.querySelector('.scene-layers').innerHTML = c.layers.map(l =>
-            `<span class="scene-layer ${l.character ? 'character' : ''}" data-character="${l.character || ''}" style="left:${100*l.x/c.width}%;top:${100*l.y/c.height}%;width:${100*l.width/c.width}%;height:${100*l.height/c.height}%"><img class="character-base" alt="" src="packs/L-S07/${l.path}">${l.character ? '<span class="character-overlay"></span>' : ''}</span>`).join('');
+            `<span class="scene-layer ${l.character ? 'character' : ''}" data-character="${l.character || ''}" style="left:${100*l.x/c.width}%;top:${100*l.y/c.height}%;width:${100*l.width/c.width}%;height:${100*l.height/c.height}%"><img class="character-base" alt="" src="packs/${this.pack.id}/${l.path}">${l.character ? '<span class="character-overlay"></span>' : ''}</span>`).join('');
         const images = [...root.querySelectorAll('.scene-layer img')];
         Promise.all(images.map(img => img.decode())).then(() => {
             if (this.root !== root) return;
@@ -42,7 +42,7 @@ export class CinematicScene {
         const linhLayer = root.querySelector('[data-character="linh"]');
         if (g && linhLayer) {
             const rig = document.createElement('span'); rig.className = 'gesture-rig'; rig.hidden = true;
-            rig.innerHTML = `<img class="gesture-body" alt="" src="packs/L-S07/${g.body}"><span class="head-rig"><img alt="" src="packs/L-S07/${g.head}"></span><img class="arm-rig" alt="" src="packs/L-S07/${g.arm}">`;
+            rig.innerHTML = `<img class="gesture-body" alt="" src="packs/${this.pack.id}/${g.body}"><span class="head-rig"><img alt="" src="packs/${this.pack.id}/${g.head}"></span><img class="arm-rig" alt="" src="packs/${this.pack.id}/${g.arm}">`;
             linhLayer.append(rig);
             rig.querySelector('.head-rig').append(linhLayer.querySelector('.character-overlay'));
             const geometry = c.layers.find(l => l.character === 'linh');
@@ -59,7 +59,7 @@ export class CinematicScene {
             img.className = 'face-sprite'; img.alt = ''; img.dataset.sprite = id;
             img.onerror = () => { if (this.root === root) { this.spriteFailed = true; this.apply(); } };
             img.style.cssText = `left:${100*sprite.x/geometry.width}%;top:${100*sprite.y/geometry.height}%;width:${100*sprite.width/geometry.width}%;height:${100*sprite.height/geometry.height}%`;
-            img.src = `packs/L-S07/${sprite.path}`;
+            img.src = `packs/${this.pack.id}/${sprite.path}`;
             layer.querySelector('.character-overlay').append(img);
         }
         for (const img of root.querySelectorAll('.gesture-rig img'))
@@ -113,7 +113,7 @@ export class CinematicScene {
         for (const img of this.spriteImages || []) {
             const id = img.dataset.sprite;
             const mouth = active && (id === (this.pack.cinematic?.mouthMap?.linh?.[linh] || `S07_LINH_MOUTH_${linh}_01`) && !(this.restUsesOriginal && linh === 'X') || id === `S07_MARK_MOUTH_${mark}_01`);
-            const eye = (blinks.mark && id === `S07_MARK_EYE_${blinks.mark}_01`) || (blinks.linh && id === `S07_LINH_EYE_${blinks.linh}_01`);
+            const eye = (blinks.mark && id === `S07_MARK_EYE_${blinks.mark}_01`) || (blinks.linh && id === (this.pack.cinematic?.eyeMap?.linh?.[blinks.linh] || `S07_LINH_EYE_${blinks.linh}_01`));
             img.hidden = !(mouth || eye);
         }
         if (this.root) {
@@ -153,7 +153,7 @@ export class CinematicScene {
             this.root.dataset.speaker = this.speaker || '';
             this.root.classList.toggle('scene-paused', document.hidden || this.recording);
             const tag = this.root.querySelector('.speaker-tag');
-            tag.textContent = this.speaker ? `${this.speaker === 'linh' ? 'Linh' : 'Mark'} đang nói` : 'Linh và Mark';
+            tag.textContent = this.speaker ? `${this.speaker === 'linh' ? 'Linh' : 'Mark'} đang nói` : (this.pack.ui?.scene_label || 'Linh và Mark');
         }
         this.renderFaces();
         const toggle = document.getElementById('motion-toggle');

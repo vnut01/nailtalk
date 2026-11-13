@@ -3,14 +3,21 @@ import { audioFormat } from "./media.mjs";
 import { AudioPlayer, listenCount } from "./player.mjs";
 import { STEPS, nextStep, cueState, initialState, completeStep, summarize, outcome } from "./logic.mjs";
 import * as store from "./storage.mjs";
-const $ = s => document.querySelector(s), pack = await (await fetch("./packs/L-S07/pack.json")).json();
+const $ = s => document.querySelector(s);
+const catalog = await Promise.all(['L-S07','L-S02'].map(async id => (await fetch(`./packs/${id}/pack.json`)).json()));
+const lessonId = catalog.some(p => p.id === location.hash.slice(1).split('/')[0]) ? location.hash.slice(1).split('/')[0] : 'L-S07';
+const pack = catalog.find(p => p.id === lessonId);
+const pilot = pack.ui?.kind === 'clarification';
+const enabled = step => !pack.enabled_steps || pack.enabled_steps.includes(step);
+const advance = step => { let next = nextStep(step); while(next !== 'summary' && !enabled(next)) next = nextStep(next); return next; };
 export const scene = new CinematicScene(pack);
 const format = audioFormat(type => document.createElement("audio").canPlayType(type));
-let state = await store.load() || initialState(), index = 0, attempt = 1, gIndex = 0, recorder = null, stream = null, recordTimer = null, timerTick = null, take = null, takeURL = null, pending = null, showText = false, micError = "", busy = false, installPrompt = null, packAvailable = true;
+let state = await store.load(lessonId) || initialState(), index = 0, attempt = 1, gIndex = 0, recorder = null, stream = null, recordTimer = null, timerTick = null, take = null, takeURL = null, pending = null, showText = false, micError = "", busy = false, installPrompt = null, packAvailable = true;
 // Cue identities/rubric are unchanged from v002–v004; retain existing evidence.
 if (['APP_PROTO_v002_DRAFT', 'APP_PROTO_v003_DRAFT', 'APP_PROTO_v004_DRAFT', 'APP_PROTO_v005_DRAFT', 'APP_PROTO_v006_DRAFT', 'APP_PROTO_v006b_DRAFT'].includes(state.pack)) state.pack = pack.pack_version;
 if (state.pack !== pack.pack_version)
     state = initialState();
+state.pack = pack.pack_version;
 const titles = { A: "Nghe tình huống", B: "Nghe và nhận biết số", C: "Chọn câu trả lời", D: "Nghe mẫu và khám phá", E: "Luyện nói", F: "Phản hồi", G: "Thử trong tình huống mới", summary: "Nhìn lại bài học" };
 const homeTitles = ["Chào khách và mời chờ", "Xác nhận màu khách muốn", "Hỏi cách viết tên", "Kiểm tra và hẹn giờ", "Xin khách nhắc lại qua điện thoại", "Hỏi sự thoải mái và báo quản lý", "Nói giá và làm rõ con số", "Hiểu lời khách nói nhỏ"];
 const canDos = ["Trả lời khách ghé tiệm và mời ngồi chờ.", "Hỏi lại đúng màu trước khi bắt đầu.", "Hỏi cách viết và đọc lại tên đặt hẹn.", "Xin khách đợi trong khi kiểm tra giờ.", "Xin nhắc lại chi tiết và xác nhận qua điện thoại.", "Sắp xếp tay; dừng và báo quản lý khi có vấn đề.", "Nói rõ giá, sửa hiểu nhầm và xác nhận lựa chọn.", "Hiểu yêu cầu trước khi đáp và nói việc sẽ làm."];
@@ -24,7 +31,7 @@ function bind(id, fn) {
         el.onclick = fn;
 }
 async function persist() {
-    await store.save(state);
+    await store.save(state, lessonId);
     $("#storage").textContent = `Lưu tiến độ: ${store.storageMode}. Xóa dữ liệu trình duyệt có thể làm mất tiến độ.`;
 }
 function event(data) {
@@ -64,7 +71,7 @@ function nav(step) {
     attempt = 1;
     gIndex = 0;
     micError = "";
-    location.hash = `L-S07/${step}`;
+    location.hash = `${lessonId}/${step}`;
     render();
 }
 function cueHTML(id, reveal = false) {
@@ -119,7 +126,7 @@ function updateListenStatus(player) {
     const status = $("#listen-status");
     if (status) status.textContent = player.active
         ? `${player.cues[player.index].speaker} · Câu ${player.index + 1}/${player.cues.length}`
-        : state.a === 0 ? "Nghe Linh và Mark ở quầy. Được nghe 2 lượt." : "";
+        : state.a === 0 ? (pack.ui?.listen || "Nghe Linh và Mark ở quầy. Được nghe 2 lượt.") : "";
     // A replay shows only the line indicator; restore the open recap at stop/end.
     const recap = $(".step-A .recap");
     if (recap) recap.hidden = player.active;
@@ -139,7 +146,17 @@ function questionHTML(id) {
     const c = pack.cues[id];
     return `<p class="question"><strong>${escape(c.speaker)}:</strong> ${escape(c.english)}</p>`;
 }
+function swatchHTML(item, selected) {
+    return `<div class="swatches" role="group" aria-label="Chọn ô màu">${item.options.map((o, i) => `<button id="swatch${i}" class="swatch" style="--swatch:${o.color}" aria-label="${escape(o.label)}" aria-pressed="${selected === o.value}"><span aria-hidden="true"></span></button>`).join("")}</div>`;
+}
+function swatchTask(item, history, transfer = false) {
+    const choice = history?.at(-1);
+    const selected = choice?.answer;
+    const revealed = selected != null;
+    return `${questionHTML(item.question)}<h2>${escape(item.prompt)}</h2>${revealed ? item.answer.map(id => cueHTML(id, true)).join('') : ''}${swatchHTML(item, selected)}${revealed ? `<p role="status">${escape(choice.correct ? item.feedback.correct : item.feedback.retry)}</p>${playerHTML('answer', item.answer, {label:'Nghe câu trả lời'})}` : ''}${transfer && revealed ? speechUI(pack.transfer.models[0], 'G') : ''}`;
+}
 function recapHTML() {
+    if (pilot) return `<section class="recap"><h2>Tóm tắt nhanh</h2>${pack.teaching.map(id => `<article>${questionHTML(pack.questions[id])}${cueHTML(id,true)}${playerHTML('recap-'+id,[pack.questions[id],id])}</article>`).join('')}</section>`;
     const recap = pack.recap;
     const phrase = (item, key) => `<article>
 <div class="exchange">${questionHTML(pack.questions[item.cue])}<div class="cue-row"><p class="target">Linh: ${escape(item.english)}</p>${playerHTML(key, [pack.questions[item.cue], item.cue], { compact: true, label: item.english })}</div>${item.vietnamese ? `<p>${escape(item.vietnamese)}</p>` : ""}${item.aid ? `<p class="muted">Gợi ý phát âm: ${pronunciationHTML(item.aid)}</p>` : ""}</div></article>`;
@@ -157,47 +174,26 @@ function shell(content) {
     const step = pack.steps[state.step];
     return `<section class="step-heading"><h1>${escape(step ? `${state.step} · ${step.topic}` : titles[state.step])}</h1>${step ? `<p>${escape(step.goal)}</p>` : ""}</section>
 <div class="player ${hasScene ? "" : "task-only"} step-${state.step}">
-${hasScene ? `<aside><div role="group" aria-label="Linh và Mark tại quầy Bella Nails" class="scene scene-main" style="${cropStyle}">
+${hasScene ? `<aside><div role="group" aria-label="${escape(pack.ui?.scene_label || "Linh và Mark tại quầy Bella Nails")}" class="scene scene-main" style="${cropStyle}">
 <div class="scene-frame"><div class="scene-canvas"><span class="scene-layers" aria-hidden="true"></span>
-<img src="packs/L-S07/${pack.scene.small}" alt="Linh và Mark tại quầy; bảng giá trên tường"></div></div>
-<span class="speaker-tag" aria-hidden="true">Linh và Mark</span>
+<img src="packs/${lessonId}/${pack.scene.small}" alt="${escape(pack.ui?.scene_label || "Linh và Mark tại quầy; bảng giá trên tường")}"></div></div>
+<span class="speaker-tag" aria-hidden="true">${escape(pack.ui?.scene_label || "Linh và Mark")}</span>
 <button id="scene-enlarge" aria-label="Phóng to toàn cảnh">⤢</button>${scenePlayer}</div>
 </aside>` : ""}
-<section class="panel">${state.step === "A" ? `<p id="listen-status" role="status">${state.a === 0 ? "Nghe Linh và Mark ở quầy. Được nghe 2 lượt." : ""}</p>${!state.volumeHintDismissed ? '<p id="volume-hint" class="muted">Bật âm lượng · Tắt chế độ im lặng</p>' : ""}` : ""}${content}${recapOpen && state.step !== "summary" ? recapHTML() : ""}${micError ? `<p class="warning" role="status">${escape(micError)}</p>` : ""}</section>
+<section class="panel">${state.step === "A" ? `<p id="listen-status" role="status">${state.a === 0 ? (pack.ui?.listen || "Nghe Linh và Mark ở quầy. Được nghe 2 lượt.") : ""}</p>${!state.volumeHintDismissed ? '<p id="volume-hint" class="muted">Bật âm lượng · Tắt chế độ im lặng</p>' : ""}` : ""}${content}${recapOpen && state.step !== "summary" ? recapHTML() : ""}${micError ? `<p class="warning" role="status">${escape(micError)}</p>` : ""}</section>
 </div>${navigation()}`;
 }
 function navigation() {
     if (state.step === "summary") return "";
-    return `<nav class="nav" aria-label="Điều hướng bài học"><div class="steps" role="group" aria-label="Các bước">${STEPS.slice(0,7).map(s => `<button data-step="${s}" class="${s === state.step ? "current" : state.visited.includes(s) ? "done" : ""}" ${s === state.step ? 'aria-current="step"' : ""}>${s}</button>`).join("")}</div><div class="nav-actions">${button("next", "Tiếp tục", "primary", !completeStep(state, state.step, pack))}<button id="recap-toggle" aria-label="Tóm tắt" aria-expanded="${recapOpen}">≡</button>${button("skip", "Bỏ qua bước", "text-link")}</div></nav>`;
+    return `<nav class="nav" aria-label="Điều hướng bài học"><div class="steps" role="group" aria-label="Các bước">${STEPS.slice(0,7).map(s => `<button data-step="${s}" class="${s === state.step ? "current" : state.visited.includes(s) ? "done" : ""}" ${s === state.step ? 'aria-current="step"' : ""} ${!enabled(s) ? 'disabled' : ""}>${s}</button>`).join("")}</div><div class="nav-actions">${button("next", "Tiếp tục", "primary", !completeStep(state, state.step, pack))}<button id="recap-toggle" aria-label="Tóm tắt" aria-expanded="${recapOpen}">≡</button>${button("skip", "Bỏ qua bước", "text-link")}</div></nav>`;
 }
 
 function renderHome() {
     stopMedia();
     document.body.classList.remove("in-lesson");
     scene.mount(null);
-    $("#app").innerHTML = `<section class="intro">
-<p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p>
-<h1>Từng câu nhỏ.<br>Tự tin hơn mỗi ngày.</h1>
-<div class="hero-line">
-</div>
-<p>Luyện nghe, chọn câu và nói cùng Linh. Bắt đầu từ một tình huống quen thuộc.</p>
-<span class="badge">DRAFT · Chỉ L-S07 mở · Nói: tự đánh giá</span>
-</section>
-<div class="lessons">${homeTitles.map((title, i) => `<article class="lesson ${i === 6 ? "active" : ""}">
-<span class="eyebrow">L-S0${i + 1} · ${i === 6 ? pack.estimated_minutes + " phút" : "Sắp có"}</span>
-<h2>${title}</h2>
-<p class="muted">${canDos[i]}</p>${i === 6 ? `<small>${!packAvailable ? "<p class=\"warning\">Bài chưa sẵn sàng offline. Tải lại trong Cài đặt.</p>" : ""}${(pack.files.reduce((n, f) => n + f.bytes, 0) / 1048576).toFixed(2)} MiB nội dung · ${Object.values(pack.cues).filter(c => c.audio).length}/${Object.keys(pack.cues).length} audio</small>
-<span class="badge">${state.visited.length ? `${state.visited.length}/7 bước đã ghé` : "Chưa bắt đầu"}</span>
-<div class="controls">${button("start", state.visited.length ? "Học tiếp" : "Bắt đầu học", "primary", !packAvailable)}${state.visited.length ? button("restart", "Học lại") : ""}</div>` : "<span class=\"badge\">Sắp có</span>"}</article>`).join("")}</div>
-${button("install", "Cài lên màn hình chính", "", !installPrompt)}<p class="muted">Cài app / micro cần HTTPS hoặc localhost. iPhone: Chia sẻ → Thêm vào MH chính.</p>`;
-    bind("start", () => nav(state.step === "summary" ? "summary" : state.step));
-    bind("restart", async () => {
-        if (confirm("Học lại sẽ xóa tiến độ L-S07 trên thiết bị này.")) {
-            state = { ...initialState(), volumeHintDismissed: state.volumeHintDismissed };
-            await persist();
-            nav("A");
-        }
-    });
+    $("#app").innerHTML = `<section class="intro"><p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p><h1>Từng câu nhỏ.<br>Tự tin hơn mỗi ngày.</h1><p>Luyện nghe, chọn câu và nói cùng Linh.</p><span class="badge">DRAFT</span></section><div class="lessons">${catalog.map(p => `<article class="lesson active"><span class="eyebrow">${p.id} · ${p.estimated_minutes} phút</span><h2>${homeTitles[Number(p.id.slice(-2))-1]}</h2><p>${canDos[Number(p.id.slice(-2))-1]}</p><span class="badge">DRAFT</span><div class="controls">${button(p.id === 'L-S07' ? 'start' : 'start-L-S02','Bắt đầu học','primary',!packAvailable)}</div></article>`).join('')}</div>${button("install", "Cài lên màn hình chính", "", !installPrompt)}`;
+    for (const p of catalog) bind(p.id === 'L-S07' ? 'start' : 'start-L-S02', () => { if(p.id === lessonId) nav('A'); else location.hash = `${p.id}/A`; });
     bind("install", async () => {
         await installPrompt?.prompt();
         installPrompt = null;
@@ -209,6 +205,7 @@ function render() {
         renderHome();
         return;
     }
+    if (!enabled(state.step) && state.step !== 'summary') state.step = 'A';
     if (state.step !== "summary" && !state.visited.includes(state.step))
         state.visited.push(state.step);
     playerConfigs.clear();
@@ -233,6 +230,12 @@ function render() {
 <strong>${escape(pack.cues[id].speaker)}</strong>${cueHTML(id, true)}</div>`).join("")}</div></details>` : ""}`;
             break;
         case "B": {
+            if (pack.b[index].activity === 'swatch') {
+                const item = pack.b[index];
+                scenePlayer = playerHTML('hear', item.listen, {scene:true, label:'Nghe hỏi và đáp về màu', onFinish:()=>{heardB.add(item.id);}});
+                content = swatchTask(item, state.b[item.id]);
+                break;
+            }
             const item = pack.b[index], history = state.b[item.id] || [];
             scenePlayer = playerHTML("hear", [item.question, item.id], { scene: true, label: "Nghe hỏi và đáp về giá", onFinish: () => { heardB.add(item.id); render(); } });
             content = `<p class="task-count">Câu ${index + 1}/${pack.b.length}</p>
@@ -242,8 +245,8 @@ ${questionHTML(item.question)}<h2>Bạn nghe thấy giá nào?</h2>${cueHTML(ite
             break;
         }
         case "C":
-            scenePlayer = playerHTML("hear", pack.c.lead_in, { scene: true, label: "Nghe khách hiểu nhầm giá" });
-            content = `${pack.c.lead_in.map(questionHTML).join("")}<p>Chọn câu giúp làm rõ con số.</p>
+            scenePlayer = playerHTML("hear", pack.c.lead_in, { scene: true, label: pilot ? "Nghe khách chọn màu" : "Nghe khách hiểu nhầm giá" });
+            content = `${pack.c.lead_in.map(questionHTML).join("")}<p>${escape(pack.c.prompt || "Chọn câu giúp làm rõ con số.")}</p>
 <div class="options">${pack.c.choices.map((c, i) => button(`choice${i}`, `${escape(c)}${pack.c.notes[i] ? "<small> (lặp lại như cũ, to hơn)</small>" : ""}`)).join("")}</div>${state.c.length ? `<p role="status">${escape(pack.c.explanations[state.c.at(-1).answer])}</p>${playerHTML("reply", pack.c.responses[state.c.at(-1).answer], { label: "Nghe câu đã chọn" })}<p class="muted">Đây là kết quả chọn câu; chưa phải bằng chứng nói.</p>` : ""}`;
             break;
         case "D": {
@@ -251,13 +254,13 @@ ${questionHTML(item.question)}<h2>Bạn nghe thấy giá nào?</h2>${cueHTML(ite
             scenePlayer = playerHTML("hear", [pack.questions[id], id], { scene: true, slower: true, onFinish: () => { state.d[id] = event({ played: true, assisted: false }); render(); } });
             content = `<p class="task-count">Thẻ mẫu ${index + 1}/3 · Không chấm điểm</p>
 
-${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)}<p class="muted">Gợi ý phát âm: ${pronunciationHTML(c.aid)}</p>` : ""}${button("card-next", "Thẻ mẫu tiếp", "", !revealed)}<hr>
+${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)}<p class="muted">Gợi ý phát âm: ${pronunciationHTML(c.aid)}</p>` : ""}${button("card-next", "Thẻ mẫu tiếp", "", !revealed)}${pilot ? "" : `<hr>
 <h3>Nghe để nhận ra trọng âm</h3>
 <p>Âm nào nhấn ở cuối? Không chấm điểm.</p>${playerHTML("contrast", ["S07_B_01", "S07_LINH_01"], { label: "Nghe cặp tương phản", onFinish: () => {
                     showText = true;
                     render();
                 } })}${showText ? `<p>${escape(pack.cues.S07_B_01.english)} / ${escape(pack.cues.S07_LINH_01.english)}</p>
-<p>${escape(pack.feedback[1])}</p>` : ""}`;
+<p>${escape(pack.feedback[1])}</p>` : ""}`}`;
             break;
         }
         case "E": {
@@ -268,7 +271,7 @@ ${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)
             break;
         }
         case "F":
-            content = `<h2>Ý nghĩa trước, rõ lời sau</h2>
+            content = pilot ? `<h2>Hỏi lại trước khi bắt đầu</h2><span class="badge">tự đánh giá</span>${pack.teaching.map(id => `<article class="exchange">${questionHTML(pack.questions[id])}${cueHTML(id,true)}</article>`).join('')}<p>${escape(pack.feedback[0])}</p><p>${pronunciationHTML(pack.feedback[1])}</p>${button('feedback','Đã xem phản hồi','primary')}` : `<h2>Ý nghĩa trước, rõ lời sau</h2>
 <p class="badge">tự đánh giá</p>${pack.teaching.map(id => `<article class="exchange">${questionHTML(pack.questions[id])}<p>Câu trả lời bạn luyện: ${escape(pack.cues[id].english)}</p><p>Mẫu Linh: ${escape(pack.cues[id].english)}</p><p class="muted">${state.e[`${id}:2`]?.length ? 'Đã có tự đánh giá lượt 2.' : 'Chưa có bằng chứng lượt 2.'} Câu mục tiêu để bạn đối chiếu.</p></article>`).join("")}
 <p>${escape(pack.feedback[0])} <small>— khi bạn tự kiểm tra và thấy khách hiểu đúng giá.</small>
 </p>
@@ -277,6 +280,12 @@ ${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)
 <p class="muted">Đọc từng chữ số là cách sửa hiểu nhầm trong tình huống này.</p>${button("feedback", "Đã xem phản hồi", "primary")}`;
             break;
         case "G": {
+            if (pack.transfer.activity === 'swatch') {
+                const item = pack.transfer;
+                scenePlayer = playerHTML('hear', [item.question], {scene:true, label:'Nghe khách muốn màu nhạt hơn'});
+                content = swatchTask(item, state.gSwatch, true);
+                break;
+            }
             const id = pack.transfer.models[gIndex], prompt = pack.transfer.prompts[gIndex];
             scenePlayer = playerHTML("hear", [prompt], { scene: true, label: "Nghe khách hỏi (ngoài khung hình)" });
             content = `<p class="task-count">Tình huống ${gIndex + 1}/2 · tự đánh giá</p>
@@ -286,7 +295,7 @@ ${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)
         }
         case "summary": {
             const s = summarize(state, pack);
-            content = `${recapHTML()}<h2>${s.completed ? "Đã hoàn thành các bước" : "Bạn có thể quay lại luyện tiếp"}</h2>
+            content = pilot ? `${recapHTML()}<h2>${s.completed ? "Đã hoàn thành các bước" : "Bạn có thể quay lại luyện tiếp"}</h2><p>Hoàn thành không có nghĩa là đã thành thạo.</p>${pack.teaching.map(id => `<article><p>${escape(pack.cues[id].english)}</p><p>${escape(state.e[`${id}:2`]?.at(-1)?.outcome || 'Chưa có bằng chứng lượt 2')} · tự đánh giá</p></article>`).join('')}${button('again','Luyện lại từ A')}` : `${recapHTML()}<h2>${s.completed ? "Đã hoàn thành các bước" : "Bạn có thể quay lại luyện tiếp"}</h2>
 <p>Hoàn thành là đã ghé các bước và thử hoặc chọn bỏ qua; không có nghĩa là đã thành thạo.</p>
 <div class="summary-grid">
 <article class="summary-card">
@@ -301,16 +310,12 @@ ${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)
 </article>${["E", "G"].map(k => `<article class="summary-card">
 <h3>${k} · ${k === "E" ? "Luyện nói" : "Vận dụng"}</h3>
 <span class="badge">tự đánh giá</span>${k === "G" ? `<p>Toàn tình huống: ${s.G.latestOutcome}</p>
-<p class="muted">Lần đầu: ${s.G.firstOutcome}. Không gộp với E hay chọn đáp án.</p>` : ""}${Object.entries(s[k].attempts).map(([id, list]) => `<p>${escape(id)}: ${escape(list.at(-1).outcome)}<br>
+<p class="muted">Lần đầu: ${s.G.firstOutcome}. Không gộp với E hay chọn đáp án.</p>` : ""}${Object.entries(s[k].attempts).map(([id, list]) => `<p>${escape(pack.cues[id.split(":")[0]]?.english || "Lượt luyện nói")}: ${escape(list.at(-1).outcome)}<br>
 <small>${escape(list.at(-1).evidence)} · ${list.at(-1).assisted ? "Có hỗ trợ" : "Không nhìn câu mẫu"} · ${list.length} lần thử</small>
 </p>`).join("") || "<p>Không có bằng chứng · đã bỏ qua</p>"}</article>`).join("")}</div>
 <label>Tự tin sau bài học <select id="confidence">
 <option value="">Chưa chọn</option>${[1, 2, 3, 4, 5].map(n => `<option ${state.confidence === String(n) ? "selected" : ""}>${n}</option>`).join("")}</select>
 </label>
-<details>
-<summary>Xem lịch sử và dữ liệu riêng trên máy</summary>
-<pre>${escape(JSON.stringify(s, null, 2))}</pre>
-</details>
 <div class="controls">${button("again", "Luyện lại từ A")}</div>`;
             break;
         }
@@ -332,11 +337,11 @@ function speechUI(id, type) {
 <p>${escape(pack.cues[id].vietnamese)}</p>
 <form id="check">
 <label>
-<input type="checkbox" name="meaning">${type === "G" ? (gIndex === 0 ? "Tôi đã nói đúng $45." : "Tôi không bịa giá vẽ móng.") : "Tôi đã nói đủ ý chính của câu."}</label>
+<input type="checkbox" name="meaning">${type === "G" ? (pilot ? "Tôi đã chọn màu nhạt hơn và hỏi lại khách." : gIndex === 0 ? "Tôi đã nói đúng $45." : "Tôi không bịa giá vẽ móng.") : "Tôi đã nói đủ ý chính của câu."}</label>
 <label>
 <input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label>
 <label>
-<input type="checkbox" name="other">${type === "G" ? (gIndex === 0 ? "Tôi nói giá bằng câu lịch sự." : "Tôi đã xin kiểm tra và nói lịch sự.") : "Tôi nói đủ câu hỏi / lời xác nhận cần có."}</label>${type === "G" && gIndex === 1 ? "<label><input type=\"checkbox\" name=\"invented\">Tôi đã đoán một giá vẽ móng.</label>" : ""}<button class="primary" type="submit">Lưu tự đánh giá</button>
+<input type="checkbox" name="other">${type === "G" ? (pilot ? "Tôi dùng câu hỏi và chờ khách xác nhận." : gIndex === 0 ? "Tôi nói giá bằng câu lịch sự." : "Tôi đã xin kiểm tra và nói lịch sự.") : "Tôi nói đủ câu hỏi / lời xác nhận cần có."}</label>${type === "G" && gIndex === 1 ? "<label><input type=\"checkbox\" name=\"invented\">Tôi đã đoán một giá vẽ móng.</label>" : ""}<button class="primary" type="submit">Lưu tự đánh giá</button>
 </form>` : ""}${done?.length ? `<p class="badge">${escape(done.at(-1).outcome)} · tự đánh giá</p>
 <p class="muted">${escape(done.at(-1).evidence)} · ${done.at(-1).assisted ? "Có hỗ trợ" : "Không nhìn câu mẫu"}</p>` : ""}${!captured && !(type === "E" && attempt === 1) ? button("text-help", "Cần câu mẫu hỗ trợ") : ""}`;
 }
@@ -347,34 +352,37 @@ function bindCommon() {
     document.body.classList.add("in-lesson");
     bind("privacy-link", e => { e.preventDefault(); $("#settings").showModal(); $("#privacy").open = true; });
     bind("recap-toggle", () => {
-        if ((state.step === "B" && !(state.b[pack.b[index].id] || []).some(h => h.answer !== null)) || (state.step === "E" && attempt === 2 && !pending && !showText)) return;
+        if ((state.step === "B" && !(state.b[pack.b[index].id] || []).some(h => h.answer !== null)) || (state.step === "G" && pack.transfer.activity === 'swatch' && !state.gSwatch?.length) || (state.step === "E" && attempt === 2 && !pending && !showText)) return;
         recapOpen = !recapOpen;
         render();
     });
     bind("scene-enlarge", () => {
         const image = $("#enlarge img");
-        image.src = `packs/L-S07/${pack.scene.full}`;
+        image.src = `packs/${lessonId}/${pack.scene.full}`;
         $("#enlarge").showModal();
     });
     bind("next", () => {
         if (completeStep(state, state.step, pack))
-            nav(nextStep(state.step));
+            nav(advance(state.step));
     });
     bind("skip", () => {
         state.skips ||= {};
         state.skips[state.step] = event({ evidence: "không có bằng chứng", explicitSkip: true });
         persist();
-        nav(nextStep(state.step));
+        nav(advance(state.step));
     });
 }
 function answerB(answer) {
     const i = pack.b[index];
-    (state.b[i.id] ||= []).push(event({ answer, correct: answer === i.key, assisted: showText || cueState(pack.cues[i.id]).assisted || !!state.audioFailed, listening: !showText && !!pack.cues[i.id].audio && !state.audioFailed }));
+    (state.b[i.id] ||= []).push(event({ answer, correct: answer === i.key, assisted: showText || (i.activity === 'swatch' && !heardB.has(i.id)) || cueState(pack.cues[i.id]).assisted || !!state.audioFailed, listening: !showText && (i.activity !== 'swatch' || heardB.has(i.id)) && !!pack.cues[i.id].audio && !state.audioFailed }));
     render();
 }
 function saveSpeech(id, type, flags) {
     const evidence = pending?.evidence || "không có bằng chứng";
-    const assisted = pending?.assisted ?? (showText || (type === "E" && attempt === 1) || !pack.cues[id].audio);
+    const assisted = (type === 'G' && pack.transfer.activity === 'swatch') || (pending?.assisted ?? (showText || (type === "E" && attempt === 1) || !pack.cues[id].audio));
+    if (type === 'G' && pack.transfer.activity === 'swatch') {
+        flags.meaning = flags.meaning && !!state.gSwatch?.at(-1)?.correct;
+    }
     const result = event({ ...flags, outcome: outcome({ ...flags, evidence: evidence !== "không có bằng chứng" }, type), evidence, assisted, source: "tự đánh giá", attempt: type === "E" ? attempt : gIndex + 1 });
     const container = type === "E" ? state.e : state.g, key = type === "E" ? `${id}:${attempt}` : gIndex;
     (container[key] ||= []).push(result);
@@ -385,6 +393,10 @@ function saveSpeech(id, type, flags) {
 function bindStep() {
     switch (state.step) {
         case "B": {
+            if (pack.b[index].activity === 'swatch') {
+                pack.b[index].options.forEach((o,n) => bind(`swatch${n}`, () => answerB(o.value)));
+                break;
+            }
             const i = pack.b[index];
             i.options.forEach((o, n) => bind(`choice${n}`, () => answerB(o)));
             bind("item-skip", () => {
@@ -436,6 +448,14 @@ function bindStep() {
             });
             break;
         case "G":
+            if (pack.transfer.activity === 'swatch') {
+                pack.transfer.options.forEach((o,n) => bind(`swatch${n}`, () => {
+                    stopMedia();
+                    state.g[0] = [];
+                    (state.gSwatch ||= []).push(event({answer:o.value, correct:pack.transfer.keys.includes(o.value)}));
+                    pending = null; disposeTake(); render();
+                }));
+            }
             bindSpeech(pack.transfer.models[gIndex], "G");
             bind("g-next", () => {
                 stopMedia();
@@ -445,7 +465,7 @@ function bindStep() {
             break;
         case "summary":
             bind("again", () => nav("A"));
-            $("#confidence").onchange = e => {
+            if ($("#confidence")) $("#confidence").onchange = e => {
                 state.confidence = e.target.value;
                 persist();
             };
@@ -565,6 +585,8 @@ document.addEventListener("visibilitychange", () => {
 });
 window.addEventListener("pagehide", stopMedia);
 window.addEventListener("hashchange", () => {
+    const requested = location.hash.slice(1).split("/")[0];
+    if (catalog.some(p => p.id === requested) && requested !== lessonId) { stopMedia(); location.reload(); return; }
     const route = location.hash.split("/")[1];
     if (STEPS.includes(route)) {
         if (state.step !== route) {

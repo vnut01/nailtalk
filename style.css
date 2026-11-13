@@ -52,3 +52,9 @@ body{padding-top:0}.player>aside{top:80px}
 .nav-actions{display:flex;gap:8px;width:100%;justify-content:flex-end;align-items:center}.nav-actions .primary{flex:1}
 .listen-count:empty{display:none}.question{font-size:1rem}.exchange{border-bottom:1px solid var(--border);padding-bottom:8px}
 @media(max-width:650px){.in-lesson main{padding-bottom:calc(130px + env(safe-area-inset-bottom))}.nav{padding-top:4px;padding-bottom:calc(4px + env(safe-area-inset-bottom))}.player>aside{position:static}.step-heading{margin-bottom:10px}.step-heading h1{font-size:1.1rem}.step-heading p{font-size:.82rem}.nav-actions{gap:6px}}
+
+/* Lesson-native color activity: one unlabeled column, accessible touch targets. */
+.swatches { display: grid; grid-template-columns: minmax(44px, 140px); gap: 8px; margin: 12px 0; }
+.swatch { min-height: 44px; padding: 5px; background: white; border: 2px solid #71645d; }
+.swatch span { display: block; height: 32px; background: var(--swatch); border-radius: 8px; }
+.swatch[aria-pressed="true"] { outline: 3px solid #273f36; outline-offset: 2px; }

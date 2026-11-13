@@ -1,24 +1,27 @@
 // Local static assets only. No telemetry, uploads or external requests.
 import {rangeResponse} from './range.mjs';
-const CACHE='nailtalk-APP_PROTO-v008-DRAFT-1';
+const CACHE='nailtalk-APP_PROTO-v009-DRAFT-2';
 const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','player.mjs','storage.mjs','media.mjs','cinematic.mjs','lipsync.mjs','range.mjs','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
-const PACK='packs/L-S07/pack.json';
+const PACKS=['L-S07','L-S02'];
 const url=p=>new URL(p,self.registration.scope).href;
 const FORMAT=url('audio-format');
 async function sha(response){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',await response.arrayBuffer()))].map(b=>b.toString(16).padStart(2,'0')).join('');}
 const needed=(file,format)=>!file.path.startsWith('audio/') || file.path.endsWith('.'+format);
 async function currentFormat(){return (await (await caches.open(CACHE)).match(FORMAT))?.text();}
 async function installPack(format){
-  const response=await fetch(url(PACK),{cache:'no-store'});if(!response.ok)throw Error('pack unavailable');
-  const pack=await response.clone().json();if(pack.schema_version!==1||pack.min_shell_version>1)throw Error('incompatible pack');
   const stage=await caches.open(CACHE+'-stage');
   try {
+  for(const id of PACKS){
+  const PACK=`packs/${id}/pack.json`;
+  const response=await fetch(url(PACK),{cache:'no-store'});if(!response.ok)throw Error('pack unavailable');
+  const pack=await response.clone().json();if(pack.schema_version!==1||pack.min_shell_version>1)throw Error('incompatible pack');
     await stage.put(url(PACK),response);
     for(const f of pack.files.filter(f=>needed(f,format))){
-      const r=await fetch(url('packs/L-S07/'+f.path),{cache:'no-store'});
+      const r=await fetch(url(`packs/${id}/`+f.path),{cache:'no-store'});
       if(!r.ok||await sha(r.clone())!==f.sha256)throw Error('incomplete pack');
-      await stage.put(url('packs/L-S07/'+f.path),r);
+      await stage.put(url(`packs/${id}/`+f.path),r);
     }
+  }
     const active=await caches.open(CACHE);
     for(const request of await stage.keys())await active.put(request,await stage.match(request));
     // Commit selection only after all assets validate. Remove the previous codec.
@@ -38,6 +41,9 @@ self.addEventListener('fetch',event=>{
       if(event.request.headers.has('Range')&&/\/audio\//.test(event.request.url))return rangeResponse(cached,event.request.headers.get('Range'));
       return cached;
     }
+    // First codec installation may still be staging when a learner taps play.
+    // Serve same-origin media online during that window; offline misses still fail.
+    try { const response=await fetch(event.request); if(response.ok)return response; } catch {}
     return event.request.mode==='navigate'?await cache.match(url('index.html')):new Response('Local asset unavailable',{status:503});
   })());
 });
@@ -58,9 +64,11 @@ self.addEventListener('message',event=>{
         case 'CHECK':{
           const format=await currentFormat();let ready=!!format;
           for(const p of SHELL)if(!await cache.match(url(p)))ready=false;
-          const r=await cache.match(url(PACK));
+          for(const id of PACKS){
+          const r=await cache.match(url(`packs/${id}/pack.json`));
           if(!r)ready=false;
-          else{const pack=await r.json();for(const f of pack.files.filter(f=>needed(f,format))){const asset=await cache.match(url('packs/L-S07/'+f.path));if(!asset||await sha(asset)!==f.sha256)ready=false;}}
+          else{const pack=await r.json();for(const f of pack.files.filter(f=>needed(f,format))){const asset=await cache.match(url(`packs/${id}/`+f.path));if(!asset||await sha(asset)!==f.sha256)ready=false;}}
+          }
           event.ports[0]?.postMessage({ready,format});return;
         }
       }

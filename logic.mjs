@@ -7,6 +7,7 @@ export function outcome(flags, type='E') {
   return flags.other ? 'Đạt' : 'Gần đạt';
 }
 export function completeStep(s, step, pack) {
+  if (pack.enabled_steps && !pack.enabled_steps.includes(step) && step !== 'summary') return true;
   if (s.skips?.[step]) return true;
   switch(step) {
     case 'A': return s.a>0;
@@ -15,7 +16,7 @@ export function completeStep(s, step, pack) {
     case 'D': return pack.teaching.every(id=>s.d[id]);
     case 'E': return pack.teaching.every(id=>[1,2].every(n=>s.e[`${id}:${n}`]?.length));
     case 'F': return s.f;
-    case 'G': return [0,1].every(i=>s.g[i]?.length);
+    case 'G': return pack.transfer.activity === 'swatch' ? !!s.gSwatch?.at(-1)?.correct && !!s.g[0]?.length : [0,1].every(i=>s.g[i]?.length);
     default: return false;
   }
 }
@@ -27,5 +28,5 @@ export function transferResult(attempts) {
 export function summarize(s, pack) {
   const b = pack.b.map(i=>s.b[i.id]?.[0]).filter(Boolean);
   const scored = b.filter(a=>!a.assisted && a.answer!==null);
-  return {B:{correct:scored.filter(a=>a.correct).length, scored:scored.length, assisted:b.filter(a=>a.assisted).length, attempts:s.b}, C:{first:s.c[0]??null, attempts:s.c}, E:{source:'tự đánh giá', attempts:s.e}, G:{source:'tự đánh giá', firstOutcome:transferResult([s.g[0]?.[0],s.g[1]?.[0]]), latestOutcome:transferResult([s.g[0]?.at(-1),s.g[1]?.at(-1)]), attempts:s.g}, completed:STEPS.slice(0,7).every(step=>s.visited.includes(step)&&completeStep(s,step,pack))};
+  return {B:{correct:scored.filter(a=>a.correct).length, scored:scored.length, assisted:b.filter(a=>a.assisted).length, attempts:s.b}, C:{first:s.c[0]??null, attempts:s.c}, E:{source:'tự đánh giá', attempts:s.e}, G:{source:'tự đánh giá', firstOutcome:transferResult([s.g[0]?.[0],s.g[1]?.[0]]), latestOutcome:transferResult([s.g[0]?.at(-1),s.g[1]?.at(-1)]), attempts:s.g}, completed:(pack.enabled_steps || STEPS.slice(0,7)).every(step=>s.visited.includes(step)&&completeStep(s,step,pack))};
 }

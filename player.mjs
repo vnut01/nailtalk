@@ -119,7 +119,7 @@ export class AudioPlayer {
         this.position = this.track.offsets[index] + offset;
         const path = audioPath(this.cues[index], this.format);
         if (!path) { this.fail(); return; }
-        const src = new URL(`./packs/L-S07/${path}`, location.href).href;
+        const src = new URL(`./packs/${this.cues[this.index].lesson || "L-S07"}/${path}`, location.href).href;
         if (this.audio.src !== src)
             this.audio.src = src;
         this.audio.currentTime = offset / 1000;
