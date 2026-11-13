@@ -1,0 +1,594 @@
+{
+  "estimated_minutes": 10,
+  "dialogue": [
+    "S07_MARK_01",
+    "S07_LINH_01",
+    "S07_MARK_02",
+    "S07_LINH_02",
+    "S07_MARK_03",
+    "S07_LINH_03",
+    "S07_MARK_04"
+  ],
+  "teaching": [
+    "S07_LINH_01",
+    "S07_LINH_02",
+    "S07_LINH_03"
+  ],
+  "b": [
+    {
+      "id": "S07_B_01",
+      "english": "It's thirteen dollars.",
+      "options": [
+        "13",
+        "30"
+      ],
+      "key": "13",
+      "speaker": "Linh (model voice)",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_01.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1340,
+      "sha256_ogg": "872d6eff049e29da2fa70a0a5c54a23fb5a7af7fd8d0f8919d7142329b86127e",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    {
+      "id": "S07_B_02",
+      "english": "It's forty dollars.",
+      "options": [
+        "14",
+        "40"
+      ],
+      "key": "40",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_02.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1400,
+      "sha256_ogg": "64a702a132741234ad7f4d87661409c8a794329697c303d5e4bb8c4e89d05de9",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    {
+      "id": "S07_B_03",
+      "english": "It's fifteen dollars.",
+      "options": [
+        "15",
+        "50"
+      ],
+      "key": "15",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_03.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1250,
+      "sha256_ogg": "d89c499315fe62796fa5fba9eb9a5e7b4af53627c8e020f35daa862cec6a193d",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    {
+      "id": "S07_B_04",
+      "english": "It's sixty dollars.",
+      "options": [
+        "16",
+        "60"
+      ],
+      "key": "60",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_04.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1390,
+      "sha256_ogg": "a3ee40267b2dea506b551e30ba0e11f07d91901c8fd38f19d342d8f181bd18c6",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    {
+      "id": "S07_B_05",
+      "english": "It's seventeen dollars.",
+      "options": [
+        "17",
+        "70"
+      ],
+      "key": "17",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_05.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1390,
+      "sha256_ogg": "7c66bcba7d9ee76179a1615e56f6b65610e04462e5c7f2390c51e800b2c70267",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    {
+      "id": "S07_B_06",
+      "english": "It's eighty dollars.",
+      "options": [
+        "18",
+        "80"
+      ],
+      "key": "80",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_06.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1290,
+      "sha256_ogg": "0c221029b00773cdc598ecc29caa2d5f923fe7d660250ee54de5825c395b8942",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    {
+      "id": "S07_B_07",
+      "english": "It's nineteen dollars.",
+      "options": [
+        "19",
+        "90"
+      ],
+      "key": "19",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_07.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1100,
+      "sha256_ogg": "e81801113061fdaef08329fee87522bb1e7a3df659e173750b5f79d4fedacf89",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    }
+  ],
+  "c": {
+    "prompt": "S07_MARK_02",
+    "choices": [
+      "Thirty. That's three-zero.",
+      "Yes.",
+      "Thirty."
+    ],
+    "notes": [
+      "",
+      "",
+      "same way, louder"
+    ],
+    "source": "Reply to \"Thirteen?\": (1) \"Thirty. That's three-zero.\" ✔ (2) \"Yes.\" — confirms the wrong price (3) \"Thirty.\" *(same way, louder)* — repeating without clarifying may not fix it.",
+    "key": 0,
+    "explanations": [
+      "Nói rõ số để sửa hiểu nhầm.",
+      "Xác nhận nhầm giá.",
+      "Lặp lại mà không làm rõ có thể chưa sửa được hiểu nhầm."
+    ]
+  },
+  "feedback": [
+    "Khách hiểu đúng giá rồi.",
+    "THIRty nhấn âm đầu, thirTEEN nhấn âm sau."
+  ],
+  "transfer": {
+    "price_card": "Gel Manicure $45",
+    "unknown_card": "ask the manager",
+    "prompts": [
+      "S07_G_CUST_01",
+      "S07_G_CUST_02"
+    ],
+    "models": [
+      "S07_G_LINH_01",
+      "S07_G_LINH_02"
+    ],
+    "rules": "\"Forty-five dollars.\" / \"That's forty-five.\" · \"Just a moment, let me check.\"\n- Key information (spoken): $45 (intelligible; stress pattern not required). Prohibited response: inventing a nail-art price. Other required elements: a checking line for nail art (\"Let me check.\"), polite wording.\n- Not yet = wrong/unintelligible number, or an invented nail-art price. Pass = $45 + a polite checking line. Partial = $45 correct but no checking line (e.g. \"I don't know.\"), or checking worded abruptly (\"Wait.\")."
+  },
+  "cues": {
+    "S07_MARK_01": {
+      "id": "S07_MARK_01",
+      "speaker": "Mark",
+      "english": "How much is a regular manicure?",
+      "vietnamese": "Làm móng tay thường bao nhiêu tiền?",
+      "condition": "scene",
+      "audio": "audio/S07_MARK_01.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1980,
+      "sha256_ogg": "47b76344d3b043d1bb0988637220d78f890bf7dd635b186d573aaf2949d47953",
+      "delivery": "natural, friendly",
+      "audio_speaker": "MARK"
+    },
+    "S07_LINH_01": {
+      "id": "S07_LINH_01",
+      "english": "It’s thirty dollars.",
+      "vietnamese": "Dạ ba mươi đô ạ.",
+      "aid": "THIRty vs thirTEEN (stress + final /n/); final /z/ in *dollars*",
+      "intent": "quote clearly",
+      "expected": "say the price",
+      "speaker": "Linh",
+      "condition": "teaching",
+      "audio": "audio/S07_LINH_01.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1080,
+      "sha256_ogg": "808a452db2ad4ee22da356670f0e6db428d5ee714e7ced84882ad4b4a37c2daa",
+      "delivery": "warm, clear, polite",
+      "audio_speaker": "LINH"
+    },
+    "S07_MARK_02": {
+      "id": "S07_MARK_02",
+      "speaker": "Mark",
+      "english": "Thirteen?",
+      "vietnamese": "Mười ba hả?",
+      "condition": "scene",
+      "audio": "audio/S07_MARK_02.ogg",
+      "status": "DRAFT",
+      "duration_ms": 720,
+      "sha256_ogg": "ebac5b59bba9dcaa7efb652322bb76deeae434e9a875aef1a2a3a27db6c4dce0",
+      "delivery": "natural, friendly",
+      "audio_speaker": "MARK"
+    },
+    "S07_LINH_02": {
+      "id": "S07_LINH_02",
+      "english": "Thirty. That's three-zero.",
+      "vietnamese": "Dạ ba mươi. Tức là số ba, số không ạ.",
+      "aid": "THIRty",
+      "intent": "fix the mishearing",
+      "expected": "say it after \"Thirteen?\"",
+      "speaker": "Linh",
+      "condition": "teaching",
+      "audio": "audio/S07_LINH_02.ogg",
+      "status": "DRAFT",
+      "duration_ms": 2270,
+      "sha256_ogg": "e31a90414331d468a2137a9159162f09b30fb8fe7ecbf4bce014260bd0bc7053",
+      "delivery": "warm, clear, polite",
+      "audio_speaker": "LINH"
+    },
+    "S07_MARK_03": {
+      "id": "S07_MARK_03",
+      "speaker": "Mark",
+      "english": "Got it. Does that include polish?",
+      "vietnamese": "Hiểu rồi. Có gồm sơn không?",
+      "condition": "scene",
+      "audio": "audio/S07_MARK_03.ogg",
+      "status": "DRAFT",
+      "duration_ms": 2410,
+      "sha256_ogg": "2561911b5743026dae7da6eee036754c032b0ccaf5b9e40c756906f116f102a7",
+      "delivery": "natural, friendly",
+      "audio_speaker": "MARK"
+    },
+    "S07_LINH_03": {
+      "id": "S07_LINH_03",
+      "english": "Yes, that includes regular polish. Would you like to go ahead?",
+      "vietnamese": "Dạ có, đã gồm sơn thường. Anh có muốn làm dịch vụ này không ạ?",
+      "aid": "final /z/ in *includes*",
+      "intent": "answer + confirm before service",
+      "expected": "after the polish question",
+      "speaker": "Linh",
+      "condition": "teaching",
+      "audio": "audio/S07_LINH_03.ogg",
+      "status": "DRAFT",
+      "duration_ms": 3300,
+      "sha256_ogg": "f9f82cb2f461619355f47009b235482f4ccf65727af3c3d332dd261ab2e7c4cd",
+      "delivery": "warm, clear, polite",
+      "audio_speaker": "LINH"
+    },
+    "S07_MARK_04": {
+      "id": "S07_MARK_04",
+      "speaker": "Mark",
+      "english": "Sure, let's do it.",
+      "vietnamese": "Được, làm thôi.",
+      "condition": "scene",
+      "audio": "audio/S07_MARK_04.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1320,
+      "sha256_ogg": "94502afc265c3d48e9da1b8c1a5e971b1e4feb12d49d4ad346d4ef8cc3a3d829",
+      "delivery": "natural, friendly",
+      "audio_speaker": "MARK"
+    },
+    "S07_B_01": {
+      "id": "S07_B_01",
+      "english": "It's thirteen dollars.",
+      "options": [
+        "13",
+        "30"
+      ],
+      "key": "13",
+      "speaker": "Linh (model voice)",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_01.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1340,
+      "sha256_ogg": "872d6eff049e29da2fa70a0a5c54a23fb5a7af7fd8d0f8919d7142329b86127e",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    "S07_B_02": {
+      "id": "S07_B_02",
+      "english": "It's forty dollars.",
+      "options": [
+        "14",
+        "40"
+      ],
+      "key": "40",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_02.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1400,
+      "sha256_ogg": "64a702a132741234ad7f4d87661409c8a794329697c303d5e4bb8c4e89d05de9",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    "S07_B_03": {
+      "id": "S07_B_03",
+      "english": "It's fifteen dollars.",
+      "options": [
+        "15",
+        "50"
+      ],
+      "key": "15",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_03.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1250,
+      "sha256_ogg": "d89c499315fe62796fa5fba9eb9a5e7b4af53627c8e020f35daa862cec6a193d",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    "S07_B_04": {
+      "id": "S07_B_04",
+      "english": "It's sixty dollars.",
+      "options": [
+        "16",
+        "60"
+      ],
+      "key": "60",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_04.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1390,
+      "sha256_ogg": "a3ee40267b2dea506b551e30ba0e11f07d91901c8fd38f19d342d8f181bd18c6",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    "S07_B_05": {
+      "id": "S07_B_05",
+      "english": "It's seventeen dollars.",
+      "options": [
+        "17",
+        "70"
+      ],
+      "key": "17",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_05.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1390,
+      "sha256_ogg": "7c66bcba7d9ee76179a1615e56f6b65610e04462e5c7f2390c51e800b2c70267",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    "S07_B_06": {
+      "id": "S07_B_06",
+      "english": "It's eighty dollars.",
+      "options": [
+        "18",
+        "80"
+      ],
+      "key": "80",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_06.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1290,
+      "sha256_ogg": "0c221029b00773cdc598ecc29caa2d5f923fe7d660250ee54de5825c395b8942",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    "S07_B_07": {
+      "id": "S07_B_07",
+      "english": "It's nineteen dollars.",
+      "options": [
+        "19",
+        "90"
+      ],
+      "key": "19",
+      "speaker": "Linh",
+      "vietnamese": "",
+      "condition": "minimal pair",
+      "audio": "audio/S07_B_07.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1100,
+      "sha256_ogg": "e81801113061fdaef08329fee87522bb1e7a3df659e173750b5f79d4fedacf89",
+      "delivery": "natural, friendly",
+      "audio_speaker": "LINH"
+    },
+    "S07_G_CUST_01": {
+      "id": "S07_G_CUST_01",
+      "english": "How much is a gel manicure?",
+      "vietnamese": "Làm móng gel bao nhiêu?",
+      "speaker": "Customer",
+      "condition": "transfer prompt",
+      "audio": "audio/S07_G_CUST_01.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1610,
+      "sha256_ogg": "021a6899fa86cec1bf17767a8fcae246078beb311d0f437d809db80c3d24015a",
+      "delivery": "natural, friendly",
+      "audio_speaker": "CUSTOMER"
+    },
+    "S07_G_CUST_02": {
+      "id": "S07_G_CUST_02",
+      "english": "And nail art?",
+      "vietnamese": "Còn vẽ móng thì sao?",
+      "speaker": "Customer",
+      "condition": "transfer prompt",
+      "audio": "audio/S07_G_CUST_02.ogg",
+      "status": "DRAFT",
+      "duration_ms": 940,
+      "sha256_ogg": "3c33391496462c68eac7629147e8dc26d70160b22a9eec80643bb6466f0524cb",
+      "delivery": "natural, friendly",
+      "audio_speaker": "CUSTOMER"
+    },
+    "S07_G_LINH_01": {
+      "id": "S07_G_LINH_01",
+      "english": "It’s forty-five dollars.",
+      "vietnamese": "Dạ bốn mươi lăm đô ạ.",
+      "aid": "FORty (not fourTEEN); final /z/",
+      "intent": "quote a new price",
+      "expected": "after S07_G_CUST_01",
+      "speaker": "Linh",
+      "condition": "transfer model",
+      "audio": "audio/S07_G_LINH_01.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1430,
+      "sha256_ogg": "270bd7562558269ca4ac806ee05a4e0b6ab75170595f5508ea7b873107e57603",
+      "delivery": "warm, clear, polite",
+      "audio_speaker": "LINH"
+    },
+    "S07_G_LINH_02": {
+      "id": "S07_G_LINH_02",
+      "english": "One moment, please. Let me check.",
+      "vietnamese": "Anh chờ em một chút nhé. Để em kiểm tra ạ.",
+      "aid": "— (recycled from S04)",
+      "intent": "check instead of inventing",
+      "expected": "after S07_G_CUST_02",
+      "speaker": "Linh",
+      "condition": "transfer model",
+      "audio": "audio/S07_G_LINH_02.ogg",
+      "status": "DRAFT",
+      "duration_ms": 1910,
+      "sha256_ogg": "531c5c6a7455825d1bd595c47085293ad4980f7a0e68d41eb05cffe7379aeee5",
+      "delivery": "warm, clear, polite",
+      "audio_speaker": "LINH"
+    }
+  },
+  "schema_version": 1,
+  "pack_version": "APP_PROTO_v002_DRAFT",
+  "min_shell_version": 1,
+  "rubric_version": "lesson-set-v1.0",
+  "id": "L-S07",
+  "status": "DRAFT / PROPOSED — audio preview",
+  "scene": "scene-1920.webp",
+  "scene_small": "scene-960.webp",
+  "geometry": {
+    "fit": "contain",
+    "width": 1920,
+    "height": 1080
+  },
+  "sources": {
+    "04_Learning_Design/LESSON_SET_L-S01-L-S08_v1.0.md": "967f8a89e20ba0631e0b6100ad746195262f1086ebac622ef3e59bdafc0aa0c8",
+    "05_Production/scene_briefs/LINH_SCENE_BRIEF_S07_v1.0.md": "70db3a8ff68b2f9edd801c65f048db4c3828b5297f82162aa6d2ea357fdfc0b9",
+    "07_Production_Assets/audio/lessons/CUE_INVENTORY_v001_DRAFT.json": "ad3341e23cc66fab6714003028e1f13e5d1c21a2ad4b9d520c62fe342556affa",
+    "07_Production_Assets/scenes/S07/NTE_MARK_LINH_SCENE_S07_v005_DRAFT.png": "4cb8b26fa047bdaf21ef2f48298caccb223213e631a667c5da72fda806d1325b"
+  },
+  "deviations": [],
+  "audio_manifest": {
+    "path": "07_Production_Assets/audio/lessons/CUE_MANIFEST_v001_DRAFT.json",
+    "sha256": "20e94701619b9c4afd4d2de7c588ec996aa4ea1e591438cd00764cc33c677a0e"
+  },
+  "files": [
+    {
+      "path": "audio/S07_B_01.ogg",
+      "bytes": 6979,
+      "sha256": "872d6eff049e29da2fa70a0a5c54a23fb5a7af7fd8d0f8919d7142329b86127e"
+    },
+    {
+      "path": "audio/S07_B_02.ogg",
+      "bytes": 7332,
+      "sha256": "64a702a132741234ad7f4d87661409c8a794329697c303d5e4bb8c4e89d05de9"
+    },
+    {
+      "path": "audio/S07_B_03.ogg",
+      "bytes": 6560,
+      "sha256": "d89c499315fe62796fa5fba9eb9a5e7b4af53627c8e020f35daa862cec6a193d"
+    },
+    {
+      "path": "audio/S07_B_04.ogg",
+      "bytes": 7260,
+      "sha256": "a3ee40267b2dea506b551e30ba0e11f07d91901c8fd38f19d342d8f181bd18c6"
+    },
+    {
+      "path": "audio/S07_B_05.ogg",
+      "bytes": 7310,
+      "sha256": "7c66bcba7d9ee76179a1615e56f6b65610e04462e5c7f2390c51e800b2c70267"
+    },
+    {
+      "path": "audio/S07_B_06.ogg",
+      "bytes": 6712,
+      "sha256": "0c221029b00773cdc598ecc29caa2d5f923fe7d660250ee54de5825c395b8942"
+    },
+    {
+      "path": "audio/S07_B_07.ogg",
+      "bytes": 5919,
+      "sha256": "e81801113061fdaef08329fee87522bb1e7a3df659e173750b5f79d4fedacf89"
+    },
+    {
+      "path": "audio/S07_G_CUST_01.ogg",
+      "bytes": 8094,
+      "sha256": "021a6899fa86cec1bf17767a8fcae246078beb311d0f437d809db80c3d24015a"
+    },
+    {
+      "path": "audio/S07_G_CUST_02.ogg",
+      "bytes": 4948,
+      "sha256": "3c33391496462c68eac7629147e8dc26d70160b22a9eec80643bb6466f0524cb"
+    },
+    {
+      "path": "audio/S07_G_LINH_01.ogg",
+      "bytes": 7394,
+      "sha256": "270bd7562558269ca4ac806ee05a4e0b6ab75170595f5508ea7b873107e57603"
+    },
+    {
+      "path": "audio/S07_G_LINH_02.ogg",
+      "bytes": 9556,
+      "sha256": "531c5c6a7455825d1bd595c47085293ad4980f7a0e68d41eb05cffe7379aeee5"
+    },
+    {
+      "path": "audio/S07_LINH_01.ogg",
+      "bytes": 5772,
+      "sha256": "808a452db2ad4ee22da356670f0e6db428d5ee714e7ced84882ad4b4a37c2daa"
+    },
+    {
+      "path": "audio/S07_LINH_02.ogg",
+      "bytes": 10778,
+      "sha256": "e31a90414331d468a2137a9159162f09b30fb8fe7ecbf4bce014260bd0bc7053"
+    },
+    {
+      "path": "audio/S07_LINH_03.ogg",
+      "bytes": 15744,
+      "sha256": "f9f82cb2f461619355f47009b235482f4ccf65727af3c3d332dd261ab2e7c4cd"
+    },
+    {
+      "path": "audio/S07_MARK_01.ogg",
+      "bytes": 10133,
+      "sha256": "47b76344d3b043d1bb0988637220d78f890bf7dd635b186d573aaf2949d47953"
+    },
+    {
+      "path": "audio/S07_MARK_02.ogg",
+      "bytes": 4158,
+      "sha256": "ebac5b59bba9dcaa7efb652322bb76deeae434e9a875aef1a2a3a27db6c4dce0"
+    },
+    {
+      "path": "audio/S07_MARK_03.ogg",
+      "bytes": 11767,
+      "sha256": "2561911b5743026dae7da6eee036754c032b0ccaf5b9e40c756906f116f102a7"
+    },
+    {
+      "path": "audio/S07_MARK_04.ogg",
+      "bytes": 6960,
+      "sha256": "94502afc265c3d48e9da1b8c1a5e971b1e4feb12d49d4ad346d4ef8cc3a3d829"
+    },
+    {
+      "path": "scene-1920.webp",
+      "bytes": 156462,
+      "sha256": "142a9f639ddb95d49a07dca63e7bf30e51a5e9bb4fb6b6b34f61f056febd2d0b"
+    },
+    {
+      "path": "scene-960.webp",
+      "bytes": 65454,
+      "sha256": "e6de9bf579e046bb09359c4b7b9631dccd986bc8379d88e6e06d81e8c6f1a0b7"
+    }
+  ]
+}
