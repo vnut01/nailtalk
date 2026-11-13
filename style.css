@@ -59,3 +59,13 @@ body{min-height:100vh;min-height:100svh;min-height:100dvh;padding:env(safe-area-
 .scene-paused .character{animation-play-state:paused}
 .speaker-tag{display:block;padding:3px 12px;font-size:13px;font-weight:650;color:#205d56;min-height:27px;background:#f0f7f2}
 @keyframes scene-breathe{from{transform:translate(-.15px,0) rotate(-.015deg)}to{transform:translate(.15px,-.2px) rotate(.015deg)}}
+
+/* v006 DRAFT: patches are children of the animated character, in identical coordinates. */
+.character-overlay{position:absolute;inset:0;pointer-events:none}
+.scene .scene-layer .face-sprite{position:absolute;display:block}
+.scene .scene-layer .face-sprite[hidden]{display:none}
+
+/* v006b DRAFT: the head owns facial overlays; the complete rig remains behind Mark. */
+.gesture-rig,.head-rig{position:absolute;inset:0;display:block;pointer-events:none}
+.scene .scene-layer .gesture-rig>img{position:absolute;inset:0}
+.gesture-rig[hidden]{display:none}

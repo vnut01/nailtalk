@@ -4,11 +4,11 @@ import { AudioPlayer, listenCount } from "./player.mjs";
 import { STEPS, nextStep, cueState, initialState, completeStep, summarize, outcome } from "./logic.mjs";
 import * as store from "./storage.mjs";
 const $ = s => document.querySelector(s), pack = await (await fetch("./packs/L-S07/pack.json")).json();
-const scene = new CinematicScene(pack);
+export const scene = new CinematicScene(pack);
 const format = audioFormat(type => document.createElement("audio").canPlayType(type));
 let state = await store.load() || initialState(), index = 0, attempt = 1, gIndex = 0, recorder = null, stream = null, recordTimer = null, timerTick = null, take = null, takeURL = null, pending = null, showText = false, micError = "", busy = false, installPrompt = null, packAvailable = true;
 // Cue identities/rubric are unchanged from v002–v004; retain existing evidence.
-if (state.pack === 'APP_PROTO_v002_DRAFT') state.pack = pack.pack_version;
+if (['APP_PROTO_v002_DRAFT', 'APP_PROTO_v003_DRAFT', 'APP_PROTO_v004_DRAFT', 'APP_PROTO_v005_DRAFT'].includes(state.pack)) state.pack = pack.pack_version;
 if (state.pack !== pack.pack_version)
     state = initialState();
 const titles = { A: "Nghe tình huống", B: "Nghe và nhận biết số", C: "Chọn câu trả lời", D: "Nghe mẫu và khám phá", E: "Luyện nói", F: "Phản hồi", G: "Thử trong tình huống mới", summary: "Nhìn lại bài học" };
@@ -579,6 +579,7 @@ window.addEventListener("hashchange", () => {
     else
         renderHome();
 });
+bind("lipsync-toggle", () => scene.setLipEnabled(!scene.lipEnabled));
 bind("motion-toggle", () => scene.setEnabled(!scene.enabled));
 scene.apply();
 bind("close-scene", () => $("#enlarge").close());
