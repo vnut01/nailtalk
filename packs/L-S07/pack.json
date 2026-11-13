@@ -894,7 +894,16 @@
   "rubric_version": "lesson-set-v1.0",
   "id": "L-S07",
   "status": "DRAFT / PROPOSED — audio preview",
-  "scene": "scene-1920.webp",
+  "scene": {
+    "full": "scene-1920.webp",
+    "small": "scene-960.webp",
+    "phone_crop": {
+      "x": 480,
+      "y": 0,
+      "width": 1440,
+      "height": 1080
+    }
+  },
   "scene_small": "scene-960.webp",
   "geometry": {
     "fit": "contain",

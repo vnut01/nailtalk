@@ -8,7 +8,7 @@ export const scene = new CinematicScene(pack);
 const format = audioFormat(type => document.createElement("audio").canPlayType(type));
 let state = await store.load() || initialState(), index = 0, attempt = 1, gIndex = 0, recorder = null, stream = null, recordTimer = null, timerTick = null, take = null, takeURL = null, pending = null, showText = false, micError = "", busy = false, installPrompt = null, packAvailable = true;
 // Cue identities/rubric are unchanged from v002–v004; retain existing evidence.
-if (['APP_PROTO_v002_DRAFT', 'APP_PROTO_v003_DRAFT', 'APP_PROTO_v004_DRAFT', 'APP_PROTO_v005_DRAFT'].includes(state.pack)) state.pack = pack.pack_version;
+if (['APP_PROTO_v002_DRAFT', 'APP_PROTO_v003_DRAFT', 'APP_PROTO_v004_DRAFT', 'APP_PROTO_v005_DRAFT', 'APP_PROTO_v006_DRAFT'].includes(state.pack)) state.pack = pack.pack_version;
 if (state.pack !== pack.pack_version)
     state = initialState();
 const titles = { A: "Nghe tình huống", B: "Nghe và nhận biết số", C: "Chọn câu trả lời", D: "Nghe mẫu và khám phá", E: "Luyện nói", F: "Phản hồi", G: "Thử trong tình huống mới", summary: "Nhìn lại bài học" };
@@ -114,6 +114,18 @@ function mountPlayers() {
         players.get(key).mount(document.querySelector(`[data-player="${key}"]`));
     }
 }
+function updateListenStatus(player) {
+    highlightTranscript(player);
+    const status = $("#listen-status");
+    if (status) status.textContent = player.active
+        ? `${player.cues[player.index].speaker} · Câu ${player.index + 1}/${player.cues.length}`
+        : state.a === 0 ? "Nghe Linh và Mark ở quầy. Được nghe 2 lượt." : "";
+    // A replay shows only the line indicator; restore the open recap at stop/end.
+    const recap = $(".step-A .recap");
+    if (recap) recap.hidden = player.active;
+    const fallback = $(".step-A .transcript-lines")?.closest("details");
+    if (fallback) fallback.hidden = player.active;
+}
 function highlightTranscript(player) {
     document.querySelectorAll("[data-line]").forEach(el => {
         const current = Number(el.dataset.line) === player.index;
@@ -135,17 +147,19 @@ function recapHTML() {
 <h3>${escape(pack.transfer.unknown_card)}</h3>${phrase(recap.manager, "recap-manager")}</section>`;
 }
 function shell(content) {
+    const crop = pack.scene.phone_crop;
+    const cropStyle = `--phone-scene-width:calc(100cqw * ${pack.geometry.width} / ${crop.width});--phone-scene-left:calc(-100cqw * ${crop.x} / ${crop.width});--phone-scene-top:calc(-100% * ${crop.y} / ${crop.height});--phone-scene-ratio:${crop.width} / ${crop.height}`;
     const hasScene = ["A", "B", "D", "E", "G"].includes(state.step);
     return `<div class="lesson-bar"><span>L-S07</span>
 <div class="steps" role="group" aria-label="Bước ${state.step}">${STEPS.slice(0, 7).map(s => `<span class="${s === state.step ? "current" : state.visited.includes(s) ? "done" : ""}" ${s === state.step ? 'aria-current="step"' : ""}>${s}</span>`).join("")}</div></div>
 <div class="player ${hasScene ? "" : "task-only"} step-${state.step}">
-${hasScene ? `<aside><div role="group" aria-label="Linh và Mark tại quầy Bella Nails" class="scene ${state.step === "A" ? "scene-main" : "scene-context"}">
-<div class="scene-frame"><span class="scene-layers" aria-hidden="true"></span>
-<img src="packs/L-S07/scene-960.webp" alt="Linh và Mark tại quầy; bảng giá trên tường"></div>
+${hasScene ? `<aside><div role="group" aria-label="Linh và Mark tại quầy Bella Nails" class="scene scene-main" style="${cropStyle}">
+<div class="scene-frame"><div class="scene-canvas"><span class="scene-layers" aria-hidden="true"></span>
+<img src="packs/L-S07/${pack.scene.small}" alt="Linh và Mark tại quầy; bảng giá trên tường"></div></div>
 <span class="speaker-tag" aria-hidden="true">Linh và Mark</span>
 <button id="scene-enlarge" aria-label="Phóng to toàn cảnh">⤢</button>${scenePlayer}</div>
-${state.step === "A" && !state.volumeHintDismissed ? '<p id="volume-hint" class="muted">Bật âm lượng · Tắt chế độ im lặng</p>' : ""}</aside>` : ""}
-<section class="panel"><h1 class="step-title">${titles[state.step]}</h1>${content}${recapOpen && state.step !== "summary" ? recapHTML() : ""}${micError ? `<p class="warning" role="status">${escape(micError)}</p>` : ""}</section>
+</aside>` : ""}
+<section class="panel"><h1 class="step-title">${titles[state.step]}</h1>${state.step === "A" ? `<p id="listen-status" role="status">${state.a === 0 ? "Nghe Linh và Mark ở quầy. Được nghe 2 lượt." : ""}</p>${!state.volumeHintDismissed ? '<p id="volume-hint" class="muted">Bật âm lượng · Tắt chế độ im lặng</p>' : ""}` : ""}${content}${recapOpen && state.step !== "summary" ? recapHTML() : ""}${micError ? `<p class="warning" role="status">${escape(micError)}</p>` : ""}</section>
 </div>${navigation()}`;
 }
 function navigation() {
@@ -208,7 +222,7 @@ function render() {
                     recapOpen = true;
                     persist();
                     render();
-                }, onUpdate: highlightTranscript });
+                }, onUpdate: updateListenStatus });
             content = `${pack.dialogue.some(id => !pack.cues[id].audio) || showText ? `<details open>
 <summary>Văn bản hỗ trợ</summary>
 <div class="transcript-lines">${pack.dialogue.map((id, i) => `<div class="transcript-line" data-line="${i}">
@@ -336,7 +350,7 @@ function bindCommon() {
     });
     bind("scene-enlarge", () => {
         const image = $("#enlarge img");
-        image.src = image.dataset.src;
+        image.src = `packs/L-S07/${pack.scene.full}`;
         $("#enlarge").showModal();
     });
     bind("next", () => {
