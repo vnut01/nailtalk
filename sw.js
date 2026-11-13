@@ -1,6 +1,6 @@
 // Local static assets only. No telemetry, uploads or external requests.
-const CACHE='nailtalk-APP_PROTO-v002-DRAFT-1';
-const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','storage.mjs','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
+const CACHE='nailtalk-APP_PROTO-v004-DRAFT-1';
+const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','player.mjs','storage.mjs','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
 const PACK='packs/L-S07/pack.json';
 const url=p=>new URL(p,self.registration.scope).href;
 async function sha(response){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',await response.arrayBuffer()))].map(b=>b.toString(16).padStart(2,'0')).join('');}

@@ -465,6 +465,106 @@
       "audio_speaker": "LINH"
     }
   },
+  "recap": {
+    "teaching": [
+      {
+        "cue": "S07_LINH_01",
+        "english": "It’s thirty dollars.",
+        "vietnamese": "Dạ ba mươi đô ạ.",
+        "aid": "THIRty vs thirTEEN (stress + final /n/); final /z/ in *dollars*"
+      },
+      {
+        "cue": "S07_LINH_02",
+        "english": "Thirty. That's three-zero.",
+        "vietnamese": "Dạ ba mươi. Tức là số ba, số không ạ.",
+        "aid": "THIRty"
+      },
+      {
+        "cue": "S07_LINH_03",
+        "english": "Yes, that includes regular polish. Would you like to go ahead?",
+        "vietnamese": "Dạ có, đã gồm sơn thường. Anh có muốn làm dịch vụ này không ạ?",
+        "aid": "final /z/ in *includes*"
+      }
+    ],
+    "prices": [
+      {
+        "cue": "S07_B_01",
+        "english": "It's thirteen dollars.",
+        "vietnamese": "",
+        "options": [
+          "13",
+          "30"
+        ]
+      },
+      {
+        "cue": "S07_B_02",
+        "english": "It's forty dollars.",
+        "vietnamese": "",
+        "options": [
+          "14",
+          "40"
+        ]
+      },
+      {
+        "cue": "S07_B_03",
+        "english": "It's fifteen dollars.",
+        "vietnamese": "",
+        "options": [
+          "15",
+          "50"
+        ]
+      },
+      {
+        "cue": "S07_B_04",
+        "english": "It's sixty dollars.",
+        "vietnamese": "",
+        "options": [
+          "16",
+          "60"
+        ]
+      },
+      {
+        "cue": "S07_B_05",
+        "english": "It's seventeen dollars.",
+        "vietnamese": "",
+        "options": [
+          "17",
+          "70"
+        ]
+      },
+      {
+        "cue": "S07_B_06",
+        "english": "It's eighty dollars.",
+        "vietnamese": "",
+        "options": [
+          "18",
+          "80"
+        ]
+      },
+      {
+        "cue": "S07_B_07",
+        "english": "It's nineteen dollars.",
+        "vietnamese": "",
+        "options": [
+          "19",
+          "90"
+        ]
+      }
+    ],
+    "stress": "THIRty nhấn âm đầu, thirTEEN nhấn âm sau.",
+    "board": [
+      "Regular Manicure $30",
+      "Gel Manicure $45",
+      "Regular Pedicure $40",
+      "Gel Pedicure $55"
+    ],
+    "manager": {
+      "cue": "S07_G_LINH_02",
+      "english": "One moment, please. Let me check.",
+      "vietnamese": "Anh chờ em một chút nhé. Để em kiểm tra ạ.",
+      "aid": "— (recycled from S04)"
+    }
+  },
   "schema_version": 1,
   "pack_version": "APP_PROTO_v002_DRAFT",
   "min_shell_version": 1,
