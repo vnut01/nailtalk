@@ -1,6 +1,6 @@
 // Local static assets only. No telemetry, uploads or external requests.
 import {rangeResponse} from './range.mjs';
-const CACHE='nailtalk-APP_PROTO-v006b-DRAFT-1';
+const CACHE='nailtalk-APP_PROTO-v007-DRAFT-1';
 const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','player.mjs','storage.mjs','media.mjs','cinematic.mjs','lipsync.mjs','range.mjs','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
 const PACK='packs/L-S07/pack.json';
 const url=p=>new URL(p,self.registration.scope).href;

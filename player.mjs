@@ -61,7 +61,10 @@ export class AudioPlayer {
     mount(root) {
         this.root = root;
         const compact = this.options.compact && this.cues.length === 1;
-        root.innerHTML = compact ? `<button class="audio-toggle primary" type="button"></button>` : `<button class="audio-toggle primary" type="button">
+        root.innerHTML = this.options.scene ? `<button class="audio-toggle primary" type="button"></button>
+<span class="listen-count"></span><span class="listen-limit" role="status"></span>
+<div class="scene-transport"><button data-action="prev" aria-label="Câu trước">‹</button><button data-action="restart" aria-label="Nghe lại câu này">↺</button><button data-action="next" aria-label="Câu sau">›</button></div>
+<div class="audio-progress" role="progressbar" aria-label="Tiến độ nghe" aria-valuemin="0" aria-valuemax="${this.track.total}" aria-valuenow="0"><div class="progress-fill"></div></div>` : compact ? `<button class="audio-toggle primary" type="button"></button>${this.options.slower ? '<button data-action="speed" aria-label="Tốc độ nghe">1×</button>' : ''}` : `<button class="audio-toggle primary" type="button">
 </button>
       <p class="now-playing" aria-live="polite">
 </p>
@@ -148,14 +151,22 @@ export class AudioPlayer {
         if (!this.root?.isConnected)
             return;
         const toggle = this.root.querySelector(".audio-toggle");
-        const label = this.active ? "Dừng" : "Nghe";
+        const label = this.active ? "Dừng" : this.options.scene ? "Phát tình huống" : "Nghe";
         const compact = this.options.compact && this.cues.length === 1;
-        toggle.innerHTML = `${compact ? (this.active ? stopIcon : speakerIcon) : `${speakerIcon}${this.active ? stopIcon : playIcon}<span>${label}</span>`}
+        toggle.innerHTML = this.options.scene ? `${this.active ? stopIcon : playIcon}<span>${this.active ? "Dừng" : "Phát"}</span>` : `${compact ? (this.active ? stopIcon : speakerIcon) : `${speakerIcon}${this.active ? stopIcon : playIcon}<span>${label}</span>`}
 <span class="sound-waves" aria-hidden="true">▂▆▃</span>`;
         toggle.setAttribute("aria-pressed", String(this.active));
         toggle.setAttribute("aria-label", `${label} · ${this.options.label || "audio"}`);
         toggle.disabled = !this.active && this.options.allowed && !this.options.allowed();
         this.root.classList.toggle("is-playing", this.active);
+        const speed = this.root.querySelector('[data-action="speed"]');
+        if (speed) speed.textContent = this.rate === 1 ? "1×" : "0,75×";
+        if (this.options.scene) {
+            this.root.querySelector(".listen-count").textContent = `${this.options.count()}/2`;
+            this.root.querySelector(".listen-limit").textContent = toggle.disabled ? "Đã dùng 2 lượt nghe" : "";
+            toggle.setAttribute("aria-describedby", "listen-reason");
+            this.root.querySelector(".listen-limit").id = "listen-reason";
+        }
         if (compact) {
             this.options.onUpdate?.(this);
             return;
@@ -164,15 +175,12 @@ export class AudioPlayer {
         progress.setAttribute("aria-valuenow", String(this.position));
         progress.setAttribute("aria-valuetext", `${clock(this.position)} / ${clock(this.track.total)}`);
         progress.querySelector(".progress-fill").style.width = `${100 * this.position / this.track.total}%`;
-        this.root.querySelector(".audio-time").textContent = `${clock(this.position)} / ${clock(this.track.total)}`;
-        this.root.querySelector(".now-playing").textContent = this.cues.length > 1 ? `Câu ${this.index + 1}/${this.cues.length} · ${this.cues[this.index].speaker}` : "";
+        if (this.root.querySelector(".audio-time")) this.root.querySelector(".audio-time").textContent = `${clock(this.position)} / ${clock(this.track.total)}`;
+        if (this.root.querySelector(".now-playing")) this.root.querySelector(".now-playing").textContent = this.cues.length > 1 ? `Câu ${this.index + 1}/${this.cues.length} · ${this.cues[this.index].speaker}` : "";
         this.root.querySelectorAll("[data-action]").forEach(el => {
             if (el.dataset.action !== "speed")
                 el.disabled = !this.active;
         });
-        const speed = this.root.querySelector("[data-action=\"speed\"]");
-        if (speed)
-            speed.textContent = this.rate === 1 ? "1×" : "0,75×";
         this.options.onUpdate?.(this);
     }
 }

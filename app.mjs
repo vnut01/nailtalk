@@ -73,12 +73,12 @@ function cueHTML(id, reveal = false) {
 }
 // Retain transport position while support text/recap re-renders; dispose on navigation.
 const players = new Map(), playerConfigs = new Map();
-let recapOpen = false;
+let recapOpen = false, scenePlayer = "";
 function playerHTML(key, ids, options = {}) {
     if (ids.some(id => !pack.cues[id].audio))
         return "<p class=\"warning\">Audio sắp có</p>";
     playerConfigs.set(key, { ids, options });
-    return `<div class="${options.compact && ids.length === 1 ? "audio-cue" : "audio-player"}" data-player="${key}">
+    return `<div class="${options.scene ? "scene-player" : options.compact && ids.length === 1 ? "audio-cue" : "audio-player"}" data-player="${key}">
 </div>`;
 }
 function mountPlayers() {
@@ -135,32 +135,27 @@ function recapHTML() {
 <h3>${escape(pack.transfer.unknown_card)}</h3>${phrase(recap.manager, "recap-manager")}</section>`;
 }
 function shell(content) {
-    return `<p class="eyebrow">L-S07 · Nói giá · khoảng ${pack.estimated_minutes} phút</p>
-<h1>${titles[state.step]}</h1>
-<div class="steps" role="group" aria-label="Bước ${Math.min(7, STEPS.indexOf(state.step) + 1)}/7">${STEPS.slice(0, 7).map(s => `<span class="${s === state.step ? "current" : state.visited.includes(s) ? "done" : ""}" ${s === state.step ? "aria-current=\"step\"" : ""}>${s}${state.visited.includes(s) && s !== state.step ? " ✓" : ""}</span>`).join("")}</div>
-<div class="player">
-<aside>
-<div class="scene">
-<button id="scene-enlarge" aria-label="Phóng to toàn cảnh">
-<span class="scene-layers" aria-hidden="true"></span>
-<img src="packs/L-S07/scene-960.webp" alt="Linh và Mark tại quầy; bảng giá trên tường">
-</button>
+    const hasScene = ["A", "B", "D", "E", "G"].includes(state.step);
+    return `<div class="lesson-bar"><span>L-S07</span>
+<div class="steps" role="group" aria-label="Bước ${state.step}">${STEPS.slice(0, 7).map(s => `<span class="${s === state.step ? "current" : state.visited.includes(s) ? "done" : ""}" ${s === state.step ? 'aria-current="step"' : ""}>${s}</span>`).join("")}</div></div>
+<div class="player ${hasScene ? "" : "task-only"} step-${state.step}">
+${hasScene ? `<aside><div role="group" aria-label="Linh và Mark tại quầy Bella Nails" class="scene ${state.step === "A" ? "scene-main" : "scene-context"}">
+<div class="scene-frame"><span class="scene-layers" aria-hidden="true"></span>
+<img src="packs/L-S07/scene-960.webp" alt="Linh và Mark tại quầy; bảng giá trên tường"></div>
 <span class="speaker-tag" aria-hidden="true">Linh và Mark</span>
-<small>Chạm để xem toàn cảnh · Giá hư cấu để học</small>
-</div>
-<p class="muted">${state.step === "G" ? "Dùng thông tin trên thẻ để trả lời." : "Học từng bước, có thể thử lại hoặc bỏ qua."}</p>
-</aside>
-<section class="panel">${content}${recapOpen && state.step !== "summary" ? recapHTML() : ""}${micError ? `<p class="warning" role="status">${escape(micError)}</p>` : ""}${navigation()}</section>
-</div>`;
+<button id="scene-enlarge" aria-label="Phóng to toàn cảnh">⤢</button>${scenePlayer}</div>
+${state.step === "A" && !state.volumeHintDismissed ? '<p id="volume-hint" class="muted">Bật âm lượng · Tắt chế độ im lặng</p>' : ""}</aside>` : ""}
+<section class="panel"><h1 class="step-title">${titles[state.step]}</h1>${content}${recapOpen && state.step !== "summary" ? recapHTML() : ""}${micError ? `<p class="warning" role="status">${escape(micError)}</p>` : ""}</section>
+</div>${navigation()}`;
 }
 function navigation() {
-    const s = state.step;
-    if (s === "summary")
-        return button("home", "Về trang chủ");
-    return `<div class="nav">${button("next", s === "G" ? "Xem kết quả" : "Tiếp tục →", "primary", !completeStep(state, s, pack))}${button("recap-toggle", "Tóm tắt")}${button("skip", "Bỏ qua bước")}${button("home", "Trang chủ")}</div>`;
+    if (state.step === "summary") return "";
+    return `<nav class="nav" aria-label="Điều hướng bài học">${button("next", "Tiếp tục", "primary", !completeStep(state, state.step, pack))}<button id="recap-toggle" aria-label="Tóm tắt" aria-expanded="${recapOpen}">≡</button>${button("skip", "Bỏ qua bước", "text-link")}</nav>`;
 }
+
 function renderHome() {
     stopMedia();
+    document.body.classList.remove("in-lesson");
     scene.mount(null);
     $("#app").innerHTML = `<section class="intro">
 <p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p>
@@ -168,15 +163,15 @@ function renderHome() {
 <div class="hero-line">
 </div>
 <p>Luyện nghe, chọn câu và nói cùng Linh. Bắt đầu từ một tình huống quen thuộc.</p>
-<span class="badge">Bản thử nghiệm · Chỉ L-S07 mở để học</span>
+<span class="badge">DRAFT · Chỉ L-S07 mở · Nói: tự đánh giá</span>
 </section>
 <div class="lessons">${homeTitles.map((title, i) => `<article class="lesson ${i === 6 ? "active" : ""}">
 <span class="eyebrow">L-S0${i + 1} · ${i === 6 ? pack.estimated_minutes + " phút" : "Sắp có"}</span>
 <h2>${title}</h2>
-<p class="muted">${canDos[i]}</p>${i === 6 ? `<small>${!packAvailable ? "<p class=\"warning\">Bài chưa sẵn sàng offline. Chọn Tải lại bài bên dưới.</p>" : ""}${(pack.files.reduce((n, f) => n + f.bytes, 0) / 1048576).toFixed(2)} MiB nội dung · ${Object.values(pack.cues).filter(c => c.audio).length}/${Object.keys(pack.cues).length} audio</small>
+<p class="muted">${canDos[i]}</p>${i === 6 ? `<small>${!packAvailable ? "<p class=\"warning\">Bài chưa sẵn sàng offline. Tải lại trong Cài đặt.</p>" : ""}${(pack.files.reduce((n, f) => n + f.bytes, 0) / 1048576).toFixed(2)} MiB nội dung · ${Object.values(pack.cues).filter(c => c.audio).length}/${Object.keys(pack.cues).length} audio</small>
 <span class="badge">${state.visited.length ? `${state.visited.length}/7 bước đã ghé` : "Chưa bắt đầu"}</span>
 <div class="controls">${button("start", state.visited.length ? "Học tiếp" : "Bắt đầu học", "primary", !packAvailable)}${state.visited.length ? button("restart", "Học lại") : ""}</div>` : "<span class=\"badge\">Sắp có</span>"}</article>`).join("")}</div>
-<p class="warning">Bản DRAFT: audio bài học đã có. Kết quả nói là tự đánh giá; kết quả nghe có hỗ trợ được tách riêng.</p>${button("install", "Cài lên màn hình chính", "", !installPrompt)}<p class="muted">Cài đặt và ghi âm cần ngữ cảnh an toàn (HTTPS hoặc localhost). Trên điện thoại qua LAN HTTP vẫn xem và luyện tự báo cáo được.</p>`;
+${button("install", "Cài lên màn hình chính", "", !installPrompt)}<p class="muted">Cài app / micro cần HTTPS hoặc localhost. iPhone: Chia sẻ → Thêm vào MH chính.</p>`;
     bind("start", () => nav(state.step === "summary" ? "summary" : state.step));
     bind("restart", async () => {
         if (confirm("Học lại sẽ xóa tiến độ L-S07 trên thiết bị này.")) {
@@ -199,36 +194,35 @@ function render() {
     if (state.step !== "summary" && !state.visited.includes(state.step))
         state.visited.push(state.step);
     playerConfigs.clear();
+    scenePlayer = "";
     let content = "";
     switch (state.step) {
         case "A":
-            content = `<h2>Ở quầy cùng Linh và Mark</h2>
-<p>Nghe trọn tình huống một lần, rồi nghe lại thêm một lần nếu muốn.</p>
-<p class="task-count">Đã mở ${state.a}/2 lượt</p>${!state.volumeHintDismissed ? `<div class="warning">Bật âm lượng điện thoại · Tắt chế độ im lặng · Nhấn ▶ để bắt đầu nghe ${button("dismiss-hint", "Đã hiểu")}</div>` : ""}${playerHTML("hear", pack.dialogue, { label: "Nghe tình huống", allowed: () => state.a < 2, onBegin: () => {
+            scenePlayer = playerHTML("hear", pack.dialogue, { scene: true, count: () => state.a, label: "Nghe tình huống", allowed: () => state.a < 2, onBegin: () => {
                     state.a = listenCount(state.a, "begin");
+                    state.volumeHintDismissed = true;
                     persist();
-                    const count = $(".task-count");
-                    if (count)
-                        count.textContent = `Đã mở ${state.a}/2 lượt`;
+                    $("#volume-hint")?.remove();
                 }, onFinish: () => {
                     state.aFull = true;
                     recapOpen = true;
                     persist();
                     render();
-                }, onUpdate: highlightTranscript })}${pack.dialogue.some(id => !pack.cues[id].audio) || showText ? `<details open>
+                }, onUpdate: highlightTranscript });
+            content = `${pack.dialogue.some(id => !pack.cues[id].audio) || showText ? `<details open>
 <summary>Văn bản hỗ trợ</summary>
 <div class="transcript-lines">${pack.dialogue.map((id, i) => `<div class="transcript-line" data-line="${i}">
-<strong>${escape(pack.cues[id].speaker)}</strong>${cueHTML(id, true)}</div>`).join("")}</div></details>` : button("captions", "Xem văn bản hỗ trợ")}`;
+<strong>${escape(pack.cues[id].speaker)}</strong>${cueHTML(id, true)}</div>`).join("")}</div></details>` : ""}`;
             break;
         case "B": {
             const item = pack.b[index], history = state.b[item.id] || [];
-            content = `<p class="task-count">Câu ${index + 1}/${pack.b.length} · Nhận biết, không phải nói</p>
-<h2>Bạn nghe thấy giá nào?</h2>${cueHTML(item.id, showText)}<div class="controls">${playerHTML("hear", [item.id], { onFinish: () => {
+            content = `<p class="task-count">Câu ${index + 1}/${pack.b.length}</p>
+<h2>Bạn nghe thấy giá nào?</h2>${cueHTML(item.id, showText)}<div class="controls">${playerHTML("hear", [item.id], { compact: true, label: "Nghe con số", onFinish: () => {
                     heardB.add(item.id);
                     render();
-                } })}${pack.cues[item.id].audio ? button("captions", "Xem chữ hỗ trợ") : ""}</div>
+                } })}</div>
 <div class="options">${item.options.map((o, i) => button(`choice${i}`, `${o} dollars`, "", !!pack.cues[item.id].audio && !showText && !heardB.has(item.id))).join("")}</div>${history.length ? `<p role="status">${history.at(-1).answer === null ? "Đã bỏ qua câu này." : history.at(-1).correct ? "Đúng con số." : "Thử nghe lại và so sánh hai số nhé."} ${history.at(-1).assisted ? "Có hỗ trợ · không chấm nghe." : ""}</p>
-<p class="muted">Giữ câu trả lời đầu và ${Math.max(0, history.length - 1)} lần thử lại.</p>` : ""}<div class="controls">${button("item-next", index === pack.b.length - 1 ? "Về câu đầu" : "Câu tiếp", "", !history.length)}${button("item-skip", "Bỏ qua câu này")}</div>`;
+` : ""}<div class="controls">${button("item-next", index === pack.b.length - 1 ? "Về câu đầu" : "Câu tiếp", "", !history.length)}${button("item-skip", "Bỏ qua câu này")}</div>`;
             break;
         }
         case "C":
@@ -240,11 +234,11 @@ function render() {
         case "D": {
             const id = pack.teaching[index], c = pack.cues[id], revealed = state.d[id];
             content = `<p class="task-count">Thẻ mẫu ${index + 1}/3 · Không chấm điểm</p>
-<h2>Nghe trước, đọc sau</h2>
-<div class="controls">${playerHTML("hear", [id], { slower: true, onFinish: () => {
+
+<div class="controls">${playerHTML("hear", [id], { compact: true, slower: true, onFinish: () => {
                     state.d[id] = event({ played: true, assisted: false });
                     render();
-                } })}</div>${revealed || !c.audio ? `${cueHTML(id, true)}<p class="muted">Gợi ý phát âm: ${pronunciationHTML(c.aid)}</p>` : "<p>Câu tiếng Anh và nghĩa sẽ mở sau lượt nghe đầu.</p>"}${button("card-next", "Thẻ mẫu tiếp", "", !revealed)}<hr>
+                } })}</div>${revealed || !c.audio ? `${cueHTML(id, true)}<p class="muted">Gợi ý phát âm: ${pronunciationHTML(c.aid)}</p>` : ""}${button("card-next", "Thẻ mẫu tiếp", "", !revealed)}<hr>
 <h3>Nghe để nhận ra trọng âm</h3>
 <p>Âm nào nhấn ở cuối? Không chấm điểm.</p>${playerHTML("contrast", ["S07_B_01", "S07_LINH_01"], { label: "Nghe cặp tương phản", onFinish: () => {
                     showText = true;
@@ -256,7 +250,7 @@ function render() {
         case "E": {
             const id = pack.teaching[index];
             content = `<p class="task-count">Câu ${index + 1}/3 · Lượt ${attempt}/2 · tự đánh giá</p>
-<h2>${attempt === 1 ? "Nói với câu mẫu hỗ trợ" : "Thử nói khi không nhìn câu mẫu"}</h2>${attempt === 1 || showText ? `<p>${escape(pack.cues[id].vietnamese)}</p>` : `<p>Bạn là Linh. Khách hỏi: ${escape(pack.cues[["S07_MARK_01", "S07_MARK_02", "S07_MARK_03"][index]].english)}</p>`}${attempt === 1 || showText ? `<p class="target">${escape(pack.cues[id].english)}</p>` : "<p class=\"badge\">Câu mẫu đã ẩn ở lượt 2</p>"}${speechUI(id, "E")}<div class="controls">${button("e-next", attempt === 1 ? "Lượt 2 · ẩn câu mẫu" : "Câu tiếp", "", !state.e[`${id}:${attempt}`]?.length)}</div>`;
+<h2>${attempt === 1 ? "Nói với câu mẫu" : "Thử nói khi không nhìn câu mẫu"}</h2>${attempt === 1 || showText ? `<p>${escape(pack.cues[id].vietnamese)}</p>` : `<p>Bạn là Linh. Khách hỏi: ${escape(pack.cues[["S07_MARK_01", "S07_MARK_02", "S07_MARK_03"][index]].english)}</p>`}${attempt === 1 || showText ? `<p class="target">${escape(pack.cues[id].english)}</p>` : ""}${speechUI(id, "E")}<div class="controls">${button("e-next", attempt === 1 ? "Lượt 2 · ẩn câu mẫu" : "Câu tiếp", "", !state.e[`${id}:${attempt}`]?.length)}</div>`;
             break;
         }
         case "F":
@@ -271,7 +265,7 @@ function render() {
         case "G": {
             const id = pack.transfer.models[gIndex], prompt = pack.transfer.prompts[gIndex];
             content = `<p class="task-count">Tình huống ${gIndex + 1}/2 · tự đánh giá</p>
-<h2>${gIndex === 0 ? "Khách chọn dịch vụ khác" : "Khách hỏi thêm"}</h2>${cueHTML(prompt)}${playerHTML("prompt", [prompt], { label: "Nghe khách hỏi" })}<div class="price" aria-label="Thẻ thông tin tình huống">${escape(gIndex === 0 ? pack.transfer.price_card : pack.transfer.unknown_card)}</div>
+<h2>${gIndex === 0 ? "Khách chọn dịch vụ khác" : "Khách hỏi thêm"}</h2>${cueHTML(prompt)}${playerHTML("prompt", [prompt], { compact: true, label: "Nghe khách hỏi" })}<div class="price" aria-label="Thẻ thông tin tình huống">${gIndex === 0 ? "<small>Giá minh họa</small>" : ""}${escape(gIndex === 0 ? pack.transfer.price_card : pack.transfer.unknown_card)}</div>
 <p>${gIndex === 0 ? "Nhìn thẻ, rồi nói giá cho khách." : "Bạn chưa biết giá vẽ móng. Nói để xin kiểm tra."}</p>${speechUI(id, "G")}${gIndex === 0 ? button("g-next", "Khách hỏi tiếp", "", !state.g[0]?.length) : "<p class=\"muted\">Không đoán giá vẽ móng.</p>"}`;
             break;
         }
@@ -315,7 +309,7 @@ function render() {
 function speechUI(id, type) {
     const done = type === "E" ? state.e[`${id}:${attempt}`] : state.g[gIndex];
     const captured = pending?.id === id;
-    return `<p class="muted">Micro chỉ dùng để nghe lại trên máy; không tải lên. Bản ghi tự xóa khi rời bước, thử lại hoặc đóng bài. Có thể nói thành tiếng hoặc bỏ qua.</p>${!pack.cues[id].audio ? "<p class=\"warning\">Audio sắp có · Luyện có hỗ trợ.</p>" : ""}<div class="controls">${button("record", "Ghi âm", "primary", busy)}${button("stop", "Dừng", "", !busy)}${button("aloud", "Tôi đã nói thành tiếng (không ghi âm)", "", busy)}${button("speak-skip", "Bỏ qua lượt này", "", busy)}</div>
+    return `<p class="muted mic-privacy">Ghi âm chỉ trên máy. <a href="#" id="privacy-link">Riêng tư</a></p>${!pack.cues[id].audio ? "<p class=\"warning\">Audio sắp có · Luyện có hỗ trợ.</p>" : ""}<div class="controls">${button("record", "Ghi âm", "primary", busy)}${button("stop", "Dừng", "", !busy)}${button("aloud", "Tôi đã nói thành tiếng", "", busy)}${button("speak-skip", "Bỏ qua lượt này", "", busy)}</div>
 <p id="timer" class="recording" role="status">
 </p>${takeURL ? `<p>Nghe bản của bạn:</p>
 <audio playsinline controls src="${takeURL}">
@@ -334,24 +328,16 @@ function speechUI(id, type) {
 function bindCommon() {
     scene.mount(document.querySelector('.scene'));
     scene.apply();
+    document.body.classList.add("in-lesson");
+    bind("privacy-link", e => { e.preventDefault(); $("#settings").showModal(); $("#privacy").open = true; });
     bind("recap-toggle", () => {
         recapOpen = !recapOpen;
-        render();
-    });
-    bind("dismiss-hint", () => {
-        state.volumeHintDismissed = true;
-        persist();
         render();
     });
     bind("scene-enlarge", () => {
         const image = $("#enlarge img");
         image.src = image.dataset.src;
         $("#enlarge").showModal();
-    });
-    bind("home", () => {
-        stopMedia();
-        location.hash = "home";
-        renderHome();
     });
     bind("next", () => {
         if (completeStep(state, state.step, pack))
@@ -380,10 +366,6 @@ function saveSpeech(id, type, flags) {
     render();
 }
 function bindStep() {
-    bind("captions", () => {
-        showText = true;
-        render();
-    });
     switch (state.step) {
         case "B": {
             const i = pack.b[index];
@@ -579,6 +561,8 @@ window.addEventListener("hashchange", () => {
     else
         renderHome();
 });
+bind("settings-open", () => $("#settings").showModal());
+bind("settings-close", () => $("#settings").close());
 bind("lipsync-toggle", () => scene.setLipEnabled(!scene.lipEnabled));
 bind("motion-toggle", () => scene.setEnabled(!scene.enabled));
 scene.apply();
