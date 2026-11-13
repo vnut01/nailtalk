@@ -1,7 +1,7 @@
 export const STEPS = ['A','B','C','D','E','F','G','summary'];
 export function nextStep(step) { return STEPS[Math.min(STEPS.indexOf(step)+1, STEPS.length-1)]; }
 export function cueState(cue) { return {missing: !cue?.audio, assisted: !cue?.audio, listeningScored: !!cue?.audio}; }
-export function initialState() { return {schema:1, pack:'APP_PROTO_v002_DRAFT', rubric:'lesson-set-v1.0', step:'A', visited:[], a:0, b:{}, c:[], d:{}, e:{}, f:false, g:{}, confidence:null}; }
+export function initialState() { return {schema:1, pack:'APP_PROTO_v005_DRAFT', rubric:'lesson-set-v1.0', step:'A', visited:[], a:0, b:{}, c:[], d:{}, e:{}, f:false, g:{}, confidence:null}; }
 export function outcome(flags, type='E') {
   if (!flags.evidence || !flags.meaning || !flags.clear || (type==='G' && flags.invented)) return 'Cần thử lại';
   return flags.other ? 'Đạt' : 'Gần đạt';

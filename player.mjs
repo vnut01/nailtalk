@@ -1,3 +1,4 @@
+import { audioFormat, audioPath } from "./media.mjs";
 // Manifest-based timeline and transport shared by all lesson audio.
 export const speakerIcon = `<svg viewBox="0 0 24 24" aria-hidden="true">
 <path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/>
@@ -35,6 +36,10 @@ export class AudioPlayer {
         this.rate = 1;
         this.audio = new Audio();
         this.audio.preservesPitch = true;
+        this.audio.setAttribute?.('playsinline', '');
+        this.audio.preload = 'none';
+        this.audio.autoplay = false;
+        this.format = audioFormat(type => this.audio.canPlayType?.(type) || '');
         this.audio.ontimeupdate = () => {
             if (!this.active) return;
             this.position = Math.min(this.track.total, this.track.offsets[this.index] + this.audio.currentTime * 1000);
@@ -109,7 +114,9 @@ export class AudioPlayer {
         this.audio.pause();
         this.index = index;
         this.position = this.track.offsets[index] + offset;
-        const src = new URL(`./packs/L-S07/${this.cues[index].audio}`, location.href).href;
+        const path = audioPath(this.cues[index], this.format);
+        if (!path) { this.fail(); return; }
+        const src = new URL(`./packs/L-S07/${path}`, location.href).href;
         if (this.audio.src !== src)
             this.audio.src = src;
         this.audio.currentTime = offset / 1000;

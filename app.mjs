@@ -1,8 +1,14 @@
+import { CinematicScene } from "./cinematic.mjs";
+import { audioFormat } from "./media.mjs";
 import { AudioPlayer, listenCount } from "./player.mjs";
 import { STEPS, nextStep, cueState, initialState, completeStep, summarize, outcome } from "./logic.mjs";
 import * as store from "./storage.mjs";
 const $ = s => document.querySelector(s), pack = await (await fetch("./packs/L-S07/pack.json")).json();
+const scene = new CinematicScene(pack);
+const format = audioFormat(type => document.createElement("audio").canPlayType(type));
 let state = await store.load() || initialState(), index = 0, attempt = 1, gIndex = 0, recorder = null, stream = null, recordTimer = null, timerTick = null, take = null, takeURL = null, pending = null, showText = false, micError = "", busy = false, installPrompt = null, packAvailable = true;
+// Cue identities/rubric are unchanged from v002–v004; retain existing evidence.
+if (state.pack === 'APP_PROTO_v002_DRAFT') state.pack = pack.pack_version;
 if (state.pack !== pack.pack_version)
     state = initialState();
 const titles = { A: "Nghe tình huống", B: "Nghe và nhận biết số", C: "Chọn câu trả lời", D: "Nghe mẫu và khám phá", E: "Luyện nói", F: "Phản hồi", G: "Thử trong tình huống mới", summary: "Nhìn lại bài học" };
@@ -45,6 +51,7 @@ function stopMedia() {
     clearInterval(timerTick);
     recorder = null;
     busy = false;
+    scene.recording = false; scene.apply();
     disposeTake();
     pending = null;
     showText = false;
@@ -87,6 +94,7 @@ function mountPlayers() {
             const player = new AudioPlayer(ids.map(id => pack.cues[id]), {
                 ...options,
                 blocked: () => busy,
+                onUpdate: player => { options.onUpdate?.(player); scene.update(player); },
                 activate: active => {
                     for (const other of players.values())
                         if (other !== active)
@@ -134,8 +142,10 @@ function shell(content) {
 <aside>
 <div class="scene">
 <button id="scene-enlarge" aria-label="Phóng to toàn cảnh">
-<img src="packs/L-S07/scene-960.webp" srcset="packs/L-S07/scene-960.webp 960w, packs/L-S07/scene-1920.webp 1920w" sizes="(max-width:650px) 100vw, 55vw" alt="Linh và Mark tại quầy; bảng giá trên tường">
+<span class="scene-layers" aria-hidden="true"></span>
+<img src="packs/L-S07/scene-960.webp" alt="Linh và Mark tại quầy; bảng giá trên tường">
 </button>
+<span class="speaker-tag" aria-hidden="true">Linh và Mark</span>
 <small>Chạm để xem toàn cảnh · Giá hư cấu để học</small>
 </div>
 <p class="muted">${state.step === "G" ? "Dùng thông tin trên thẻ để trả lời." : "Học từng bước, có thể thử lại hoặc bỏ qua."}</p>
@@ -151,6 +161,7 @@ function navigation() {
 }
 function renderHome() {
     stopMedia();
+    scene.mount(null);
     $("#app").innerHTML = `<section class="intro">
 <p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p>
 <h1>Từng câu nhỏ.<br>Tự tin hơn mỗi ngày.</h1>
@@ -193,7 +204,7 @@ function render() {
         case "A":
             content = `<h2>Ở quầy cùng Linh và Mark</h2>
 <p>Nghe trọn tình huống một lần, rồi nghe lại thêm một lần nếu muốn.</p>
-<p class="task-count">Đã mở ${state.a}/2 lượt</p>${!state.volumeHintDismissed ? `<div class="warning">Bật âm lượng điện thoại · Nhấn ▶ để bắt đầu nghe ${button("dismiss-hint", "Đã hiểu")}</div>` : ""}${playerHTML("hear", pack.dialogue, { label: "Nghe tình huống", allowed: () => state.a < 2, onBegin: () => {
+<p class="task-count">Đã mở ${state.a}/2 lượt</p>${!state.volumeHintDismissed ? `<div class="warning">Bật âm lượng điện thoại · Tắt chế độ im lặng · Nhấn ▶ để bắt đầu nghe ${button("dismiss-hint", "Đã hiểu")}</div>` : ""}${playerHTML("hear", pack.dialogue, { label: "Nghe tình huống", allowed: () => state.a < 2, onBegin: () => {
                     state.a = listenCount(state.a, "begin");
                     persist();
                     const count = $(".task-count");
@@ -296,8 +307,8 @@ function render() {
         }
     }
     $("#app").innerHTML = shell(content);
-    mountPlayers();
     bindCommon();
+    mountPlayers();
     bindStep();
     persist();
 }
@@ -307,7 +318,7 @@ function speechUI(id, type) {
     return `<p class="muted">Micro chỉ dùng để nghe lại trên máy; không tải lên. Bản ghi tự xóa khi rời bước, thử lại hoặc đóng bài. Có thể nói thành tiếng hoặc bỏ qua.</p>${!pack.cues[id].audio ? "<p class=\"warning\">Audio sắp có · Luyện có hỗ trợ.</p>" : ""}<div class="controls">${button("record", "Ghi âm", "primary", busy)}${button("stop", "Dừng", "", !busy)}${button("aloud", "Tôi đã nói thành tiếng (không ghi âm)", "", busy)}${button("speak-skip", "Bỏ qua lượt này", "", busy)}</div>
 <p id="timer" class="recording" role="status">
 </p>${takeURL ? `<p>Nghe bản của bạn:</p>
-<audio controls src="${takeURL}">
+<audio playsinline controls src="${takeURL}">
 </audio>${button("delete-take", "Xóa bản ghi và thử lại")}` : ""}${captured ? `${playerHTML("model", [id], { label: "Nghe mẫu để đối chiếu" })}<p class="target">${escape(pack.cues[id].english)}</p>
 <p>${escape(pack.cues[id].vietnamese)}</p>
 <form id="check">
@@ -321,6 +332,8 @@ function speechUI(id, type) {
 <p class="muted">${escape(done.at(-1).evidence)} · ${done.at(-1).assisted ? "Có hỗ trợ" : "Không nhìn câu mẫu"}</p>` : ""}${!captured && !(type === "E" && attempt === 1) ? button("text-help", "Cần câu mẫu hỗ trợ") : ""}`;
 }
 function bindCommon() {
+    scene.mount(document.querySelector('.scene'));
+    scene.apply();
     bind("recap-toggle", () => {
         recapOpen = !recapOpen;
         render();
@@ -330,7 +343,11 @@ function bindCommon() {
         persist();
         render();
     });
-    bind("scene-enlarge", () => $("#enlarge").showModal());
+    bind("scene-enlarge", () => {
+        const image = $("#enlarge img");
+        image.src = image.dataset.src;
+        $("#enlarge").showModal();
+    });
     bind("home", () => {
         stopMedia();
         location.hash = "home";
@@ -488,6 +505,7 @@ async function startRecording(id, type) {
             clearTimeout(recordTimer);
             clearInterval(timerTick);
             busy = false;
+            scene.recording = false; scene.apply();
             take = new Blob(chunks, { type: recorder.mimeType });
             if (!take.size) {
                 micError = "Bản ghi trống: không có bằng chứng. Hãy thử lại hoặc tự báo cáo.";
@@ -505,6 +523,7 @@ async function startRecording(id, type) {
         };
         recorder.start();
         busy = true;
+        scene.recording = true; scene.apply();
         $("#record").disabled = true;
         $("#stop").disabled = false;
         $("#aloud").disabled = true;
@@ -560,11 +579,14 @@ window.addEventListener("hashchange", () => {
     else
         renderHome();
 });
+bind("motion-toggle", () => scene.setEnabled(!scene.enabled));
+scene.apply();
 bind("close-scene", () => $("#enlarge").close());
 bind("erase", async () => {
     if (confirm("Xóa toàn bộ tiến độ, tự đánh giá, bản ghi và dữ liệu offline của NailTalk trên thiết bị này?")) {
         stopMedia();
         await store.clear();
+        scene.reset();
         await workerMessage("CLEAR");
         state = initialState();
         packAvailable = false;
@@ -614,11 +636,12 @@ async function workerMessage(type) {
             clearTimeout(timeout);
             e.data.error ? reject(Error(e.data.error)) : resolve(e.data);
         };
-        reg.active.postMessage({ type }, [channel.port2]);
+        reg.active.postMessage({ type, format }, [channel.port2]);
     });
 }
 async function checkOffline() {
     try {
+        await workerMessage("SELECT_FORMAT");
         const ready = await workerMessage("CHECK");
         packAvailable = ready.ready;
         if (location.hash === "#home" || !location.hash)

@@ -31,7 +31,8 @@
       "duration_ms": 1340,
       "sha256_ogg": "872d6eff049e29da2fa70a0a5c54a23fb5a7af7fd8d0f8919d7142329b86127e",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_01.mp3"
     },
     {
       "id": "S07_B_02",
@@ -49,7 +50,8 @@
       "duration_ms": 1400,
       "sha256_ogg": "64a702a132741234ad7f4d87661409c8a794329697c303d5e4bb8c4e89d05de9",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_02.mp3"
     },
     {
       "id": "S07_B_03",
@@ -67,7 +69,8 @@
       "duration_ms": 1250,
       "sha256_ogg": "d89c499315fe62796fa5fba9eb9a5e7b4af53627c8e020f35daa862cec6a193d",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_03.mp3"
     },
     {
       "id": "S07_B_04",
@@ -85,7 +88,8 @@
       "duration_ms": 1390,
       "sha256_ogg": "a3ee40267b2dea506b551e30ba0e11f07d91901c8fd38f19d342d8f181bd18c6",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_04.mp3"
     },
     {
       "id": "S07_B_05",
@@ -103,7 +107,8 @@
       "duration_ms": 1390,
       "sha256_ogg": "7c66bcba7d9ee76179a1615e56f6b65610e04462e5c7f2390c51e800b2c70267",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_05.mp3"
     },
     {
       "id": "S07_B_06",
@@ -121,7 +126,8 @@
       "duration_ms": 1290,
       "sha256_ogg": "0c221029b00773cdc598ecc29caa2d5f923fe7d660250ee54de5825c395b8942",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_06.mp3"
     },
     {
       "id": "S07_B_07",
@@ -139,7 +145,8 @@
       "duration_ms": 1100,
       "sha256_ogg": "e81801113061fdaef08329fee87522bb1e7a3df659e173750b5f79d4fedacf89",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_07.mp3"
     }
   ],
   "c": {
@@ -191,7 +198,8 @@
       "duration_ms": 1980,
       "sha256_ogg": "47b76344d3b043d1bb0988637220d78f890bf7dd635b186d573aaf2949d47953",
       "delivery": "natural, friendly",
-      "audio_speaker": "MARK"
+      "audio_speaker": "MARK",
+      "audio_fallback": "audio/S07_MARK_01.mp3"
     },
     "S07_LINH_01": {
       "id": "S07_LINH_01",
@@ -207,7 +215,8 @@
       "duration_ms": 1080,
       "sha256_ogg": "808a452db2ad4ee22da356670f0e6db428d5ee714e7ced84882ad4b4a37c2daa",
       "delivery": "warm, clear, polite",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_LINH_01.mp3"
     },
     "S07_MARK_02": {
       "id": "S07_MARK_02",
@@ -220,7 +229,8 @@
       "duration_ms": 720,
       "sha256_ogg": "ebac5b59bba9dcaa7efb652322bb76deeae434e9a875aef1a2a3a27db6c4dce0",
       "delivery": "natural, friendly",
-      "audio_speaker": "MARK"
+      "audio_speaker": "MARK",
+      "audio_fallback": "audio/S07_MARK_02.mp3"
     },
     "S07_LINH_02": {
       "id": "S07_LINH_02",
@@ -236,7 +246,8 @@
       "duration_ms": 2270,
       "sha256_ogg": "e31a90414331d468a2137a9159162f09b30fb8fe7ecbf4bce014260bd0bc7053",
       "delivery": "warm, clear, polite",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_LINH_02.mp3"
     },
     "S07_MARK_03": {
       "id": "S07_MARK_03",
@@ -249,7 +260,8 @@
       "duration_ms": 2410,
       "sha256_ogg": "2561911b5743026dae7da6eee036754c032b0ccaf5b9e40c756906f116f102a7",
       "delivery": "natural, friendly",
-      "audio_speaker": "MARK"
+      "audio_speaker": "MARK",
+      "audio_fallback": "audio/S07_MARK_03.mp3"
     },
     "S07_LINH_03": {
       "id": "S07_LINH_03",
@@ -265,7 +277,8 @@
       "duration_ms": 3300,
       "sha256_ogg": "f9f82cb2f461619355f47009b235482f4ccf65727af3c3d332dd261ab2e7c4cd",
       "delivery": "warm, clear, polite",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_LINH_03.mp3"
     },
     "S07_MARK_04": {
       "id": "S07_MARK_04",
@@ -278,7 +291,8 @@
       "duration_ms": 1320,
       "sha256_ogg": "94502afc265c3d48e9da1b8c1a5e971b1e4feb12d49d4ad346d4ef8cc3a3d829",
       "delivery": "natural, friendly",
-      "audio_speaker": "MARK"
+      "audio_speaker": "MARK",
+      "audio_fallback": "audio/S07_MARK_04.mp3"
     },
     "S07_B_01": {
       "id": "S07_B_01",
@@ -296,7 +310,8 @@
       "duration_ms": 1340,
       "sha256_ogg": "872d6eff049e29da2fa70a0a5c54a23fb5a7af7fd8d0f8919d7142329b86127e",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_01.mp3"
     },
     "S07_B_02": {
       "id": "S07_B_02",
@@ -314,7 +329,8 @@
       "duration_ms": 1400,
       "sha256_ogg": "64a702a132741234ad7f4d87661409c8a794329697c303d5e4bb8c4e89d05de9",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_02.mp3"
     },
     "S07_B_03": {
       "id": "S07_B_03",
@@ -332,7 +348,8 @@
       "duration_ms": 1250,
       "sha256_ogg": "d89c499315fe62796fa5fba9eb9a5e7b4af53627c8e020f35daa862cec6a193d",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_03.mp3"
     },
     "S07_B_04": {
       "id": "S07_B_04",
@@ -350,7 +367,8 @@
       "duration_ms": 1390,
       "sha256_ogg": "a3ee40267b2dea506b551e30ba0e11f07d91901c8fd38f19d342d8f181bd18c6",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_04.mp3"
     },
     "S07_B_05": {
       "id": "S07_B_05",
@@ -368,7 +386,8 @@
       "duration_ms": 1390,
       "sha256_ogg": "7c66bcba7d9ee76179a1615e56f6b65610e04462e5c7f2390c51e800b2c70267",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_05.mp3"
     },
     "S07_B_06": {
       "id": "S07_B_06",
@@ -386,7 +405,8 @@
       "duration_ms": 1290,
       "sha256_ogg": "0c221029b00773cdc598ecc29caa2d5f923fe7d660250ee54de5825c395b8942",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_06.mp3"
     },
     "S07_B_07": {
       "id": "S07_B_07",
@@ -404,7 +424,8 @@
       "duration_ms": 1100,
       "sha256_ogg": "e81801113061fdaef08329fee87522bb1e7a3df659e173750b5f79d4fedacf89",
       "delivery": "natural, friendly",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_B_07.mp3"
     },
     "S07_G_CUST_01": {
       "id": "S07_G_CUST_01",
@@ -417,7 +438,8 @@
       "duration_ms": 1610,
       "sha256_ogg": "021a6899fa86cec1bf17767a8fcae246078beb311d0f437d809db80c3d24015a",
       "delivery": "natural, friendly",
-      "audio_speaker": "CUSTOMER"
+      "audio_speaker": "CUSTOMER",
+      "audio_fallback": "audio/S07_G_CUST_01.mp3"
     },
     "S07_G_CUST_02": {
       "id": "S07_G_CUST_02",
@@ -430,7 +452,8 @@
       "duration_ms": 940,
       "sha256_ogg": "3c33391496462c68eac7629147e8dc26d70160b22a9eec80643bb6466f0524cb",
       "delivery": "natural, friendly",
-      "audio_speaker": "CUSTOMER"
+      "audio_speaker": "CUSTOMER",
+      "audio_fallback": "audio/S07_G_CUST_02.mp3"
     },
     "S07_G_LINH_01": {
       "id": "S07_G_LINH_01",
@@ -446,7 +469,8 @@
       "duration_ms": 1430,
       "sha256_ogg": "270bd7562558269ca4ac806ee05a4e0b6ab75170595f5508ea7b873107e57603",
       "delivery": "warm, clear, polite",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_G_LINH_01.mp3"
     },
     "S07_G_LINH_02": {
       "id": "S07_G_LINH_02",
@@ -462,7 +486,105 @@
       "duration_ms": 1910,
       "sha256_ogg": "531c5c6a7455825d1bd595c47085293ad4980f7a0e68d41eb05cffe7379aeee5",
       "delivery": "warm, clear, polite",
-      "audio_speaker": "LINH"
+      "audio_speaker": "LINH",
+      "audio_fallback": "audio/S07_G_LINH_02.mp3"
+    }
+  },
+  "cinematic": {
+    "width": 960,
+    "height": 540,
+    "layers": [
+      {
+        "path": "cinematic-0.webp",
+        "x": 0,
+        "y": 0,
+        "width": 960,
+        "height": 540,
+        "character": null,
+        "decoded_bytes": 2073600
+      },
+      {
+        "path": "cinematic-1.webp",
+        "x": 553,
+        "y": 128,
+        "width": 231,
+        "height": 282,
+        "character": "linh",
+        "decoded_bytes": 260568
+      },
+      {
+        "path": "cinematic-2.webp",
+        "x": 0,
+        "y": 341,
+        "width": 952,
+        "height": 199,
+        "character": null,
+        "decoded_bytes": 757792
+      },
+      {
+        "path": "cinematic-3.webp",
+        "x": 738,
+        "y": 91,
+        "width": 220,
+        "height": 449,
+        "character": "mark",
+        "decoded_bytes": 395120
+      }
+    ],
+    "source_members": [
+      {
+        "name": "BACKGROUND approved plate derivative unflipped",
+        "member": "data/layer05.png",
+        "sha256": "c80749dfe689213661d4f48143a180ed1a6c08e04e7a026e1d361092d4048842"
+      },
+      {
+        "name": "PROPS/PRICE_BOARD_SHADOW",
+        "member": "data/price_board_shadow.png",
+        "sha256": "e2c0aac8c12d0808ff18df5b27905dfa6c2240caef7f48e6cc3c139355e34c5b"
+      },
+      {
+        "name": "PROPS/PRICE_BOARD",
+        "member": "data/price_board.png",
+        "sha256": "e264d92167cca080aa5ae69ba95c3ee63d2559fd3c8b3feeddb6023cd7bdb918"
+      },
+      {
+        "name": "WALL LOGO exact S01 v002 geometry",
+        "member": "data/layer04.png",
+        "sha256": "6a3cc2d7d3454e410ef81ed043a119321c0caa0c6c8de09b339ea94634e8d878"
+      },
+      {
+        "name": "CHARACTER Linh approved P25 no mirror unchanged",
+        "member": "data/layer03.png",
+        "sha256": "2113754a9a89708b36f72848648f640bade08e4c4617966c64f43be6175f35e6"
+      },
+      {
+        "name": "OCCLUDER plate furniture + original ink",
+        "member": "data/layer02.png",
+        "sha256": "3d5e572b7354296bc7b0575aaac776e6f0fe5498407b886ba965a1591e976afa"
+      },
+      {
+        "name": "PLACEHOLDER POS blank price field",
+        "member": "data/layer01.png",
+        "sha256": "4014e2e3399ffc52be7098baed9c52670f411017b1a89f14ae13fad74fe2f932"
+      },
+      {
+        "name": "CHARACTER Mark P-M03 back-three-quarter listening DRAFT",
+        "member": "data/layer00.png",
+        "sha256": "acab4caa4e3374cfd1884bafbbbd4d3bef4e1c98b1641bc824a9eb1b1ad2ea20"
+      }
+    ],
+    "speakers": {
+      "Linh": "linh",
+      "Linh (model voice)": "linh",
+      "Mark": "mark"
+    },
+    "decoded_bytes": 3487080,
+    "motion": {
+      "translate_x_css_px": 0.15,
+      "translate_y_css_px": 0.2,
+      "rotate_deg": 0.015,
+      "speaking_seconds": 6,
+      "idle_seconds": 12
     }
   },
   "recap": {
@@ -566,7 +688,7 @@
     }
   },
   "schema_version": 1,
-  "pack_version": "APP_PROTO_v002_DRAFT",
+  "pack_version": "APP_PROTO_v005_DRAFT",
   "min_shell_version": 1,
   "rubric_version": "lesson-set-v1.0",
   "id": "L-S07",
@@ -582,7 +704,9 @@
     "04_Learning_Design/LESSON_SET_L-S01-L-S08_v1.0.md": "967f8a89e20ba0631e0b6100ad746195262f1086ebac622ef3e59bdafc0aa0c8",
     "05_Production/scene_briefs/LINH_SCENE_BRIEF_S07_v1.0.md": "70db3a8ff68b2f9edd801c65f048db4c3828b5297f82162aa6d2ea357fdfc0b9",
     "07_Production_Assets/audio/lessons/CUE_INVENTORY_v001_DRAFT.json": "ad3341e23cc66fab6714003028e1f13e5d1c21a2ad4b9d520c62fe342556affa",
-    "07_Production_Assets/scenes/S07/NTE_MARK_LINH_SCENE_S07_v005_DRAFT.png": "4cb8b26fa047bdaf21ef2f48298caccb223213e631a667c5da72fda806d1325b"
+    "07_Production_Assets/scenes/S07/NTE_MARK_LINH_SCENE_S07_v005_DRAFT.png": "4cb8b26fa047bdaf21ef2f48298caccb223213e631a667c5da72fda806d1325b",
+    "07_Production_Assets/scenes/S07/NTE_MARK_LINH_SCENE_S07_v005_DRAFT.ora": "1771198cc93c83ae1f3076e22fec91627f8cdc713c3ba4f5df89409edc615e67",
+    "07_Production_Assets/scenes/S07/NTE_MARK_LINH_SCENE_S07_v005_DRAFT.composition.json": "63b42026d9ba5c4a409cbeee720fda9110660a5deb6bde9afcd0bcc894120a93"
   },
   "deviations": [],
   "audio_manifest": {
@@ -591,9 +715,19 @@
   },
   "files": [
     {
+      "path": "audio/S07_B_01.mp3",
+      "bytes": 12456,
+      "sha256": "071f6b3fc9dea7ebb8e17ac8e68256aa711f8a6f0a9665adaaff669f07696466"
+    },
+    {
       "path": "audio/S07_B_01.ogg",
       "bytes": 6979,
       "sha256": "872d6eff049e29da2fa70a0a5c54a23fb5a7af7fd8d0f8919d7142329b86127e"
+    },
+    {
+      "path": "audio/S07_B_02.mp3",
+      "bytes": 12432,
+      "sha256": "88d50db03411873786ccfefc094dbcd8e95b12478df37af6d64120a266c204bd"
     },
     {
       "path": "audio/S07_B_02.ogg",
@@ -601,9 +735,19 @@
       "sha256": "64a702a132741234ad7f4d87661409c8a794329697c303d5e4bb8c4e89d05de9"
     },
     {
+      "path": "audio/S07_B_03.mp3",
+      "bytes": 11544,
+      "sha256": "6c83c4e5bec9e06686584aa4e6727a59319e6068692c38d9989656f0c4ded710"
+    },
+    {
       "path": "audio/S07_B_03.ogg",
       "bytes": 6560,
       "sha256": "d89c499315fe62796fa5fba9eb9a5e7b4af53627c8e020f35daa862cec6a193d"
+    },
+    {
+      "path": "audio/S07_B_04.mp3",
+      "bytes": 13416,
+      "sha256": "2e4e3b745de2b7c6ac79a8516ec8de6ad13f531ad5ab52dbe5e0f83ba8e9f5ac"
     },
     {
       "path": "audio/S07_B_04.ogg",
@@ -611,9 +755,19 @@
       "sha256": "a3ee40267b2dea506b551e30ba0e11f07d91901c8fd38f19d342d8f181bd18c6"
     },
     {
+      "path": "audio/S07_B_05.mp3",
+      "bytes": 12240,
+      "sha256": "ed1fbaf126b7d81e34fe1cb759080226cb57d56e76a38006f6455bbac5d16a42"
+    },
+    {
       "path": "audio/S07_B_05.ogg",
       "bytes": 7310,
       "sha256": "7c66bcba7d9ee76179a1615e56f6b65610e04462e5c7f2390c51e800b2c70267"
+    },
+    {
+      "path": "audio/S07_B_06.mp3",
+      "bytes": 11568,
+      "sha256": "2b53f5f7cd0d99731d346fb2680312974e47b5e1b4aeae5e273ba43c6cb1f573"
     },
     {
       "path": "audio/S07_B_06.ogg",
@@ -621,9 +775,19 @@
       "sha256": "0c221029b00773cdc598ecc29caa2d5f923fe7d660250ee54de5825c395b8942"
     },
     {
+      "path": "audio/S07_B_07.mp3",
+      "bytes": 9648,
+      "sha256": "f9783689eaeea14ce1baa57ece8d41cafa1f6b11e701f7598014c27ddad689d7"
+    },
+    {
       "path": "audio/S07_B_07.ogg",
       "bytes": 5919,
       "sha256": "e81801113061fdaef08329fee87522bb1e7a3df659e173750b5f79d4fedacf89"
+    },
+    {
+      "path": "audio/S07_G_CUST_01.mp3",
+      "bytes": 14400,
+      "sha256": "d6be1d7ff25ad878624bfd444635eb05925ab872ad54f4502ac0eea456f478b7"
     },
     {
       "path": "audio/S07_G_CUST_01.ogg",
@@ -631,9 +795,19 @@
       "sha256": "021a6899fa86cec1bf17767a8fcae246078beb311d0f437d809db80c3d24015a"
     },
     {
+      "path": "audio/S07_G_CUST_02.mp3",
+      "bytes": 8040,
+      "sha256": "77fa687c533a48f1ba67576bfc39413ab5f03aea0e1904ac3bd1d2976a936755"
+    },
+    {
       "path": "audio/S07_G_CUST_02.ogg",
       "bytes": 4948,
       "sha256": "3c33391496462c68eac7629147e8dc26d70160b22a9eec80643bb6466f0524cb"
+    },
+    {
+      "path": "audio/S07_G_LINH_01.mp3",
+      "bytes": 12600,
+      "sha256": "96a9c937b238adb526cf1b89ae26b1b724365110454e54941ad44b04f9794c64"
     },
     {
       "path": "audio/S07_G_LINH_01.ogg",
@@ -641,9 +815,19 @@
       "sha256": "270bd7562558269ca4ac806ee05a4e0b6ab75170595f5508ea7b873107e57603"
     },
     {
+      "path": "audio/S07_G_LINH_02.mp3",
+      "bytes": 16080,
+      "sha256": "864e846f079a42abc254c4c8bc428e41543bb07e2dd3b50822bbb5649f3b0613"
+    },
+    {
       "path": "audio/S07_G_LINH_02.ogg",
       "bytes": 9556,
       "sha256": "531c5c6a7455825d1bd595c47085293ad4980f7a0e68d41eb05cffe7379aeee5"
+    },
+    {
+      "path": "audio/S07_LINH_01.mp3",
+      "bytes": 10344,
+      "sha256": "4fcbf34fd256cedd9b2f13dd53753b74cbf15240c92296e36ed4d1e5f5909f35"
     },
     {
       "path": "audio/S07_LINH_01.ogg",
@@ -651,9 +835,19 @@
       "sha256": "808a452db2ad4ee22da356670f0e6db428d5ee714e7ced84882ad4b4a37c2daa"
     },
     {
+      "path": "audio/S07_LINH_02.mp3",
+      "bytes": 19032,
+      "sha256": "6bfcdaf375febb6ff2824f8cdb6fa8e53d2b5c28012a753597a2738c1d9e45b4"
+    },
+    {
       "path": "audio/S07_LINH_02.ogg",
       "bytes": 10778,
       "sha256": "e31a90414331d468a2137a9159162f09b30fb8fe7ecbf4bce014260bd0bc7053"
+    },
+    {
+      "path": "audio/S07_LINH_03.mp3",
+      "bytes": 26736,
+      "sha256": "f1345fd66eaa976698c387ce30e93ae771567c651c4a088aff4970fed2805e3f"
     },
     {
       "path": "audio/S07_LINH_03.ogg",
@@ -661,9 +855,19 @@
       "sha256": "f9f82cb2f461619355f47009b235482f4ccf65727af3c3d332dd261ab2e7c4cd"
     },
     {
+      "path": "audio/S07_MARK_01.mp3",
+      "bytes": 16488,
+      "sha256": "f08ac867dc68e12de99feea9fb390dae44cace8ada45dc7311b562961f2c780f"
+    },
+    {
       "path": "audio/S07_MARK_01.ogg",
       "bytes": 10133,
       "sha256": "47b76344d3b043d1bb0988637220d78f890bf7dd635b186d573aaf2949d47953"
+    },
+    {
+      "path": "audio/S07_MARK_02.mp3",
+      "bytes": 6000,
+      "sha256": "df4134b1fd15b845fcea5ff6114c5788b7ddb654a3b76ecb2b7dd6c44f3c86c5"
     },
     {
       "path": "audio/S07_MARK_02.ogg",
@@ -671,14 +875,44 @@
       "sha256": "ebac5b59bba9dcaa7efb652322bb76deeae434e9a875aef1a2a3a27db6c4dce0"
     },
     {
+      "path": "audio/S07_MARK_03.mp3",
+      "bytes": 18888,
+      "sha256": "e863a3032aeb499013e7556dc3530e118101ab1f95747b37cd11345ba39040f5"
+    },
+    {
       "path": "audio/S07_MARK_03.ogg",
       "bytes": 11767,
       "sha256": "2561911b5743026dae7da6eee036754c032b0ccaf5b9e40c756906f116f102a7"
     },
     {
+      "path": "audio/S07_MARK_04.mp3",
+      "bytes": 10776,
+      "sha256": "1a98a73ab160f495f22a885adae9111d0c3d4541de838cb657a484fa545b5253"
+    },
+    {
       "path": "audio/S07_MARK_04.ogg",
       "bytes": 6960,
       "sha256": "94502afc265c3d48e9da1b8c1a5e971b1e4feb12d49d4ad346d4ef8cc3a3d829"
+    },
+    {
+      "path": "cinematic-0.webp",
+      "bytes": 437424,
+      "sha256": "b38124bf8bc0ce578113b227d4ca377c848f889fcb929bec4802915af4a5946a"
+    },
+    {
+      "path": "cinematic-1.webp",
+      "bytes": 52174,
+      "sha256": "8cbf9813089c52c47ca5513006adbe7a2fed0f0f4fefffc4a102d91acc4b7077"
+    },
+    {
+      "path": "cinematic-2.webp",
+      "bytes": 106984,
+      "sha256": "999ebdf8f6559cb4510e404dddda42a97e6fc6ce7310ad2b2b5ad5075be41820"
+    },
+    {
+      "path": "cinematic-3.webp",
+      "bytes": 67420,
+      "sha256": "55ac5db26073099e4dedb942f9518e73c4fd4567ec2ca1ad76f3dbce3cbadedf"
     },
     {
       "path": "scene-1920.webp",
