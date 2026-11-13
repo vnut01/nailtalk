@@ -100,7 +100,7 @@ export class CinematicScene {
         const mark = speaker === 'mark' ? markShape(shape) : 'CLOSED';
         const blinks = {linh:null,mark:null};
         if (active && !document.hidden && !this.recording) {
-            for (const char of ['mark','linh']) blinks[char] = characterBlink(now,this.blinkStarts,char,char === 'linh' && linh === 'A');
+            for (const char of ['mark','linh']) if (!this.pack.cinematic?.eyeMap || Object.keys(this.pack.cinematic.eyeMap[char] || {}).length) blinks[char] = characterBlink(now,this.blinkStarts,char,char === 'linh' && linh === 'A');
         } else for (const char of ['mark','linh']) this.blinkStarts[char] = nextBlink(now);
         const motion = gestureAt(speaker,cue,this.player?.audio.currentTime,playing,this.pack.cinematic?.gestures?.nodCues);
         const rig = this.root?.querySelector('.gesture-rig');

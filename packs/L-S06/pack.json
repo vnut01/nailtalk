@@ -1,0 +1,2168 @@
+{
+  "cues": {
+    "S06_LINH_01": {
+      "id": "S06_LINH_01",
+      "speaker": "Linh",
+      "english": "Please rest your hand here.",
+      "vietnamese": "Chị đặt tay ở đây nhé.",
+      "condition": "scene",
+      "aid": "final /st/, /nd/",
+      "intent": "invite comfortable placement",
+      "expected": "say it before any tool action",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINH_01.ogg",
+      "audio_fallback": "audio/S06_LINH_01.mp3",
+      "duration_ms": 1270,
+      "status": "DRAFT",
+      "sha256_ogg": "7f9de8ab75e4d7c4639498ba2351dd4f60c7790bc120008c9c42b12df1f69e61",
+      "sha256_wav": "86dccaa6b84e899f66e81a95f32e7f25c03bfdc1106473b4d2c059e2b79c20fa"
+    },
+    "S06_LINDA_01": {
+      "id": "S06_LINDA_01",
+      "speaker": "Linda",
+      "english": "Like this?",
+      "vietnamese": "Thế này hả?",
+      "condition": "scene",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINDA_01.ogg",
+      "audio_fallback": "audio/S06_LINDA_01.mp3",
+      "duration_ms": 960,
+      "status": "DRAFT",
+      "sha256_ogg": "a267b0833df87015e488af9b25424906ef5d77661efa86e45cc78cf548472b50",
+      "sha256_wav": "c873b9e22047e6ae122cc7f82ad7a5e1f166aec8cfb8767fa22e5542e9def24a"
+    },
+    "S06_LINH_02": {
+      "id": "S06_LINH_02",
+      "speaker": "Linh",
+      "english": "Perfect. Is this comfortable?",
+      "vietnamese": "Dạ đúng rồi. Chị thấy thoải mái không ạ?",
+      "condition": "scene",
+      "aid": "—",
+      "intent": "check comfort",
+      "expected": "after Linda places her hand",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINH_02.ogg",
+      "audio_fallback": "audio/S06_LINH_02.mp3",
+      "duration_ms": 1860,
+      "status": "DRAFT",
+      "sha256_ogg": "daef3e80f9633a99ac444e1e39e6a5713c50a083b811243b44e00516a41bf203",
+      "sha256_wav": "8aa1797185cd4365394e1c51b9573482bc42b9afa4a29d5c3a198bad730b3875"
+    },
+    "S06_LINDA_02": {
+      "id": "S06_LINDA_02",
+      "speaker": "Linda",
+      "english": "Yep, all good.",
+      "vietnamese": "Ừ, ổn cả.",
+      "condition": "scene",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINDA_02.ogg",
+      "audio_fallback": "audio/S06_LINDA_02.mp3",
+      "duration_ms": 1760,
+      "status": "DRAFT",
+      "sha256_ogg": "058c038e9c6232b336ce8051649c1c86ba9f6105807385c127eea8f093e4e3f2",
+      "sha256_wav": "896f05f5e5bbd5c60d0d12b3858a0abdee00c36b9cc7101fbcf88b9b888b4663"
+    },
+    "S06_LINH_03": {
+      "id": "S06_LINH_03",
+      "speaker": "Linh",
+      "english": "Great. Let me know if anything hurts.",
+      "vietnamese": "Dạ. Nếu thấy đau chỗ nào chị cứ báo em nhé.",
+      "condition": "scene",
+      "aid": "final /ts/ in *hurts*",
+      "intent": "invite her to report discomfort",
+      "expected": "before starting",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINH_03.ogg",
+      "audio_fallback": "audio/S06_LINH_03.mp3",
+      "duration_ms": 2270,
+      "status": "DRAFT",
+      "sha256_ogg": "1f29d70e4684421d113e014cf48a43744c971909a854017639d319cfda05b6a7",
+      "sha256_wav": "659683594b31d4bc77cdd29afba3b737f5bb3b98859e6dc94032651f64f2b8a0"
+    },
+    "S06_LINDA_03": {
+      "id": "S06_LINDA_03",
+      "speaker": "Linda",
+      "english": "Will do.",
+      "vietnamese": "Ừ, chị sẽ nói.",
+      "condition": "scene",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINDA_03.ogg",
+      "audio_fallback": "audio/S06_LINDA_03.mp3",
+      "duration_ms": 750,
+      "status": "DRAFT",
+      "sha256_ogg": "c67bdca57508865abf15b343997093559f7b1b424b5b1363767fc1e26c59f71a",
+      "sha256_wav": "ea1a454414751eab04584f57d0448795f028cef6929ce24cc31142a02328e2de"
+    },
+    "S06_LINH_04": {
+      "id": "S06_LINH_04",
+      "speaker": "Linh",
+      "english": "I'm sorry. I'll stop. Can you tell me where it stings?",
+      "vietnamese": "Em xin lỗi. Em dừng lại ạ. Chị cho em biết chỗ nào bị rát ạ?",
+      "condition": "model",
+      "aid": "— no pronunciation feedback in safety parts (meaning first)",
+      "intent": "stop immediately and locate the problem",
+      "expected": "say it right after S06_LINDA_04",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINH_04.ogg",
+      "audio_fallback": "audio/S06_LINH_04.mp3",
+      "duration_ms": 2820,
+      "status": "DRAFT",
+      "sha256_ogg": "3877f00695ebd1ce05d39deebdd1f2a4ff58bcf743ea45ba4caa9e775440ca5b",
+      "sha256_wav": "ebf7653ea7f0e0e9705fd96fe9fe884237e9cc7679a5f2c28726488a1b75dd3b"
+    },
+    "S06_LINH_05": {
+      "id": "S06_LINH_05",
+      "speaker": "Linh",
+      "english": "I'll get my manager.",
+      "vietnamese": "Em sẽ gọi quản lý ạ.",
+      "condition": "model",
+      "aid": "—",
+      "intent": "escalate",
+      "expected": "say it after S06_LINH_04, every case",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINH_05.ogg",
+      "audio_fallback": "audio/S06_LINH_05.mp3",
+      "duration_ms": 1090,
+      "status": "DRAFT",
+      "sha256_ogg": "528fde355b4294c9b8e6463077caf6032a8308fdbceff1bac117c607df0eebea",
+      "sha256_wav": "a327e8a539e068de2ace07e033537cdad3fd64336ebc44d701597386035f2f13"
+    },
+    "S06_LINH_06": {
+      "id": "S06_LINH_06",
+      "speaker": "Linh",
+      "english": "We'll stop the service on this hand today. Please check with a doctor.",
+      "vietnamese": "Hôm nay bên em sẽ dừng làm ở tay này. Chị nên hỏi ý kiến bác sĩ nhé.",
+      "condition": "model",
+      "aid": "—",
+      "intent": "postpone + referral (cases A, B)",
+      "expected": "receptive; optional repeat",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINH_06.ogg",
+      "audio_fallback": "audio/S06_LINH_06.mp3",
+      "duration_ms": 3610,
+      "status": "DRAFT",
+      "sha256_ogg": "39e0babeb424839c134b1457366738753ffd3b0021aaab87bc76fd0afbf8db12",
+      "sha256_wav": "786c84415e978e4b9485a9c9d2c8d667ac527acbde6012667be1aebd5570f160"
+    },
+    "S06_LINH_07": {
+      "id": "S06_LINH_07",
+      "speaker": "Linh",
+      "english": "I'm so sorry. We'll stop the service for today. My manager will take care of this right away.",
+      "vietnamese": "Em rất xin lỗi. Hôm nay bên em dừng dịch vụ ạ. Quản lý của em sẽ xử lý ngay ạ.",
+      "condition": "model",
+      "aid": "—",
+      "intent": "stop service + Susan takes over (case C)",
+      "expected": "receptive; optional repeat",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINH_07.ogg",
+      "audio_fallback": "audio/S06_LINH_07.mp3",
+      "duration_ms": 4960,
+      "status": "DRAFT",
+      "sha256_ogg": "f43988adc23bd1c3b5ef63d9a4c29512dffae01144e3be1c4a75e95484f8c1b3",
+      "sha256_wav": "1e9aeb737588888d0ace254583bb8cb5444e8e46cbce6169557770fb314b043f"
+    },
+    "S06_LINH_09": {
+      "id": "S06_LINH_09",
+      "speaker": "Linh",
+      "english": "Susan, I need help now!",
+      "vietnamese": "Chị Susan, em cần giúp gấp!",
+      "condition": "model",
+      "aid": "—",
+      "intent": "alert the manager at once (emergency)",
+      "expected": "say it right after S06_LINDA_06",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINH_09.ogg",
+      "audio_fallback": "audio/S06_LINH_09.mp3",
+      "duration_ms": 1730,
+      "status": "DRAFT",
+      "sha256_ogg": "cc26850c8eb24d8138b47376e5dcd5ff9cff35434788e4b50f1c66b783fc54ed",
+      "sha256_wav": "497b6b37d73a3de385c1a7d32e92fe7837ee0ca68017a7527d2970ddf2672796"
+    },
+    "S06_LINH_08": {
+      "id": "S06_LINH_08",
+      "speaker": "Linh",
+      "english": "I'm calling nine-one-one now.",
+      "vietnamese": "Em đang gọi cấp cứu 911 ngay ạ.",
+      "condition": "model",
+      "aid": "—",
+      "intent": "call emergency help (emergency)",
+      "expected": "say it right after S06_LINH_09",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINH_08.ogg",
+      "audio_fallback": "audio/S06_LINH_08.mp3",
+      "duration_ms": 1580,
+      "status": "DRAFT",
+      "sha256_ogg": "4867aa5e7640323b30fa8e2318c5c70042159a7b93551a1b91ac45e802be979d",
+      "sha256_wav": "db3b2532c1a405488a17168a71e8a6108a8c1d5454409b75893395d0e0a6dd55"
+    },
+    "S06_G_LINDA_01": {
+      "id": "S06_G_LINDA_01",
+      "speaker": "Linda",
+      "english": "Hmm, my finger feels really hot.",
+      "vietnamese": "Ơ, ngón tay chị thấy nóng quá.",
+      "condition": "transfer",
+      "lesson": "L-S06",
+      "audio": "audio/S06_G_LINDA_01.ogg",
+      "audio_fallback": "audio/S06_G_LINDA_01.mp3",
+      "duration_ms": 2090,
+      "status": "DRAFT",
+      "sha256_ogg": "aa74ee62aabec19f47a492a61ba81794c0b834e937c7130b6ab1a8d1f9c10dd1",
+      "sha256_wav": "71e7b404e81a65195c14d1e9289250d9ff3bb0953f9e0196dde3ddbf65fb70e3"
+    },
+    "S06_G_LINH_01": {
+      "id": "S06_G_LINH_01",
+      "speaker": "Linh",
+      "english": "I'm sorry. I'll stop. Can you show me where?",
+      "vietnamese": "Em xin lỗi. Em dừng lại ạ. Chị chỉ cho em chỗ nào ạ?",
+      "condition": "transfer",
+      "lesson": "L-S06",
+      "audio": "audio/S06_G_LINH_01.ogg",
+      "audio_fallback": "audio/S06_G_LINH_01.mp3",
+      "duration_ms": 3020,
+      "status": "DRAFT",
+      "sha256_ogg": "0201503428d31ef81aaded668f1099ca6cb53beb15061c3438432e36d2947abe",
+      "sha256_wav": "f66e5f305ffd7ccc6f9e6f9d8bd3581e4f1a1179791e4c3fa92f07bcbf6b0c48"
+    },
+    "S06_LINDA_04": {
+      "id": "S06_LINDA_04",
+      "speaker": "Linda",
+      "english": "Ouch — that stings a little.",
+      "vietnamese": "Ối — hơi rát.",
+      "condition": "transfer",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINDA_04.ogg",
+      "audio_fallback": "audio/S06_LINDA_04.mp3",
+      "duration_ms": 1320,
+      "status": "DRAFT",
+      "sha256_ogg": "d9ccbc848dedfd51f504e5f34d1a938ad39adee29da7c92a43bba12c0fc3a57c",
+      "sha256_wav": "aeff1e989543a0f39620b8754f1e144804cf7ab5a75a8757fc64fe2b061680c6"
+    },
+    "S06_LINDA_05": {
+      "id": "S06_LINDA_05",
+      "speaker": "Linda",
+      "english": "Right here, near the nail.",
+      "vietnamese": "Chỗ này, gần móng.",
+      "condition": "transfer",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINDA_05.ogg",
+      "audio_fallback": "audio/S06_LINDA_05.mp3",
+      "duration_ms": 1780,
+      "status": "DRAFT",
+      "sha256_ogg": "72b91e22bd5a6c2240ff0bfcc50350335a0f239126869e810be1ffbdaa6317ab",
+      "sha256_wav": "2698309b3f36c91745065c56f80f89869e306d376fb1ff1e7cc72bc34ec0af78"
+    },
+    "S06_LINDA_06": {
+      "id": "S06_LINDA_06",
+      "speaker": "Linda",
+      "english": "I feel dizzy… and my lips feel swollen.",
+      "vietnamese": "Chị thấy chóng mặt… môi chị bị sưng.",
+      "condition": "transfer",
+      "lesson": "L-S06",
+      "audio": "audio/S06_LINDA_06.ogg",
+      "audio_fallback": "audio/S06_LINDA_06.mp3",
+      "duration_ms": 2550,
+      "status": "DRAFT",
+      "sha256_ogg": "4ff726df8884479370c4a15866741d578aa53945254be74940279fa9bbc8c7d3",
+      "sha256_wav": "d2235139d25fd50a334da3ae9f881dbf49f5218440f755fc2e13e16f9f788999"
+    },
+    "S06_SUSAN_01": {
+      "id": "S06_SUSAN_01",
+      "speaker": "Susan",
+      "english": "I'll take care of this.",
+      "vietnamese": "Để chị lo việc này.",
+      "condition": "transfer",
+      "lesson": "L-S06",
+      "audio": "audio/S06_SUSAN_01.ogg",
+      "audio_fallback": "audio/S06_SUSAN_01.mp3",
+      "duration_ms": 1110,
+      "status": "DRAFT",
+      "sha256_ogg": "0848ecd2cf894dec367911747432dc3f4b1b2aa0372bf9e7c377a2023eb690d5",
+      "sha256_wav": "913b6946c79eca61d8c20333890cfb49c511b610706b1eacff00e9b7f6512246"
+    },
+    "S06_C_LINH_03": {
+      "id": "S06_C_LINH_03",
+      "speaker": "Linh",
+      "english": "Don't move.",
+      "vietnamese": "",
+      "condition": "transfer",
+      "lesson": "L-S06",
+      "audio": "audio/S06_C_LINH_03.ogg",
+      "audio_fallback": "audio/S06_C_LINH_03.mp3",
+      "duration_ms": 830,
+      "status": "DRAFT",
+      "sha256_ogg": "baaa213fe124d452ff535d6b63c75a5cd9d26a28f6b4b31115c27cf2a6a6b068",
+      "sha256_wav": "809f3e0745f316226c07129b71d263abd51fce172921b320206466c992588171"
+    }
+  },
+  "dialogue": [
+    "S06_LINH_01",
+    "S06_LINDA_01",
+    "S06_LINH_02",
+    "S06_LINDA_02",
+    "S06_LINH_03",
+    "S06_LINDA_03"
+  ],
+  "teaching": [
+    "S06_LINH_01",
+    "S06_LINH_02",
+    "S06_LINH_03"
+  ],
+  "estimated_minutes": 14,
+  "enabled_steps": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "omitted_steps": {},
+  "steps": {
+    "A": {
+      "topic": "Nghe Linh hỏi Linda đặt tay có thoải mái",
+      "goal": "Theo dõi lời hướng dẫn đặt tay, hỏi thoải mái và nhắc báo khi đau."
+    },
+    "B": {
+      "topic": "Nghe Linda trả lời về tư thế đặt tay",
+      "goal": "Chọn đúng việc Linda thấy thoải mái hay chưa."
+    },
+    "C": {
+      "topic": "Chọn lời đáp khi Linda thấy thoải mái",
+      "goal": "Chọn câu nhắc khách báo nếu đau trước khi tiếp tục."
+    },
+    "D": {
+      "topic": "Nghe Linh hướng dẫn đặt tay và hỏi khách",
+      "goal": "Khám phá cách mời đặt tay, hỏi thoải mái và nhắc báo đau."
+    },
+    "E": {
+      "topic": "Tập hỏi khách có thoải mái khi đặt tay",
+      "goal": "Nói ba câu của Linh theo mẫu rồi thử khi ẩn câu mẫu."
+    },
+    "F": {
+      "topic": "Tự kiểm tra lời hỏi và nhắc khách báo đau",
+      "goal": "Đối chiếu ý kiểm tra thoải mái và nghe âm cuối của hurts."
+    },
+    "G": {
+      "topic": "Dừng làm và gọi giúp khi khách thấy bất ổn",
+      "goal": "Tập dừng khi nóng rát, báo quản lý và gọi Susan cùng 911 khi khẩn cấp."
+    }
+  },
+  "questions": {
+    "S06_LINH_01": null,
+    "S06_LINH_02": "S06_LINDA_01",
+    "S06_LINH_03": "S06_LINDA_02"
+  },
+  "b": [
+    {
+      "activity": "choice",
+      "id": "S06_LINDA_02",
+      "listen": [
+        "S06_LINDA_02"
+      ],
+      "prompt": "Linda thấy thoải mái không?",
+      "options": [
+        "Có",
+        "Không",
+        "Chưa rõ"
+      ],
+      "key": "Có"
+    }
+  ],
+  "c": {
+    "lead_in": [
+      "S06_LINDA_02"
+    ],
+    "prompt": "Chọn lời đáp phù hợp.",
+    "choices": [
+      "Great. Let me know if anything hurts.",
+      "Bắt đầu giũa móng mà không nói gì",
+      "Don't move."
+    ],
+    "notes": [
+      false,
+      false,
+      false
+    ],
+    "key": 0,
+    "keys": [
+      0
+    ],
+    "responses": [
+      [
+        "S06_LINH_03"
+      ],
+      [],
+      [
+        "S06_C_LINH_03"
+      ]
+    ],
+    "explanations": [
+      "Phù hợp: dùng câu mục tiêu.",
+      "Chưa phù hợp với điều vừa nghe.",
+      "Chưa phù hợp; hãy nghe lại và kiểm tra trước."
+    ]
+  },
+  "transfer": {
+    "activity": "native",
+    "turns": [
+      {
+        "prompts": [
+          "S06_G_LINDA_01"
+        ],
+        "models": [
+          "S06_G_LINH_01",
+          "S06_LINH_05"
+        ],
+        "situation": "Khách thấy ngón tay rất nóng. Dừng và báo quản lý.",
+        "meaning": "Tôi đã dừng VÀ gọi quản lý.",
+        "other": "Tôi xin lỗi và hỏi chỗ nào.",
+        "safety": true
+      }
+    ],
+    "models": [
+      "S06_G_LINH_01"
+    ],
+    "prompts": [
+      "S06_G_LINDA_01"
+    ]
+  },
+  "feedback": [
+    "Em đã kiểm tra khách thoải mái trước khi làm.",
+    "Phần đặt tay: giữ âm cuối /ts/ trong *hurts* theo mẫu. Phần an toàn chỉ xem hành động."
+  ],
+  "recap": {},
+  "ui": {
+    "kind": "native",
+    "scene_label": "Linh · khách ngoài khung hình",
+    "listen": "Nghe tình huống. Được nghe 2 lượt.",
+    "contact_crop": true
+  },
+  "scene": {
+    "full": "scene-1920.webp",
+    "small": "scene-960.webp",
+    "phone_crop": {
+      "x": 0,
+      "y": 0,
+      "width": 1560,
+      "height": 1080
+    }
+  },
+  "geometry": {
+    "fit": "contain",
+    "width": 1920,
+    "height": 1080
+  },
+  "sprite_status": "DRAFT",
+  "pack_version": "APP_PROTO_v010_L-S06_DRAFT",
+  "flags": [
+    "G → B; H → C: nearest-shape fallback (data only)"
+  ],
+  "drills": [
+    {
+      "prompts": [
+        "S06_LINDA_04"
+      ],
+      "models": [
+        "S06_LINH_04"
+      ],
+      "situation": "Khách thấy rát nhẹ. Dừng ngay và hỏi chỗ rát.",
+      "meaning": "Tôi đã dừng ngay.",
+      "other": "Tôi xin lỗi và hỏi chỗ rát.",
+      "safety": true
+    },
+    {
+      "prompts": [
+        "S06_LINDA_05"
+      ],
+      "models": [
+        "S06_LINH_05"
+      ],
+      "situation": "Gọi quản lý; không tiếp tục làm.",
+      "meaning": "Tôi gọi quản lý và không tiếp tục.",
+      "other": "Tôi nói rõ hành động.",
+      "safety": true
+    },
+    {
+      "prompts": [
+        "S06_LINDA_06"
+      ],
+      "models": [
+        "S06_LINH_09",
+        "S06_LINH_08"
+      ],
+      "situation": "Triệu chứng nghiêm trọng: gọi Susan và 911 ngay.",
+      "meaning": "Tôi gọi Susan VÀ 911 ngay.",
+      "other": "Tôi không trì hoãn bằng câu hỏi thường lệ.",
+      "safety": true,
+      "gate": {
+        "activity": "choice",
+        "id": "emergency",
+        "listen": [
+          "S06_LINDA_06"
+        ],
+        "prompt": "Chọn hành động đầu tiên.",
+        "options": [
+          "Susan, I need help now! I'm calling nine-one-one now.",
+          "Can you tell me where it stings?",
+          "Let's wait a minute and see."
+        ],
+        "key": "Susan, I need help now! I'm calling nine-one-one now."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "text": "Đỏ/ngứa sau khi dùng sản phẩm",
+      "listen": [
+        "S06_LINH_06"
+      ],
+      "key": "Dừng làm tay này; hỏi bác sĩ"
+    },
+    {
+      "text": "Sưng hoặc vết thương vùng móng",
+      "listen": [
+        "S06_LINH_06"
+      ],
+      "key": "Dừng làm tay này; hỏi bác sĩ"
+    },
+    {
+      "text": "Vết cắt nhỏ đang chảy máu",
+      "listen": [
+        "S06_SUSAN_01",
+        "S06_LINH_07"
+      ],
+      "key": "Dừng dịch vụ; quản lý xử lý an toàn"
+    }
+  ],
+  "id": "L-S06",
+  "status": "DRAFT",
+  "schema_version": 1,
+  "min_shell_version": 1,
+  "rubric_version": "lesson-set-v1.0",
+  "sources": {
+    "04_Learning_Design/LESSON_SET_L-S01-L-S08_v1.0.md": "967f8a89e20ba0631e0b6100ad746195262f1086ebac622ef3e59bdafc0aa0c8",
+    "07_Production_Assets/audio/lessons/CUE_MANIFEST_v001_DRAFT.json": "20e94701619b9c4afd4d2de7c588ec996aa4ea1e591438cd00764cc33c677a0e",
+    "07_Production_Assets/scenes/S06/NTE_LINH_SCENE_S06_v003_DRAFT.png": "a467ef7c55fb139c8cb28ae13e8cce253b41d65e3163310123656a8648f36fc6",
+    "07_Production_Assets/scenes/S06/NTE_LINH_SCENE_S06_v003_DRAFT.ora": "789eaaddd64951b41e7f23dbaff2de78510ffe58e5237dc04060fb621cd851be",
+    "07_Production_Assets/scenes/S06/cinematic_grid/S06_LINH_SPRITES_v001_DRAFT.json": "c120eb2a3b7aa7ccada8c276aacf70f5513242817f9fec0b0c6b641bb394f045",
+    "07_Production_Assets/scenes/S06/cinematic_grid/S06_LINH_GRID_X_v001_DRAFT.png": "c25cb241c37e6dbf93e5e9153bba42d87fd760eda7ef12cf39173c9b21a6f896",
+    "07_Production_Assets/scenes/S06/cinematic_grid/S06_LINH_GRID_A_v001_DRAFT.png": "431c578af6dd5a34f84b88a9d7c056425997d26f19a2b8e65db75094de1d04ec",
+    "07_Production_Assets/scenes/S06/cinematic_grid/S06_LINH_GRID_B_v001_DRAFT.png": "3ec91f9eca336524be69027256ab738f52d12468a105fa0964e0443433bab170",
+    "07_Production_Assets/scenes/S06/cinematic_grid/S06_LINH_GRID_C_v001_DRAFT.png": "46028068a23b992ef12d103201c618e6a394e5a91d0f0d2a25f667934e034378",
+    "07_Production_Assets/scenes/S06/cinematic_grid/S06_LINH_GRID_D_v001_DRAFT.png": "cbb12376d35e66527dff36172d6cfd2d374273f2241160c6839c272d1828bac5",
+    "07_Production_Assets/scenes/S06/cinematic_grid/S06_LINH_GRID_E_v001_DRAFT.png": "a8ce3449fec144b91cd58c36b592906db0fdb41dad6874cfee3a170d47dcdc8d",
+    "07_Production_Assets/scenes/S06/cinematic_grid/S06_LINH_GRID_F_v001_DRAFT.png": "b9b09b1e8f792a72551c6d20f49bcad4e4ffa5ee950da9efd66275eaf63527c8",
+    "07_Production_Assets/audio/app_v010/CUE_MANIFEST_v010_DRAFT.json": "f7c8a4d53d1beef1ae836af118a5bf1943014131438e7d86d04889758ef354c5",
+    "07_Production_Assets/audio/app_v010/RENDER_LOG_v010_DRAFT.json": "ecdbc0476ce48b278f907676cfe8a63338356e4b4fddae2f01718dc9ab98a52d",
+    "tools/tts/casting_v1.json": "477f0b944ce4e7b71f43b3f6f5c40cf7ade5a71ed60d35a596c3c862c9a07aab",
+    "07_Production_Assets/cinematic/sets/LINH_FIX_02/audit/build__3847dcdfcd6a8e546f2ed5c9ad507f39db0681372ba7de678ef717abda7b7b39.json": "3847dcdfcd6a8e546f2ed5c9ad507f39db0681372ba7de678ef717abda7b7b39",
+    "tools/tts/render_app_v010.py": "661c1a3afa6e69b504fe2199ce6bd57ebcad4d3845e14e3ee5361f8f245d762a",
+    "07_Production_Assets/audio/lessons/L-S06/S06_G_LINDA_01.wav": "71e7b404e81a65195c14d1e9289250d9ff3bb0953f9e0196dde3ddbf65fb70e3",
+    "07_Production_Assets/audio/lessons/L-S06/S06_G_LINDA_01.ogg": "aa74ee62aabec19f47a492a61ba81794c0b834e937c7130b6ab1a8d1f9c10dd1",
+    "07_Production_Assets/audio/lessons/L-S06/S06_G_LINH_01.wav": "f66e5f305ffd7ccc6f9e6f9d8bd3581e4f1a1179791e4c3fa92f07bcbf6b0c48",
+    "07_Production_Assets/audio/lessons/L-S06/S06_G_LINH_01.ogg": "0201503428d31ef81aaded668f1099ca6cb53beb15061c3438432e36d2947abe",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_01.wav": "c873b9e22047e6ae122cc7f82ad7a5e1f166aec8cfb8767fa22e5542e9def24a",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_01.ogg": "a267b0833df87015e488af9b25424906ef5d77661efa86e45cc78cf548472b50",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_02.wav": "896f05f5e5bbd5c60d0d12b3858a0abdee00c36b9cc7101fbcf88b9b888b4663",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_02.ogg": "058c038e9c6232b336ce8051649c1c86ba9f6105807385c127eea8f093e4e3f2",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_03.wav": "ea1a454414751eab04584f57d0448795f028cef6929ce24cc31142a02328e2de",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_03.ogg": "c67bdca57508865abf15b343997093559f7b1b424b5b1363767fc1e26c59f71a",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_04.wav": "aeff1e989543a0f39620b8754f1e144804cf7ab5a75a8757fc64fe2b061680c6",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_04.ogg": "d9ccbc848dedfd51f504e5f34d1a938ad39adee29da7c92a43bba12c0fc3a57c",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_05.wav": "2698309b3f36c91745065c56f80f89869e306d376fb1ff1e7cc72bc34ec0af78",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_05.ogg": "72b91e22bd5a6c2240ff0bfcc50350335a0f239126869e810be1ffbdaa6317ab",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_06.wav": "d2235139d25fd50a334da3ae9f881dbf49f5218440f755fc2e13e16f9f788999",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_06.ogg": "4ff726df8884479370c4a15866741d578aa53945254be74940279fa9bbc8c7d3",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_01.wav": "86dccaa6b84e899f66e81a95f32e7f25c03bfdc1106473b4d2c059e2b79c20fa",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_01.ogg": "7f9de8ab75e4d7c4639498ba2351dd4f60c7790bc120008c9c42b12df1f69e61",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_02.wav": "8aa1797185cd4365394e1c51b9573482bc42b9afa4a29d5c3a198bad730b3875",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_02.ogg": "daef3e80f9633a99ac444e1e39e6a5713c50a083b811243b44e00516a41bf203",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_03.wav": "659683594b31d4bc77cdd29afba3b737f5bb3b98859e6dc94032651f64f2b8a0",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_03.ogg": "1f29d70e4684421d113e014cf48a43744c971909a854017639d319cfda05b6a7",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_04.wav": "ebf7653ea7f0e0e9705fd96fe9fe884237e9cc7679a5f2c28726488a1b75dd3b",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_04.ogg": "3877f00695ebd1ce05d39deebdd1f2a4ff58bcf743ea45ba4caa9e775440ca5b",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_05.wav": "a327e8a539e068de2ace07e033537cdad3fd64336ebc44d701597386035f2f13",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_05.ogg": "528fde355b4294c9b8e6463077caf6032a8308fdbceff1bac117c607df0eebea",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_06.wav": "786c84415e978e4b9485a9c9d2c8d667ac527acbde6012667be1aebd5570f160",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_06.ogg": "39e0babeb424839c134b1457366738753ffd3b0021aaab87bc76fd0afbf8db12",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_07.wav": "1e9aeb737588888d0ace254583bb8cb5444e8e46cbce6169557770fb314b043f",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_07.ogg": "f43988adc23bd1c3b5ef63d9a4c29512dffae01144e3be1c4a75e95484f8c1b3",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_08.wav": "db3b2532c1a405488a17168a71e8a6108a8c1d5454409b75893395d0e0a6dd55",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_08.ogg": "4867aa5e7640323b30fa8e2318c5c70042159a7b93551a1b91ac45e802be979d",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_09.wav": "497b6b37d73a3de385c1a7d32e92fe7837ee0ca68017a7527d2970ddf2672796",
+    "07_Production_Assets/audio/lessons/L-S06/S06_LINH_09.ogg": "cc26850c8eb24d8138b47376e5dcd5ff9cff35434788e4b50f1c66b783fc54ed",
+    "07_Production_Assets/audio/lessons/L-S06/S06_SUSAN_01.wav": "913b6946c79eca61d8c20333890cfb49c511b610706b1eacff00e9b7f6512246",
+    "07_Production_Assets/audio/lessons/L-S06/S06_SUSAN_01.ogg": "0848ecd2cf894dec367911747432dc3f4b1b2aa0372bf9e7c377a2023eb690d5",
+    "07_Production_Assets/audio/app_v010/S06_C_LINH_03.wav": "809f3e0745f316226c07129b71d263abd51fce172921b320206466c992588171",
+    "07_Production_Assets/audio/app_v010/S06_C_LINH_03.ogg": "baaa213fe124d452ff535d6b63c75a5cd9d26a28f6b4b31115c27cf2a6a6b068"
+  },
+  "cinematic": {
+    "width": 960,
+    "height": 540,
+    "layers": [
+      {
+        "path": "scene-960.webp",
+        "x": 0,
+        "y": 0,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "path": "cinematic-0.webp",
+        "x": 466,
+        "y": 197,
+        "width": 43,
+        "height": 24,
+        "character": "linh"
+      }
+    ],
+    "sprites": {
+      "X": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "X",
+        "path": "S06_LINH_GRID_X_v001_DRAFT.webp",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 43.0,
+        "height": 24.0,
+        "status": "UNCONFIRMED"
+      },
+      "A": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "A",
+        "path": "S06_LINH_GRID_A_v001_DRAFT.webp",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 43.0,
+        "height": 24.0,
+        "status": "UNCONFIRMED"
+      },
+      "B": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "B",
+        "path": "S06_LINH_GRID_B_v001_DRAFT.webp",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 43.0,
+        "height": 24.0,
+        "status": "UNCONFIRMED"
+      },
+      "C": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "C",
+        "path": "S06_LINH_GRID_C_v001_DRAFT.webp",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 43.0,
+        "height": 24.0,
+        "status": "UNCONFIRMED"
+      },
+      "D": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "D",
+        "path": "S06_LINH_GRID_D_v001_DRAFT.webp",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 43.0,
+        "height": 24.0,
+        "status": "UNCONFIRMED"
+      },
+      "E": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "E",
+        "path": "S06_LINH_GRID_E_v001_DRAFT.webp",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 43.0,
+        "height": 24.0,
+        "status": "UNCONFIRMED"
+      },
+      "F": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "F",
+        "path": "S06_LINH_GRID_F_v001_DRAFT.webp",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 43.0,
+        "height": 24.0,
+        "status": "UNCONFIRMED"
+      }
+    },
+    "speakers": {
+      "Linh": "linh"
+    },
+    "offscreen_speakers": [
+      "Linda",
+      "Susan"
+    ],
+    "restUsesOriginal": true,
+    "mouthMap": {
+      "linh": {
+        "X": "X",
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D",
+        "E": "E",
+        "F": "F",
+        "G": "B",
+        "H": "C"
+      }
+    },
+    "eyeMap": {
+      "linh": {}
+    },
+    "motion": {
+      "translate_x_css_px": 0,
+      "translate_y_css_px": 0,
+      "rotate_deg": 0,
+      "speaking_seconds": 6,
+      "idle_seconds": 12
+    }
+  },
+  "visemes": {
+    "S06_LINH_01": {
+      "character": "linh",
+      "duration": 1.27,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_LINH_01.wav",
+      "sha256_wav": "86dccaa6b84e899f66e81a95f32e7f25c03bfdc1106473b4d2c059e2b79c20fa",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.01,
+          "value": "X"
+        },
+        {
+          "start": 0.01,
+          "end": 0.09,
+          "value": "A"
+        },
+        {
+          "start": 0.09,
+          "end": 0.37,
+          "value": "B"
+        },
+        {
+          "start": 0.37,
+          "end": 0.44,
+          "value": "C"
+        },
+        {
+          "start": 0.44,
+          "end": 0.58,
+          "value": "F"
+        },
+        {
+          "start": 0.58,
+          "end": 0.65,
+          "value": "B"
+        },
+        {
+          "start": 0.65,
+          "end": 0.79,
+          "value": "C"
+        },
+        {
+          "start": 0.79,
+          "end": 1.21,
+          "value": "B"
+        },
+        {
+          "start": 1.21,
+          "end": 1.27,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_LINH_02": {
+      "character": "linh",
+      "duration": 1.86,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_LINH_02.wav",
+      "sha256_wav": "8aa1797185cd4365394e1c51b9573482bc42b9afa4a29d5c3a198bad730b3875",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.01,
+          "value": "X"
+        },
+        {
+          "start": 0.01,
+          "end": 0.09,
+          "value": "A"
+        },
+        {
+          "start": 0.09,
+          "end": 0.26,
+          "value": "E"
+        },
+        {
+          "start": 0.26,
+          "end": 0.33,
+          "value": "G"
+        },
+        {
+          "start": 0.33,
+          "end": 0.61,
+          "value": "B"
+        },
+        {
+          "start": 0.61,
+          "end": 0.98,
+          "value": "X"
+        },
+        {
+          "start": 0.98,
+          "end": 1.21,
+          "value": "B"
+        },
+        {
+          "start": 1.21,
+          "end": 1.35,
+          "value": "C"
+        },
+        {
+          "start": 1.35,
+          "end": 1.43,
+          "value": "A"
+        },
+        {
+          "start": 1.43,
+          "end": 1.53,
+          "value": "B"
+        },
+        {
+          "start": 1.53,
+          "end": 1.61,
+          "value": "A"
+        },
+        {
+          "start": 1.61,
+          "end": 1.79,
+          "value": "B"
+        },
+        {
+          "start": 1.79,
+          "end": 1.86,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_LINH_03": {
+      "character": "linh",
+      "duration": 2.27,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_LINH_03.wav",
+      "sha256_wav": "659683594b31d4bc77cdd29afba3b737f5bb3b98859e6dc94032651f64f2b8a0",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.04,
+          "value": "X"
+        },
+        {
+          "start": 0.04,
+          "end": 0.22,
+          "value": "B"
+        },
+        {
+          "start": 0.22,
+          "end": 0.29,
+          "value": "C"
+        },
+        {
+          "start": 0.29,
+          "end": 0.75,
+          "value": "B"
+        },
+        {
+          "start": 0.75,
+          "end": 0.81,
+          "value": "H"
+        },
+        {
+          "start": 0.81,
+          "end": 0.86,
+          "value": "B"
+        },
+        {
+          "start": 0.86,
+          "end": 0.94,
+          "value": "A"
+        },
+        {
+          "start": 0.94,
+          "end": 1.01,
+          "value": "B"
+        },
+        {
+          "start": 1.01,
+          "end": 1.08,
+          "value": "C"
+        },
+        {
+          "start": 1.08,
+          "end": 1.15,
+          "value": "E"
+        },
+        {
+          "start": 1.15,
+          "end": 1.22,
+          "value": "F"
+        },
+        {
+          "start": 1.22,
+          "end": 1.29,
+          "value": "B"
+        },
+        {
+          "start": 1.29,
+          "end": 1.36,
+          "value": "G"
+        },
+        {
+          "start": 1.36,
+          "end": 1.43,
+          "value": "C"
+        },
+        {
+          "start": 1.43,
+          "end": 1.64,
+          "value": "B"
+        },
+        {
+          "start": 1.64,
+          "end": 1.92,
+          "value": "E"
+        },
+        {
+          "start": 1.92,
+          "end": 2.2,
+          "value": "B"
+        },
+        {
+          "start": 2.2,
+          "end": 2.27,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_LINH_04": {
+      "character": "linh",
+      "duration": 2.82,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_LINH_04.wav",
+      "sha256_wav": "ebf7653ea7f0e0e9705fd96fe9fe884237e9cc7679a5f2c28726488a1b75dd3b",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.17,
+          "value": "C"
+        },
+        {
+          "start": 0.17,
+          "end": 0.31,
+          "value": "B"
+        },
+        {
+          "start": 0.31,
+          "end": 0.38,
+          "value": "D"
+        },
+        {
+          "start": 0.38,
+          "end": 0.73,
+          "value": "B"
+        },
+        {
+          "start": 0.73,
+          "end": 0.78,
+          "value": "C"
+        },
+        {
+          "start": 0.78,
+          "end": 0.89,
+          "value": "B"
+        },
+        {
+          "start": 0.89,
+          "end": 0.99,
+          "value": "D"
+        },
+        {
+          "start": 0.99,
+          "end": 1.03,
+          "value": "C"
+        },
+        {
+          "start": 1.03,
+          "end": 1.48,
+          "value": "A"
+        },
+        {
+          "start": 1.48,
+          "end": 1.77,
+          "value": "B"
+        },
+        {
+          "start": 1.77,
+          "end": 1.91,
+          "value": "C"
+        },
+        {
+          "start": 1.91,
+          "end": 1.99,
+          "value": "A"
+        },
+        {
+          "start": 1.99,
+          "end": 2.05,
+          "value": "B"
+        },
+        {
+          "start": 2.05,
+          "end": 2.11,
+          "value": "F"
+        },
+        {
+          "start": 2.11,
+          "end": 2.74,
+          "value": "B"
+        },
+        {
+          "start": 2.74,
+          "end": 2.82,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_LINH_05": {
+      "character": "linh",
+      "duration": 1.09,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_LINH_05.wav",
+      "sha256_wav": "a327e8a539e068de2ace07e033537cdad3fd64336ebc44d701597386035f2f13",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.14,
+          "value": "C"
+        },
+        {
+          "start": 0.14,
+          "end": 0.34,
+          "value": "B"
+        },
+        {
+          "start": 0.34,
+          "end": 0.4,
+          "value": "A"
+        },
+        {
+          "start": 0.4,
+          "end": 0.46,
+          "value": "C"
+        },
+        {
+          "start": 0.46,
+          "end": 0.54,
+          "value": "A"
+        },
+        {
+          "start": 0.54,
+          "end": 0.74,
+          "value": "C"
+        },
+        {
+          "start": 0.74,
+          "end": 0.81,
+          "value": "B"
+        },
+        {
+          "start": 0.81,
+          "end": 1.02,
+          "value": "E"
+        },
+        {
+          "start": 1.02,
+          "end": 1.09,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_LINH_06": {
+      "character": "linh",
+      "duration": 3.61,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_LINH_06.wav",
+      "sha256_wav": "786c84415e978e4b9485a9c9d2c8d667ac527acbde6012667be1aebd5570f160",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.17,
+          "value": "F"
+        },
+        {
+          "start": 0.17,
+          "end": 0.37,
+          "value": "B"
+        },
+        {
+          "start": 0.37,
+          "end": 0.44,
+          "value": "D"
+        },
+        {
+          "start": 0.44,
+          "end": 0.55,
+          "value": "A"
+        },
+        {
+          "start": 0.55,
+          "end": 0.72,
+          "value": "B"
+        },
+        {
+          "start": 0.72,
+          "end": 0.79,
+          "value": "E"
+        },
+        {
+          "start": 0.79,
+          "end": 0.86,
+          "value": "G"
+        },
+        {
+          "start": 0.86,
+          "end": 0.93,
+          "value": "C"
+        },
+        {
+          "start": 0.93,
+          "end": 1.0,
+          "value": "B"
+        },
+        {
+          "start": 1.0,
+          "end": 1.07,
+          "value": "D"
+        },
+        {
+          "start": 1.07,
+          "end": 1.28,
+          "value": "B"
+        },
+        {
+          "start": 1.28,
+          "end": 1.42,
+          "value": "C"
+        },
+        {
+          "start": 1.42,
+          "end": 1.63,
+          "value": "B"
+        },
+        {
+          "start": 1.63,
+          "end": 1.77,
+          "value": "C"
+        },
+        {
+          "start": 1.77,
+          "end": 1.91,
+          "value": "B"
+        },
+        {
+          "start": 1.91,
+          "end": 2.05,
+          "value": "C"
+        },
+        {
+          "start": 2.05,
+          "end": 2.21,
+          "value": "B"
+        },
+        {
+          "start": 2.21,
+          "end": 2.33,
+          "value": "A"
+        },
+        {
+          "start": 2.33,
+          "end": 2.76,
+          "value": "B"
+        },
+        {
+          "start": 2.76,
+          "end": 2.83,
+          "value": "C"
+        },
+        {
+          "start": 2.83,
+          "end": 3.04,
+          "value": "B"
+        },
+        {
+          "start": 3.04,
+          "end": 3.18,
+          "value": "D"
+        },
+        {
+          "start": 3.18,
+          "end": 3.32,
+          "value": "B"
+        },
+        {
+          "start": 3.32,
+          "end": 3.53,
+          "value": "E"
+        },
+        {
+          "start": 3.53,
+          "end": 3.61,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_LINH_07": {
+      "character": "linh",
+      "duration": 4.96,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_LINH_07.wav",
+      "sha256_wav": "1e9aeb737588888d0ace254583bb8cb5444e8e46cbce6169557770fb314b043f",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.16,
+          "value": "C"
+        },
+        {
+          "start": 0.16,
+          "end": 0.23,
+          "value": "B"
+        },
+        {
+          "start": 0.23,
+          "end": 0.32,
+          "value": "A"
+        },
+        {
+          "start": 0.32,
+          "end": 0.46,
+          "value": "B"
+        },
+        {
+          "start": 0.46,
+          "end": 0.53,
+          "value": "E"
+        },
+        {
+          "start": 0.53,
+          "end": 0.6,
+          "value": "F"
+        },
+        {
+          "start": 0.6,
+          "end": 0.67,
+          "value": "B"
+        },
+        {
+          "start": 0.67,
+          "end": 0.81,
+          "value": "D"
+        },
+        {
+          "start": 0.81,
+          "end": 1.09,
+          "value": "B"
+        },
+        {
+          "start": 1.09,
+          "end": 1.23,
+          "value": "C"
+        },
+        {
+          "start": 1.23,
+          "end": 1.42,
+          "value": "X"
+        },
+        {
+          "start": 1.42,
+          "end": 1.54,
+          "value": "B"
+        },
+        {
+          "start": 1.54,
+          "end": 1.64,
+          "value": "D"
+        },
+        {
+          "start": 1.64,
+          "end": 1.68,
+          "value": "C"
+        },
+        {
+          "start": 1.68,
+          "end": 1.78,
+          "value": "A"
+        },
+        {
+          "start": 1.78,
+          "end": 1.92,
+          "value": "B"
+        },
+        {
+          "start": 1.92,
+          "end": 2.06,
+          "value": "E"
+        },
+        {
+          "start": 2.06,
+          "end": 2.41,
+          "value": "B"
+        },
+        {
+          "start": 2.41,
+          "end": 2.62,
+          "value": "C"
+        },
+        {
+          "start": 2.62,
+          "end": 2.9,
+          "value": "B"
+        },
+        {
+          "start": 2.9,
+          "end": 2.98,
+          "value": "A"
+        },
+        {
+          "start": 2.98,
+          "end": 3.05,
+          "value": "B"
+        },
+        {
+          "start": 3.05,
+          "end": 3.12,
+          "value": "A"
+        },
+        {
+          "start": 3.12,
+          "end": 3.21,
+          "value": "C"
+        },
+        {
+          "start": 3.21,
+          "end": 3.42,
+          "value": "B"
+        },
+        {
+          "start": 3.42,
+          "end": 3.49,
+          "value": "E"
+        },
+        {
+          "start": 3.49,
+          "end": 3.63,
+          "value": "B"
+        },
+        {
+          "start": 3.63,
+          "end": 3.98,
+          "value": "C"
+        },
+        {
+          "start": 3.98,
+          "end": 4.47,
+          "value": "B"
+        },
+        {
+          "start": 4.47,
+          "end": 4.61,
+          "value": "C"
+        },
+        {
+          "start": 4.61,
+          "end": 4.68,
+          "value": "F"
+        },
+        {
+          "start": 4.68,
+          "end": 4.82,
+          "value": "C"
+        },
+        {
+          "start": 4.82,
+          "end": 4.89,
+          "value": "B"
+        },
+        {
+          "start": 4.89,
+          "end": 4.96,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_LINH_09": {
+      "character": "linh",
+      "duration": 1.73,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_LINH_09.wav",
+      "sha256_wav": "497b6b37d73a3de385c1a7d32e92fe7837ee0ca68017a7527d2970ddf2672796",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.3,
+          "value": "F"
+        },
+        {
+          "start": 0.3,
+          "end": 0.36,
+          "value": "E"
+        },
+        {
+          "start": 0.36,
+          "end": 0.61,
+          "value": "C"
+        },
+        {
+          "start": 0.61,
+          "end": 0.82,
+          "value": "B"
+        },
+        {
+          "start": 0.82,
+          "end": 0.96,
+          "value": "C"
+        },
+        {
+          "start": 0.96,
+          "end": 1.09,
+          "value": "A"
+        },
+        {
+          "start": 1.09,
+          "end": 1.18,
+          "value": "C"
+        },
+        {
+          "start": 1.18,
+          "end": 1.46,
+          "value": "D"
+        },
+        {
+          "start": 1.46,
+          "end": 1.67,
+          "value": "E"
+        },
+        {
+          "start": 1.67,
+          "end": 1.73,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_LINH_08": {
+      "character": "linh",
+      "duration": 1.58,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_LINH_08.wav",
+      "sha256_wav": "db3b2532c1a405488a17168a71e8a6108a8c1d5454409b75893395d0e0a6dd55",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.07,
+          "value": "X"
+        },
+        {
+          "start": 0.07,
+          "end": 0.14,
+          "value": "C"
+        },
+        {
+          "start": 0.14,
+          "end": 0.21,
+          "value": "B"
+        },
+        {
+          "start": 0.21,
+          "end": 0.42,
+          "value": "E"
+        },
+        {
+          "start": 0.42,
+          "end": 0.56,
+          "value": "B"
+        },
+        {
+          "start": 0.56,
+          "end": 0.77,
+          "value": "C"
+        },
+        {
+          "start": 0.77,
+          "end": 0.84,
+          "value": "B"
+        },
+        {
+          "start": 0.84,
+          "end": 0.91,
+          "value": "F"
+        },
+        {
+          "start": 0.91,
+          "end": 1.4,
+          "value": "C"
+        },
+        {
+          "start": 1.4,
+          "end": 1.47,
+          "value": "E"
+        },
+        {
+          "start": 1.47,
+          "end": 1.58,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_G_LINH_01": {
+      "character": "linh",
+      "duration": 3.02,
+      "wav": "07_Production_Assets/audio/lessons/L-S06/S06_G_LINH_01.wav",
+      "sha256_wav": "f66e5f305ffd7ccc6f9e6f9d8bd3581e4f1a1179791e4c3fa92f07bcbf6b0c48",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.07,
+          "value": "X"
+        },
+        {
+          "start": 0.07,
+          "end": 0.24,
+          "value": "D"
+        },
+        {
+          "start": 0.24,
+          "end": 0.31,
+          "value": "B"
+        },
+        {
+          "start": 0.31,
+          "end": 0.39,
+          "value": "A"
+        },
+        {
+          "start": 0.39,
+          "end": 0.46,
+          "value": "B"
+        },
+        {
+          "start": 0.46,
+          "end": 0.6,
+          "value": "D"
+        },
+        {
+          "start": 0.6,
+          "end": 0.92,
+          "value": "B"
+        },
+        {
+          "start": 0.92,
+          "end": 0.98,
+          "value": "C"
+        },
+        {
+          "start": 0.98,
+          "end": 1.17,
+          "value": "B"
+        },
+        {
+          "start": 1.17,
+          "end": 1.27,
+          "value": "D"
+        },
+        {
+          "start": 1.27,
+          "end": 1.31,
+          "value": "C"
+        },
+        {
+          "start": 1.31,
+          "end": 1.54,
+          "value": "A"
+        },
+        {
+          "start": 1.54,
+          "end": 1.72,
+          "value": "B"
+        },
+        {
+          "start": 1.72,
+          "end": 1.86,
+          "value": "C"
+        },
+        {
+          "start": 1.86,
+          "end": 2.07,
+          "value": "B"
+        },
+        {
+          "start": 2.07,
+          "end": 2.28,
+          "value": "F"
+        },
+        {
+          "start": 2.28,
+          "end": 2.35,
+          "value": "B"
+        },
+        {
+          "start": 2.35,
+          "end": 2.42,
+          "value": "E"
+        },
+        {
+          "start": 2.42,
+          "end": 2.5,
+          "value": "A"
+        },
+        {
+          "start": 2.5,
+          "end": 2.56,
+          "value": "B"
+        },
+        {
+          "start": 2.56,
+          "end": 2.62,
+          "value": "F"
+        },
+        {
+          "start": 2.62,
+          "end": 2.76,
+          "value": "C"
+        },
+        {
+          "start": 2.76,
+          "end": 2.97,
+          "value": "B"
+        },
+        {
+          "start": 2.97,
+          "end": 3.02,
+          "value": "X"
+        }
+      ]
+    },
+    "S06_C_LINH_03": {
+      "character": "linh",
+      "duration": 0.83,
+      "wav": "07_Production_Assets/audio/app_v010/S06_C_LINH_03.wav",
+      "sha256_wav": "809f3e0745f316226c07129b71d263abd51fce172921b320206466c992588171",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.05,
+          "value": "X"
+        },
+        {
+          "start": 0.05,
+          "end": 0.12,
+          "value": "B"
+        },
+        {
+          "start": 0.12,
+          "end": 0.19,
+          "value": "E"
+        },
+        {
+          "start": 0.19,
+          "end": 0.26,
+          "value": "F"
+        },
+        {
+          "start": 0.26,
+          "end": 0.34,
+          "value": "A"
+        },
+        {
+          "start": 0.34,
+          "end": 0.53,
+          "value": "F"
+        },
+        {
+          "start": 0.53,
+          "end": 0.74,
+          "value": "G"
+        },
+        {
+          "start": 0.74,
+          "end": 0.83,
+          "value": "X"
+        }
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "S06_LINH_GRID_A_v001_DRAFT.webp",
+      "sha256": "3c6b41c062e5b33ddf0c5cff5bccee74752640f3a6c184dde7f233d051e825f8",
+      "bytes": 1796
+    },
+    {
+      "path": "S06_LINH_GRID_B_v001_DRAFT.webp",
+      "sha256": "849e49b39e1f9689c15aae0b59715359da577f39fec7c77f814a0a77eb636501",
+      "bytes": 1996
+    },
+    {
+      "path": "S06_LINH_GRID_C_v001_DRAFT.webp",
+      "sha256": "63696ba5970d608e68dd9d40f0da8bfa90c44f2789885a0b056824d2df34bca3",
+      "bytes": 2132
+    },
+    {
+      "path": "S06_LINH_GRID_D_v001_DRAFT.webp",
+      "sha256": "1ac23dab7add0c9ea6a4905a9c54e0d8b7acda5c443e695be4dac6a9593560bd",
+      "bytes": 2064
+    },
+    {
+      "path": "S06_LINH_GRID_E_v001_DRAFT.webp",
+      "sha256": "3228b44f2d481b809ee1ceb069480ab6e6d29e1944a839719d0a0c0759c230d6",
+      "bytes": 2082
+    },
+    {
+      "path": "S06_LINH_GRID_F_v001_DRAFT.webp",
+      "sha256": "6641458c49d9f0115a3541a23cc852f01e00d6b523cff7361501596668cdd514",
+      "bytes": 1976
+    },
+    {
+      "path": "S06_LINH_GRID_X_v001_DRAFT.webp",
+      "sha256": "f27b9830c82835ccdf1e101438251f468857e31d903fcecd528f63e9d48f93be",
+      "bytes": 1772
+    },
+    {
+      "path": "audio/S06_C_LINH_03.mp3",
+      "sha256": "bfa66870f6f93fed791e21af2986176c0ad22eba94ca4487700941fbae41305d",
+      "bytes": 6504
+    },
+    {
+      "path": "audio/S06_C_LINH_03.ogg",
+      "sha256": "baaa213fe124d452ff535d6b63c75a5cd9d26a28f6b4b31115c27cf2a6a6b068",
+      "bytes": 4507
+    },
+    {
+      "path": "audio/S06_G_LINDA_01.mp3",
+      "sha256": "12e5a888e5b1b90f1d09fc341e5ecdc6a0165e0ff45a0926f9f41252d585c52d",
+      "bytes": 17088
+    },
+    {
+      "path": "audio/S06_G_LINDA_01.ogg",
+      "sha256": "aa74ee62aabec19f47a492a61ba81794c0b834e937c7130b6ab1a8d1f9c10dd1",
+      "bytes": 10429
+    },
+    {
+      "path": "audio/S06_G_LINH_01.mp3",
+      "sha256": "d2fc65e06555dfa7bdbaad0d738be2ff06ffb3f45779bd4269771ec6c9a5fc96",
+      "bytes": 26520
+    },
+    {
+      "path": "audio/S06_G_LINH_01.ogg",
+      "sha256": "0201503428d31ef81aaded668f1099ca6cb53beb15061c3438432e36d2947abe",
+      "bytes": 14427
+    },
+    {
+      "path": "audio/S06_LINDA_01.mp3",
+      "sha256": "735a56fe3c3501f5bc8087c0374cd88631da9e946f71a5a9a5402e91e67b8536",
+      "bytes": 7536
+    },
+    {
+      "path": "audio/S06_LINDA_01.ogg",
+      "sha256": "a267b0833df87015e488af9b25424906ef5d77661efa86e45cc78cf548472b50",
+      "bytes": 5195
+    },
+    {
+      "path": "audio/S06_LINDA_02.mp3",
+      "sha256": "73fefe726a56e6c2304130cfd11659a850857bd34227569d0a3828d7bceadd04",
+      "bytes": 12432
+    },
+    {
+      "path": "audio/S06_LINDA_02.ogg",
+      "sha256": "058c038e9c6232b336ce8051649c1c86ba9f6105807385c127eea8f093e4e3f2",
+      "bytes": 9024
+    },
+    {
+      "path": "audio/S06_LINDA_03.mp3",
+      "sha256": "de5561ea646b39e0edc76eeea73fd1bc062d376d7ab95bf6ce9b772344b3e2f0",
+      "bytes": 6576
+    },
+    {
+      "path": "audio/S06_LINDA_03.ogg",
+      "sha256": "c67bdca57508865abf15b343997093559f7b1b424b5b1363767fc1e26c59f71a",
+      "bytes": 4388
+    },
+    {
+      "path": "audio/S06_LINDA_04.mp3",
+      "sha256": "5fcadca1d6bf5dc6d32d7920d2a7d055ea9f817132e3b29581214c33256de55c",
+      "bytes": 11472
+    },
+    {
+      "path": "audio/S06_LINDA_04.ogg",
+      "sha256": "d9ccbc848dedfd51f504e5f34d1a938ad39adee29da7c92a43bba12c0fc3a57c",
+      "bytes": 6829
+    },
+    {
+      "path": "audio/S06_LINDA_05.mp3",
+      "sha256": "0b3db1c0bf1dbd7fe8f296114c8f90e4693272caf6431cb032a8e98e40d5fffa",
+      "bytes": 14568
+    },
+    {
+      "path": "audio/S06_LINDA_05.ogg",
+      "sha256": "72b91e22bd5a6c2240ff0bfcc50350335a0f239126869e810be1ffbdaa6317ab",
+      "bytes": 8696
+    },
+    {
+      "path": "audio/S06_LINDA_06.mp3",
+      "sha256": "7d27aa780f9d78fd122b670c70fa426392e4efba47dacc5271884b23c967dc56",
+      "bytes": 19704
+    },
+    {
+      "path": "audio/S06_LINDA_06.ogg",
+      "sha256": "4ff726df8884479370c4a15866741d578aa53945254be74940279fa9bbc8c7d3",
+      "bytes": 12221
+    },
+    {
+      "path": "audio/S06_LINH_01.mp3",
+      "sha256": "5b6302446b4afbbdf2cb2a605ae63ac9e4b0bd04f38090049f5a1659d6822d66",
+      "bytes": 10656
+    },
+    {
+      "path": "audio/S06_LINH_01.ogg",
+      "sha256": "7f9de8ab75e4d7c4639498ba2351dd4f60c7790bc120008c9c42b12df1f69e61",
+      "bytes": 6558
+    },
+    {
+      "path": "audio/S06_LINH_02.mp3",
+      "sha256": "d74adaa2802843ea7c89fbc3a78033cd9ef67a674e94957c1250e931a165d6aa",
+      "bytes": 16080
+    },
+    {
+      "path": "audio/S06_LINH_02.ogg",
+      "sha256": "daef3e80f9633a99ac444e1e39e6a5713c50a083b811243b44e00516a41bf203",
+      "bytes": 9135
+    },
+    {
+      "path": "audio/S06_LINH_03.mp3",
+      "sha256": "54580ae76f29f8e4f363691ce880ce447fecf42f02e006cdb07628322e800918",
+      "bytes": 19320
+    },
+    {
+      "path": "audio/S06_LINH_03.ogg",
+      "sha256": "1f29d70e4684421d113e014cf48a43744c971909a854017639d319cfda05b6a7",
+      "bytes": 11104
+    },
+    {
+      "path": "audio/S06_LINH_04.mp3",
+      "sha256": "04ac4230150f1f63c274715c09d4d56d29e50286ac6641d88189faaebf9ac808",
+      "bytes": 24288
+    },
+    {
+      "path": "audio/S06_LINH_04.ogg",
+      "sha256": "3877f00695ebd1ce05d39deebdd1f2a4ff58bcf743ea45ba4caa9e775440ca5b",
+      "bytes": 13364
+    },
+    {
+      "path": "audio/S06_LINH_05.mp3",
+      "sha256": "35e7ff146eb6cbafcd8f18ed7e7027f70877592778189da3b35cf99603c338ac",
+      "bytes": 10152
+    },
+    {
+      "path": "audio/S06_LINH_05.ogg",
+      "sha256": "528fde355b4294c9b8e6463077caf6032a8308fdbceff1bac117c607df0eebea",
+      "bytes": 5869
+    },
+    {
+      "path": "audio/S06_LINH_06.mp3",
+      "sha256": "f3664e0c7fbd35f4460ad6d21477ff5c59310f67dacd9f3a2b33beae77e8ff34",
+      "bytes": 30144
+    },
+    {
+      "path": "audio/S06_LINH_06.ogg",
+      "sha256": "39e0babeb424839c134b1457366738753ffd3b0021aaab87bc76fd0afbf8db12",
+      "bytes": 17137
+    },
+    {
+      "path": "audio/S06_LINH_07.mp3",
+      "sha256": "e55fcb0fe72620055e8f9655836dfd327f4616c85fb055842447fb182fdb1d47",
+      "bytes": 44040
+    },
+    {
+      "path": "audio/S06_LINH_07.ogg",
+      "sha256": "f43988adc23bd1c3b5ef63d9a4c29512dffae01144e3be1c4a75e95484f8c1b3",
+      "bytes": 23247
+    },
+    {
+      "path": "audio/S06_LINH_08.mp3",
+      "sha256": "7ef7b73f5aba8804e3328e7c828e6494d1ba42b61c265dce392dd5008c9f4ba9",
+      "bytes": 13032
+    },
+    {
+      "path": "audio/S06_LINH_08.ogg",
+      "sha256": "4867aa5e7640323b30fa8e2318c5c70042159a7b93551a1b91ac45e802be979d",
+      "bytes": 7958
+    },
+    {
+      "path": "audio/S06_LINH_09.mp3",
+      "sha256": "48e1ad68814a33806de41535d390a60495105528ad02e912aafa4f079ba1f35e",
+      "bytes": 15240
+    },
+    {
+      "path": "audio/S06_LINH_09.ogg",
+      "sha256": "cc26850c8eb24d8138b47376e5dcd5ff9cff35434788e4b50f1c66b783fc54ed",
+      "bytes": 8643
+    },
+    {
+      "path": "audio/S06_SUSAN_01.mp3",
+      "sha256": "a53492c476906b745fdc47e29639b40a1ce3fc378c45212747a90d05fa14bfa5",
+      "bytes": 10200
+    },
+    {
+      "path": "audio/S06_SUSAN_01.ogg",
+      "sha256": "0848ecd2cf894dec367911747432dc3f4b1b2aa0372bf9e7c377a2023eb690d5",
+      "bytes": 5879
+    },
+    {
+      "path": "cinematic-0.webp",
+      "sha256": "ffd9fdbf990791bca29fa61ec3217984e1e3b5cbd47ebbc0e5bfe0929632c360",
+      "bytes": 1334
+    },
+    {
+      "path": "rhubarb/S06_C_LINH_03.dialog.txt",
+      "sha256": "db0aa191932fc77b47d584deed833f955e64bd8ccf22f1c15d39fe07a7aaf9bb",
+      "bytes": 11
+    },
+    {
+      "path": "rhubarb/S06_C_LINH_03.raw.json",
+      "sha256": "3a3366aad2ab22d6253cb36a44c8855070b94b3948d98a9893dc284d4314f5a1",
+      "bytes": 733
+    },
+    {
+      "path": "rhubarb/S06_G_LINDA_01.dialog.txt",
+      "sha256": "fa6499e84ce8673165d31613e9de58ad6a1968ba030dc99a127e0d7a017bd755",
+      "bytes": 32
+    },
+    {
+      "path": "rhubarb/S06_G_LINDA_01.raw.json",
+      "sha256": "d7eeba31abe7a8bd0de86d51927aa054a87d2df9b4ae0f455e4c610c0a7166aa",
+      "bytes": 1015
+    },
+    {
+      "path": "rhubarb/S06_G_LINH_01.dialog.txt",
+      "sha256": "2c3b8b15ced1db2c8a3825a8a3141be6d83d2057fd0b47ac8ae32559b73b3ed2",
+      "bytes": 44
+    },
+    {
+      "path": "rhubarb/S06_G_LINH_01.raw.json",
+      "sha256": "0dad71140bbb0493518fab01ae8c2e0d0f5ce1115da84916bd3a5bff9873d400",
+      "bytes": 1881
+    },
+    {
+      "path": "rhubarb/S06_LINDA_01.dialog.txt",
+      "sha256": "891a0b28fdf9ea2c34530acb8acce7c8f3dbf4831da07a3194bec28c65c49fda",
+      "bytes": 10
+    },
+    {
+      "path": "rhubarb/S06_LINDA_01.raw.json",
+      "sha256": "1ebe2fa64e5d5aaa07f575765dc7ba3aebe782898c5c98cfc48483c1bb353caa",
+      "bytes": 517
+    },
+    {
+      "path": "rhubarb/S06_LINDA_02.dialog.txt",
+      "sha256": "f9b0be3508796af8e9a83a84ad968b645e9371cfd684224746038e9addb8aedd",
+      "bytes": 14
+    },
+    {
+      "path": "rhubarb/S06_LINDA_02.raw.json",
+      "sha256": "15d6f4255dd5cad79fdb3a82e748071b8d1cd1a06764aaec4e79366c8a22b1ef",
+      "bytes": 805
+    },
+    {
+      "path": "rhubarb/S06_LINDA_03.dialog.txt",
+      "sha256": "1cd85230ab2933d0ef76f6663ee7e6c3103420c6be64d8010a90d9fc7fdcd284",
+      "bytes": 8
+    },
+    {
+      "path": "rhubarb/S06_LINDA_03.raw.json",
+      "sha256": "fdbc65a08b5e3990e11e90f985972e8971df72b40c72afef40df578fe51848aa",
+      "bytes": 517
+    },
+    {
+      "path": "rhubarb/S06_LINDA_04.dialog.txt",
+      "sha256": "04e6a32c7fc6c45cbcf54d33a3a1ae773d0ca0fd46b9575ee2b12a6642ce6f83",
+      "bytes": 30
+    },
+    {
+      "path": "rhubarb/S06_LINDA_04.raw.json",
+      "sha256": "8721d405e2fa4eae5bb06d6b92bba0e62ef982c946e4963c3cdd49ad28811efa",
+      "bytes": 1021
+    },
+    {
+      "path": "rhubarb/S06_LINDA_05.dialog.txt",
+      "sha256": "577473ace08fdb7831b15074d6c761d6a9c77cf08fbc2334c15cb2c1be5a37b3",
+      "bytes": 26
+    },
+    {
+      "path": "rhubarb/S06_LINDA_05.raw.json",
+      "sha256": "b731fe2bca5cc45d3ef71f44dc66e080708e357cfcaa28aede64141b7e429082",
+      "bytes": 875
+    },
+    {
+      "path": "rhubarb/S06_LINDA_06.dialog.txt",
+      "sha256": "8ec81b01a41e4e605e3d5ebbcb22617b29ddf5be534baeca93736929e8156326",
+      "bytes": 41
+    },
+    {
+      "path": "rhubarb/S06_LINDA_06.raw.json",
+      "sha256": "233b4b9c5c1545c510288968419e497d0c5747a90a59602ca09599134ee75300",
+      "bytes": 1521
+    },
+    {
+      "path": "rhubarb/S06_LINH_01.dialog.txt",
+      "sha256": "d653d2face5dce862208c709e11332665428415b8c324194aa681eb3c00102d8",
+      "bytes": 27
+    },
+    {
+      "path": "rhubarb/S06_LINH_01.raw.json",
+      "sha256": "ba26f520ff23593fdfc25ab0bbeacbdfb8040e0a7d5b39cd6a6314adeeaa78b7",
+      "bytes": 805
+    },
+    {
+      "path": "rhubarb/S06_LINH_02.dialog.txt",
+      "sha256": "f91e2836caaadcfdf7868c5daeef14effb062ceb8e4be4622c3d72a02d3883f9",
+      "bytes": 29
+    },
+    {
+      "path": "rhubarb/S06_LINH_02.raw.json",
+      "sha256": "8b7e607c6b541b3c8e228a653b35a2b5218fffa09f2e900840fb5d5d44a12970",
+      "bytes": 1093
+    },
+    {
+      "path": "rhubarb/S06_LINH_03.dialog.txt",
+      "sha256": "79c46f1d4f614d9e1cc6a1654a46f76e2237561a1349466be1d9abd3547bdbb6",
+      "bytes": 37
+    },
+    {
+      "path": "rhubarb/S06_LINH_03.raw.json",
+      "sha256": "b5d0ea135f8fa82c03384433b9d5a74bc8b128ecdbe3b57679dbf54714b0b7c6",
+      "bytes": 1451
+    },
+    {
+      "path": "rhubarb/S06_LINH_04.dialog.txt",
+      "sha256": "af9ba80f97b0e884ba764f20bc720a4694bc0a9e68b826fce29326ba91da6420",
+      "bytes": 54
+    },
+    {
+      "path": "rhubarb/S06_LINH_04.raw.json",
+      "sha256": "6a3cfdb90de0684e81f79534fe30152e1101050b772a4b4ffd0833bfb8dea465",
+      "bytes": 1381
+    },
+    {
+      "path": "rhubarb/S06_LINH_05.dialog.txt",
+      "sha256": "d024407093f60e639643610f9584ec9de7b68c2a3bf48ac67456f1e8fde1bf53",
+      "bytes": 20
+    },
+    {
+      "path": "rhubarb/S06_LINH_05.raw.json",
+      "sha256": "4c77eaa780dac9ed1c4d76cd22514738eb936836b0a41b2950dd34682c75e72b",
+      "bytes": 875
+    },
+    {
+      "path": "rhubarb/S06_LINH_06.dialog.txt",
+      "sha256": "07e816b8aa4daa883332b786729fe595d7c36106fcfb23c77cac882b427b9dcb",
+      "bytes": 70
+    },
+    {
+      "path": "rhubarb/S06_LINH_06.raw.json",
+      "sha256": "1e2fadeb5342696cc82163f52166f998be5556dceb43b4a7002354ff44bd1420",
+      "bytes": 2025
+    },
+    {
+      "path": "rhubarb/S06_LINH_07.dialog.txt",
+      "sha256": "80f305baca02db381ed6e5236122b7b59a540ed021b318ce23a3f50a3d37fd75",
+      "bytes": 93
+    },
+    {
+      "path": "rhubarb/S06_LINH_07.raw.json",
+      "sha256": "667862e7b7cd24a70f45d2a2b3c47e803a2cfc90461e6304daecf5b1144eb98b",
+      "bytes": 2673
+    },
+    {
+      "path": "rhubarb/S06_LINH_08.dialog.txt",
+      "sha256": "23573642388a295a1c62faabeae81f4e3df2223147153b78c6921b2a9e35b12d",
+      "bytes": 29
+    },
+    {
+      "path": "rhubarb/S06_LINH_08.raw.json",
+      "sha256": "d7cd0a08c6e81097177124763e4383e17db05e4dae9f632fa4ec8c4311dfd707",
+      "bytes": 947
+    },
+    {
+      "path": "rhubarb/S06_LINH_09.dialog.txt",
+      "sha256": "112b8a63c1ab91f36f6b9fdd944d06bf945f977ca66db3ad60bf69fd51cbb5de",
+      "bytes": 23
+    },
+    {
+      "path": "rhubarb/S06_LINH_09.raw.json",
+      "sha256": "519ae2462252ef24d6b4f2d575184df0437d4cfcce8790039af23b278e5fe130",
+      "bytes": 947
+    },
+    {
+      "path": "rhubarb/S06_SUSAN_01.dialog.txt",
+      "sha256": "86ec6b84447e44b9b3bde919106d969e44d9747ee65a11be4cf7c351c3bebabb",
+      "bytes": 23
+    },
+    {
+      "path": "rhubarb/S06_SUSAN_01.raw.json",
+      "sha256": "07cb9daf07af26eae5a73bad2f20f1c675b0218e023031948d0de3a0d77ea680",
+      "bytes": 587
+    },
+    {
+      "path": "scene-1920.webp",
+      "sha256": "9256c79ade97bb70a4f9099012eb6d283b6040d8cafe1da4f1e8070c477c8f84",
+      "bytes": 182684
+    },
+    {
+      "path": "scene-960.webp",
+      "sha256": "41c2e74e40c80b0f7baf9e2d7b23785ed0095fdfbc23efcb5372e4765de4e9c9",
+      "bytes": 75342
+    },
+    {
+      "path": "visemes.json",
+      "sha256": "45596d125b65c6e66fb01b469b29a514e1e2b2caf8f2d28c341d3ae4c2fdb5bd",
+      "bytes": 19720
+    }
+  ]
+}

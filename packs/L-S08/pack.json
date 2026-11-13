@@ -1,0 +1,1291 @@
+{
+  "cues": {
+    "S08_CHEN_01": {
+      "id": "S08_CHEN_01",
+      "speaker": "Mrs. Chen",
+      "english": "Dear, could I have a glass of water while I wait?",
+      "vietnamese": "Cháu ơi, cho bà xin ly nước trong lúc chờ được không?",
+      "condition": "scene",
+      "lesson": "L-S08",
+      "audio": "audio/S08_CHEN_01.ogg",
+      "audio_fallback": "audio/S08_CHEN_01.mp3",
+      "duration_ms": 3370,
+      "status": "DRAFT",
+      "sha256_ogg": "ce8a01291d94b85a1a7d40d6913e32f9854bea2265326c0a2c7962fa07844322",
+      "sha256_wav": "01ce1151a2062033f6150e1ec0c4c4ea170f3313fd200165b4915841c897222b"
+    },
+    "S08_LINH_02": {
+      "id": "S08_LINH_02",
+      "speaker": "Linh",
+      "english": "Sorry, could you say that again, please?",
+      "vietnamese": "Dạ xin lỗi, bà nói lại giúp cháu được không ạ?",
+      "condition": "scene",
+      "aid": "— (recycled)",
+      "intent": "repair",
+      "expected": "on the repair path",
+      "lesson": "L-S08",
+      "audio": "audio/S08_LINH_02.ogg",
+      "audio_fallback": "audio/S08_LINH_02.mp3",
+      "duration_ms": 1940,
+      "status": "DRAFT",
+      "sha256_ogg": "7bfd505b1179c4ec1bbbdacc1d1e788a4c2d7cdc85313129f66ed043adc68f56",
+      "sha256_wav": "b1d72df15c346915509b606b8f19a23f61ca918576ba7b37d0e76a9edd63d9eb"
+    },
+    "S08_CHEN_02": {
+      "id": "S08_CHEN_02",
+      "speaker": "Mrs. Chen",
+      "english": "A glass of water, please.",
+      "vietnamese": "Một ly nước nhé.",
+      "condition": "scene",
+      "lesson": "L-S08",
+      "audio": "audio/S08_CHEN_02.ogg",
+      "audio_fallback": "audio/S08_CHEN_02.mp3",
+      "duration_ms": 1670,
+      "status": "DRAFT",
+      "sha256_ogg": "fee5a25230fa032a1d15599ed16ca47bf5fcd9c751998fd981000040ff70a307",
+      "sha256_wav": "3e9004326d6bd0705ceb95a0c232a3c75085f8ae72504a4d478d696ed91566fc"
+    },
+    "S08_LINH_01": {
+      "id": "S08_LINH_01",
+      "speaker": "Linh",
+      "english": "Okay, got it.",
+      "vietnamese": "Dạ, cháu hiểu rồi.",
+      "condition": "scene",
+      "aid": "Listen for flap T (*got it* → \"ga-dit\"); a clear /t/ is fine",
+      "intent": "acknowledge only after understanding (main)",
+      "expected": "after a correct gate answer",
+      "lesson": "L-S08",
+      "audio": "audio/S08_LINH_01.ogg",
+      "audio_fallback": "audio/S08_LINH_01.mp3",
+      "duration_ms": 1000,
+      "status": "DRAFT",
+      "sha256_ogg": "89ef3253b4aeea6a5bc207dbc46917e0b3fc75af2685908b3ef77bd9bbe7dfb0",
+      "sha256_wav": "9c14b0a89d3add334414cfb6a82952b1d7d58520b12cb1f792dd55790546616e"
+    },
+    "S08_LINH_03": {
+      "id": "S08_LINH_03",
+      "speaker": "Linh",
+      "english": "Of course. I'll get that for you.",
+      "vietnamese": "Dạ được ạ. Cháu đi lấy cho bà ạ.",
+      "condition": "scene",
+      "aid": "falling intonation on *Of course.*",
+      "intent": "agree warmly + name the action",
+      "expected": "after S08_LINH_01",
+      "lesson": "L-S08",
+      "audio": "audio/S08_LINH_03.ogg",
+      "audio_fallback": "audio/S08_LINH_03.mp3",
+      "duration_ms": 1770,
+      "status": "DRAFT",
+      "sha256_ogg": "fd1c7c19f51a3f3d32a6ed9f9aecb79dce492151b89354e5f8967d00dfc8bef7",
+      "sha256_wav": "bc6ed75fe9c9f627dd6794edf84c925ac0ceacb682cc5d39c6c5a536b19794ec"
+    },
+    "S08_CHEN_03": {
+      "id": "S08_CHEN_03",
+      "speaker": "Mrs. Chen",
+      "english": "Thank you, dear.",
+      "vietnamese": "Cảm ơn cháu nhé.",
+      "condition": "scene",
+      "lesson": "L-S08",
+      "audio": "audio/S08_CHEN_03.ogg",
+      "audio_fallback": "audio/S08_CHEN_03.mp3",
+      "duration_ms": 1170,
+      "status": "DRAFT",
+      "sha256_ogg": "afccc61f7732fccd2f5684344ac2e0ce4659627603056fa62bb7ab7e401eac52",
+      "sha256_wav": "7068af1ae5767bb21cb63518c60077f74d32fb6b3c1f56fa81be7b5d0d1e03f8"
+    },
+    "S08_G_CHEN_01": {
+      "id": "S08_G_CHEN_01",
+      "speaker": "Mrs_Chen",
+      "english": "Could you turn the music down a little?",
+      "vietnamese": "Cháu vặn nhạc nhỏ lại một chút được không?",
+      "condition": "transfer",
+      "lesson": "L-S08",
+      "audio": "audio/S08_G_CHEN_01.ogg",
+      "audio_fallback": "audio/S08_G_CHEN_01.mp3",
+      "duration_ms": 2160,
+      "status": "DRAFT",
+      "sha256_ogg": "425b253d9f4e0641c99ecddd2ddd6358cdcd38a0cca8429a481bf28821998719",
+      "sha256_wav": "fef4bf31dd3ad9ad6eb2104f5904f680e74093ca811f517c25a10f2b1d797210"
+    },
+    "S08_G_CHEN_02": {
+      "id": "S08_G_CHEN_02",
+      "speaker": "Mrs_Chen",
+      "english": "The music — could you turn it down a little?",
+      "vietnamese": "Nhạc ấy — cháu vặn nhỏ lại một chút nhé?",
+      "condition": "transfer",
+      "lesson": "L-S08",
+      "audio": "audio/S08_G_CHEN_02.ogg",
+      "audio_fallback": "audio/S08_G_CHEN_02.mp3",
+      "duration_ms": 2760,
+      "status": "DRAFT",
+      "sha256_ogg": "d981b3951db91aa7c5d885773ddb9fbc9ea822576dc8801e2ed2d435d5e78854",
+      "sha256_wav": "b698ab9327890799bec87ed07923e10c061164a705f21bace01a27aec545c2a4"
+    },
+    "S08_G_LINH_01": {
+      "id": "S08_G_LINH_01",
+      "speaker": "Linh",
+      "english": "Okay, got it. I'll turn it down for you.",
+      "vietnamese": "Dạ, cháu hiểu rồi. Cháu vặn nhỏ lại cho bà ạ.",
+      "condition": "transfer",
+      "lesson": "L-S08",
+      "audio": "audio/S08_G_LINH_01.ogg",
+      "audio_fallback": "audio/S08_G_LINH_01.mp3",
+      "duration_ms": 2150,
+      "status": "DRAFT",
+      "sha256_ogg": "af2b27ad620a6c857c57231bd03c5e0314b22e5c27351cdf79b45c11de14029b",
+      "sha256_wav": "75f223ec18bafa019b2f84056d483803496f061c9649ce159ed66dca5aa95747"
+    },
+    "S08_G_LINH_02": {
+      "id": "S08_G_LINH_02",
+      "speaker": "Linh",
+      "english": "Sorry, could you say that again, please?",
+      "vietnamese": "Dạ xin lỗi, bà nói lại giúp cháu được không ạ?",
+      "condition": "transfer",
+      "lesson": "L-S08",
+      "audio": "audio/S08_G_LINH_02.ogg",
+      "audio_fallback": "audio/S08_G_LINH_02.mp3",
+      "duration_ms": 1950,
+      "status": "DRAFT",
+      "sha256_ogg": "76c235318e1a1b31f4252b45c3b9413e087ade309cb9678a1814d44c341b8418",
+      "sha256_wav": "9cb86721d147be9da3fb8a23e10fb2b27fac08a90e82519bcace88f972939768"
+    },
+    "S08_C_LINH_02": {
+      "id": "S08_C_LINH_02",
+      "speaker": "Linh",
+      "english": "Okay.",
+      "vietnamese": "",
+      "condition": "transfer",
+      "lesson": "L-S08",
+      "audio": "audio/S08_C_LINH_02.ogg",
+      "audio_fallback": "audio/S08_C_LINH_02.mp3",
+      "duration_ms": 700,
+      "status": "DRAFT",
+      "sha256_ogg": "18d064c30735c84dc1161745b9251fc87a2409b46b3e50483d234971c33a0b90",
+      "sha256_wav": "9cf6de426f4715c6647837322f9cb4465a81db1651f208dc7b32f44f867316ab"
+    },
+    "S08_C_LINH_03": {
+      "id": "S08_C_LINH_03",
+      "speaker": "Linh",
+      "english": "Sorry, could you speak up a little?",
+      "vietnamese": "",
+      "condition": "transfer",
+      "lesson": "L-S08",
+      "audio": "audio/S08_C_LINH_03.ogg",
+      "audio_fallback": "audio/S08_C_LINH_03.mp3",
+      "duration_ms": 1740,
+      "status": "DRAFT",
+      "sha256_ogg": "7f74633b1c18e388ec95359df21428fdeaecb654133059ffc361220d39036a04",
+      "sha256_wav": "cc9cb8fd3b1c4c9257e0aa6ad5b3774ca635db42c783ed0bae8666819bf4b99d"
+    }
+  },
+  "dialogue": [
+    "S08_CHEN_01",
+    "S08_LINH_02",
+    "S08_CHEN_02",
+    "S08_LINH_01",
+    "S08_LINH_03",
+    "S08_CHEN_03"
+  ],
+  "teaching": [
+    "S08_LINH_02",
+    "S08_LINH_01",
+    "S08_LINH_03"
+  ],
+  "estimated_minutes": 9,
+  "enabled_steps": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "omitted_steps": {},
+  "steps": {
+    "A": {
+      "topic": "Nghe Linh hỏi lại lời bà Chen xin nước",
+      "goal": "Theo dõi Linh xin nhắc lại, hiểu yêu cầu rồi nhận lời lấy nước."
+    },
+    "B": {
+      "topic": "Nghe rõ bà Chen muốn gì trước khi nhận lời",
+      "goal": "Chọn yêu cầu xin nước; hỏi lại nếu chưa rõ rồi mới xác nhận."
+    },
+    "C": {
+      "topic": "Chọn lời hỏi lại khi chưa nghe rõ bà Chen",
+      "goal": "Chọn cách xin nhắc lại hoặc nói lớn hơn trước khi đồng ý."
+    },
+    "D": {
+      "topic": "Nghe Linh hiểu rồi nhận lời lấy nước",
+      "goal": "Khám phá cách xin nhắc lại, xác nhận đã hiểu và nói sẽ giúp."
+    },
+    "E": {
+      "topic": "Tập hỏi lại rồi nhận lời giúp bà Chen",
+      "goal": "Nói các câu của Linh theo mẫu rồi thử khi ẩn câu mẫu."
+    },
+    "F": {
+      "topic": "Tự kiểm tra lời xác nhận đã hiểu",
+      "goal": "Đối chiếu việc hiểu trước khi nhận lời và cách nói got it rõ ràng."
+    },
+    "G": {
+      "topic": "Hiểu bà Chen muốn vặn nhỏ nhạc",
+      "goal": "Hỏi lại nếu cần rồi xác nhận đúng và nói sẽ vặn nhạc nhỏ lại."
+    }
+  },
+  "questions": {
+    "S08_LINH_02": "S08_CHEN_01",
+    "S08_LINH_01": "S08_CHEN_02",
+    "S08_LINH_03": "S08_CHEN_02"
+  },
+  "b": [
+    {
+      "activity": "choice",
+      "id": "S08_CHEN_01",
+      "listen": [
+        "S08_CHEN_01"
+      ],
+      "prompt": "Bà Chen muốn gì?",
+      "options": [
+        "Một ly nước",
+        "Vặn nhỏ nhạc",
+        "Bắt đầu làm chân",
+        "Chưa nghe rõ"
+      ],
+      "key": "Một ly nước",
+      "repair": "S08_LINH_02",
+      "repeat": "S08_CHEN_02",
+      "ack": [
+        "S08_LINH_01",
+        "S08_LINH_03"
+      ]
+    }
+  ],
+  "c": {
+    "lead_in": [
+      "S08_CHEN_01"
+    ],
+    "prompt": "Chọn lời đáp phù hợp.",
+    "choices": [
+      "Sorry, could you say that again, please?",
+      "Okay.",
+      "Sorry, could you speak up a little?"
+    ],
+    "notes": [
+      false,
+      false,
+      false
+    ],
+    "key": 0,
+    "keys": [
+      0,
+      2
+    ],
+    "responses": [
+      [
+        "S08_LINH_02"
+      ],
+      [
+        "S08_C_LINH_02"
+      ],
+      [
+        "S08_C_LINH_03"
+      ]
+    ],
+    "explanations": [
+      "Phù hợp: hỏi lại khi chưa rõ.",
+      "Chưa phù hợp với điều vừa nghe.",
+      "Cũng phù hợp; mẫu bài dùng say that again."
+    ]
+  },
+  "transfer": {
+    "activity": "native",
+    "turns": [
+      {
+        "prompts": [
+          "S08_G_CHEN_01"
+        ],
+        "models": [
+          "S08_G_LINH_01"
+        ],
+        "situation": "Nghe yêu cầu mới. Hiểu đúng rồi mới xác nhận và nói việc sẽ làm.",
+        "meaning": "Tôi xác nhận sau khi hiểu đúng yêu cầu.",
+        "other": "Tôi nói sẽ vặn nhạc nhỏ lại.",
+        "gate": {
+          "activity": "choice",
+          "id": "music",
+          "listen": [
+            "S08_G_CHEN_01"
+          ],
+          "prompt": "Bà Chen muốn gì?",
+          "options": [
+            "Nước",
+            "Vặn nhỏ nhạc",
+            "Chăn",
+            "Chưa nghe rõ"
+          ],
+          "key": "Vặn nhỏ nhạc"
+        },
+        "repair": "S08_G_LINH_02",
+        "repeat": "S08_G_CHEN_02"
+      }
+    ],
+    "models": [
+      "S08_G_LINH_01"
+    ],
+    "prompts": [
+      "S08_G_CHEN_01"
+    ]
+  },
+  "feedback": [
+    "Em chỉ xác nhận khi đã hiểu — rất chuẩn.",
+    "Got it có thể nối thành ga-dit; nói rõ từng chữ cũng hoàn toàn được."
+  ],
+  "recap": {},
+  "ui": {
+    "kind": "native",
+    "scene_label": "Linh · khách ngoài khung hình",
+    "listen": "Nghe tình huống. Được nghe 2 lượt."
+  },
+  "scene": {
+    "full": "scene-1920.webp",
+    "small": "scene-960.webp",
+    "phone_crop": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "geometry": {
+    "fit": "contain",
+    "width": 1920,
+    "height": 1080
+  },
+  "sprite_status": "DRAFT",
+  "pack_version": "APP_PROTO_v010_L-S08_DRAFT",
+  "flags": [
+    "G → B; H → C: nearest-shape fallback (data only)"
+  ],
+  "listen_for": [
+    "S08_LINH_01",
+    "S08_CHEN_02"
+  ],
+  "a_dialogue": [
+    "S08_CHEN_01"
+  ],
+  "id": "L-S08",
+  "status": "DRAFT",
+  "schema_version": 1,
+  "min_shell_version": 1,
+  "rubric_version": "lesson-set-v1.0",
+  "sources": {
+    "04_Learning_Design/LESSON_SET_L-S01-L-S08_v1.0.md": "967f8a89e20ba0631e0b6100ad746195262f1086ebac622ef3e59bdafc0aa0c8",
+    "07_Production_Assets/audio/lessons/CUE_MANIFEST_v001_DRAFT.json": "20e94701619b9c4afd4d2de7c588ec996aa4ea1e591438cd00764cc33c677a0e",
+    "07_Production_Assets/scenes/S08/NTE_LINH_SCENE_S08_v001_APPROVED.png": "016c5c4f3189935a6a4d003221632ce32aaeab62a67ba3a7747f5a5543e8f034",
+    "07_Production_Assets/scenes/S08/NTE_LINH_SCENE_S08_v001_APPROVED.ora": "650ec16fd4820a9a7d7d401e682d8198e7f43e4bdf7ea5af0f1f90df8dcfe7f1",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_SPRITES_v001_DRAFT.json": "71619e5a9947d462940b51bd416ad676232a939a20751a5f93dca3fe6c9640a6",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_GRID_X_v001_DRAFT.png": "29dd32b85f20dbf7747673cb76a0707df5e7171e20218a025063d99b78eacad1",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_GRID_A_v001_DRAFT.png": "d098ae9162019b8215047d17862ac667253b19c683f691cfa67a6db943e96b42",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_GRID_B_v001_DRAFT.png": "dd9945d26941bfe8a8199affd496003a55d4f12185b8e944220fd4cc89bf6856",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_GRID_C_v001_DRAFT.png": "8e142ed4cc9df45e164572b93f3f86b7bbbd457921cca6ef424279244d15ac5f",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_GRID_D_v001_DRAFT.png": "30ebb44847dc5c60f13ff6db639ed0b970c8ca2f4c62ba4fc01778bcec4cc726",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_GRID_E_v001_DRAFT.png": "521b14c2a32fcc2e84f78fa4bcd98083544e95f6d71fa1a8bd5c26599c6510cf",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_GRID_F_v001_DRAFT.png": "acb0e5d172c5461ede62dd04e8f20984d6a7c843305bc4909705afa89a5e92ff",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_GRID_EYE_HALF_v001_DRAFT.png": "78179efd535b0ba6eebdc2ea03e3afb25b0059fc3c72006928806dfbf2483caf",
+    "07_Production_Assets/scenes/S08/cinematic_grid/S08_LINH_GRID_EYE_CLOSED_v001_DRAFT.png": "ada0cb58ddf22090201a5442af04188d54ddd79b876ad06850627f6d81441343",
+    "07_Production_Assets/audio/app_v010/CUE_MANIFEST_v010_DRAFT.json": "f7c8a4d53d1beef1ae836af118a5bf1943014131438e7d86d04889758ef354c5",
+    "07_Production_Assets/audio/app_v010/RENDER_LOG_v010_DRAFT.json": "ecdbc0476ce48b278f907676cfe8a63338356e4b4fddae2f01718dc9ab98a52d",
+    "tools/tts/casting_v1.json": "477f0b944ce4e7b71f43b3f6f5c40cf7ade5a71ed60d35a596c3c862c9a07aab",
+    "07_Production_Assets/cinematic/sets/LINH_FIX_02/audit/build__3847dcdfcd6a8e546f2ed5c9ad507f39db0681372ba7de678ef717abda7b7b39.json": "3847dcdfcd6a8e546f2ed5c9ad507f39db0681372ba7de678ef717abda7b7b39",
+    "tools/tts/render_app_v010.py": "661c1a3afa6e69b504fe2199ce6bd57ebcad4d3845e14e3ee5361f8f245d762a",
+    "07_Production_Assets/audio/lessons/L-S08/S08_CHEN_01.wav": "01ce1151a2062033f6150e1ec0c4c4ea170f3313fd200165b4915841c897222b",
+    "07_Production_Assets/audio/lessons/L-S08/S08_CHEN_01.ogg": "ce8a01291d94b85a1a7d40d6913e32f9854bea2265326c0a2c7962fa07844322",
+    "07_Production_Assets/audio/lessons/L-S08/S08_CHEN_02.wav": "3e9004326d6bd0705ceb95a0c232a3c75085f8ae72504a4d478d696ed91566fc",
+    "07_Production_Assets/audio/lessons/L-S08/S08_CHEN_02.ogg": "fee5a25230fa032a1d15599ed16ca47bf5fcd9c751998fd981000040ff70a307",
+    "07_Production_Assets/audio/lessons/L-S08/S08_CHEN_03.wav": "7068af1ae5767bb21cb63518c60077f74d32fb6b3c1f56fa81be7b5d0d1e03f8",
+    "07_Production_Assets/audio/lessons/L-S08/S08_CHEN_03.ogg": "afccc61f7732fccd2f5684344ac2e0ce4659627603056fa62bb7ab7e401eac52",
+    "07_Production_Assets/audio/lessons/L-S08/S08_G_CHEN_01.wav": "fef4bf31dd3ad9ad6eb2104f5904f680e74093ca811f517c25a10f2b1d797210",
+    "07_Production_Assets/audio/lessons/L-S08/S08_G_CHEN_01.ogg": "425b253d9f4e0641c99ecddd2ddd6358cdcd38a0cca8429a481bf28821998719",
+    "07_Production_Assets/audio/lessons/L-S08/S08_G_CHEN_02.wav": "b698ab9327890799bec87ed07923e10c061164a705f21bace01a27aec545c2a4",
+    "07_Production_Assets/audio/lessons/L-S08/S08_G_CHEN_02.ogg": "d981b3951db91aa7c5d885773ddb9fbc9ea822576dc8801e2ed2d435d5e78854",
+    "07_Production_Assets/audio/lessons/L-S08/S08_G_LINH_01.wav": "75f223ec18bafa019b2f84056d483803496f061c9649ce159ed66dca5aa95747",
+    "07_Production_Assets/audio/lessons/L-S08/S08_G_LINH_01.ogg": "af2b27ad620a6c857c57231bd03c5e0314b22e5c27351cdf79b45c11de14029b",
+    "07_Production_Assets/audio/lessons/L-S08/S08_G_LINH_02.wav": "9cb86721d147be9da3fb8a23e10fb2b27fac08a90e82519bcace88f972939768",
+    "07_Production_Assets/audio/lessons/L-S08/S08_G_LINH_02.ogg": "76c235318e1a1b31f4252b45c3b9413e087ade309cb9678a1814d44c341b8418",
+    "07_Production_Assets/audio/lessons/L-S08/S08_LINH_01.wav": "9c14b0a89d3add334414cfb6a82952b1d7d58520b12cb1f792dd55790546616e",
+    "07_Production_Assets/audio/lessons/L-S08/S08_LINH_01.ogg": "89ef3253b4aeea6a5bc207dbc46917e0b3fc75af2685908b3ef77bd9bbe7dfb0",
+    "07_Production_Assets/audio/lessons/L-S08/S08_LINH_02.wav": "b1d72df15c346915509b606b8f19a23f61ca918576ba7b37d0e76a9edd63d9eb",
+    "07_Production_Assets/audio/lessons/L-S08/S08_LINH_02.ogg": "7bfd505b1179c4ec1bbbdacc1d1e788a4c2d7cdc85313129f66ed043adc68f56",
+    "07_Production_Assets/audio/lessons/L-S08/S08_LINH_03.wav": "bc6ed75fe9c9f627dd6794edf84c925ac0ceacb682cc5d39c6c5a536b19794ec",
+    "07_Production_Assets/audio/lessons/L-S08/S08_LINH_03.ogg": "fd1c7c19f51a3f3d32a6ed9f9aecb79dce492151b89354e5f8967d00dfc8bef7",
+    "07_Production_Assets/audio/app_v010/S08_C_LINH_02.wav": "9cf6de426f4715c6647837322f9cb4465a81db1651f208dc7b32f44f867316ab",
+    "07_Production_Assets/audio/app_v010/S08_C_LINH_02.ogg": "18d064c30735c84dc1161745b9251fc87a2409b46b3e50483d234971c33a0b90",
+    "07_Production_Assets/audio/app_v010/S08_C_LINH_03.wav": "cc9cb8fd3b1c4c9257e0aa6ad5b3774ca635db42c783ed0bae8666819bf4b99d",
+    "07_Production_Assets/audio/app_v010/S08_C_LINH_03.ogg": "7f74633b1c18e388ec95359df21428fdeaecb654133059ffc361220d39036a04"
+  },
+  "cinematic": {
+    "width": 960,
+    "height": 540,
+    "layers": [
+      {
+        "path": "scene-960.webp",
+        "x": 0,
+        "y": 0,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "path": "cinematic-0.webp",
+        "x": 395,
+        "y": 254,
+        "width": 249,
+        "height": 193,
+        "character": "linh"
+      }
+    ],
+    "sprites": {
+      "X": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "X",
+        "path": "S08_LINH_GRID_X_v001_DRAFT.webp",
+        "x": 99.0,
+        "y": 114.5,
+        "width": 117.5,
+        "height": 78.0,
+        "status": "UNCONFIRMED"
+      },
+      "A": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "A",
+        "path": "S08_LINH_GRID_A_v001_DRAFT.webp",
+        "x": 99.0,
+        "y": 114.5,
+        "width": 117.5,
+        "height": 78.0,
+        "status": "UNCONFIRMED"
+      },
+      "B": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "B",
+        "path": "S08_LINH_GRID_B_v001_DRAFT.webp",
+        "x": 99.0,
+        "y": 114.5,
+        "width": 117.5,
+        "height": 78.0,
+        "status": "UNCONFIRMED"
+      },
+      "C": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "C",
+        "path": "S08_LINH_GRID_C_v001_DRAFT.webp",
+        "x": 99.0,
+        "y": 114.5,
+        "width": 117.5,
+        "height": 78.0,
+        "status": "UNCONFIRMED"
+      },
+      "D": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "D",
+        "path": "S08_LINH_GRID_D_v001_DRAFT.webp",
+        "x": 99.0,
+        "y": 114.5,
+        "width": 117.5,
+        "height": 78.0,
+        "status": "UNCONFIRMED"
+      },
+      "E": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "E",
+        "path": "S08_LINH_GRID_E_v001_DRAFT.webp",
+        "x": 99.0,
+        "y": 114.5,
+        "width": 117.5,
+        "height": 78.0,
+        "status": "UNCONFIRMED"
+      },
+      "F": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "F",
+        "path": "S08_LINH_GRID_F_v001_DRAFT.webp",
+        "x": 99.0,
+        "y": 114.5,
+        "width": 117.5,
+        "height": 78.0,
+        "status": "UNCONFIRMED"
+      },
+      "EYE_HALF": {
+        "character": "linh",
+        "part": "eye",
+        "shape": "EYE_HALF",
+        "path": "S08_LINH_GRID_EYE_HALF_v001_DRAFT.webp",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 249.0,
+        "height": 156.0,
+        "status": "UNCONFIRMED"
+      },
+      "EYE_CLOSED": {
+        "character": "linh",
+        "part": "eye",
+        "shape": "EYE_CLOSED",
+        "path": "S08_LINH_GRID_EYE_CLOSED_v001_DRAFT.webp",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 249.0,
+        "height": 156.0,
+        "status": "UNCONFIRMED"
+      }
+    },
+    "speakers": {
+      "Linh": "linh"
+    },
+    "offscreen_speakers": [
+      "Mrs_Chen"
+    ],
+    "restUsesOriginal": true,
+    "mouthMap": {
+      "linh": {
+        "X": "X",
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D",
+        "E": "E",
+        "F": "F",
+        "G": "B",
+        "H": "C"
+      }
+    },
+    "eyeMap": {
+      "linh": {
+        "HALF": "EYE_HALF",
+        "CLOSED": "EYE_CLOSED"
+      }
+    },
+    "motion": {
+      "translate_x_css_px": 0,
+      "translate_y_css_px": 0,
+      "rotate_deg": 0,
+      "speaking_seconds": 6,
+      "idle_seconds": 12
+    }
+  },
+  "visemes": {
+    "S08_LINH_02": {
+      "character": "linh",
+      "duration": 1.94,
+      "wav": "07_Production_Assets/audio/lessons/L-S08/S08_LINH_02.wav",
+      "sha256_wav": "b1d72df15c346915509b606b8f19a23f61ca918576ba7b37d0e76a9edd63d9eb",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.22,
+          "value": "B"
+        },
+        {
+          "start": 0.22,
+          "end": 0.29,
+          "value": "D"
+        },
+        {
+          "start": 0.29,
+          "end": 0.64,
+          "value": "B"
+        },
+        {
+          "start": 0.64,
+          "end": 0.85,
+          "value": "F"
+        },
+        {
+          "start": 0.85,
+          "end": 1.06,
+          "value": "B"
+        },
+        {
+          "start": 1.06,
+          "end": 1.34,
+          "value": "C"
+        },
+        {
+          "start": 1.34,
+          "end": 1.42,
+          "value": "A"
+        },
+        {
+          "start": 1.42,
+          "end": 1.87,
+          "value": "B"
+        },
+        {
+          "start": 1.87,
+          "end": 1.94,
+          "value": "X"
+        }
+      ]
+    },
+    "S08_LINH_01": {
+      "character": "linh",
+      "duration": 1.0,
+      "wav": "07_Production_Assets/audio/lessons/L-S08/S08_LINH_01.wav",
+      "sha256_wav": "9c14b0a89d3add334414cfb6a82952b1d7d58520b12cb1f792dd55790546616e",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.15,
+          "value": "E"
+        },
+        {
+          "start": 0.15,
+          "end": 0.42,
+          "value": "C"
+        },
+        {
+          "start": 0.42,
+          "end": 0.54,
+          "value": "B"
+        },
+        {
+          "start": 0.54,
+          "end": 0.68,
+          "value": "D"
+        },
+        {
+          "start": 0.68,
+          "end": 0.72,
+          "value": "C"
+        },
+        {
+          "start": 0.72,
+          "end": 0.91,
+          "value": "B"
+        },
+        {
+          "start": 0.91,
+          "end": 1.0,
+          "value": "X"
+        }
+      ]
+    },
+    "S08_LINH_03": {
+      "character": "linh",
+      "duration": 1.77,
+      "wav": "07_Production_Assets/audio/lessons/L-S08/S08_LINH_03.wav",
+      "sha256_wav": "bc6ed75fe9c9f627dd6794edf84c925ac0ceacb682cc5d39c6c5a536b19794ec",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.16,
+          "value": "C"
+        },
+        {
+          "start": 0.16,
+          "end": 0.44,
+          "value": "E"
+        },
+        {
+          "start": 0.44,
+          "end": 0.65,
+          "value": "B"
+        },
+        {
+          "start": 0.65,
+          "end": 0.85,
+          "value": "X"
+        },
+        {
+          "start": 0.85,
+          "end": 1.27,
+          "value": "B"
+        },
+        {
+          "start": 1.27,
+          "end": 1.34,
+          "value": "G"
+        },
+        {
+          "start": 1.34,
+          "end": 1.41,
+          "value": "E"
+        },
+        {
+          "start": 1.41,
+          "end": 1.69,
+          "value": "F"
+        },
+        {
+          "start": 1.69,
+          "end": 1.77,
+          "value": "X"
+        }
+      ]
+    },
+    "S08_G_LINH_01": {
+      "character": "linh",
+      "duration": 2.15,
+      "wav": "07_Production_Assets/audio/lessons/L-S08/S08_G_LINH_01.wav",
+      "sha256_wav": "75f223ec18bafa019b2f84056d483803496f061c9649ce159ed66dca5aa95747",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.11,
+          "value": "X"
+        },
+        {
+          "start": 0.11,
+          "end": 0.37,
+          "value": "C"
+        },
+        {
+          "start": 0.37,
+          "end": 0.51,
+          "value": "B"
+        },
+        {
+          "start": 0.51,
+          "end": 0.58,
+          "value": "C"
+        },
+        {
+          "start": 0.58,
+          "end": 0.71,
+          "value": "D"
+        },
+        {
+          "start": 0.71,
+          "end": 0.99,
+          "value": "B"
+        },
+        {
+          "start": 0.99,
+          "end": 1.06,
+          "value": "C"
+        },
+        {
+          "start": 1.06,
+          "end": 1.41,
+          "value": "B"
+        },
+        {
+          "start": 1.41,
+          "end": 1.62,
+          "value": "C"
+        },
+        {
+          "start": 1.62,
+          "end": 1.76,
+          "value": "G"
+        },
+        {
+          "start": 1.76,
+          "end": 2.04,
+          "value": "F"
+        },
+        {
+          "start": 2.04,
+          "end": 2.15,
+          "value": "X"
+        }
+      ]
+    },
+    "S08_G_LINH_02": {
+      "character": "linh",
+      "duration": 1.95,
+      "wav": "07_Production_Assets/audio/lessons/L-S08/S08_G_LINH_02.wav",
+      "sha256_wav": "9cb86721d147be9da3fb8a23e10fb2b27fac08a90e82519bcace88f972939768",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.17,
+          "value": "B"
+        },
+        {
+          "start": 0.17,
+          "end": 0.31,
+          "value": "D"
+        },
+        {
+          "start": 0.31,
+          "end": 0.45,
+          "value": "B"
+        },
+        {
+          "start": 0.45,
+          "end": 0.87,
+          "value": "F"
+        },
+        {
+          "start": 0.87,
+          "end": 0.94,
+          "value": "B"
+        },
+        {
+          "start": 0.94,
+          "end": 1.01,
+          "value": "C"
+        },
+        {
+          "start": 1.01,
+          "end": 1.15,
+          "value": "B"
+        },
+        {
+          "start": 1.15,
+          "end": 1.36,
+          "value": "C"
+        },
+        {
+          "start": 1.36,
+          "end": 1.44,
+          "value": "A"
+        },
+        {
+          "start": 1.44,
+          "end": 1.87,
+          "value": "B"
+        },
+        {
+          "start": 1.87,
+          "end": 1.95,
+          "value": "X"
+        }
+      ]
+    },
+    "S08_C_LINH_02": {
+      "character": "linh",
+      "duration": 0.7,
+      "wav": "07_Production_Assets/audio/app_v010/S08_C_LINH_02.wav",
+      "sha256_wav": "9cf6de426f4715c6647837322f9cb4465a81db1651f208dc7b32f44f867316ab",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.18,
+          "value": "E"
+        },
+        {
+          "start": 0.18,
+          "end": 0.53,
+          "value": "C"
+        },
+        {
+          "start": 0.53,
+          "end": 0.6,
+          "value": "B"
+        },
+        {
+          "start": 0.6,
+          "end": 0.7,
+          "value": "X"
+        }
+      ]
+    },
+    "S08_C_LINH_03": {
+      "character": "linh",
+      "duration": 1.74,
+      "wav": "07_Production_Assets/audio/app_v010/S08_C_LINH_03.wav",
+      "sha256_wav": "cc9cb8fd3b1c4c9257e0aa6ad5b3774ca635db42c783ed0bae8666819bf4b99d",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.19,
+          "value": "B"
+        },
+        {
+          "start": 0.19,
+          "end": 0.33,
+          "value": "D"
+        },
+        {
+          "start": 0.33,
+          "end": 0.68,
+          "value": "B"
+        },
+        {
+          "start": 0.68,
+          "end": 0.89,
+          "value": "F"
+        },
+        {
+          "start": 0.89,
+          "end": 0.97,
+          "value": "A"
+        },
+        {
+          "start": 0.97,
+          "end": 1.08,
+          "value": "B"
+        },
+        {
+          "start": 1.08,
+          "end": 1.15,
+          "value": "C"
+        },
+        {
+          "start": 1.15,
+          "end": 1.23,
+          "value": "A"
+        },
+        {
+          "start": 1.23,
+          "end": 1.38,
+          "value": "C"
+        },
+        {
+          "start": 1.38,
+          "end": 1.66,
+          "value": "B"
+        },
+        {
+          "start": 1.66,
+          "end": 1.74,
+          "value": "X"
+        }
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "S08_LINH_GRID_A_v001_DRAFT.webp",
+      "sha256": "29f961acfa1ed317beabb63a1440e79094644f5d1a15cadb1310198a4d129e20",
+      "bytes": 9280
+    },
+    {
+      "path": "S08_LINH_GRID_B_v001_DRAFT.webp",
+      "sha256": "6c45d04359e143230d2e8b85435ff9f222475b961cb55a0e13ee52449cdf0ee3",
+      "bytes": 9502
+    },
+    {
+      "path": "S08_LINH_GRID_C_v001_DRAFT.webp",
+      "sha256": "82e22669621f57785fd8d1bf647f2e59b962549f178d6c84bc0a25bbfa467ebd",
+      "bytes": 10390
+    },
+    {
+      "path": "S08_LINH_GRID_D_v001_DRAFT.webp",
+      "sha256": "e58ed3638eea426805267eca8e34603e039fb4e58b65be863fce201fd6aa30fb",
+      "bytes": 10370
+    },
+    {
+      "path": "S08_LINH_GRID_EYE_CLOSED_v001_DRAFT.webp",
+      "sha256": "bb4f2d7dd5e55a8c13d59a2bae9d1b8c2da493bacc6fdb7e3e19c67008c9497e",
+      "bytes": 30254
+    },
+    {
+      "path": "S08_LINH_GRID_EYE_HALF_v001_DRAFT.webp",
+      "sha256": "850e5fe99954017823cc00062cc6abcfbacf90907d70ba9a72ff2298e976a8c3",
+      "bytes": 31620
+    },
+    {
+      "path": "S08_LINH_GRID_E_v001_DRAFT.webp",
+      "sha256": "3374d04fc36a10b21f50e804808b3311efdf11e4abda663ffb05b9832f0fa84d",
+      "bytes": 9796
+    },
+    {
+      "path": "S08_LINH_GRID_F_v001_DRAFT.webp",
+      "sha256": "974b1a4ecdb5cb78228eb0e76213494a4dda516c96c65725eadfc17771647494",
+      "bytes": 9586
+    },
+    {
+      "path": "S08_LINH_GRID_X_v001_DRAFT.webp",
+      "sha256": "bd57f24407fc0f92b29388b36df41901b5c8d0cda593b72b029df2b97530c7e6",
+      "bytes": 9184
+    },
+    {
+      "path": "audio/S08_CHEN_01.mp3",
+      "sha256": "ec44aaeb4200480d1af2dba3b465bb2405c9f3520e018d86a80f37d6ed427627",
+      "bytes": 24480
+    },
+    {
+      "path": "audio/S08_CHEN_01.ogg",
+      "sha256": "ce8a01291d94b85a1a7d40d6913e32f9854bea2265326c0a2c7962fa07844322",
+      "bytes": 15597
+    },
+    {
+      "path": "audio/S08_CHEN_02.mp3",
+      "sha256": "fec9ca49b886d08e596ad5968ef6c3e158fda159ae6c145c0c3cf29a3e035225",
+      "bytes": 12912
+    },
+    {
+      "path": "audio/S08_CHEN_02.ogg",
+      "sha256": "fee5a25230fa032a1d15599ed16ca47bf5fcd9c751998fd981000040ff70a307",
+      "bytes": 8469
+    },
+    {
+      "path": "audio/S08_CHEN_03.mp3",
+      "sha256": "9e74cd858656b93fb4b0bd648578a23dcf3fe9562b6aa2e22773ab75518f0425",
+      "bytes": 10416
+    },
+    {
+      "path": "audio/S08_CHEN_03.ogg",
+      "sha256": "afccc61f7732fccd2f5684344ac2e0ce4659627603056fa62bb7ab7e401eac52",
+      "bytes": 6207
+    },
+    {
+      "path": "audio/S08_C_LINH_02.mp3",
+      "sha256": "0a5c0a5baf71451bcca6eaec66714cbcbc067d6fe9e61fde2521f78f03603bce",
+      "bytes": 5256
+    },
+    {
+      "path": "audio/S08_C_LINH_02.ogg",
+      "sha256": "18d064c30735c84dc1161745b9251fc87a2409b46b3e50483d234971c33a0b90",
+      "bytes": 3930
+    },
+    {
+      "path": "audio/S08_C_LINH_03.mp3",
+      "sha256": "e84b3d4e930beb6dec4aef6785b5dbf3c53e74569386e225144d75ce9d4ba84b",
+      "bytes": 14184
+    },
+    {
+      "path": "audio/S08_C_LINH_03.ogg",
+      "sha256": "7f74633b1c18e388ec95359df21428fdeaecb654133059ffc361220d39036a04",
+      "bytes": 8534
+    },
+    {
+      "path": "audio/S08_G_CHEN_01.mp3",
+      "sha256": "472cc4ea0e426193b81e74d5c90edcfbb0d7b7557006915fadb708e25758cd10",
+      "bytes": 16584
+    },
+    {
+      "path": "audio/S08_G_CHEN_01.ogg",
+      "sha256": "425b253d9f4e0641c99ecddd2ddd6358cdcd38a0cca8429a481bf28821998719",
+      "bytes": 10774
+    },
+    {
+      "path": "audio/S08_G_CHEN_02.mp3",
+      "sha256": "67547024829d7306b3e829dd8dc0a5a33dd50418a136617145e66dc3f769d495",
+      "bytes": 21048
+    },
+    {
+      "path": "audio/S08_G_CHEN_02.ogg",
+      "sha256": "d981b3951db91aa7c5d885773ddb9fbc9ea822576dc8801e2ed2d435d5e78854",
+      "bytes": 13437
+    },
+    {
+      "path": "audio/S08_G_LINH_01.mp3",
+      "sha256": "786fd1797164616b365445bc57347bb067555c6ed46ca0af5006e097729c264d",
+      "bytes": 18456
+    },
+    {
+      "path": "audio/S08_G_LINH_01.ogg",
+      "sha256": "af2b27ad620a6c857c57231bd03c5e0314b22e5c27351cdf79b45c11de14029b",
+      "bytes": 10562
+    },
+    {
+      "path": "audio/S08_G_LINH_02.mp3",
+      "sha256": "3b953ff4a744f6e192d2706d057a74e65c58659a977fb6d2c301202e2b556293",
+      "bytes": 16896
+    },
+    {
+      "path": "audio/S08_G_LINH_02.ogg",
+      "sha256": "76c235318e1a1b31f4252b45c3b9413e087ade309cb9678a1814d44c341b8418",
+      "bytes": 9709
+    },
+    {
+      "path": "audio/S08_LINH_01.mp3",
+      "sha256": "41efaaabd17e2177005b9c2909f9b3cf3d9babbb9942e462481c273276116e91",
+      "bytes": 9480
+    },
+    {
+      "path": "audio/S08_LINH_01.ogg",
+      "sha256": "89ef3253b4aeea6a5bc207dbc46917e0b3fc75af2685908b3ef77bd9bbe7dfb0",
+      "bytes": 5343
+    },
+    {
+      "path": "audio/S08_LINH_02.mp3",
+      "sha256": "878aab6a297634685e0a23db79d45ae3cee2df77eeea7947d0cceb37e0766e26",
+      "bytes": 16416
+    },
+    {
+      "path": "audio/S08_LINH_02.ogg",
+      "sha256": "7bfd505b1179c4ec1bbbdacc1d1e788a4c2d7cdc85313129f66ed043adc68f56",
+      "bytes": 9640
+    },
+    {
+      "path": "audio/S08_LINH_03.mp3",
+      "sha256": "8da68a02fe218d51ddef187eaef8a4bc173f528489ec43e7ca19e2f67f8f043c",
+      "bytes": 15720
+    },
+    {
+      "path": "audio/S08_LINH_03.ogg",
+      "sha256": "fd1c7c19f51a3f3d32a6ed9f9aecb79dce492151b89354e5f8967d00dfc8bef7",
+      "bytes": 8982
+    },
+    {
+      "path": "cinematic-0.webp",
+      "sha256": "22b412c2639c10d9525b12343056e1bd95d6f978ca23a1fc0a063c38899c5923",
+      "bytes": 39784
+    },
+    {
+      "path": "rhubarb/S08_CHEN_01.dialog.txt",
+      "sha256": "78442d3f49b6cc5bffbca132456f241602965d577a69088d9962a9cfa330540a",
+      "bytes": 49
+    },
+    {
+      "path": "rhubarb/S08_CHEN_01.raw.json",
+      "sha256": "29d76bfa1470f0c528066ecea0762223c165ae458528d42e32a8b782dc9762de",
+      "bytes": 1587
+    },
+    {
+      "path": "rhubarb/S08_CHEN_02.dialog.txt",
+      "sha256": "6b871f73adc12840825353e00195c0f2d430456f5b36026af3b4c60a0589ec37",
+      "bytes": 25
+    },
+    {
+      "path": "rhubarb/S08_CHEN_02.raw.json",
+      "sha256": "a6b8cfc344f16357c06aa0eed35a8c75a996710d3a51fae199099030077dca83",
+      "bytes": 1021
+    },
+    {
+      "path": "rhubarb/S08_CHEN_03.dialog.txt",
+      "sha256": "84a540938cf1d7880dcb8ba2314889d6e6316c8186a6de6f1040a6284a3e8d8e",
+      "bytes": 16
+    },
+    {
+      "path": "rhubarb/S08_CHEN_03.raw.json",
+      "sha256": "9279c46541fe358b69cf78a3bd40898d2340ddafd305ab3dc8f231593cad2b77",
+      "bytes": 517
+    },
+    {
+      "path": "rhubarb/S08_C_LINH_02.dialog.txt",
+      "sha256": "03b25bed61dad2fc92bb7ca539a0f5abb89e97a767e3ca68789d47009f9fa5c3",
+      "bytes": 5
+    },
+    {
+      "path": "rhubarb/S08_C_LINH_02.raw.json",
+      "sha256": "dcd84bb1788f41f763b32bea17cbf395fe835372a0aef5c7388a0670f3ce4333",
+      "bytes": 511
+    },
+    {
+      "path": "rhubarb/S08_C_LINH_03.dialog.txt",
+      "sha256": "bcf463c00eb1c4a478b79d8ec7c1cabea1479c6e50bd06d0d9264465b6f1b7d8",
+      "bytes": 35
+    },
+    {
+      "path": "rhubarb/S08_C_LINH_03.raw.json",
+      "sha256": "865960eac10b11330275bbce7266d04ce4af63533d86bc1511a0bdd19b352537",
+      "bytes": 1019
+    },
+    {
+      "path": "rhubarb/S08_G_CHEN_01.dialog.txt",
+      "sha256": "8e0bc54fbd44423c9cd05353f99a1e424a176c411fc8df1bd3ee4d6721a33d7e",
+      "bytes": 39
+    },
+    {
+      "path": "rhubarb/S08_G_CHEN_01.raw.json",
+      "sha256": "264f84528f83b941fd0f80d97e3e0930484f2f55c662285e230c9d91253b81dd",
+      "bytes": 1233
+    },
+    {
+      "path": "rhubarb/S08_G_CHEN_02.dialog.txt",
+      "sha256": "6e6cdf8dd9a9d52cebe280070693fe30186bb9eee65627f7ff8b5312a5703a30",
+      "bytes": 46
+    },
+    {
+      "path": "rhubarb/S08_G_CHEN_02.raw.json",
+      "sha256": "7c02b657e26000af86d68084138380c5c4492c97e0da46c00de98d0fe46561b4",
+      "bytes": 1161
+    },
+    {
+      "path": "rhubarb/S08_G_LINH_01.dialog.txt",
+      "sha256": "a7c6a99d4c390c85bb9077d531f69ac30ff987b241e8e7e2a9fe3f4db4e5335c",
+      "bytes": 40
+    },
+    {
+      "path": "rhubarb/S08_G_LINH_01.raw.json",
+      "sha256": "12dbd20936b5ab7ded9a6ead231b058ad3ac73d1eec31f04fce1bacd55026666",
+      "bytes": 1021
+    },
+    {
+      "path": "rhubarb/S08_G_LINH_02.dialog.txt",
+      "sha256": "fa9423203765a375f09517ac368f4f039edcc2e9f813db7d12c763fd14b5a30a",
+      "bytes": 40
+    },
+    {
+      "path": "rhubarb/S08_G_LINH_02.raw.json",
+      "sha256": "902da3174ba08f1339e0044ce74c0ab92a13a13218040f40e45ac194c04173fe",
+      "bytes": 1019
+    },
+    {
+      "path": "rhubarb/S08_LINH_01.dialog.txt",
+      "sha256": "d04cccfefbf9affa605dfe1653a049b3604900378827dfe816a2a677b3d9d878",
+      "bytes": 13
+    },
+    {
+      "path": "rhubarb/S08_LINH_01.raw.json",
+      "sha256": "a1ca0eaee1e4db2923015649326fa2ebebde58fcbbf06167caad8d05d46fe1a9",
+      "bytes": 731
+    },
+    {
+      "path": "rhubarb/S08_LINH_02.dialog.txt",
+      "sha256": "fa9423203765a375f09517ac368f4f039edcc2e9f813db7d12c763fd14b5a30a",
+      "bytes": 40
+    },
+    {
+      "path": "rhubarb/S08_LINH_02.raw.json",
+      "sha256": "049cd7ea11a6674cb4014917cdfa9f63259d21b4d4268b84e8bb289e44c8a8ad",
+      "bytes": 875
+    },
+    {
+      "path": "rhubarb/S08_LINH_03.dialog.txt",
+      "sha256": "6cc34535b8df72398a5fc48aa42e9c89239d8aa01f8e1a8c11d858a7cde10d9e",
+      "bytes": 33
+    },
+    {
+      "path": "rhubarb/S08_LINH_03.raw.json",
+      "sha256": "feefe59a62e1a7a88f499410c44a72ca5a9459f09353f3c9d0693d8ba2174d97",
+      "bytes": 877
+    },
+    {
+      "path": "scene-1920.webp",
+      "sha256": "cfee96bbac5b7184cc7d02b4783582bdbf4bb9e0801b83554cb2e3f79108cd83",
+      "bytes": 68098
+    },
+    {
+      "path": "scene-960.webp",
+      "sha256": "87abc84aa70318478044d88e071562354013894ab51cfcbd85856aa8c1832e55",
+      "bytes": 29268
+    },
+    {
+      "path": "visemes.json",
+      "sha256": "0fbf8fd25388894948c6d651f5b4bff0776f3ea1cf28009ce230bd3c05b9b9c6",
+      "bytes": 8265
+    }
+  ]
+}

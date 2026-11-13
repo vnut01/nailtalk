@@ -16,7 +16,7 @@ export function completeStep(s, step, pack) {
     case 'D': return pack.teaching.every(id=>s.d[id]);
     case 'E': return pack.teaching.every(id=>[1,2].every(n=>s.e[`${id}:${n}`]?.length));
     case 'F': return s.f;
-    case 'G': return pack.transfer.activity === 'swatch' ? !!s.gSwatch?.at(-1)?.correct && !!s.g[0]?.length : [0,1].every(i=>s.g[i]?.length);
+    case 'G': if(pack.transfer.activity==='native') return [...(pack.drills||[]),...pack.transfer.turns].every((_,i)=>s.g[i]?.length) && (!pack.cases || pack.cases.every((_,i)=>s.cases?.[i])); return pack.transfer.activity === 'swatch' ? !!s.gSwatch?.at(-1)?.correct && !!s.g[0]?.length : [0,1].every(i=>s.g[i]?.length);
     default: return false;
   }
 }

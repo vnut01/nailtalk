@@ -4,10 +4,11 @@ import { AudioPlayer, listenCount } from "./player.mjs";
 import { STEPS, nextStep, cueState, initialState, completeStep, summarize, outcome } from "./logic.mjs";
 import * as store from "./storage.mjs";
 const $ = s => document.querySelector(s);
-const catalog = await Promise.all(['L-S07','L-S02'].map(async id => (await fetch(`./packs/${id}/pack.json`)).json()));
+const catalog = await Promise.all(['L-S01','L-S02','L-S03','L-S04','L-S05','L-S06','L-S07','L-S08'].map(async id => (await fetch(`./packs/${id}/pack.json`)).json()));
 const lessonId = catalog.some(p => p.id === location.hash.slice(1).split('/')[0]) ? location.hash.slice(1).split('/')[0] : 'L-S07';
 const pack = catalog.find(p => p.id === lessonId);
-const pilot = pack.ui?.kind === 'clarification';
+const native = pack.ui?.kind === 'native';
+const pilot = native || pack.ui?.kind === 'clarification';
 const enabled = step => !pack.enabled_steps || pack.enabled_steps.includes(step);
 const advance = step => { let next = nextStep(step); while(next !== 'summary' && !enabled(next)) next = nextStep(next); return next; };
 export const scene = new CinematicScene(pack);
@@ -67,6 +68,7 @@ function stopMedia() {
 function nav(step) {
     stopMedia();
     state.step = step;
+    repairMode=false; repairSaid=false; repairReplays=0; letters=[];
     index = 0;
     attempt = 1;
     gIndex = 0;
@@ -82,7 +84,9 @@ function cueHTML(id, reveal = false) {
 const players = new Map(), playerConfigs = new Map();
 let recapOpen = false, scenePlayer = "";
 function playerHTML(key, ids, options = {}) {
-    if (ids.some(id => !pack.cues[id].audio))
+    ids=ids.filter(Boolean);
+    if (!ids.length) return "";
+    if (ids.some(id => !pack.cues[id]?.audio))
         return "<p class=\"warning\">Audio sắp có</p>";
     playerConfigs.set(key, { ids, options });
     return `<div class="${options.scene ? "scene-player" : options.compact && ids.length === 1 ? "audio-cue" : "audio-player"}" data-player="${key}">
@@ -144,6 +148,7 @@ function highlightTranscript(player) {
 }
 function questionHTML(id) {
     const c = pack.cues[id];
+    if (!c) return "";
     return `<p class="question"><strong>${escape(c.speaker)}:</strong> ${escape(c.english)}</p>`;
 }
 function swatchHTML(item, selected) {
@@ -156,6 +161,8 @@ function swatchTask(item, history, transfer = false) {
     return `${questionHTML(item.question)}<h2>${escape(item.prompt)}</h2>${revealed ? item.answer.map(id => cueHTML(id, true)).join('') : ''}${swatchHTML(item, selected)}${revealed ? `<p role="status">${escape(choice.correct ? item.feedback.correct : item.feedback.retry)}</p>${playerHTML('answer', item.answer, {label:'Nghe câu trả lời'})}` : ''}${transfer && revealed ? speechUI(pack.transfer.models[0], 'G') : ''}`;
 }
 function recapHTML() {
+    if (native && lessonId === "L-S05" && !state.repaired) return "";
+    if (native && state.step === "G" && !state.g[gIndex]?.length) return "";
     if (pilot) return `<section class="recap"><h2>Tóm tắt nhanh</h2>${pack.teaching.map(id => `<article>${questionHTML(pack.questions[id])}${cueHTML(id,true)}${playerHTML('recap-'+id,[pack.questions[id],id])}</article>`).join('')}</section>`;
     const recap = pack.recap;
     const phrase = (item, key) => `<article>
@@ -169,12 +176,14 @@ function recapHTML() {
 }
 function shell(content) {
     const crop = pack.scene.phone_crop;
-    const cropStyle = `--phone-scene-width:calc(100cqw * ${pack.geometry.width} / ${crop.width});--phone-scene-left:calc(-100cqw * ${crop.x} / ${crop.width});--phone-scene-top:calc(-100% * ${crop.y} / ${crop.height});--phone-scene-ratio:${crop.width} / ${crop.height}`;
+    const stepCrop = pack.scene.step_crop || crop;
+    const stepStyle = `--step-scene-width:calc(100cqw * ${pack.geometry.width} / ${stepCrop.width});--step-scene-left:calc(-100cqw * ${stepCrop.x} / ${stepCrop.width});--step-scene-top:calc(-100% * ${stepCrop.y} / ${stepCrop.height});--step-scene-ratio:${stepCrop.width} / ${stepCrop.height};`;
+    const cropStyle = stepStyle + `--phone-scene-width:calc(100cqw * ${pack.geometry.width} / ${crop.width});--phone-scene-left:calc(-100cqw * ${crop.x} / ${crop.width});--phone-scene-top:calc(-100% * ${crop.y} / ${crop.height});--phone-scene-ratio:${crop.width} / ${crop.height}`;
     const hasScene = ["A", "B", "C", "D", "E", "G"].includes(state.step);
     const step = pack.steps[state.step];
     return `<section class="step-heading"><h1>${escape(step ? `${state.step} · ${step.topic}` : titles[state.step])}</h1>${step ? `<p>${escape(step.goal)}</p>` : ""}</section>
 <div class="player ${hasScene ? "" : "task-only"} step-${state.step}">
-${hasScene ? `<aside><div role="group" aria-label="${escape(pack.ui?.scene_label || "Linh và Mark tại quầy Bella Nails")}" class="scene scene-main" style="${cropStyle}">
+${hasScene ? `<aside><div role="group" aria-label="${escape(pack.ui?.scene_label || "Linh và Mark tại quầy Bella Nails")}" class="scene scene-main ${pack.ui?.contact_crop ? 'contact-crop' : ''} ${pack.scene.step_crop ? 'step-crop' : ''}" style="${cropStyle}">
 <div class="scene-frame"><div class="scene-canvas"><span class="scene-layers" aria-hidden="true"></span>
 <img src="packs/${lessonId}/${pack.scene.small}" alt="${escape(pack.ui?.scene_label || "Linh và Mark tại quầy; bảng giá trên tường")}"></div></div>
 <span class="speaker-tag" aria-hidden="true">${escape(pack.ui?.scene_label || "Linh và Mark")}</span>
@@ -192,13 +201,17 @@ function renderHome() {
     stopMedia();
     document.body.classList.remove("in-lesson");
     scene.mount(null);
-    $("#app").innerHTML = `<section class="intro"><p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p><h1>Từng câu nhỏ.<br>Tự tin hơn mỗi ngày.</h1><p>Luyện nghe, chọn câu và nói cùng Linh.</p><span class="badge">DRAFT</span></section><div class="lessons">${catalog.map(p => `<article class="lesson active"><span class="eyebrow">${p.id} · ${p.estimated_minutes} phút</span><h2>${homeTitles[Number(p.id.slice(-2))-1]}</h2><p>${canDos[Number(p.id.slice(-2))-1]}</p><span class="badge">DRAFT</span><div class="controls">${button(p.id === 'L-S07' ? 'start' : 'start-L-S02','Bắt đầu học','primary',!packAvailable)}</div></article>`).join('')}</div>${button("install", "Cài lên màn hình chính", "", !installPrompt)}`;
-    for (const p of catalog) bind(p.id === 'L-S07' ? 'start' : 'start-L-S02', () => { if(p.id === lessonId) nav('A'); else location.hash = `${p.id}/A`; });
+    $("#app").innerHTML = `<section class="intro"><p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p><h1>Từng câu nhỏ.<br>Tự tin hơn mỗi ngày.</h1><p>Luyện nghe, chọn câu và nói cùng Linh.</p><span class="badge">DRAFT</span></section><div class="lessons">${catalog.map(p => `<article class="lesson active"><span class="eyebrow">${p.id} · ${p.estimated_minutes} phút</span><h2>${homeTitles[Number(p.id.slice(-2))-1]}</h2><p>${canDos[Number(p.id.slice(-2))-1]}</p><span class="badge">DRAFT</span><div class="controls">${button(p.id === 'L-S07' ? 'start' : 'start-'+p.id,'Bắt đầu học','primary',!packAvailable)}</div></article>`).join('')}</div>${button("install", "Cài lên màn hình chính", "", !installPrompt)}`;
+    for (const p of catalog) bind(p.id === 'L-S07' ? 'start' : 'start-'+p.id, () => { if(p.id === lessonId) nav('A'); else location.hash = `${p.id}/A`; });
     bind("install", async () => {
         await installPrompt?.prompt();
         installPrompt = null;
         renderHome();
     });
+}
+function aSequence() {
+    if (lessonId==='L-S08' && state.b.S08_CHEN_01?.at(-1)?.correct && state.e['S08_LINH_01:1']?.length) return pack.dialogue;
+    return pack.a_dialogue || pack.dialogue;
 }
 function render() {
     if (!location.hash || location.hash === "#home") {
@@ -213,7 +226,7 @@ function render() {
     let content = "";
     switch (state.step) {
         case "A":
-            scenePlayer = playerHTML("hear", pack.dialogue, { scene: true, count: () => state.a, label: "Nghe tình huống", allowed: () => state.a < 2, onBegin: () => {
+            scenePlayer = playerHTML("hear", aSequence(), { scene: true, count: () => state.a, label: "Nghe tình huống", allowed: () => state.a < 2, onBegin: () => {
                     state.a = listenCount(state.a, "begin");
                     state.volumeHintDismissed = true;
                     persist();
@@ -224,12 +237,13 @@ function render() {
                     persist();
                     render();
                 }, onUpdate: updateListenStatus });
-            content = `${pack.dialogue.some(id => !pack.cues[id].audio) || showText ? `<details open>
+            content = `${aSequence().some(id => !pack.cues[id].audio) || showText ? `<details open>
 <summary>Văn bản hỗ trợ</summary>
-<div class="transcript-lines">${pack.dialogue.map((id, i) => `<div class="transcript-line" data-line="${i}">
+<div class="transcript-lines">${aSequence().map((id, i) => `<div class="transcript-line" data-line="${i}">
 <strong>${escape(pack.cues[id].speaker)}</strong>${cueHTML(id, true)}</div>`).join("")}</div></details>` : ""}`;
             break;
         case "B": {
+            if (native) { content = nativeB(); break; }
             if (pack.b[index].activity === 'swatch') {
                 const item = pack.b[index];
                 scenePlayer = playerHTML('hear', item.listen, {scene:true, label:'Nghe hỏi và đáp về màu', onFinish:()=>{heardB.add(item.id);}});
@@ -251,10 +265,10 @@ ${questionHTML(item.question)}<h2>Bạn nghe thấy giá nào?</h2>${cueHTML(ite
             break;
         case "D": {
             const id = pack.teaching[index], c = pack.cues[id], revealed = state.d[id];
-            scenePlayer = playerHTML("hear", [pack.questions[id], id], { scene: true, slower: true, onFinish: () => { state.d[id] = event({ played: true, assisted: false }); render(); } });
-            content = `<p class="task-count">Thẻ mẫu ${index + 1}/3 · Không chấm điểm</p>
+            scenePlayer = playerHTML("hear", [pack.questions[id], id].filter(Boolean), { scene: true, slower: true, onFinish: () => { state.d[id] = event({ played: true, assisted: false }); render(); } });
+            content = `<p class="task-count">Thẻ mẫu ${index + 1}/${pack.teaching.length} · Không chấm điểm</p>
 
-${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)}<p class="muted">Gợi ý phát âm: ${pronunciationHTML(c.aid)}</p>` : ""}${button("card-next", "Thẻ mẫu tiếp", "", !revealed)}${pilot ? "" : `<hr>
+${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)}<p class="muted">Gợi ý phát âm: ${pronunciationHTML(c.aid)}</p>` : ""}${button("card-next", "Thẻ mẫu tiếp", "", !revealed)}${native && pack.listen_for ? `<h3>Nghe để nhận ra</h3><p>Nghe mẫu ở tốc độ thường rồi chậm hơn. Bạn nghe thấy cách nối âm / tên chữ cái nào?</p>${playerHTML("contrast",pack.listen_for,{slower:true,label:"Nghe để nhận ra · không chấm điểm"})}` : ""}${pilot ? "" : `<hr>
 <h3>Nghe để nhận ra trọng âm</h3>
 <p>Âm nào nhấn ở cuối? Không chấm điểm.</p>${playerHTML("contrast", ["S07_B_01", "S07_LINH_01"], { label: "Nghe cặp tương phản", onFinish: () => {
                     showText = true;
@@ -265,13 +279,13 @@ ${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)
         }
         case "E": {
             const id = pack.teaching[index];
-            scenePlayer = playerHTML("hear", attempt === 1 || showText ? [pack.questions[id], id] : [pack.questions[id]], { scene: true, label: "Nghe khách hỏi" });
-            content = `<p class="task-count">Câu ${index + 1}/3 · Lượt ${attempt}/2 · tự đánh giá</p>
+            scenePlayer = playerHTML("hear", attempt === 1 || showText ? [pack.questions[id], id].filter(Boolean) : [pack.questions[id]].filter(Boolean), { scene: true, label: "Nghe khách hỏi" });
+            content = `<p class="task-count">Câu ${index + 1}/${pack.teaching.length} · Lượt ${attempt}/2 · tự đánh giá</p>
 <h2>${attempt === 1 ? "Nói với câu mẫu" : "Thử nói khi không nhìn câu mẫu"}</h2>${attempt === 1 || showText ? `${questionHTML(pack.questions[id])}<p>${escape(pack.cues[id].vietnamese)}</p>` : '<p>Bạn là Linh. Nghe khách hỏi, rồi trả lời.</p>'}${attempt === 1 || showText ? `<p class="target">${escape(pack.cues[id].english)}</p>` : ""}${speechUI(id, "E")}<div class="controls">${button("e-next", attempt === 1 ? "Lượt 2 · ẩn câu mẫu" : "Câu tiếp", "", !state.e[`${id}:${attempt}`]?.length)}</div>`;
             break;
         }
         case "F":
-            content = pilot ? `<h2>Hỏi lại trước khi bắt đầu</h2><span class="badge">tự đánh giá</span>${pack.teaching.map(id => `<article class="exchange">${questionHTML(pack.questions[id])}${cueHTML(id,true)}</article>`).join('')}<p>${escape(pack.feedback[0])}</p><p>${pronunciationHTML(pack.feedback[1])}</p>${button('feedback','Đã xem phản hồi','primary')}` : `<h2>Ý nghĩa trước, rõ lời sau</h2>
+            content = pilot ? `<h2>${native ? "Xem lại ý nghĩa và hành động" : "Hỏi lại trước khi bắt đầu"}</h2><span class="badge">tự đánh giá</span>${pack.teaching.map(id => `<article class="exchange">${questionHTML(pack.questions[id])}${cueHTML(id,true)}</article>`).join('')}<p>${escape(pack.feedback[0])}</p><p>${pronunciationHTML(pack.feedback[1])}</p>${native && pack.drills ? "<p>Tiếp sang G để luyện dừng, báo quản lý và xử lý tình huống khẩn cấp.</p>" : ""}${button('feedback','Đã xem phản hồi','primary')}` : `<h2>Ý nghĩa trước, rõ lời sau</h2>
 <p class="badge">tự đánh giá</p>${pack.teaching.map(id => `<article class="exchange">${questionHTML(pack.questions[id])}<p>Câu trả lời bạn luyện: ${escape(pack.cues[id].english)}</p><p>Mẫu Linh: ${escape(pack.cues[id].english)}</p><p class="muted">${state.e[`${id}:2`]?.length ? 'Đã có tự đánh giá lượt 2.' : 'Chưa có bằng chứng lượt 2.'} Câu mục tiêu để bạn đối chiếu.</p></article>`).join("")}
 <p>${escape(pack.feedback[0])} <small>— khi bạn tự kiểm tra và thấy khách hiểu đúng giá.</small>
 </p>
@@ -280,6 +294,7 @@ ${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)
 <p class="muted">Đọc từng chữ số là cách sửa hiểu nhầm trong tình huống này.</p>${button("feedback", "Đã xem phản hồi", "primary")}`;
             break;
         case "G": {
+            if (native) { content = nativeG(); break; }
             if (pack.transfer.activity === 'swatch') {
                 const item = pack.transfer;
                 scenePlayer = playerHTML('hear', [item.question], {scene:true, label:'Nghe khách muốn màu nhạt hơn'});
@@ -295,7 +310,7 @@ ${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)
         }
         case "summary": {
             const s = summarize(state, pack);
-            content = pilot ? `${recapHTML()}<h2>${s.completed ? "Đã hoàn thành các bước" : "Bạn có thể quay lại luyện tiếp"}</h2><p>Hoàn thành không có nghĩa là đã thành thạo.</p>${pack.teaching.map(id => `<article><p>${escape(pack.cues[id].english)}</p><p>${escape(state.e[`${id}:2`]?.at(-1)?.outcome || 'Chưa có bằng chứng lượt 2')} · tự đánh giá</p></article>`).join('')}${button('again','Luyện lại từ A')}` : `${recapHTML()}<h2>${s.completed ? "Đã hoàn thành các bước" : "Bạn có thể quay lại luyện tiếp"}</h2>
+            content = pilot ? `${recapHTML()}${native ? Object.entries(state.g).map(([i,list])=>`<p>Tình huống ${Number(i)+1}: ${escape(list.at(-1)?.outcome || 'Chưa có bằng chứng')} · tự đánh giá</p>`).join('') : ''}<h2>${s.completed ? "Đã hoàn thành các bước" : "Bạn có thể quay lại luyện tiếp"}</h2><p>Hoàn thành không có nghĩa là đã thành thạo.</p>${pack.teaching.map(id => `<article><p>${escape(pack.cues[id].english)}</p><p>${escape(state.e[`${id}:2`]?.at(-1)?.outcome || 'Chưa có bằng chứng lượt 2')} · tự đánh giá</p></article>`).join('')}${button('again','Luyện lại từ A')}` : `${recapHTML()}<h2>${s.completed ? "Đã hoàn thành các bước" : "Bạn có thể quay lại luyện tiếp"}</h2>
 <p>Hoàn thành là đã ghé các bước và thử hoặc chọn bỏ qua; không có nghĩa là đã thành thạo.</p>
 <div class="summary-grid">
 <article class="summary-card">
@@ -326,6 +341,70 @@ ${questionHTML(pack.questions[id])}${revealed || !c.audio ? `${cueHTML(id, true)
     bindStep();
     persist();
 }
+// Lesson-native recognition and transfer stay inside the shared A–G transport.
+let letters = [], repairMode = false, repairSaid = false, repairReplays = 0, caseIndex = 0;
+function nativeB() {
+    const i=pack.b[index], h=state.b[i.id]||[], last=h.at(-1);
+    if(i.requires_repair && !state.repaired) {
+        scenePlayer=playerHTML('hear',['S05_LINDA_01'],{scene:true});
+        return `<h2>Hỏi lại trước khi nghe chi tiết mới</h2><p>Hãy nói câu xin nhắc lại. Ngày và giờ mới chưa nghe được vì mất tiếng.</p>${speechUI('S05_LINH_01','E')}`;
+    }
+    scenePlayer=playerHTML('hear',repairMode&&repairSaid&&i.repeat?[i.repeat] : i.replay&&repairReplays>0?[i.replay]:i.listen,{scene:true,label:'Nghe tình huống',onFinish:()=>{heardB.add(i.id);render();}});
+    const repaired=repairMode && !repairSaid;
+    const opts=i.activity_type==='letters' ? i.options.map((o,n)=>button('letter'+n,escape(o),'',letters.includes(n)||!heardB.has(i.id))).join('') : i.options.map((o,n)=>button('native-choice'+n,escape(o),'',!heardB.has(i.id))).join('');
+    return `<h2>${escape(i.prompt)}</h2>${repaired?`<p>Hỏi lại bằng lời trước khi nghe mẫu chậm hơn.</p>${button('repair-said','Tôi đã nói câu xin nhắc lại')}`:i.activity_type==='letters'?`<p aria-live="polite">${letters.map(n=>escape(i.options[n])).join(' – ')}</p><div class="options">${opts}</div>${button('letters-check','Kiểm tra', '',letters.length!==i.options.length)}${button('letters-reset','Xếp lại')}`:`<div class="options">${opts}</div>`}${last?`<p role="status">${i.formative?'Phần ngày và giờ bị mất tiếng; hỏi lại là cách chắc chắn nhất.':last.correct?'Đúng rồi.': 'Chưa đúng — nghe lại hoặc hỏi lại nhé.'}</p>${(!i.repeat || last.correct || repairReplays>=2)?cueHTML(i.id,true):''}`:''}${i.repair && last?.correct ? `${speechUI(i.ack[0],'E')}${state.e[i.ack[0]+':1']?.length ? playerHTML('ack',i.ack,{label:'Nghe sau khi đã hiểu'}) : ''}`:''}${repairReplays>=2&&!last?.correct?`<p>Văn bản hỗ trợ: ${escape(pack.cues[i.repeat]?.english)}</p>`:''}${button('native-next','Câu tiếp','',!h.length)}${lessonId==='L-S05'&&state.repaired?playerHTML('repaired',pack.repair_unlock,{label:'Nghe đoạn sau khi hỏi lại'}):''}`;
+}
+function bindNativeB() {
+    const i=pack.b[index];
+    if(i.requires_repair&&!state.repaired) {bindSpeech('S05_LINH_01','E');return;}
+    if(i.repair&&state.b[i.id]?.at(-1)?.correct)bindSpeech(i.ack[0],'E');
+    const answer=value=>{
+        if(i.replay&&value===i.options.at(-1)){
+            repairReplays=Math.min(2,repairReplays+1);
+            (state.replays||={})[i.id]=event({count:repairReplays,source:'recognition support',penalty:false});
+            if(repairReplays===2)(state.b[i.id]||=[]).push(event({answer:null,correct:false,assisted:true,listening:false}));
+            render();players.get('hear')?.toggle();return;
+        }
+        const correct=value===i.key;
+        (state.b[i.id]||=[]).push(event({answer:value,correct,assisted:!!i.formative||repairReplays>=2||!heardB.has(i.id),listening:!i.formative&&repairReplays<2&&heardB.has(i.id)}));
+        if(i.repair&&!correct){repairMode=true;repairSaid=false;}
+        render();
+    };
+    if(i.activity_type==='letters') {
+        i.options.forEach((_,n)=>bind('letter'+n,()=>{letters.push(n);render();}));
+        bind('letters-check',()=>answer(letters.map(n=>i.options[n]).join('')));bind('letters-reset',()=>{letters=[];render();});
+    } else i.options.forEach((o,n)=>bind('native-choice'+n,()=>answer(o)));
+    bind('repair-said',()=>{repairSaid=true;repairReplays++;(state.repairs||=[]).push(event({step:state.step,evidence:'tự báo cáo, không ghi âm',source:'speaking repair'}));render();});
+    bind('native-next',()=>{index=(index+1)%pack.b.length;letters=[];repairMode=false;repairSaid=false;repairReplays=0;render();});
+}
+function nativeTurns() {return [...(pack.drills||[]),...pack.transfer.turns];}
+function currentTurn() {return nativeTurns()[gIndex];}
+function nativeG() {
+    const t=currentTurn(), gate=state.nativeGates?.[gIndex], h=state.g[gIndex];
+    scenePlayer=playerHTML('hear',repairMode&&repairSaid&&t.repeat?[t.repeat]:t.prompts,{scene:true,label:'Nghe tình huống mới'});
+    const blocked=t.gate&&!gate?.correct&&repairReplays<2;
+    const gateUI=blocked?`<h2>${escape(t.gate.prompt)}</h2><div class="options">${t.gate.options.map((o,n)=>button('gate'+n,escape(o),'',repairMode&&!repairSaid)).join('')}</div>`:'';
+    const repair=repairMode&&!repairSaid?`<p>Hãy nói câu xin nhắc lại trước khi nghe lại.</p>${button('repair-said','Tôi đã nói câu xin nhắc lại')}`:'';
+    return `<p class="task-count">Tình huống ${gIndex+1}/${nativeTurns().length} · tự đánh giá</p><h2>${escape(t.situation)}</h2>${t.card?`<div class="price">${escape(t.card)}</div>`:''}${gateUI}${repair}${!blocked&&!repair?`${speechUI(t.models[0],'G')}${pending||h?.length?playerHTML('full-model',t.models,{label:'Nghe đủ lời mẫu sau khi nói'}):''}`:''}${t.safety&&pending?'<label><input type="checkbox" id="unsafe">Tôi đã tiếp tục, chẩn đoán, khuyên chữa trị hoặc trì hoãn giúp khẩn cấp.</label>':''}${t.repair&&!repairMode?button('need-repair','Chưa rõ · xin nhắc lại'):''}${t.alternative&&repairMode?playerHTML('repair-alt',[t.alternative],{label:'Cách xin nói chậm hơn'}):''}${repairReplays>=2?`<p>Văn bản hỗ trợ: ${escape(pack.cues[t.repeat]?.english)}</p>`:''}${h?.length&&gIndex<nativeTurns().length-1?button('native-g-next','Tình huống tiếp'):''}${t.followup&&h?.at(-1)?.outcome==='Cần thử lại'?`<p>${escape(t.followup.prompt)} · chỉ ghi nhận nghe hiểu</p>${t.followup.options.map((o,n)=>button('follow'+n,o)).join('')}`:''}${pack.cases&&gIndex===nativeTurns().length-1&&h?.length?nativeCase():''}`;
+}
+function nativeCase(){const c=pack.cases[caseIndex];return `<h3>Sau khi quản lý kiểm tra</h3><p>${escape(c.text)}</p>${playerHTML('case',c.listen,{label:'Nghe cách xử lý'})}<p>Bây giờ làm gì?</p>${[c.key,'Linh tiếp tục sau khi nghỉ một chút'].map((o,n)=>button('case'+n,escape(o))).join('')}${state.cases?.[caseIndex]?`<p>${state.cases[caseIndex].correct?'Đúng: dừng dịch vụ và xử lý theo mẫu.':'Không tiếp tục dịch vụ.'}</p>${button('case-next','Trường hợp tiếp')}`:''}`;}
+function bindNativeG() {
+    const t=currentTurn();
+    bindSpeech(t.models[0],'G');
+    t.gate?.options.forEach((o,n)=>bind('gate'+n,()=>{
+        const correct=o===t.gate.key;
+        (state.nativeGates||={})[gIndex]=event({answer:o,correct});
+        if(!correct&&t.repair){repairMode=true;repairSaid=false;}
+        render();
+    }));
+    bind('need-repair',()=>{repairMode=true;repairSaid=false;render();});
+    bind('repair-said',()=>{repairSaid=true;repairReplays++;(state.repairs||=[]).push(event({step:state.step,evidence:'tự báo cáo, không ghi âm',source:'speaking repair'}));render();});
+    bind('native-g-next',()=>{stopMedia();gIndex++;repairMode=false;repairSaid=false;repairReplays=0;render();});
+    t.followup?.options.forEach((o,n)=>bind('follow'+n,()=>{(state.followups||={})[gIndex]=event({answer:o,correct:o===t.followup.key,source:'recognition'});persist();}));
+    [0,1].forEach(n=>bind('case'+n,()=>{(state.cases||={})[caseIndex]=event({correct:n===0,source:'recognition'});render();}));
+    bind('case-next',()=>{caseIndex=(caseIndex+1)%pack.cases.length;render();});
+}
+
 function speechUI(id, type) {
     const done = type === "E" ? state.e[`${id}:${attempt}`] : state.g[gIndex];
     const captured = pending?.id === id;
@@ -337,11 +416,11 @@ function speechUI(id, type) {
 <p>${escape(pack.cues[id].vietnamese)}</p>
 <form id="check">
 <label>
-<input type="checkbox" name="meaning">${type === "G" ? (pilot ? "Tôi đã chọn màu nhạt hơn và hỏi lại khách." : gIndex === 0 ? "Tôi đã nói đúng $45." : "Tôi không bịa giá vẽ móng.") : "Tôi đã nói đủ ý chính của câu."}</label>
+<input type="checkbox" name="meaning">${type === "G" ? (native ? escape(currentTurn().meaning) : pilot ? "Tôi đã chọn màu nhạt hơn và hỏi lại khách." : gIndex === 0 ? "Tôi đã nói đúng $45." : "Tôi không bịa giá vẽ móng.") : "Tôi đã nói đủ ý chính của câu."}</label>
 <label>
 <input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label>
 <label>
-<input type="checkbox" name="other">${type === "G" ? (pilot ? "Tôi dùng câu hỏi và chờ khách xác nhận." : gIndex === 0 ? "Tôi nói giá bằng câu lịch sự." : "Tôi đã xin kiểm tra và nói lịch sự.") : "Tôi nói đủ câu hỏi / lời xác nhận cần có."}</label>${type === "G" && gIndex === 1 ? "<label><input type=\"checkbox\" name=\"invented\">Tôi đã đoán một giá vẽ móng.</label>" : ""}<button class="primary" type="submit">Lưu tự đánh giá</button>
+<input type="checkbox" name="other">${type === "G" ? (native ? escape(currentTurn().other) : pilot ? "Tôi dùng câu hỏi và chờ khách xác nhận." : gIndex === 0 ? "Tôi nói giá bằng câu lịch sự." : "Tôi đã xin kiểm tra và nói lịch sự.") : "Tôi nói đủ câu hỏi / lời xác nhận cần có."}</label>${type === "G" && !native && gIndex === 1 ? "<label><input type=\"checkbox\" name=\"invented\">Tôi đã đoán một giá vẽ móng.</label>" : ""}<button class="primary" type="submit">Lưu tự đánh giá</button>
 </form>` : ""}${done?.length ? `<p class="badge">${escape(done.at(-1).outcome)} · tự đánh giá</p>
 <p class="muted">${escape(done.at(-1).evidence)} · ${done.at(-1).assisted ? "Có hỗ trợ" : "Không nhìn câu mẫu"}</p>` : ""}${!captured && !(type === "E" && attempt === 1) ? button("text-help", "Cần câu mẫu hỗ trợ") : ""}`;
 }
@@ -359,6 +438,7 @@ function bindCommon() {
     bind("scene-enlarge", () => {
         const image = $("#enlarge img");
         image.src = `packs/${lessonId}/${pack.scene.full}`;
+        image.style.clipPath = pack.ui?.contact_crop ? "inset(0 18.75% 0 0)" : "";
         $("#enlarge").showModal();
     });
     bind("next", () => {
@@ -379,10 +459,12 @@ function answerB(answer) {
 }
 function saveSpeech(id, type, flags) {
     const evidence = pending?.evidence || "không có bằng chứng";
-    const assisted = (type === 'G' && pack.transfer.activity === 'swatch') || (pending?.assisted ?? (showText || (type === "E" && attempt === 1) || !pack.cues[id].audio));
+    const assisted = (native && type==='G' && repairReplays>=2) || (type === 'G' && pack.transfer.activity === 'swatch') || (pending?.assisted ?? (showText || (type === "E" && attempt === 1) || !pack.cues[id].audio));
     if (type === 'G' && pack.transfer.activity === 'swatch') {
         flags.meaning = flags.meaning && !!state.gSwatch?.at(-1)?.correct;
     }
+    if (native && type==='G') { flags.invented = flags.invented || !!document.querySelector('#unsafe:checked'); if(currentTurn().gate) flags.meaning &&= !!state.nativeGates?.[gIndex]?.correct; }
+    if (native && lessonId==='L-S05' && type==='E' && id==='S05_LINH_01' && evidence!=='không có bằng chứng') state.repaired=true;
     const result = event({ ...flags, outcome: outcome({ ...flags, evidence: evidence !== "không có bằng chứng" }, type), evidence, assisted, source: "tự đánh giá", attempt: type === "E" ? attempt : gIndex + 1 });
     const container = type === "E" ? state.e : state.g, key = type === "E" ? `${id}:${attempt}` : gIndex;
     (container[key] ||= []).push(result);
@@ -393,6 +475,7 @@ function saveSpeech(id, type, flags) {
 function bindStep() {
     switch (state.step) {
         case "B": {
+            if (native) { bindNativeB(); break; }
             if (pack.b[index].activity === 'swatch') {
                 pack.b[index].options.forEach((o,n) => bind(`swatch${n}`, () => answerB(o.value)));
                 break;
@@ -414,7 +497,7 @@ function bindStep() {
         }
         case "C":
             pack.c.choices.forEach((_, n) => bind(`choice${n}`, () => {
-                state.c.push(event({ answer: n, correct: n === pack.c.key }));
+                state.c.push(event({ answer: n, correct: (pack.c.keys || [pack.c.key]).includes(n) }));
                 render();
                 players.get("reply")?.toggle();
             }));
@@ -422,7 +505,7 @@ function bindStep() {
         case "D": {
             const id = pack.teaching[index];
             bind("card-next", () => {
-                index = (index + 1) % 3;
+                index = (index + 1) % pack.teaching.length;
                 showText = false;
                 render();
             });
@@ -436,7 +519,7 @@ function bindStep() {
                     attempt = 2;
                 else {
                     attempt = 1;
-                    index = (index + 1) % 3;
+                    index = (index + 1) % pack.teaching.length;
                 }
                 render();
             });
@@ -448,6 +531,7 @@ function bindStep() {
             });
             break;
         case "G":
+            if (native) { bindNativeG(); break; }
             if (pack.transfer.activity === 'swatch') {
                 pack.transfer.options.forEach((o,n) => bind(`swatch${n}`, () => {
                     stopMedia();

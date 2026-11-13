@@ -58,3 +58,15 @@ body{padding-top:0}.player>aside{top:80px}
 .swatch { min-height: 44px; padding: 5px; background: white; border: 2px solid #71645d; }
 .swatch span { display: block; height: 32px; background: var(--swatch); border-radius: 8px; }
 .swatch[aria-pressed="true"] { outline: 3px solid #273f36; outline-offset: 2px; }
+
+/* Keep the contact hand at the edge while its speaker remains outside the scene. */
+.contact-crop .scene-frame{container-type:inline-size;aspect-ratio:var(--phone-scene-ratio)}
+.contact-crop .scene-canvas{position:absolute;width:var(--phone-scene-width);left:var(--phone-scene-left);top:var(--phone-scene-top)}
+
+/* Configured step framing shares the same canvas as the phone crop. */
+.step-crop .scene-frame{container-type:inline-size;aspect-ratio:var(--step-scene-ratio)}
+.step-crop .scene-canvas{position:absolute;width:var(--step-scene-width);left:var(--step-scene-left);top:var(--step-scene-top)}
+@media(max-width:650px) and (orientation:portrait){
+ .step-crop .scene-frame{aspect-ratio:var(--phone-scene-ratio)}
+ .step-crop .scene-canvas{width:var(--phone-scene-width);left:var(--phone-scene-left);top:var(--phone-scene-top)}
+}
