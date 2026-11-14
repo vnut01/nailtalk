@@ -405,18 +405,6 @@
   "sources": {
     "04_Learning_Design/LESSON_SET_L-S01-L-S08_v1.0.md": "967f8a89e20ba0631e0b6100ad746195262f1086ebac622ef3e59bdafc0aa0c8",
     "07_Production_Assets/audio/lessons/CUE_MANIFEST_v001_DRAFT.json": "20e94701619b9c4afd4d2de7c588ec996aa4ea1e591438cd00764cc33c677a0e",
-    "07_Production_Assets/scenes/S02/NTE_LINH_SCENE_S02_v002_APPROVED.png": "42f4d50c22a1a328c84122eb127767e45e3e6ee6a5b39265d60e08665db6170e",
-    "07_Production_Assets/scenes/S02/NTE_LINH_SCENE_S02_v002_APPROVED.ora": "0a28fad538789be4205aa53eb7ec73976724f513236a219a9feb0f3e428cbf78",
-    "07_Production_Assets/scenes/S02/cinematic_grid/S02_LINH_SPRITES_v001_DRAFT.json": "39410a26f8e0bc5ea6b7c239b381c4d1f3434f61b14589eff5bff37a0ee3baaf",
-    "07_Production_Assets/scenes/S02/cinematic_grid/S02_LINH_GRID_X_v001_DRAFT.png": "fbd887fbec970a467ac95a20cba4feada35f4e0f3318ed43abaadb238a731125",
-    "07_Production_Assets/scenes/S02/cinematic_grid/S02_LINH_GRID_B_v001_DRAFT.png": "9a23c4ca5c5a7d7a22e2f46d085530af51ea9d361f18fcc479bc6e325d549112",
-    "07_Production_Assets/scenes/S02/cinematic_grid/S02_LINH_GRID_C_v001_DRAFT.png": "be483b33b528439020f6b2a5c82558717f3a7526f1bc53797cf677f57602baea",
-    "07_Production_Assets/scenes/S02/cinematic_grid/S02_LINH_GRID_D_v001_DRAFT.png": "b9a3749b630036b75554bee595746d940d34f6144b2bdea0f8594a79a46deef5",
-    "07_Production_Assets/scenes/S02/cinematic_grid/S02_LINH_GRID_E_v001_DRAFT.png": "e6376a42aaa9d23f7b1de7964402a85d388c368e402d8b201d739a2872b9e596",
-    "07_Production_Assets/scenes/S02/cinematic_grid/S02_LINH_GRID_F_v001_DRAFT.png": "3e9664071339abee18f7c931708d5ac2661d8057b1d4ac824bb8ba6827fa4b1b",
-    "07_Production_Assets/scenes/S02/cinematic_grid/S02_LINH_GRID_EYE_HALF_v001_DRAFT.png": "2fa74d9e682cfe75f668bb4b04d68523212997970f7c1054bed44ec0de2e7c78",
-    "07_Production_Assets/scenes/S02/cinematic_grid/S02_LINH_GRID_EYE_CLOSED_v001_DRAFT.png": "76f0aee1af5f99803433b649b874e0819ae37057832eafe37804576e5146da38",
-    "07_Production_Assets/cinematic/sets/LINH_FIX_02/sprites/ec930bdc78c6f143402539a222cd26aaf3e482b327cfdb0b7264ff57e58e45eb/aa1770092ac3d0f68625d39faad83e0767afcaa91bca802e7a286e7b5351af8f__4550ee1fa8e98ba98fb9e55d076b848ed3a8fc36bfc28d8bad1a95edff596223__40bde5f01eb7ac621dc04e3d62bbd6804256cecc0e85fc6af9f8711835f677bf/S02__LINH__grid__take02.png__A_DRAFT.png": "e6b9a14f53a4d6c32edebdb67508ccdc6a1c73de722f2a7a575a07b4a9e05f46",
     "07_Production_Assets/audio/app_v009/CUE_MANIFEST_v009_DRAFT.json": "2816e8ae5b813bdf2957ad1e091f59c036365e1a451a1e35bda890258421e175",
     "07_Production_Assets/audio/app_v009/RENDER_LOG_v009_DRAFT.json": "19b838886d1ebf39f12f46fefb7e1eaa7d5243fd4bfe196ffe05f6786f159ad0",
     "tools/tts/casting_v1.json": "477f0b944ce4e7b71f43b3f6f5c40cf7ade5a71ed60d35a596c3c862c9a07aab",
@@ -443,7 +431,37 @@
     "07_Production_Assets/audio/app_v009/S02_C_LINH_02.wav": "e3211b207289b530ed37fe76419b4515ac7694415912487d95732d3cea19bb70",
     "07_Production_Assets/audio/app_v009/S02_C_LINH_02.ogg": "5e5b80e274263ddc6e870faa4244aa245e1190538f83d74d08564bf06ca26f7b",
     "07_Production_Assets/audio/app_v009/S02_C_LINH_03.wav": "beebb3ea415ae36be5ba02a647ea245bf45f1a4973d318ed5e498b7e8823dcd2",
-    "07_Production_Assets/audio/app_v009/S02_C_LINH_03.ogg": "cc00954bb17cd4b7d1ea90da867d13cb9bde917395dd70ca96898b3d87ae3991"
+    "07_Production_Assets/audio/app_v009/S02_C_LINH_03.ogg": "cc00954bb17cd4b7d1ea90da867d13cb9bde917395dd70ca96898b3d87ae3991",
+    "07_Production_Assets/scenes/S02/NTE_LINH_SCENE_S02_v002_APPROVED.png": "42f4d50c22a1a328c84122eb127767e45e3e6ee6a5b39265d60e08665db6170e",
+    "07_Production_Assets/scenes/S02/NTE_LINH_SCENE_S02_v002_APPROVED.ora": "0a28fad538789be4205aa53eb7ec73976724f513236a219a9feb0f3e428cbf78",
+    "07_Production_Assets/scenes/S02/cinematic_single/S02_SINGLE_SPRITES_v001_DRAFT.json": "3d3fc23ed99c65a4b4f155220682bedf4dc4e87458c4c299e20d0340bc6e3d50",
+    "07_Production_Assets/scenes/S02/cinematic_single/S02_LINH_MOUTH_X_01_v001_DRAFT.png": "7b6f0c233258e64c586f51cedbacff093bcc4bd8e5db4061ea1815ebb4a0d9b3",
+    "07_Production_Assets/scenes/S02/cinematic_single/S02_LINH_MOUTH_SLIGHT_01_v001_DRAFT.png": "98e7b97dc99654652a6e33ec0ca0668ed4f412eed45333f68de4e62019726d68",
+    "07_Production_Assets/scenes/S02/cinematic_single/S02_LINH_MOUTH_OPEN_01_v001_DRAFT.png": "21c324ab894e8765751c43da2da497b3f7c4291d3b8a8800a066e1e9948d5c66",
+    "07_Production_Assets/scenes/S02/cinematic_single/S02_LINH_MOUTH_ROUND_01_v001_DRAFT.png": "ffd8e86808458038eadf7e32e5b50fae07989cd3ba06e98ae77f16edaf0d8368",
+    "07_Production_Assets/scenes/S02/cinematic_single/S02_LINH_EYE_CLOSED_01_v001_DRAFT.png": "0ca50db2385812963e54bb027e377ae580604d535ecc949510d2ef18478b38f8",
+    "07_Production_Assets/scenes/S02/source/cinematic/REF_LINH_P25_HIRES.png": "22f23f2e8d6d873ad14aee13d1a447b34cb2b2b1618a26c2ee6d4a8870b44755",
+    "07_Production_Assets/scenes/S02/source/cinematic/REF_LINH_P25_HIRES.png.provenance.json": "f27fd2a0ba9afa07c023a93833d64eadc7b19807ad560cdc7da5112885ea314e",
+    "07_Production_Assets/scenes/S02/source/cinematic/REF_S02_LINH_CROP.png": "bddca905efe8ca954db0bfb449360d555b819e74e03894247a95bad0900229a0",
+    "07_Production_Assets/scenes/S02/source/cinematic/REF_S02_LINH_CROP.png.provenance.json": "a06d7bc76f1dfd22609ae4b71431663407f20685ce13b3f69cf11a21deed6e5f",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_EYE_CLOSED_01.png": "534671cce42de359e14d8c6caf08327827d06950eb83250227b4c5ef8d1c6c74",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_EYE_CLOSED_01.png.provenance.json": "4e2133314c184ba096f3a7ef49085ab92f3eb54bcea9e59b80f1e913143c560c",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_EYE_CLOSED_01.png.txt": "97fb8d5563e667add7080e227925c617a01807a5b3a802f3c51a30ec80cef5d5",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_EYE_HALF_01.png": "f007d96d900dde76460662b893bdf9c0a829dec05fec37ed121f073c4acade91",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_EYE_HALF_01.png.provenance.json": "f7631219450d60dfc9df09be1204a4b821b2baed2324d84d4d7fcf7466417865",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_EYE_HALF_01.png.txt": "0eba302ddd3499f0ec93eeae75153754af98a365980bb8e7f65a7493d87ebccb",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_OPEN_01.png": "664e5a429872d94acb83d2eb3648ec06f440bc7bcdfa2db3c16b9ffb6fff4151",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_OPEN_01.png.provenance.json": "079f7de506a6d9ce664a05b59556ad693fdfe6209260825602a72fcfa67ab041",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_OPEN_01.png.txt": "d743d4e1a86fae73e0e4d02d0c252f81ef16f5c4166c0f586e1ec8ec588ddf6e",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_ROUND_01.png": "f8fb15bf7724ccc838f612f36606f5f9b2a18c8f15da5c33144b2f3cbed6fd0f",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_ROUND_01.png.provenance.json": "90d187e41f17bd749a9599aa6648f8f937ee41b2dc0c04acdd01b36f991d0596",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_ROUND_01.png.txt": "e3d1eb6ab98bdbe2ae903d583603b0ba5ba98c11feed50610668a46d02d5e7c8",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_SLIGHT_01.png": "54243d89f494ef26836e114d7b478e88d2251c58b5d3ea235331becc70ab7dcb",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_SLIGHT_01.png.provenance.json": "f2a47852dcc82a1374584c5f9261c6406807e1a8982a930aa71b5ee6531e8973",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_SLIGHT_01.png.txt": "b58ada8f2542692dade7747e4d6cfdd78a4f5f532f8facb72185c292186efcff",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_X_01.png": "1582ee929fb5e62bdbed3dcf2bbca8484528b0fefed221b2ad49b33c8f65dd60",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_X_01.png.provenance.json": "c10e4e3f72a8cf7f426d8a60a61a52ddb644a5bd1c1b9abac5a19e9ae3c8c390",
+    "07_Production_Assets/scenes/S02/source/cinematic/S02_LINH_MOUTH_X_01.png.txt": "62cd41e065f0fc775a01e595e5c14844519104ce6d8b8bb8447d495d5f8cfe53"
   },
   "cinematic": {
     "width": 960,
@@ -475,103 +493,59 @@
       }
     ],
     "sprites": {
-      "X": {
+      "MOUTH_X": {
         "character": "linh",
         "part": "mouth",
-        "shape": "X",
-        "path": "S02_LINH_GRID_X_v001_DRAFT.webp",
-        "x": 75.5,
-        "y": 114.0,
-        "width": 22.5,
-        "height": 21.0,
+        "shape": "MOUTH_X",
+        "path": "S02_LINH_MOUTH_X_01_v001_DRAFT.webp",
+        "x": 66.5,
+        "y": 112.0,
+        "width": 31.0,
+        "height": 21.5,
         "status": "UNCONFIRMED"
       },
-      "B": {
+      "MOUTH_SLIGHT": {
         "character": "linh",
         "part": "mouth",
-        "shape": "B",
-        "path": "S02_LINH_GRID_B_v001_DRAFT.webp",
-        "x": 75.5,
-        "y": 114.0,
-        "width": 22.5,
-        "height": 21.0,
+        "shape": "MOUTH_SLIGHT",
+        "path": "S02_LINH_MOUTH_SLIGHT_01_v001_DRAFT.webp",
+        "x": 66.5,
+        "y": 112.0,
+        "width": 31.0,
+        "height": 21.5,
         "status": "UNCONFIRMED"
       },
-      "C": {
+      "MOUTH_OPEN": {
         "character": "linh",
         "part": "mouth",
-        "shape": "C",
-        "path": "S02_LINH_GRID_C_v001_DRAFT.webp",
-        "x": 75.5,
-        "y": 114.0,
-        "width": 22.5,
-        "height": 21.0,
+        "shape": "MOUTH_OPEN",
+        "path": "S02_LINH_MOUTH_OPEN_01_v001_DRAFT.webp",
+        "x": 66.5,
+        "y": 112.0,
+        "width": 31.0,
+        "height": 21.5,
         "status": "UNCONFIRMED"
       },
-      "D": {
+      "MOUTH_ROUND": {
         "character": "linh",
         "part": "mouth",
-        "shape": "D",
-        "path": "S02_LINH_GRID_D_v001_DRAFT.webp",
-        "x": 75.5,
-        "y": 114.0,
-        "width": 22.5,
-        "height": 21.0,
-        "status": "UNCONFIRMED"
-      },
-      "E": {
-        "character": "linh",
-        "part": "mouth",
-        "shape": "E",
-        "path": "S02_LINH_GRID_E_v001_DRAFT.webp",
-        "x": 75.5,
-        "y": 114.0,
-        "width": 22.5,
-        "height": 21.0,
-        "status": "UNCONFIRMED"
-      },
-      "F": {
-        "character": "linh",
-        "part": "mouth",
-        "shape": "F",
-        "path": "S02_LINH_GRID_F_v001_DRAFT.webp",
-        "x": 75.5,
-        "y": 114.0,
-        "width": 22.5,
-        "height": 21.0,
-        "status": "UNCONFIRMED"
-      },
-      "EYE_HALF": {
-        "character": "linh",
-        "part": "eye",
-        "shape": "EYE_HALF",
-        "path": "S02_LINH_GRID_EYE_HALF_v001_DRAFT.webp",
-        "x": 43.5,
-        "y": 74.0,
-        "width": 75.5,
-        "height": 43.5,
+        "shape": "MOUTH_ROUND",
+        "path": "S02_LINH_MOUTH_ROUND_01_v001_DRAFT.webp",
+        "x": 66.5,
+        "y": 112.0,
+        "width": 31.0,
+        "height": 21.5,
         "status": "UNCONFIRMED"
       },
       "EYE_CLOSED": {
         "character": "linh",
         "part": "eye",
         "shape": "EYE_CLOSED",
-        "path": "S02_LINH_GRID_EYE_CLOSED_v001_DRAFT.webp",
-        "x": 43.5,
-        "y": 74.0,
-        "width": 75.5,
-        "height": 43.5,
-        "status": "UNCONFIRMED"
-      },
-      "A": {
-        "character": "linh",
-        "part": "mouth",
-        "shape": "A",
-        "path": "S02__LINH__grid__take02.png__A_DRAFT.webp",
-        "x": 75.5,
-        "y": 114.0,
-        "width": 22.5,
-        "height": 21.0,
+        "path": "S02_LINH_EYE_CLOSED_01_v001_DRAFT.webp",
+        "x": 34.0,
+        "y": 78.5,
+        "width": 79.0,
+        "height": 34.0,
         "status": "UNCONFIRMED"
       }
     },
@@ -583,18 +557,22 @@
     ],
     "restUsesOriginal": false,
     "blinkMode": "closed",
-    "restSprite": "A",
+    "restSprite": "MOUTH_X",
     "mouthMap": {
       "linh": {
-        "X": "A",
-        "B": "E",
-        "C": "E",
-        "D": "E",
-        "E": "E",
-        "F": "F",
-        "A": "A",
-        "G": "E",
-        "H": "E"
+        "MOUTH_X": "MOUTH_X",
+        "MOUTH_SLIGHT": "MOUTH_SLIGHT",
+        "MOUTH_OPEN": "MOUTH_OPEN",
+        "MOUTH_ROUND": "MOUTH_ROUND",
+        "X": "MOUTH_X",
+        "A": "MOUTH_X",
+        "B": "MOUTH_SLIGHT",
+        "C": "MOUTH_SLIGHT",
+        "E": "MOUTH_SLIGHT",
+        "G": "MOUTH_SLIGHT",
+        "H": "MOUTH_SLIGHT",
+        "D": "MOUTH_OPEN",
+        "F": "MOUTH_ROUND"
       }
     },
     "eyeMap": {
@@ -902,49 +880,29 @@
   },
   "files": [
     {
-      "path": "S02_LINH_GRID_B_v001_DRAFT.webp",
-      "sha256": "6b3a2aa77b37652998761b044815dcd805d880873994ada52f8daaec7eafa9ba",
-      "bytes": 1158
+      "path": "S02_LINH_EYE_CLOSED_01_v001_DRAFT.webp",
+      "sha256": "ebd041fc2f34986808c0b7f2c2005c1b49b7346a398a283294dc4a9b3026ac32",
+      "bytes": 3952
     },
     {
-      "path": "S02_LINH_GRID_C_v001_DRAFT.webp",
-      "sha256": "40e73e00e8076f80bb2dd395e2322b38bc3150f9eb73f29ca2dd615189d6a206",
-      "bytes": 1248
+      "path": "S02_LINH_MOUTH_OPEN_01_v001_DRAFT.webp",
+      "sha256": "01649d39cd027eccb20bbdb3c30eb6c9f535c2026279e51bd354873288227c76",
+      "bytes": 1320
     },
     {
-      "path": "S02_LINH_GRID_D_v001_DRAFT.webp",
-      "sha256": "11deaefb6f4dba9ed772abf5dfa5a00d3207854ade6fc8a3b5cf22e77b110d77",
-      "bytes": 1266
+      "path": "S02_LINH_MOUTH_ROUND_01_v001_DRAFT.webp",
+      "sha256": "3df16a83307b270c5942bfdaef72a1e0afabdfcc1805be40a7ea2c8ae2317163",
+      "bytes": 1216
     },
     {
-      "path": "S02_LINH_GRID_EYE_CLOSED_v001_DRAFT.webp",
-      "sha256": "f706636426857ef2cd67bbbfb8943dc225586363769725fb9b4770b46b03a552",
-      "bytes": 4478
+      "path": "S02_LINH_MOUTH_SLIGHT_01_v001_DRAFT.webp",
+      "sha256": "182e39752e1b3ea6c3494f4527efd2d403394dadb6e1e8f5b0c0c90e19f4b871",
+      "bytes": 1278
     },
     {
-      "path": "S02_LINH_GRID_EYE_HALF_v001_DRAFT.webp",
-      "sha256": "cf458abf093bacb19d630a1b0a91ab79d7abd7d24e0bc8253e0849f07298d8d6",
-      "bytes": 5114
-    },
-    {
-      "path": "S02_LINH_GRID_E_v001_DRAFT.webp",
-      "sha256": "c949820ee6dc3b5c39a031ca40a1831c22587e848b1fddd0b977fbaa9f97fd32",
-      "bytes": 1082
-    },
-    {
-      "path": "S02_LINH_GRID_F_v001_DRAFT.webp",
-      "sha256": "7bde699cdbc053295bbd6da48c96434888aaf176bea4e56742254d6262875e5d",
-      "bytes": 1190
-    },
-    {
-      "path": "S02_LINH_GRID_X_v001_DRAFT.webp",
-      "sha256": "eefe56f6b1c6e2cbc8fd468c0060a6ad826f66d53a221d4135b82a39ab400a2d",
-      "bytes": 1104
-    },
-    {
-      "path": "S02__LINH__grid__take02.png__A_DRAFT.webp",
-      "sha256": "d4610d5bcd1312d42b615be6c6b6efd7e6b71618ecbd15482f5d2aa85860bf8c",
-      "bytes": 1006
+      "path": "S02_LINH_MOUTH_X_01_v001_DRAFT.webp",
+      "sha256": "05e3f0c1be9b02d82aaafa3ebb8ba2c7110960bedee75646682db7de3b361467",
+      "bytes": 1144
     },
     {
       "path": "audio/S02_C_LINH_02.mp3",
