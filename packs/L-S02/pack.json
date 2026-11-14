@@ -581,23 +581,24 @@
     "offscreen_speakers": [
       "Linda"
     ],
-    "restUsesOriginal": true,
+    "restUsesOriginal": false,
+    "blinkMode": "closed",
+    "restSprite": "A",
     "mouthMap": {
       "linh": {
-        "X": "X",
-        "B": "B",
-        "C": "C",
-        "D": "D",
+        "X": "A",
+        "B": "E",
+        "C": "E",
+        "D": "E",
         "E": "E",
         "F": "F",
         "A": "A",
-        "G": "B",
-        "H": "C"
+        "G": "E",
+        "H": "E"
       }
     },
     "eyeMap": {
       "linh": {
-        "HALF": "EYE_HALF",
         "CLOSED": "EYE_CLOSED"
       }
     },

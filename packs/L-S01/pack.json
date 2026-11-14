@@ -524,17 +524,19 @@
       "Customer",
       "Mark"
     ],
-    "restUsesOriginal": true,
+    "restUsesOriginal": false,
+    "blinkMode": "phased",
+    "restSprite": "X",
     "mouthMap": {
       "linh": {
         "X": "X",
-        "A": "A",
-        "B": "B",
+        "A": "X",
+        "B": "C",
         "C": "C",
         "D": "D",
-        "E": "E",
+        "E": "C",
         "F": "F",
-        "G": "B",
+        "G": "C",
         "H": "C"
       }
     },

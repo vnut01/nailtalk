@@ -550,23 +550,24 @@
     "offscreen_speakers": [
       "Mrs_Chen"
     ],
-    "restUsesOriginal": true,
+    "restUsesOriginal": false,
+    "blinkMode": "closed",
+    "restSprite": "X",
     "mouthMap": {
       "linh": {
         "X": "X",
-        "A": "A",
+        "A": "X",
         "B": "B",
-        "C": "C",
-        "D": "D",
-        "E": "E",
+        "C": "B",
+        "D": "C",
+        "E": "B",
         "F": "F",
         "G": "B",
-        "H": "C"
+        "H": "B"
       }
     },
     "eyeMap": {
       "linh": {
-        "HALF": "EYE_HALF",
         "CLOSED": "EYE_CLOSED"
       }
     },

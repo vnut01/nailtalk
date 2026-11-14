@@ -605,22 +605,23 @@
       "Linda"
     ],
     "restUsesOriginal": false,
+    "blinkMode": "closed",
+    "restSprite": "X",
     "mouthMap": {
       "linh": {
-        "C": "C",
-        "D": "D",
-        "E": "E",
-        "F": "F",
+        "C": "B",
+        "D": "C",
+        "E": "B",
+        "F": "E",
         "X": "X",
-        "A": "A",
+        "A": "X",
         "B": "B",
         "G": "B",
-        "H": "C"
+        "H": "B"
       }
     },
     "eyeMap": {
       "linh": {
-        "HALF": "EYE_HALF",
         "CLOSED": "EYE_CLOSED"
       }
     },

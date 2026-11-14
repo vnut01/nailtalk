@@ -433,10 +433,10 @@
       },
       {
         "path": "cinematic-0.webp",
-        "x": 130,
-        "y": 169,
-        "width": 30,
-        "height": 22,
+        "x": 216,
+        "y": 281,
+        "width": 51,
+        "height": 38,
         "character": "linh"
       }
     ],
@@ -446,10 +446,10 @@
         "part": "mouth",
         "shape": "X",
         "path": "S04_LINH_GRID_X_v001_DRAFT.webp",
-        "x": 0.0,
-        "y": 0.0,
-        "width": 30.0,
-        "height": 22.0,
+        "x": 0.6666666666666856,
+        "y": 0.6666666666666856,
+        "width": 50.0,
+        "height": 36.66666666666667,
         "status": "UNCONFIRMED"
       },
       "A": {
@@ -457,10 +457,10 @@
         "part": "mouth",
         "shape": "A",
         "path": "S04_LINH_GRID_A_v001_DRAFT.webp",
-        "x": 0.0,
-        "y": 0.0,
-        "width": 30.0,
-        "height": 22.0,
+        "x": 0.6666666666666856,
+        "y": 0.6666666666666856,
+        "width": 50.0,
+        "height": 36.66666666666667,
         "status": "UNCONFIRMED"
       },
       "B": {
@@ -468,10 +468,10 @@
         "part": "mouth",
         "shape": "B",
         "path": "S04_LINH_GRID_B_v001_DRAFT.webp",
-        "x": 0.0,
-        "y": 0.0,
-        "width": 30.0,
-        "height": 22.0,
+        "x": 0.6666666666666856,
+        "y": 0.6666666666666856,
+        "width": 50.0,
+        "height": 36.66666666666667,
         "status": "UNCONFIRMED"
       },
       "C": {
@@ -479,10 +479,10 @@
         "part": "mouth",
         "shape": "C",
         "path": "S04_LINH_GRID_C_v001_DRAFT.webp",
-        "x": 0.0,
-        "y": 0.0,
-        "width": 30.0,
-        "height": 22.0,
+        "x": 0.6666666666666856,
+        "y": 0.6666666666666856,
+        "width": 50.0,
+        "height": 36.66666666666667,
         "status": "UNCONFIRMED"
       },
       "D": {
@@ -490,10 +490,10 @@
         "part": "mouth",
         "shape": "D",
         "path": "S04_LINH_GRID_D_v001_DRAFT.webp",
-        "x": 0.0,
-        "y": 0.0,
-        "width": 30.0,
-        "height": 22.0,
+        "x": 0.6666666666666856,
+        "y": 0.6666666666666856,
+        "width": 50.0,
+        "height": 36.66666666666667,
         "status": "UNCONFIRMED"
       },
       "E": {
@@ -501,10 +501,10 @@
         "part": "mouth",
         "shape": "E",
         "path": "S04_LINH_GRID_E_v001_DRAFT.webp",
-        "x": 0.0,
-        "y": 0.0,
-        "width": 30.0,
-        "height": 22.0,
+        "x": 0.6666666666666856,
+        "y": 0.6666666666666856,
+        "width": 50.0,
+        "height": 36.66666666666667,
         "status": "UNCONFIRMED"
       },
       "F": {
@@ -512,10 +512,10 @@
         "part": "mouth",
         "shape": "F",
         "path": "S04_LINH_GRID_F_v001_DRAFT.webp",
-        "x": 0.0,
-        "y": 0.0,
-        "width": 30.0,
-        "height": 22.0,
+        "x": 0.6666666666666856,
+        "y": 0.6666666666666856,
+        "width": 50.0,
+        "height": 36.66666666666667,
         "status": "UNCONFIRMED"
       }
     },
@@ -526,17 +526,19 @@
       "Customer",
       "Mark"
     ],
-    "restUsesOriginal": true,
+    "restUsesOriginal": false,
+    "blinkMode": "none",
+    "restSprite": "X",
     "mouthMap": {
       "linh": {
         "X": "X",
-        "A": "A",
-        "B": "B",
+        "A": "X",
+        "B": "C",
         "C": "C",
-        "D": "D",
-        "E": "E",
+        "D": "C",
+        "E": "C",
         "F": "F",
-        "G": "B",
+        "G": "C",
         "H": "C"
       }
     },
@@ -1280,8 +1282,8 @@
     },
     {
       "path": "cinematic-0.webp",
-      "sha256": "098389a9d7ed3efcc4c82fba0a2e648f69c845bf03fa0cc4f0937cb2e7947f9b",
-      "bytes": 826
+      "sha256": "6de66f5e7e35b8087ff400549d664a7d90275eb27dc0d5bdcec25d907b8b909f",
+      "bytes": 1856
     },
     {
       "path": "rhubarb/S04_C_LINH_02.dialog.txt",

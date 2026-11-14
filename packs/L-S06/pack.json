@@ -703,17 +703,19 @@
       "Linda",
       "Susan"
     ],
-    "restUsesOriginal": true,
+    "restUsesOriginal": false,
+    "blinkMode": "none",
+    "restSprite": "X",
     "mouthMap": {
       "linh": {
         "X": "X",
-        "A": "A",
-        "B": "B",
+        "A": "X",
+        "B": "C",
         "C": "C",
-        "D": "D",
-        "E": "E",
+        "D": "C",
+        "E": "C",
         "F": "F",
-        "G": "B",
+        "G": "C",
         "H": "C"
       }
     },

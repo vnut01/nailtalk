@@ -16,7 +16,7 @@ export class CinematicScene {
         try { this.lipSaved = localStorage.getItem('nailtalk-lipsync'); } catch {}
         this.lipEnabled = this.lipSaved !== 'off';
         this.restUsesOriginal = pack.cinematic?.restUsesOriginal ?? false;
-        this.blinkStarts = {mark:nextBlink(performance.now()),linh:nextBlink(performance.now())};
+        this.blinkStarts = {mark:nextBlink(performance.now(),Math.random,'mark'),linh:nextBlink(performance.now())};
         this.media.addEventListener('change', () => {
             this.enabled = motionEnabled(this.saved, this.media.matches);
             this.apply();
@@ -100,8 +100,8 @@ export class CinematicScene {
         const mark = speaker === 'mark' ? markShape(shape) : 'CLOSED';
         const blinks = {linh:null,mark:null};
         if (active && !document.hidden && !this.recording) {
-            for (const char of ['mark','linh']) if (!this.pack.cinematic?.eyeMap || Object.keys(this.pack.cinematic.eyeMap[char] || {}).length) blinks[char] = characterBlink(now,this.blinkStarts,char,char === 'linh' && linh === 'A');
-        } else for (const char of ['mark','linh']) this.blinkStarts[char] = nextBlink(now);
+            for (const char of ['mark','linh']) if (!this.pack.cinematic?.eyeMap || Object.keys(this.pack.cinematic.eyeMap[char] || {}).length) blinks[char] = characterBlink(now,this.blinkStarts,char,char === 'linh' && linh === 'A', Math.random, this.pack.cinematic?.blinkMode || 'closed');
+        } else for (const char of ['mark','linh']) this.blinkStarts[char] = nextBlink(now,Math.random,char);
         const motion = gestureAt(speaker,cue,this.player?.audio.currentTime,playing,this.pack.cinematic?.gestures?.nodCues);
         const rig = this.root?.querySelector('.gesture-rig');
         if (rig) {

@@ -658,18 +658,20 @@
       "Customer",
       "Linda"
     ],
-    "restUsesOriginal": true,
+    "restUsesOriginal": false,
+    "blinkMode": "phased",
+    "restSprite": "X",
     "mouthMap": {
       "linh": {
         "X": "X",
-        "A": "A",
+        "A": "X",
         "B": "B",
-        "C": "C",
-        "D": "D",
-        "E": "E",
+        "C": "B",
+        "D": "E",
+        "E": "B",
         "F": "F",
         "G": "B",
-        "H": "C"
+        "H": "B"
       }
     },
     "eyeMap": {
