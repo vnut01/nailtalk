@@ -63,7 +63,7 @@ export class AudioPlayer {
         const compact = this.options.compact && this.cues.length === 1;
         root.innerHTML = this.options.scene ? `<button class="audio-toggle primary" type="button"></button>
 <span class="listen-count"></span><span class="listen-limit" role="status"></span>
-<div class="scene-transport">${this.options.slower ? '<button data-action="speed" aria-label="Tốc độ nghe">1×</button>' : ""}<button data-action="prev" aria-label="Câu trước">‹</button><button data-action="restart" aria-label="Nghe lại câu này">↺</button><button data-action="next" aria-label="Câu sau">›</button></div>
+${this.options.slower ? '<div class="scene-transport"><button data-action="speed" aria-label="Tốc độ nghe">1×</button></div>' : ""}
 <div class="audio-progress" role="progressbar" aria-label="Tiến độ nghe" aria-valuemin="0" aria-valuemax="${this.track.total}" aria-valuenow="0"><div class="progress-fill"></div></div>` : compact ? `<button class="audio-toggle primary" type="button"></button>${this.options.slower ? '<button data-action="speed" aria-label="Tốc độ nghe">1×</button>' : ''}` : `<button class="audio-toggle primary" type="button">
 </button>
       <p class="now-playing" aria-live="polite">
@@ -75,11 +75,6 @@ export class AudioPlayer {
 </div>
       <p class="audio-time">
 </p>
-      ${this.cues.length > 1 ? `<div class="controls">
-<button data-action="prev">${speakerIcon} ⟲ Câu trước</button>
-<button data-action="next">${speakerIcon} Câu sau ⟳</button>
-<button data-action="restart">${speakerIcon} Nghe lại câu này</button>
-</div>` : ""}
       ${this.options.slower ? "<button data-action=\"speed\" aria-label=\"Tốc độ nghe\">1×</button>" : ""}`;
         root.querySelector(".audio-toggle").onclick = () => this.toggle();
         for (const action of ["prev", "next", "restart"]) {
