@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "soundFile": "07_Production_Assets/audio/lessons_v2/L-S06/V2_S06_MRS_CHEN_02.wav",
+    "duration": 5.85
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.1,
+      "value": "X"
+    },
+    {
+      "start": 0.1,
+      "end": 0.34,
+      "value": "C"
+    },
+    {
+      "start": 0.34,
+      "end": 0.62,
+      "value": "B"
+    },
+    {
+      "start": 0.62,
+      "end": 1.72,
+      "value": "X"
+    },
+    {
+      "start": 1.72,
+      "end": 1.85,
+      "value": "B"
+    },
+    {
+      "start": 1.85,
+      "end": 1.93,
+      "value": "A"
+    },
+    {
+      "start": 1.93,
+      "end": 2.03,
+      "value": "F"
+    },
+    {
+      "start": 2.03,
+      "end": 2.1,
+      "value": "B"
+    },
+    {
+      "start": 2.1,
+      "end": 2.24,
+      "value": "C"
+    },
+    {
+      "start": 2.24,
+      "end": 2.31,
+      "value": "F"
+    },
+    {
+      "start": 2.31,
+      "end": 2.45,
+      "value": "C"
+    },
+    {
+      "start": 2.45,
+      "end": 2.73,
+      "value": "B"
+    },
+    {
+      "start": 2.73,
+      "end": 4.07,
+      "value": "X"
+    },
+    {
+      "start": 4.07,
+      "end": 4.18,
+      "value": "C"
+    },
+    {
+      "start": 4.18,
+      "end": 4.32,
+      "value": "B"
+    },
+    {
+      "start": 4.32,
+      "end": 4.39,
+      "value": "C"
+    },
+    {
+      "start": 4.39,
+      "end": 4.46,
+      "value": "B"
+    },
+    {
+      "start": 4.46,
+      "end": 4.53,
+      "value": "G"
+    },
+    {
+      "start": 4.53,
+      "end": 4.6,
+      "value": "E"
+    },
+    {
+      "start": 4.6,
+      "end": 4.95,
+      "value": "B"
+    },
+    {
+      "start": 4.95,
+      "end": 5.03,
+      "value": "A"
+    },
+    {
+      "start": 5.03,
+      "end": 5.4,
+      "value": "B"
+    },
+    {
+      "start": 5.4,
+      "end": 5.47,
+      "value": "E"
+    },
+    {
+      "start": 5.47,
+      "end": 5.75,
+      "value": "B"
+    },
+    {
+      "start": 5.75,
+      "end": 5.85,
+      "value": "X"
+    }
+  ]
+}

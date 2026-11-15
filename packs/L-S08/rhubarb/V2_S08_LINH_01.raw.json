@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "soundFile": "07_Production_Assets/audio/lessons_v2/L-S08/V2_S08_LINH_01.wav",
+    "duration": 1.53
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.05,
+      "value": "X"
+    },
+    {
+      "start": 0.05,
+      "end": 0.12,
+      "value": "G"
+    },
+    {
+      "start": 0.12,
+      "end": 0.18,
+      "value": "B"
+    },
+    {
+      "start": 0.18,
+      "end": 0.26,
+      "value": "A"
+    },
+    {
+      "start": 0.26,
+      "end": 0.67,
+      "value": "B"
+    },
+    {
+      "start": 0.67,
+      "end": 0.93,
+      "value": "X"
+    },
+    {
+      "start": 0.93,
+      "end": 0.99,
+      "value": "B"
+    },
+    {
+      "start": 0.99,
+      "end": 1.04,
+      "value": "C"
+    },
+    {
+      "start": 1.04,
+      "end": 1.46,
+      "value": "F"
+    },
+    {
+      "start": 1.46,
+      "end": 1.53,
+      "value": "X"
+    }
+  ]
+}

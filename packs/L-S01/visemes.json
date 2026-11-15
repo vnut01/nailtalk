@@ -1,469 +1,2556 @@
 {
-  "status": "DRAFT / UNCONFIRMED",
-  "tracks": {
-    "S01_LINH_01": {
-      "character": "linh",
-      "duration": 2.24,
-      "wav": "07_Production_Assets/audio/lessons/L-S01/S01_LINH_01.wav",
-      "sha256_wav": "2e15c452f0efe535474c01d7ccdbcde5487c144dee2f186ae7478aeb647926eb",
-      "mouthCues": [
-        {
-          "start": 0.0,
-          "end": 0.09,
-          "value": "X"
-        },
-        {
-          "start": 0.09,
-          "end": 0.29,
-          "value": "D"
-        },
-        {
-          "start": 0.29,
-          "end": 0.34,
-          "value": "C"
-        },
-        {
-          "start": 0.34,
-          "end": 0.64,
-          "value": "B"
-        },
-        {
-          "start": 0.64,
-          "end": 0.69,
-          "value": "F"
-        },
-        {
-          "start": 0.69,
-          "end": 0.73,
-          "value": "C"
-        },
-        {
-          "start": 0.73,
-          "end": 0.87,
-          "value": "B"
-        },
-        {
-          "start": 0.87,
-          "end": 0.95,
-          "value": "A"
-        },
-        {
-          "start": 0.95,
-          "end": 1.3,
-          "value": "B"
-        },
-        {
-          "start": 1.3,
-          "end": 1.41,
-          "value": "A"
-        },
-        {
-          "start": 1.41,
-          "end": 1.62,
-          "value": "B"
-        },
-        {
-          "start": 1.62,
-          "end": 1.69,
-          "value": "C"
-        },
-        {
-          "start": 1.69,
-          "end": 1.76,
-          "value": "G"
-        },
-        {
-          "start": 1.76,
-          "end": 2.18,
-          "value": "B"
-        },
-        {
-          "start": 2.18,
-          "end": 2.24,
-          "value": "X"
-        }
-      ]
-    },
-    "S01_LINH_03": {
-      "character": "linh",
-      "duration": 1.11,
-      "wav": "07_Production_Assets/audio/lessons/L-S01/S01_LINH_03.wav",
-      "sha256_wav": "78513d58c6aa0340e9f4728562086c1de65be00b8e4f4c17324f2a9fe7322868",
-      "mouthCues": [
-        {
-          "start": 0.0,
-          "end": 0.1,
-          "value": "X"
-        },
-        {
-          "start": 0.1,
-          "end": 0.32,
-          "value": "B"
-        },
-        {
-          "start": 0.32,
-          "end": 0.43,
-          "value": "X"
-        },
-        {
-          "start": 0.43,
-          "end": 0.53,
-          "value": "C"
-        },
-        {
-          "start": 0.53,
-          "end": 0.67,
-          "value": "B"
-        },
-        {
-          "start": 0.67,
-          "end": 0.74,
-          "value": "F"
-        },
-        {
-          "start": 0.74,
-          "end": 1.02,
-          "value": "B"
-        },
-        {
-          "start": 1.02,
-          "end": 1.11,
-          "value": "X"
-        }
-      ]
-    },
-    "S01_LINH_02": {
-      "character": "linh",
-      "duration": 1.05,
-      "wav": "07_Production_Assets/audio/lessons/L-S01/S01_LINH_02.wav",
-      "sha256_wav": "24b35f35b2099319a179393282968573b9a7c92b1eac2a459cfd2d64b5a20621",
-      "mouthCues": [
-        {
-          "start": 0.0,
-          "end": 0.11,
-          "value": "X"
-        },
-        {
-          "start": 0.11,
-          "end": 0.15,
-          "value": "B"
-        },
-        {
-          "start": 0.15,
-          "end": 0.23,
-          "value": "A"
-        },
-        {
-          "start": 0.23,
-          "end": 0.67,
-          "value": "B"
-        },
-        {
-          "start": 0.67,
-          "end": 0.95,
-          "value": "F"
-        },
-        {
-          "start": 0.95,
-          "end": 1.05,
-          "value": "X"
-        }
-      ]
-    },
-    "S01_D_LISTEN_01": {
-      "character": "linh",
-      "duration": 1.59,
-      "wav": "07_Production_Assets/audio/lessons/L-S01/S01_D_LISTEN_01.wav",
-      "sha256_wav": "201bec83f05e0011220e850ebf04e08b1eb0dcc502e32940f5dc258e0ac143d2",
-      "mouthCues": [
-        {
-          "start": 0.0,
-          "end": 0.09,
-          "value": "X"
-        },
-        {
-          "start": 0.09,
-          "end": 0.13,
-          "value": "B"
-        },
-        {
-          "start": 0.13,
-          "end": 0.21,
-          "value": "A"
-        },
-        {
-          "start": 0.21,
-          "end": 0.3,
-          "value": "B"
-        },
-        {
-          "start": 0.3,
-          "end": 0.37,
-          "value": "F"
-        },
-        {
-          "start": 0.37,
-          "end": 0.44,
-          "value": "B"
-        },
-        {
-          "start": 0.44,
-          "end": 0.65,
-          "value": "F"
-        },
-        {
-          "start": 0.65,
-          "end": 1.08,
-          "value": "B"
-        },
-        {
-          "start": 1.08,
-          "end": 1.14,
-          "value": "A"
-        },
-        {
-          "start": 1.14,
-          "end": 1.2,
-          "value": "E"
-        },
-        {
-          "start": 1.2,
-          "end": 1.28,
-          "value": "A"
-        },
-        {
-          "start": 1.28,
-          "end": 1.38,
-          "value": "C"
-        },
-        {
-          "start": 1.38,
-          "end": 1.52,
-          "value": "B"
-        },
-        {
-          "start": 1.52,
-          "end": 1.59,
-          "value": "X"
-        }
-      ]
-    },
-    "S01_D_LISTEN_02": {
-      "character": "linh",
-      "duration": 0.97,
-      "wav": "07_Production_Assets/audio/lessons/L-S01/S01_D_LISTEN_02.wav",
-      "sha256_wav": "4b49d1aa5deb8e4b33cd2d407d50664c169c5705fa520d29609c1f5239368266",
-      "mouthCues": [
-        {
-          "start": 0.0,
-          "end": 0.03,
-          "value": "X"
-        },
-        {
-          "start": 0.03,
-          "end": 0.11,
-          "value": "A"
-        },
-        {
-          "start": 0.11,
-          "end": 0.59,
-          "value": "B"
-        },
-        {
-          "start": 0.59,
-          "end": 0.87,
-          "value": "F"
-        },
-        {
-          "start": 0.87,
-          "end": 0.97,
-          "value": "X"
-        }
-      ]
-    },
-    "S01_G_LINH_01": {
-      "character": "linh",
-      "duration": 2.18,
-      "wav": "07_Production_Assets/audio/lessons/L-S01/S01_G_LINH_01.wav",
-      "sha256_wav": "44ccf1a3c491c6d8e1e6b742c4b95717b2e5addd472f19af35c8a1eb051ff61d",
-      "mouthCues": [
-        {
-          "start": 0.0,
-          "end": 0.09,
-          "value": "X"
-        },
-        {
-          "start": 0.09,
-          "end": 0.43,
-          "value": "F"
-        },
-        {
-          "start": 0.43,
-          "end": 0.5,
-          "value": "C"
-        },
-        {
-          "start": 0.5,
-          "end": 0.58,
-          "value": "A"
-        },
-        {
-          "start": 0.58,
-          "end": 0.78,
-          "value": "B"
-        },
-        {
-          "start": 0.78,
-          "end": 0.85,
-          "value": "C"
-        },
-        {
-          "start": 0.85,
-          "end": 1.3,
-          "value": "B"
-        },
-        {
-          "start": 1.3,
-          "end": 1.34,
-          "value": "C"
-        },
-        {
-          "start": 1.34,
-          "end": 1.38,
-          "value": "B"
-        },
-        {
-          "start": 1.38,
-          "end": 1.46,
-          "value": "A"
-        },
-        {
-          "start": 1.46,
-          "end": 1.82,
-          "value": "B"
-        },
-        {
-          "start": 1.82,
-          "end": 2.1,
-          "value": "F"
-        },
-        {
-          "start": 2.1,
-          "end": 2.18,
-          "value": "X"
-        }
-      ]
-    },
-    "S01_C_LINH_02": {
-      "character": "linh",
-      "duration": 1.49,
-      "wav": "07_Production_Assets/audio/app_v010/S01_C_LINH_02.wav",
-      "sha256_wav": "5dfb95e293b5cfcd4c664237487c7108ac11c17ff217ee3cbf571f47fa00c5b3",
-      "mouthCues": [
-        {
-          "start": 0.0,
-          "end": 0.1,
-          "value": "X"
-        },
-        {
-          "start": 0.1,
-          "end": 0.22,
-          "value": "B"
-        },
-        {
-          "start": 0.22,
-          "end": 0.29,
-          "value": "D"
-        },
-        {
-          "start": 0.29,
-          "end": 0.57,
-          "value": "B"
-        },
-        {
-          "start": 0.57,
-          "end": 0.65,
-          "value": "A"
-        },
-        {
-          "start": 0.65,
-          "end": 0.73,
-          "value": "E"
-        },
-        {
-          "start": 0.73,
-          "end": 0.8,
-          "value": "B"
-        },
-        {
-          "start": 0.8,
-          "end": 0.88,
-          "value": "A"
-        },
-        {
-          "start": 0.88,
-          "end": 0.99,
-          "value": "B"
-        },
-        {
-          "start": 0.99,
-          "end": 1.06,
-          "value": "E"
-        },
-        {
-          "start": 1.06,
-          "end": 1.13,
-          "value": "F"
-        },
-        {
-          "start": 1.13,
-          "end": 1.41,
-          "value": "B"
-        },
-        {
-          "start": 1.41,
-          "end": 1.49,
-          "value": "X"
-        }
-      ]
-    },
-    "S01_C_LINH_03": {
-      "character": "linh",
-      "duration": 0.89,
-      "wav": "07_Production_Assets/audio/app_v010/S01_C_LINH_03.wav",
-      "sha256_wav": "4a554020f981e31d5dc72a960b9fbddfbf7923a96b81747479365b91a2202c6b",
-      "mouthCues": [
-        {
-          "start": 0.0,
-          "end": 0.1,
-          "value": "X"
-        },
-        {
-          "start": 0.1,
-          "end": 0.38,
-          "value": "B"
-        },
-        {
-          "start": 0.38,
-          "end": 0.59,
-          "value": "C"
-        },
-        {
-          "start": 0.59,
-          "end": 0.66,
-          "value": "E"
-        },
-        {
-          "start": 0.66,
-          "end": 0.8,
-          "value": "C"
-        },
-        {
-          "start": 0.8,
-          "end": 0.89,
-          "value": "X"
-        }
-      ]
-    }
+  "V2_S01_AMY_01": {
+    "character": "amy",
+    "duration": 3.5,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_01.wav",
+    "sha256_wav": "c769ba0781c2ee345dce6ee0883fe06d8a58670b62da38dbe0ed1e6ac3701f98",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.09,
+        "value": "X"
+      },
+      {
+        "start": 0.09,
+        "end": 0.28,
+        "value": "E"
+      },
+      {
+        "start": 0.28,
+        "end": 0.42,
+        "value": "B"
+      },
+      {
+        "start": 0.42,
+        "end": 0.85,
+        "value": "X"
+      },
+      {
+        "start": 0.85,
+        "end": 0.9,
+        "value": "C"
+      },
+      {
+        "start": 0.9,
+        "end": 0.95,
+        "value": "B"
+      },
+      {
+        "start": 0.95,
+        "end": 1.03,
+        "value": "A"
+      },
+      {
+        "start": 1.03,
+        "end": 1.2,
+        "value": "E"
+      },
+      {
+        "start": 1.2,
+        "end": 1.48,
+        "value": "B"
+      },
+      {
+        "start": 1.48,
+        "end": 1.87,
+        "value": "C"
+      },
+      {
+        "start": 1.87,
+        "end": 1.95,
+        "value": "A"
+      },
+      {
+        "start": 1.95,
+        "end": 2.16,
+        "value": "C"
+      },
+      {
+        "start": 2.16,
+        "end": 2.93,
+        "value": "B"
+      },
+      {
+        "start": 2.93,
+        "end": 3.0,
+        "value": "B"
+      },
+      {
+        "start": 3.0,
+        "end": 3.14,
+        "value": "C"
+      },
+      {
+        "start": 3.14,
+        "end": 3.42,
+        "value": "B"
+      },
+      {
+        "start": 3.42,
+        "end": 3.5,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_01": {
+    "character": "linh",
+    "duration": 2.24,
+    "wav": "07_Production_Assets/audio/lessons/L-S01/S01_LINH_01.wav",
+    "sha256_wav": "2e15c452f0efe535474c01d7ccdbcde5487c144dee2f186ae7478aeb647926eb",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.09,
+        "value": "X"
+      },
+      {
+        "start": 0.09,
+        "end": 0.29,
+        "value": "D"
+      },
+      {
+        "start": 0.29,
+        "end": 0.34,
+        "value": "C"
+      },
+      {
+        "start": 0.34,
+        "end": 0.64,
+        "value": "B"
+      },
+      {
+        "start": 0.64,
+        "end": 0.69,
+        "value": "F"
+      },
+      {
+        "start": 0.69,
+        "end": 0.73,
+        "value": "C"
+      },
+      {
+        "start": 0.73,
+        "end": 0.87,
+        "value": "B"
+      },
+      {
+        "start": 0.87,
+        "end": 0.95,
+        "value": "A"
+      },
+      {
+        "start": 0.95,
+        "end": 1.3,
+        "value": "B"
+      },
+      {
+        "start": 1.3,
+        "end": 1.41,
+        "value": "A"
+      },
+      {
+        "start": 1.41,
+        "end": 1.62,
+        "value": "B"
+      },
+      {
+        "start": 1.62,
+        "end": 1.69,
+        "value": "C"
+      },
+      {
+        "start": 1.69,
+        "end": 1.76,
+        "value": "B"
+      },
+      {
+        "start": 1.76,
+        "end": 2.18,
+        "value": "B"
+      },
+      {
+        "start": 2.18,
+        "end": 2.24,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_AMY_02": {
+    "character": "amy",
+    "duration": 3.09,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_02.wav",
+    "sha256_wav": "85dbba0eae68e2386dee3be7b127ba756d6e7b27c09568dd9d9d77bee2e58065",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.03,
+        "value": "X"
+      },
+      {
+        "start": 0.03,
+        "end": 0.08,
+        "value": "B"
+      },
+      {
+        "start": 0.08,
+        "end": 0.27,
+        "value": "C"
+      },
+      {
+        "start": 0.27,
+        "end": 0.55,
+        "value": "B"
+      },
+      {
+        "start": 0.55,
+        "end": 0.76,
+        "value": "X"
+      },
+      {
+        "start": 0.76,
+        "end": 0.88,
+        "value": "B"
+      },
+      {
+        "start": 0.88,
+        "end": 0.95,
+        "value": "D"
+      },
+      {
+        "start": 0.95,
+        "end": 1.02,
+        "value": "B"
+      },
+      {
+        "start": 1.02,
+        "end": 1.09,
+        "value": "B"
+      },
+      {
+        "start": 1.09,
+        "end": 1.16,
+        "value": "E"
+      },
+      {
+        "start": 1.16,
+        "end": 1.3,
+        "value": "B"
+      },
+      {
+        "start": 1.3,
+        "end": 1.37,
+        "value": "C"
+      },
+      {
+        "start": 1.37,
+        "end": 1.94,
+        "value": "B"
+      },
+      {
+        "start": 1.94,
+        "end": 2.01,
+        "value": "C"
+      },
+      {
+        "start": 2.01,
+        "end": 2.08,
+        "value": "B"
+      },
+      {
+        "start": 2.08,
+        "end": 2.16,
+        "value": "A"
+      },
+      {
+        "start": 2.16,
+        "end": 2.43,
+        "value": "B"
+      },
+      {
+        "start": 2.43,
+        "end": 2.5,
+        "value": "C"
+      },
+      {
+        "start": 2.5,
+        "end": 2.57,
+        "value": "E"
+      },
+      {
+        "start": 2.57,
+        "end": 2.64,
+        "value": "B"
+      },
+      {
+        "start": 2.64,
+        "end": 2.71,
+        "value": "C"
+      },
+      {
+        "start": 2.71,
+        "end": 2.99,
+        "value": "B"
+      },
+      {
+        "start": 2.99,
+        "end": 3.09,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_02": {
+    "character": "linh",
+    "duration": 2.24,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_02.wav",
+    "sha256_wav": "0c96a4d4f1caef30c23036dd09ea8fb32f1266f8e653b9248c1775cbb1940e1f",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.08,
+        "value": "X"
+      },
+      {
+        "start": 0.08,
+        "end": 0.25,
+        "value": "E"
+      },
+      {
+        "start": 0.25,
+        "end": 0.39,
+        "value": "F"
+      },
+      {
+        "start": 0.39,
+        "end": 0.53,
+        "value": "B"
+      },
+      {
+        "start": 0.53,
+        "end": 0.6,
+        "value": "E"
+      },
+      {
+        "start": 0.6,
+        "end": 0.74,
+        "value": "B"
+      },
+      {
+        "start": 0.74,
+        "end": 0.88,
+        "value": "C"
+      },
+      {
+        "start": 0.88,
+        "end": 1.16,
+        "value": "B"
+      },
+      {
+        "start": 1.16,
+        "end": 1.39,
+        "value": "X"
+      },
+      {
+        "start": 1.39,
+        "end": 1.75,
+        "value": "B"
+      },
+      {
+        "start": 1.75,
+        "end": 1.82,
+        "value": "C"
+      },
+      {
+        "start": 1.82,
+        "end": 2.17,
+        "value": "B"
+      },
+      {
+        "start": 2.17,
+        "end": 2.24,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_AMY_03": {
+    "character": "amy",
+    "duration": 2.99,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_03.wav",
+    "sha256_wav": "fa1afb596f31eefb725b43d33315d4702d8c308e4c6a757ffd497753210a3ae2",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.05,
+        "value": "X"
+      },
+      {
+        "start": 0.05,
+        "end": 0.13,
+        "value": "A"
+      },
+      {
+        "start": 0.13,
+        "end": 0.19,
+        "value": "C"
+      },
+      {
+        "start": 0.19,
+        "end": 0.6,
+        "value": "B"
+      },
+      {
+        "start": 0.6,
+        "end": 0.67,
+        "value": "C"
+      },
+      {
+        "start": 0.67,
+        "end": 0.74,
+        "value": "E"
+      },
+      {
+        "start": 0.74,
+        "end": 0.81,
+        "value": "F"
+      },
+      {
+        "start": 0.81,
+        "end": 1.02,
+        "value": "B"
+      },
+      {
+        "start": 1.02,
+        "end": 1.37,
+        "value": "A"
+      },
+      {
+        "start": 1.37,
+        "end": 1.56,
+        "value": "B"
+      },
+      {
+        "start": 1.56,
+        "end": 1.7,
+        "value": "E"
+      },
+      {
+        "start": 1.7,
+        "end": 1.77,
+        "value": "C"
+      },
+      {
+        "start": 1.77,
+        "end": 1.84,
+        "value": "B"
+      },
+      {
+        "start": 1.84,
+        "end": 1.92,
+        "value": "A"
+      },
+      {
+        "start": 1.92,
+        "end": 1.98,
+        "value": "C"
+      },
+      {
+        "start": 1.98,
+        "end": 2.17,
+        "value": "B"
+      },
+      {
+        "start": 2.17,
+        "end": 2.25,
+        "value": "A"
+      },
+      {
+        "start": 2.25,
+        "end": 2.39,
+        "value": "C"
+      },
+      {
+        "start": 2.39,
+        "end": 2.53,
+        "value": "B"
+      },
+      {
+        "start": 2.53,
+        "end": 2.6,
+        "value": "B"
+      },
+      {
+        "start": 2.6,
+        "end": 2.81,
+        "value": "C"
+      },
+      {
+        "start": 2.81,
+        "end": 2.95,
+        "value": "B"
+      },
+      {
+        "start": 2.95,
+        "end": 2.99,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_03": {
+    "character": "linh",
+    "duration": 2.28,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_03.wav",
+    "sha256_wav": "ab0614ec78a49ddc77b6ff21685e9e7fd7c81995d879b058efedb2958860a7ad",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.08,
+        "value": "X"
+      },
+      {
+        "start": 0.08,
+        "end": 0.18,
+        "value": "C"
+      },
+      {
+        "start": 0.18,
+        "end": 0.25,
+        "value": "B"
+      },
+      {
+        "start": 0.25,
+        "end": 0.39,
+        "value": "B"
+      },
+      {
+        "start": 0.39,
+        "end": 0.6,
+        "value": "C"
+      },
+      {
+        "start": 0.6,
+        "end": 1.3,
+        "value": "B"
+      },
+      {
+        "start": 1.3,
+        "end": 1.37,
+        "value": "C"
+      },
+      {
+        "start": 1.37,
+        "end": 1.44,
+        "value": "E"
+      },
+      {
+        "start": 1.44,
+        "end": 1.79,
+        "value": "B"
+      },
+      {
+        "start": 1.79,
+        "end": 1.86,
+        "value": "C"
+      },
+      {
+        "start": 1.86,
+        "end": 2.21,
+        "value": "B"
+      },
+      {
+        "start": 2.21,
+        "end": 2.28,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_AMY_04": {
+    "character": "amy",
+    "duration": 3.41,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_04.wav",
+    "sha256_wav": "53d8d2dd95c080f5881646dd56734df5cc084b6de1af74b68908041bb932f0d9",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.1,
+        "value": "X"
+      },
+      {
+        "start": 0.1,
+        "end": 1.11,
+        "value": "B"
+      },
+      {
+        "start": 1.11,
+        "end": 1.34,
+        "value": "X"
+      },
+      {
+        "start": 1.34,
+        "end": 1.4,
+        "value": "C"
+      },
+      {
+        "start": 1.4,
+        "end": 1.74,
+        "value": "B"
+      },
+      {
+        "start": 1.74,
+        "end": 1.81,
+        "value": "D"
+      },
+      {
+        "start": 1.81,
+        "end": 1.88,
+        "value": "B"
+      },
+      {
+        "start": 1.88,
+        "end": 1.96,
+        "value": "A"
+      },
+      {
+        "start": 1.96,
+        "end": 2.01,
+        "value": "C"
+      },
+      {
+        "start": 2.01,
+        "end": 2.05,
+        "value": "B"
+      },
+      {
+        "start": 2.05,
+        "end": 2.26,
+        "value": "C"
+      },
+      {
+        "start": 2.26,
+        "end": 2.4,
+        "value": "B"
+      },
+      {
+        "start": 2.4,
+        "end": 2.65,
+        "value": "F"
+      },
+      {
+        "start": 2.65,
+        "end": 2.72,
+        "value": "E"
+      },
+      {
+        "start": 2.72,
+        "end": 2.96,
+        "value": "C"
+      },
+      {
+        "start": 2.96,
+        "end": 3.31,
+        "value": "B"
+      },
+      {
+        "start": 3.31,
+        "end": 3.41,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_04": {
+    "character": "linh",
+    "duration": 1.99,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_04.wav",
+    "sha256_wav": "d67ed1e4d20e461c2dc48bcc7560fdb05358b06ea1dacb6f50583d421aa245b8",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.1,
+        "value": "X"
+      },
+      {
+        "start": 0.1,
+        "end": 0.22,
+        "value": "F"
+      },
+      {
+        "start": 0.22,
+        "end": 0.27,
+        "value": "E"
+      },
+      {
+        "start": 0.27,
+        "end": 0.34,
+        "value": "C"
+      },
+      {
+        "start": 0.34,
+        "end": 0.41,
+        "value": "C"
+      },
+      {
+        "start": 0.41,
+        "end": 0.48,
+        "value": "B"
+      },
+      {
+        "start": 0.48,
+        "end": 0.56,
+        "value": "A"
+      },
+      {
+        "start": 0.56,
+        "end": 0.68,
+        "value": "C"
+      },
+      {
+        "start": 0.68,
+        "end": 0.82,
+        "value": "B"
+      },
+      {
+        "start": 0.82,
+        "end": 0.89,
+        "value": "C"
+      },
+      {
+        "start": 0.89,
+        "end": 1.33,
+        "value": "E"
+      },
+      {
+        "start": 1.33,
+        "end": 1.41,
+        "value": "A"
+      },
+      {
+        "start": 1.41,
+        "end": 1.71,
+        "value": "B"
+      },
+      {
+        "start": 1.71,
+        "end": 1.78,
+        "value": "C"
+      },
+      {
+        "start": 1.78,
+        "end": 1.92,
+        "value": "E"
+      },
+      {
+        "start": 1.92,
+        "end": 1.99,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_AMY_05": {
+    "character": "amy",
+    "duration": 2.53,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_05.wav",
+    "sha256_wav": "6fa79b7c5f42db25499cebcbe2adec1ab57e05e8c7607c425e82b67ef5bd6544",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.1,
+        "value": "X"
+      },
+      {
+        "start": 0.1,
+        "end": 0.15,
+        "value": "B"
+      },
+      {
+        "start": 0.15,
+        "end": 0.19,
+        "value": "C"
+      },
+      {
+        "start": 0.19,
+        "end": 0.33,
+        "value": "B"
+      },
+      {
+        "start": 0.33,
+        "end": 0.41,
+        "value": "A"
+      },
+      {
+        "start": 0.41,
+        "end": 0.9,
+        "value": "C"
+      },
+      {
+        "start": 0.9,
+        "end": 1.04,
+        "value": "B"
+      },
+      {
+        "start": 1.04,
+        "end": 1.54,
+        "value": "X"
+      },
+      {
+        "start": 1.54,
+        "end": 1.72,
+        "value": "B"
+      },
+      {
+        "start": 1.72,
+        "end": 1.79,
+        "value": "C"
+      },
+      {
+        "start": 1.79,
+        "end": 1.86,
+        "value": "B"
+      },
+      {
+        "start": 1.86,
+        "end": 1.94,
+        "value": "A"
+      },
+      {
+        "start": 1.94,
+        "end": 2.05,
+        "value": "C"
+      },
+      {
+        "start": 2.05,
+        "end": 2.19,
+        "value": "B"
+      },
+      {
+        "start": 2.19,
+        "end": 2.26,
+        "value": "C"
+      },
+      {
+        "start": 2.26,
+        "end": 2.47,
+        "value": "E"
+      },
+      {
+        "start": 2.47,
+        "end": 2.53,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_05": {
+    "character": "linh",
+    "duration": 1.3,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_05.wav",
+    "sha256_wav": "48218861cf1b544bd2cfc1ec0b930018b07a304d7f7838950956b751a81d1b20",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.09,
+        "value": "X"
+      },
+      {
+        "start": 0.09,
+        "end": 0.25,
+        "value": "C"
+      },
+      {
+        "start": 0.25,
+        "end": 0.53,
+        "value": "B"
+      },
+      {
+        "start": 0.53,
+        "end": 0.6,
+        "value": "C"
+      },
+      {
+        "start": 0.6,
+        "end": 0.68,
+        "value": "A"
+      },
+      {
+        "start": 0.68,
+        "end": 0.81,
+        "value": "C"
+      },
+      {
+        "start": 0.81,
+        "end": 0.95,
+        "value": "B"
+      },
+      {
+        "start": 0.95,
+        "end": 1.02,
+        "value": "C"
+      },
+      {
+        "start": 1.02,
+        "end": 1.23,
+        "value": "E"
+      },
+      {
+        "start": 1.23,
+        "end": 1.3,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_AMY_06": {
+    "character": "amy",
+    "duration": 2.37,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_06.wav",
+    "sha256_wav": "ea0473fca81062506dbc78356ca209f7d1742782779675fe05a7371db5c088e5",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.08,
+        "value": "X"
+      },
+      {
+        "start": 0.08,
+        "end": 0.12,
+        "value": "B"
+      },
+      {
+        "start": 0.12,
+        "end": 0.16,
+        "value": "C"
+      },
+      {
+        "start": 0.16,
+        "end": 0.44,
+        "value": "B"
+      },
+      {
+        "start": 0.44,
+        "end": 0.51,
+        "value": "C"
+      },
+      {
+        "start": 0.51,
+        "end": 0.58,
+        "value": "B"
+      },
+      {
+        "start": 0.58,
+        "end": 0.65,
+        "value": "C"
+      },
+      {
+        "start": 0.65,
+        "end": 0.79,
+        "value": "C"
+      },
+      {
+        "start": 0.79,
+        "end": 1.09,
+        "value": "B"
+      },
+      {
+        "start": 1.09,
+        "end": 1.27,
+        "value": "F"
+      },
+      {
+        "start": 1.27,
+        "end": 1.34,
+        "value": "C"
+      },
+      {
+        "start": 1.34,
+        "end": 1.48,
+        "value": "B"
+      },
+      {
+        "start": 1.48,
+        "end": 1.62,
+        "value": "C"
+      },
+      {
+        "start": 1.62,
+        "end": 1.7,
+        "value": "A"
+      },
+      {
+        "start": 1.7,
+        "end": 1.85,
+        "value": "E"
+      },
+      {
+        "start": 1.85,
+        "end": 1.92,
+        "value": "B"
+      },
+      {
+        "start": 1.92,
+        "end": 2.0,
+        "value": "A"
+      },
+      {
+        "start": 2.0,
+        "end": 2.07,
+        "value": "C"
+      },
+      {
+        "start": 2.07,
+        "end": 2.27,
+        "value": "B"
+      },
+      {
+        "start": 2.27,
+        "end": 2.37,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_06": {
+    "character": "linh",
+    "duration": 2.0,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_06.wav",
+    "sha256_wav": "25a993b6490c14a682c242123315f6a7cb75f6f25a5905e4c6ed0bd656e2ae7c",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.32,
+        "value": "X"
+      },
+      {
+        "start": 0.32,
+        "end": 0.36,
+        "value": "F"
+      },
+      {
+        "start": 0.36,
+        "end": 0.4,
+        "value": "B"
+      },
+      {
+        "start": 0.4,
+        "end": 0.61,
+        "value": "C"
+      },
+      {
+        "start": 0.61,
+        "end": 0.68,
+        "value": "B"
+      },
+      {
+        "start": 0.68,
+        "end": 0.75,
+        "value": "F"
+      },
+      {
+        "start": 0.75,
+        "end": 1.42,
+        "value": "B"
+      },
+      {
+        "start": 1.42,
+        "end": 1.55,
+        "value": "A"
+      },
+      {
+        "start": 1.55,
+        "end": 1.66,
+        "value": "B"
+      },
+      {
+        "start": 1.66,
+        "end": 1.73,
+        "value": "C"
+      },
+      {
+        "start": 1.73,
+        "end": 1.94,
+        "value": "B"
+      },
+      {
+        "start": 1.94,
+        "end": 2.0,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_AMY_07": {
+    "character": "amy",
+    "duration": 1.45,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_07.wav",
+    "sha256_wav": "196e3f14b82c4d884feb0fb3d276168fce1620189997b06cc35ccb52c1653539",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.09,
+        "value": "X"
+      },
+      {
+        "start": 0.09,
+        "end": 0.4,
+        "value": "F"
+      },
+      {
+        "start": 0.4,
+        "end": 0.64,
+        "value": "X"
+      },
+      {
+        "start": 0.64,
+        "end": 0.68,
+        "value": "C"
+      },
+      {
+        "start": 0.68,
+        "end": 0.72,
+        "value": "B"
+      },
+      {
+        "start": 0.72,
+        "end": 0.86,
+        "value": "D"
+      },
+      {
+        "start": 0.86,
+        "end": 0.93,
+        "value": "B"
+      },
+      {
+        "start": 0.93,
+        "end": 1.14,
+        "value": "C"
+      },
+      {
+        "start": 1.14,
+        "end": 1.21,
+        "value": "B"
+      },
+      {
+        "start": 1.21,
+        "end": 1.35,
+        "value": "A"
+      },
+      {
+        "start": 1.35,
+        "end": 1.45,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_07": {
+    "character": "linh",
+    "duration": 1.23,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_07.wav",
+    "sha256_wav": "95ea32f3b072ba7dc6aaa1fac952976b7aa19d0ad6a1ecbc71b085389d6ffc42",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.08,
+        "value": "X"
+      },
+      {
+        "start": 0.08,
+        "end": 0.42,
+        "value": "C"
+      },
+      {
+        "start": 0.42,
+        "end": 0.53,
+        "value": "A"
+      },
+      {
+        "start": 0.53,
+        "end": 0.76,
+        "value": "F"
+      },
+      {
+        "start": 0.76,
+        "end": 0.81,
+        "value": "E"
+      },
+      {
+        "start": 0.81,
+        "end": 0.99,
+        "value": "C"
+      },
+      {
+        "start": 0.99,
+        "end": 1.13,
+        "value": "E"
+      },
+      {
+        "start": 1.13,
+        "end": 1.23,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_AMY_08": {
+    "character": "amy",
+    "duration": 2.2,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_08.wav",
+    "sha256_wav": "d234e5368775f7642054aec2994aa8671eb3791b0357eabf9ce84f122faac20b",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.04,
+        "value": "X"
+      },
+      {
+        "start": 0.04,
+        "end": 0.22,
+        "value": "B"
+      },
+      {
+        "start": 0.22,
+        "end": 0.29,
+        "value": "C"
+      },
+      {
+        "start": 0.29,
+        "end": 0.98,
+        "value": "B"
+      },
+      {
+        "start": 0.98,
+        "end": 1.08,
+        "value": "F"
+      },
+      {
+        "start": 1.08,
+        "end": 1.29,
+        "value": "B"
+      },
+      {
+        "start": 1.29,
+        "end": 1.37,
+        "value": "A"
+      },
+      {
+        "start": 1.37,
+        "end": 1.43,
+        "value": "B"
+      },
+      {
+        "start": 1.43,
+        "end": 1.55,
+        "value": "C"
+      },
+      {
+        "start": 1.55,
+        "end": 1.62,
+        "value": "B"
+      },
+      {
+        "start": 1.62,
+        "end": 1.83,
+        "value": "D"
+      },
+      {
+        "start": 1.83,
+        "end": 1.97,
+        "value": "C"
+      },
+      {
+        "start": 1.97,
+        "end": 2.1,
+        "value": "A"
+      },
+      {
+        "start": 2.1,
+        "end": 2.2,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_08": {
+    "character": "linh",
+    "duration": 1.61,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_08.wav",
+    "sha256_wav": "107b4add095d627b651e3a5f9452415812c9a810266ec5168f6a3c9595a0e616",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.08,
+        "value": "X"
+      },
+      {
+        "start": 0.08,
+        "end": 0.14,
+        "value": "C"
+      },
+      {
+        "start": 0.14,
+        "end": 0.19,
+        "value": "B"
+      },
+      {
+        "start": 0.19,
+        "end": 0.27,
+        "value": "A"
+      },
+      {
+        "start": 0.27,
+        "end": 0.37,
+        "value": "B"
+      },
+      {
+        "start": 0.37,
+        "end": 0.51,
+        "value": "C"
+      },
+      {
+        "start": 0.51,
+        "end": 0.65,
+        "value": "B"
+      },
+      {
+        "start": 0.65,
+        "end": 0.79,
+        "value": "F"
+      },
+      {
+        "start": 0.79,
+        "end": 0.87,
+        "value": "A"
+      },
+      {
+        "start": 0.87,
+        "end": 0.97,
+        "value": "B"
+      },
+      {
+        "start": 0.97,
+        "end": 1.07,
+        "value": "A"
+      },
+      {
+        "start": 1.07,
+        "end": 1.13,
+        "value": "B"
+      },
+      {
+        "start": 1.13,
+        "end": 1.54,
+        "value": "F"
+      },
+      {
+        "start": 1.54,
+        "end": 1.61,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_AMY_09": {
+    "character": "amy",
+    "duration": 2.33,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_09.wav",
+    "sha256_wav": "1f3ba2eb89e1fc86a02624ee6e4d6f71ccb74e55778cfaa5fb5f20dc9acabef4",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.09,
+        "value": "X"
+      },
+      {
+        "start": 0.09,
+        "end": 0.63,
+        "value": "B"
+      },
+      {
+        "start": 0.63,
+        "end": 0.77,
+        "value": "C"
+      },
+      {
+        "start": 0.77,
+        "end": 1.08,
+        "value": "B"
+      },
+      {
+        "start": 1.08,
+        "end": 1.41,
+        "value": "F"
+      },
+      {
+        "start": 1.41,
+        "end": 1.55,
+        "value": "B"
+      },
+      {
+        "start": 1.55,
+        "end": 1.62,
+        "value": "C"
+      },
+      {
+        "start": 1.62,
+        "end": 1.69,
+        "value": "B"
+      },
+      {
+        "start": 1.69,
+        "end": 1.76,
+        "value": "B"
+      },
+      {
+        "start": 1.76,
+        "end": 1.97,
+        "value": "E"
+      },
+      {
+        "start": 1.97,
+        "end": 2.25,
+        "value": "B"
+      },
+      {
+        "start": 2.25,
+        "end": 2.33,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_09": {
+    "character": "linh",
+    "duration": 1.79,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_09.wav",
+    "sha256_wav": "02b848f65c813545fe1522a38cdfa45696ef8ad6887c85517a9e680497c5446e",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.09,
+        "value": "X"
+      },
+      {
+        "start": 0.09,
+        "end": 0.16,
+        "value": "C"
+      },
+      {
+        "start": 0.16,
+        "end": 0.37,
+        "value": "B"
+      },
+      {
+        "start": 0.37,
+        "end": 0.86,
+        "value": "C"
+      },
+      {
+        "start": 0.86,
+        "end": 1.0,
+        "value": "B"
+      },
+      {
+        "start": 1.0,
+        "end": 1.14,
+        "value": "C"
+      },
+      {
+        "start": 1.14,
+        "end": 1.21,
+        "value": "B"
+      },
+      {
+        "start": 1.21,
+        "end": 1.42,
+        "value": "E"
+      },
+      {
+        "start": 1.42,
+        "end": 1.49,
+        "value": "F"
+      },
+      {
+        "start": 1.49,
+        "end": 1.7,
+        "value": "B"
+      },
+      {
+        "start": 1.7,
+        "end": 1.79,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_AMY_10": {
+    "character": "amy",
+    "duration": 3.3,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_10.wav",
+    "sha256_wav": "d3c8c9fabc4f39cdaaaffae25d54f274485bd98e6b22a4ad54f3dc07119725c7",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.08,
+        "value": "X"
+      },
+      {
+        "start": 0.08,
+        "end": 0.35,
+        "value": "C"
+      },
+      {
+        "start": 0.35,
+        "end": 0.4,
+        "value": "E"
+      },
+      {
+        "start": 0.4,
+        "end": 0.58,
+        "value": "F"
+      },
+      {
+        "start": 0.58,
+        "end": 0.65,
+        "value": "B"
+      },
+      {
+        "start": 0.65,
+        "end": 0.72,
+        "value": "C"
+      },
+      {
+        "start": 0.72,
+        "end": 0.93,
+        "value": "B"
+      },
+      {
+        "start": 0.93,
+        "end": 1.3,
+        "value": "X"
+      },
+      {
+        "start": 1.3,
+        "end": 1.42,
+        "value": "A"
+      },
+      {
+        "start": 1.42,
+        "end": 1.54,
+        "value": "C"
+      },
+      {
+        "start": 1.54,
+        "end": 1.61,
+        "value": "B"
+      },
+      {
+        "start": 1.61,
+        "end": 1.75,
+        "value": "E"
+      },
+      {
+        "start": 1.75,
+        "end": 1.82,
+        "value": "B"
+      },
+      {
+        "start": 1.82,
+        "end": 2.03,
+        "value": "C"
+      },
+      {
+        "start": 2.03,
+        "end": 2.31,
+        "value": "B"
+      },
+      {
+        "start": 2.31,
+        "end": 2.39,
+        "value": "A"
+      },
+      {
+        "start": 2.39,
+        "end": 2.47,
+        "value": "C"
+      },
+      {
+        "start": 2.47,
+        "end": 2.54,
+        "value": "B"
+      },
+      {
+        "start": 2.54,
+        "end": 2.62,
+        "value": "A"
+      },
+      {
+        "start": 2.62,
+        "end": 2.95,
+        "value": "B"
+      },
+      {
+        "start": 2.95,
+        "end": 3.23,
+        "value": "E"
+      },
+      {
+        "start": 3.23,
+        "end": 3.3,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_10": {
+    "character": "linh",
+    "duration": 1.69,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_10.wav",
+    "sha256_wav": "806c4515035452845ce86cbdf5798785f12af39f31ab6fcb92f95778b3d972d9",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.05,
+        "value": "X"
+      },
+      {
+        "start": 0.05,
+        "end": 0.11,
+        "value": "B"
+      },
+      {
+        "start": 0.11,
+        "end": 0.37,
+        "value": "C"
+      },
+      {
+        "start": 0.37,
+        "end": 0.65,
+        "value": "B"
+      },
+      {
+        "start": 0.65,
+        "end": 0.77,
+        "value": "X"
+      },
+      {
+        "start": 0.77,
+        "end": 0.93,
+        "value": "B"
+      },
+      {
+        "start": 0.93,
+        "end": 1.14,
+        "value": "E"
+      },
+      {
+        "start": 1.14,
+        "end": 1.21,
+        "value": "C"
+      },
+      {
+        "start": 1.21,
+        "end": 1.42,
+        "value": "E"
+      },
+      {
+        "start": 1.42,
+        "end": 1.63,
+        "value": "B"
+      },
+      {
+        "start": 1.63,
+        "end": 1.69,
+        "value": "X"
+      }
+    ]
+  },
+  "V2_S01_LINH_11": {
+    "duration": 0.98,
+    "wav": "07_Production_Assets/audio/lessons/L-S04/S04_LINH_02.wav",
+    "sha256_wav": "704a66241a2350f2c8aefd5074e7d545e3b7b7ed4dd2243b49087378acec1c65",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.1,
+        "value": "X"
+      },
+      {
+        "start": 0.1,
+        "end": 0.24,
+        "value": "H"
+      },
+      {
+        "start": 0.24,
+        "end": 0.31,
+        "value": "B"
+      },
+      {
+        "start": 0.31,
+        "end": 0.39,
+        "value": "A"
+      },
+      {
+        "start": 0.39,
+        "end": 0.55,
+        "value": "B"
+      },
+      {
+        "start": 0.55,
+        "end": 0.69,
+        "value": "C"
+      },
+      {
+        "start": 0.69,
+        "end": 0.9,
+        "value": "B"
+      },
+      {
+        "start": 0.9,
+        "end": 0.98,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_12": {
+    "duration": 0.85,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_12.wav",
+    "sha256_wav": "f4e8f7ef8a321b76153a2cdfeb90e869d8e059df579f07642673e9d1ffd2e7cc",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.06,
+        "value": "X"
+      },
+      {
+        "start": 0.06,
+        "end": 0.1,
+        "value": "G"
+      },
+      {
+        "start": 0.1,
+        "end": 0.21,
+        "value": "D"
+      },
+      {
+        "start": 0.21,
+        "end": 0.77,
+        "value": "B"
+      },
+      {
+        "start": 0.77,
+        "end": 0.85,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_13": {
+    "duration": 1.16,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_13.wav",
+    "sha256_wav": "0924a1a358195ad2872d41f85479a09f27d3ce22fa30dcdb42e0f50fb02a62b5",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.07,
+        "value": "X"
+      },
+      {
+        "start": 0.07,
+        "end": 0.12,
+        "value": "H"
+      },
+      {
+        "start": 0.12,
+        "end": 0.17,
+        "value": "C"
+      },
+      {
+        "start": 0.17,
+        "end": 0.37,
+        "value": "B"
+      },
+      {
+        "start": 0.37,
+        "end": 0.45,
+        "value": "A"
+      },
+      {
+        "start": 0.45,
+        "end": 0.81,
+        "value": "B"
+      },
+      {
+        "start": 0.81,
+        "end": 0.88,
+        "value": "C"
+      },
+      {
+        "start": 0.88,
+        "end": 1.09,
+        "value": "E"
+      },
+      {
+        "start": 1.09,
+        "end": 1.16,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_14": {
+    "duration": 0.93,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_14.wav",
+    "sha256_wav": "a2f2be5ee1d88a0c0d7e2169159ae58dbcd23af4d3720f432c9a70b77b8894cd",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.1,
+        "value": "X"
+      },
+      {
+        "start": 0.1,
+        "end": 0.26,
+        "value": "B"
+      },
+      {
+        "start": 0.26,
+        "end": 0.34,
+        "value": "A"
+      },
+      {
+        "start": 0.34,
+        "end": 0.38,
+        "value": "C"
+      },
+      {
+        "start": 0.38,
+        "end": 0.42,
+        "value": "B"
+      },
+      {
+        "start": 0.42,
+        "end": 0.63,
+        "value": "C"
+      },
+      {
+        "start": 0.63,
+        "end": 0.84,
+        "value": "B"
+      },
+      {
+        "start": 0.84,
+        "end": 0.93,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_15": {
+    "duration": 0.74,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_15.wav",
+    "sha256_wav": "6084c9b9c60739f6fc7d166688f833c700a79623d5ddc41ba5bc302deed6233f",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.05,
+        "value": "X"
+      },
+      {
+        "start": 0.05,
+        "end": 0.12,
+        "value": "F"
+      },
+      {
+        "start": 0.12,
+        "end": 0.67,
+        "value": "B"
+      },
+      {
+        "start": 0.67,
+        "end": 0.74,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_16": {
+    "duration": 0.68,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_16.wav",
+    "sha256_wav": "d99c56ab1c245679be0da0ba7c7ef446996fb36506e1455df663648f21f1ec1a",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.08,
+        "value": "X"
+      },
+      {
+        "start": 0.08,
+        "end": 0.2,
+        "value": "A"
+      },
+      {
+        "start": 0.2,
+        "end": 0.34,
+        "value": "B"
+      },
+      {
+        "start": 0.34,
+        "end": 0.48,
+        "value": "C"
+      },
+      {
+        "start": 0.48,
+        "end": 0.62,
+        "value": "B"
+      },
+      {
+        "start": 0.62,
+        "end": 0.68,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_17": {
+    "duration": 1.18,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_17.wav",
+    "sha256_wav": "70112ffaac06d51b7640d9266e55058c0cb0b6ff06396c9943e5ceff741c23b2",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.07,
+        "value": "X"
+      },
+      {
+        "start": 0.07,
+        "end": 0.34,
+        "value": "C"
+      },
+      {
+        "start": 0.34,
+        "end": 0.41,
+        "value": "B"
+      },
+      {
+        "start": 0.41,
+        "end": 0.48,
+        "value": "C"
+      },
+      {
+        "start": 0.48,
+        "end": 0.74,
+        "value": "F"
+      },
+      {
+        "start": 0.74,
+        "end": 0.79,
+        "value": "E"
+      },
+      {
+        "start": 0.79,
+        "end": 0.97,
+        "value": "C"
+      },
+      {
+        "start": 0.97,
+        "end": 1.11,
+        "value": "E"
+      },
+      {
+        "start": 1.11,
+        "end": 1.18,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_18": {
+    "duration": 1.43,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_18.wav",
+    "sha256_wav": "9e1db10565c9f9555d683334bde0479e759818d5af85c9a76acf7bd198fb5e4d",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.04,
+        "value": "X"
+      },
+      {
+        "start": 0.04,
+        "end": 0.17,
+        "value": "C"
+      },
+      {
+        "start": 0.17,
+        "end": 0.25,
+        "value": "A"
+      },
+      {
+        "start": 0.25,
+        "end": 0.35,
+        "value": "D"
+      },
+      {
+        "start": 0.35,
+        "end": 0.74,
+        "value": "B"
+      },
+      {
+        "start": 0.74,
+        "end": 0.83,
+        "value": "C"
+      },
+      {
+        "start": 0.83,
+        "end": 0.97,
+        "value": "D"
+      },
+      {
+        "start": 0.97,
+        "end": 1.04,
+        "value": "B"
+      },
+      {
+        "start": 1.04,
+        "end": 1.32,
+        "value": "F"
+      },
+      {
+        "start": 1.32,
+        "end": 1.43,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_19": {
+    "duration": 0.8,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_19.wav",
+    "sha256_wav": "df2c6851765c4cf24629c8893d861b2e05fc5076f4fb2d795408d6d3a126591b",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.06,
+        "value": "X"
+      },
+      {
+        "start": 0.06,
+        "end": 0.18,
+        "value": "C"
+      },
+      {
+        "start": 0.18,
+        "end": 0.74,
+        "value": "B"
+      },
+      {
+        "start": 0.74,
+        "end": 0.8,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_20": {
+    "duration": 1.09,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_20.wav",
+    "sha256_wav": "9414c4ed3e7e5ca84c6931b373cfd922420582fdf7c33ed8bd13e17df1d46087",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.09,
+        "value": "X"
+      },
+      {
+        "start": 0.09,
+        "end": 0.52,
+        "value": "B"
+      },
+      {
+        "start": 0.52,
+        "end": 0.59,
+        "value": "E"
+      },
+      {
+        "start": 0.59,
+        "end": 0.66,
+        "value": "G"
+      },
+      {
+        "start": 0.66,
+        "end": 0.73,
+        "value": "E"
+      },
+      {
+        "start": 0.73,
+        "end": 0.8,
+        "value": "C"
+      },
+      {
+        "start": 0.8,
+        "end": 1.01,
+        "value": "B"
+      },
+      {
+        "start": 1.01,
+        "end": 1.09,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_21": {
+    "duration": 1.67,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_21.wav",
+    "sha256_wav": "57e0b3c1c4b6256eafe0b3d42aa49aef379095f76f2bef647dedf0ab0606cdf3",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.06,
+        "value": "X"
+      },
+      {
+        "start": 0.06,
+        "end": 0.15,
+        "value": "A"
+      },
+      {
+        "start": 0.15,
+        "end": 0.25,
+        "value": "C"
+      },
+      {
+        "start": 0.25,
+        "end": 0.46,
+        "value": "B"
+      },
+      {
+        "start": 0.46,
+        "end": 0.53,
+        "value": "C"
+      },
+      {
+        "start": 0.53,
+        "end": 0.67,
+        "value": "E"
+      },
+      {
+        "start": 0.67,
+        "end": 0.86,
+        "value": "C"
+      },
+      {
+        "start": 0.86,
+        "end": 1.04,
+        "value": "E"
+      },
+      {
+        "start": 1.04,
+        "end": 1.21,
+        "value": "A"
+      },
+      {
+        "start": 1.21,
+        "end": 1.39,
+        "value": "B"
+      },
+      {
+        "start": 1.39,
+        "end": 1.46,
+        "value": "C"
+      },
+      {
+        "start": 1.46,
+        "end": 1.6,
+        "value": "E"
+      },
+      {
+        "start": 1.6,
+        "end": 1.67,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_22": {
+    "duration": 0.83,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_22.wav",
+    "sha256_wav": "a7bd1bd75131674d97bedf02481c013f3951a1e08ff0f08b95c66f0dc9f4d51b",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.04,
+        "value": "X"
+      },
+      {
+        "start": 0.04,
+        "end": 0.12,
+        "value": "B"
+      },
+      {
+        "start": 0.12,
+        "end": 0.2,
+        "value": "A"
+      },
+      {
+        "start": 0.2,
+        "end": 0.27,
+        "value": "C"
+      },
+      {
+        "start": 0.27,
+        "end": 0.48,
+        "value": "B"
+      },
+      {
+        "start": 0.48,
+        "end": 0.55,
+        "value": "C"
+      },
+      {
+        "start": 0.55,
+        "end": 0.76,
+        "value": "E"
+      },
+      {
+        "start": 0.76,
+        "end": 0.83,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_23": {
+    "duration": 0.86,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_23.wav",
+    "sha256_wav": "03b0070cef11d13ab7b3d97478fa756609f25ac9718aeffe767774111acfe202",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.02,
+        "value": "X"
+      },
+      {
+        "start": 0.02,
+        "end": 0.09,
+        "value": "C"
+      },
+      {
+        "start": 0.09,
+        "end": 0.16,
+        "value": "A"
+      },
+      {
+        "start": 0.16,
+        "end": 0.31,
+        "value": "C"
+      },
+      {
+        "start": 0.31,
+        "end": 0.52,
+        "value": "B"
+      },
+      {
+        "start": 0.52,
+        "end": 0.59,
+        "value": "C"
+      },
+      {
+        "start": 0.59,
+        "end": 0.8,
+        "value": "E"
+      },
+      {
+        "start": 0.8,
+        "end": 0.86,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_24": {
+    "duration": 0.51,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_24.wav",
+    "sha256_wav": "09361cbe5d2071050a72b55e4819b87e47f3cb0a377e279746158ec879887968",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.02,
+        "value": "X"
+      },
+      {
+        "start": 0.02,
+        "end": 0.1,
+        "value": "A"
+      },
+      {
+        "start": 0.1,
+        "end": 0.26,
+        "value": "E"
+      },
+      {
+        "start": 0.26,
+        "end": 0.47,
+        "value": "F"
+      },
+      {
+        "start": 0.47,
+        "end": 0.51,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_25": {
+    "duration": 1.43,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_25.wav",
+    "sha256_wav": "19cf9d03ec7c660eead1da443e48558132270f3517cfef64b197d9019877c5b7",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.11,
+        "value": "X"
+      },
+      {
+        "start": 0.11,
+        "end": 0.18,
+        "value": "F"
+      },
+      {
+        "start": 0.18,
+        "end": 0.24,
+        "value": "B"
+      },
+      {
+        "start": 0.24,
+        "end": 0.44,
+        "value": "F"
+      },
+      {
+        "start": 0.44,
+        "end": 0.52,
+        "value": "E"
+      },
+      {
+        "start": 0.52,
+        "end": 0.59,
+        "value": "H"
+      },
+      {
+        "start": 0.59,
+        "end": 0.66,
+        "value": "C"
+      },
+      {
+        "start": 0.66,
+        "end": 0.73,
+        "value": "B"
+      },
+      {
+        "start": 0.73,
+        "end": 0.81,
+        "value": "A"
+      },
+      {
+        "start": 0.81,
+        "end": 0.93,
+        "value": "C"
+      },
+      {
+        "start": 0.93,
+        "end": 1.14,
+        "value": "B"
+      },
+      {
+        "start": 1.14,
+        "end": 1.21,
+        "value": "C"
+      },
+      {
+        "start": 1.21,
+        "end": 1.35,
+        "value": "E"
+      },
+      {
+        "start": 1.35,
+        "end": 1.43,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_LINH_26": {
+    "duration": 1.67,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_26.wav",
+    "sha256_wav": "87cf845e7034007bdf15229c875727617e543a980c58fc8f03cbd66b2ed98537",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.14,
+        "value": "X"
+      },
+      {
+        "start": 0.14,
+        "end": 0.42,
+        "value": "C"
+      },
+      {
+        "start": 0.42,
+        "end": 0.56,
+        "value": "E"
+      },
+      {
+        "start": 0.56,
+        "end": 0.91,
+        "value": "B"
+      },
+      {
+        "start": 0.91,
+        "end": 0.98,
+        "value": "E"
+      },
+      {
+        "start": 0.98,
+        "end": 1.33,
+        "value": "B"
+      },
+      {
+        "start": 1.33,
+        "end": 1.61,
+        "value": "E"
+      },
+      {
+        "start": 1.61,
+        "end": 1.67,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
+  },
+  "V2_S01_CUSTOMER_01": {
+    "duration": 1.21,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_CUSTOMER_01.wav",
+    "sha256_wav": "bdd8245bd3243e42b7e943d71314d4e3d81f9b9948624279a00435630fe43318",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.1,
+        "value": "X"
+      },
+      {
+        "start": 0.1,
+        "end": 0.15,
+        "value": "B"
+      },
+      {
+        "start": 0.15,
+        "end": 0.2,
+        "value": "C"
+      },
+      {
+        "start": 0.2,
+        "end": 0.27,
+        "value": "B"
+      },
+      {
+        "start": 0.27,
+        "end": 0.35,
+        "value": "A"
+      },
+      {
+        "start": 0.35,
+        "end": 0.41,
+        "value": "C"
+      },
+      {
+        "start": 0.41,
+        "end": 0.47,
+        "value": "B"
+      },
+      {
+        "start": 0.47,
+        "end": 0.54,
+        "value": "G"
+      },
+      {
+        "start": 0.54,
+        "end": 0.61,
+        "value": "B"
+      },
+      {
+        "start": 0.61,
+        "end": 0.69,
+        "value": "A"
+      },
+      {
+        "start": 0.69,
+        "end": 1.17,
+        "value": "B"
+      },
+      {
+        "start": 1.17,
+        "end": 1.21,
+        "value": "X"
+      }
+    ],
+    "character": "customer"
+  },
+  "V2_S01_LINH_27": {
+    "duration": 1.91,
+    "wav": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_LINH_27.wav",
+    "sha256_wav": "e29f0dfdcde6b04c7ba4ffb6a702f39a85ea35430866089ff1afa64f8b552fc4",
+    "mouthCues": [
+      {
+        "start": 0.0,
+        "end": 0.09,
+        "value": "X"
+      },
+      {
+        "start": 0.09,
+        "end": 0.14,
+        "value": "H"
+      },
+      {
+        "start": 0.14,
+        "end": 0.32,
+        "value": "C"
+      },
+      {
+        "start": 0.32,
+        "end": 0.83,
+        "value": "B"
+      },
+      {
+        "start": 0.83,
+        "end": 0.99,
+        "value": "C"
+      },
+      {
+        "start": 0.99,
+        "end": 1.13,
+        "value": "B"
+      },
+      {
+        "start": 1.13,
+        "end": 1.2,
+        "value": "C"
+      },
+      {
+        "start": 1.2,
+        "end": 1.28,
+        "value": "A"
+      },
+      {
+        "start": 1.28,
+        "end": 1.36,
+        "value": "C"
+      },
+      {
+        "start": 1.36,
+        "end": 1.57,
+        "value": "B"
+      },
+      {
+        "start": 1.57,
+        "end": 1.64,
+        "value": "C"
+      },
+      {
+        "start": 1.64,
+        "end": 1.85,
+        "value": "E"
+      },
+      {
+        "start": 1.85,
+        "end": 1.91,
+        "value": "X"
+      }
+    ],
+    "character": "linh"
   }
 }

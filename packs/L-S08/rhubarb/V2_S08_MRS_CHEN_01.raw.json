@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "soundFile": "07_Production_Assets/audio/lessons_v2/L-S08/V2_S08_MRS_CHEN_01.wav",
+    "duration": 2.42
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "value": "X"
+    },
+    {
+      "start": 0.02,
+      "end": 0.1,
+      "value": "C"
+    },
+    {
+      "start": 0.1,
+      "end": 0.18,
+      "value": "A"
+    },
+    {
+      "start": 0.18,
+      "end": 0.33,
+      "value": "E"
+    },
+    {
+      "start": 0.33,
+      "end": 0.54,
+      "value": "B"
+    },
+    {
+      "start": 0.54,
+      "end": 0.82,
+      "value": "F"
+    },
+    {
+      "start": 0.82,
+      "end": 0.96,
+      "value": "B"
+    },
+    {
+      "start": 0.96,
+      "end": 1.16,
+      "value": "A"
+    },
+    {
+      "start": 1.16,
+      "end": 1.21,
+      "value": "H"
+    },
+    {
+      "start": 1.21,
+      "end": 1.39,
+      "value": "C"
+    },
+    {
+      "start": 1.39,
+      "end": 1.46,
+      "value": "B"
+    },
+    {
+      "start": 1.46,
+      "end": 1.53,
+      "value": "G"
+    },
+    {
+      "start": 1.53,
+      "end": 1.6,
+      "value": "B"
+    },
+    {
+      "start": 1.6,
+      "end": 1.62,
+      "value": "A"
+    },
+    {
+      "start": 1.62,
+      "end": 1.69,
+      "value": "C"
+    },
+    {
+      "start": 1.69,
+      "end": 1.76,
+      "value": "A"
+    },
+    {
+      "start": 1.76,
+      "end": 1.97,
+      "value": "C"
+    },
+    {
+      "start": 1.97,
+      "end": 2.32,
+      "value": "B"
+    },
+    {
+      "start": 2.32,
+      "end": 2.42,
+      "value": "X"
+    }
+  ]
+}

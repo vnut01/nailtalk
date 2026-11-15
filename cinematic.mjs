@@ -103,6 +103,20 @@ export class CinematicScene {
         this.apply();
     }
     renderFaces(now = performance.now()) {
+        // Entry follows the authored scene turn, independent of playback rate.
+        // Keep the last scene turn through pauses/gaps; a new full listen resets it.
+        const sceneIndex = this.pack.dialogue?.indexOf(this.player?.cues?.[this.player.index]?.id);
+        if (sceneIndex >= 0) this.sceneTurn = sceneIndex + 1;
+        for (const layer of this.pack.cinematic?.layers || []) {
+            if (!layer.entryTurn) continue;
+            const el = this.root?.querySelector(`[data-character="${layer.character}"]`);
+            if (!el) continue;
+            const visible = (this.sceneTurn || 0) >= layer.entryTurn ||
+                characterForCue(this.pack, this.player?.cues?.[this.player.index]) === layer.character;
+            el.style.transition = this.media.matches ? 'none' : `opacity ${layer.fadeMs || 450}ms ease`;
+            el.style.opacity = visible ? '1' : '0';
+            el.style.visibility = visible ? '' : 'hidden';
+        }
         const lip = document.getElementById('lipsync-toggle');
         if (lip) {
             lip.disabled = !this.enabled || this.media.matches || this.spriteFailed;
@@ -175,10 +189,13 @@ export class CinematicScene {
     }
     apply() {
         const active = this.enabled && this.ready && !this.failed;
-        this.root?.classList.toggle('layered', active);
+        // Cast entry is scene content, so it remains visible as a static layer
+        // when motion is disabled. Legacy scenes keep their fallback behavior.
+        const castEntry = this.pack.cinematic?.layers?.some(l => l.entryTurn) ?? false;
+        this.root?.classList.toggle('layered', active || (castEntry && this.ready && !this.failed));
         if (this.root) {
             this.root.dataset.speaker = this.speaker || '';
-            this.root.classList.toggle('scene-paused', document.hidden || this.recording);
+            this.root.classList.toggle('scene-paused', document.hidden || this.recording || !this.enabled);
             const tag = this.root.querySelector('.speaker-tag');
             tag.textContent = this.speaker ? `${this.characters[this.speaker]?.label || this.speaker} đang nói` : (this.pack.ui?.scene_label || 'Linh và Mark');
         }

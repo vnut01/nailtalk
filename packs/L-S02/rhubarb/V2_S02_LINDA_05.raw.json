@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "soundFile": "07_Production_Assets/audio/lessons_v2/L-S02/V2_S02_LINDA_05.wav",
+    "duration": 2.61
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.1,
+      "value": "X"
+    },
+    {
+      "start": 0.1,
+      "end": 0.36,
+      "value": "C"
+    },
+    {
+      "start": 0.36,
+      "end": 0.62,
+      "value": "B"
+    },
+    {
+      "start": 0.62,
+      "end": 0.68,
+      "value": "C"
+    },
+    {
+      "start": 0.68,
+      "end": 0.89,
+      "value": "B"
+    },
+    {
+      "start": 0.89,
+      "end": 0.96,
+      "value": "C"
+    },
+    {
+      "start": 0.96,
+      "end": 1.03,
+      "value": "F"
+    },
+    {
+      "start": 1.03,
+      "end": 1.31,
+      "value": "C"
+    },
+    {
+      "start": 1.31,
+      "end": 1.51,
+      "value": "X"
+    },
+    {
+      "start": 1.51,
+      "end": 1.61,
+      "value": "B"
+    },
+    {
+      "start": 1.61,
+      "end": 1.69,
+      "value": "A"
+    },
+    {
+      "start": 1.69,
+      "end": 1.83,
+      "value": "C"
+    },
+    {
+      "start": 1.83,
+      "end": 1.97,
+      "value": "B"
+    },
+    {
+      "start": 1.97,
+      "end": 2.05,
+      "value": "A"
+    },
+    {
+      "start": 2.05,
+      "end": 2.09,
+      "value": "C"
+    },
+    {
+      "start": 2.09,
+      "end": 2.13,
+      "value": "B"
+    },
+    {
+      "start": 2.13,
+      "end": 2.21,
+      "value": "A"
+    },
+    {
+      "start": 2.21,
+      "end": 2.33,
+      "value": "D"
+    },
+    {
+      "start": 2.33,
+      "end": 2.4,
+      "value": "C"
+    },
+    {
+      "start": 2.4,
+      "end": 2.54,
+      "value": "B"
+    },
+    {
+      "start": 2.54,
+      "end": 2.61,
+      "value": "X"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "soundFile": "07_Production_Assets/audio/lessons_v2/L-S01/V2_S01_AMY_05.wav",
+    "duration": 2.53
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.1,
+      "value": "X"
+    },
+    {
+      "start": 0.1,
+      "end": 0.15,
+      "value": "B"
+    },
+    {
+      "start": 0.15,
+      "end": 0.19,
+      "value": "C"
+    },
+    {
+      "start": 0.19,
+      "end": 0.33,
+      "value": "B"
+    },
+    {
+      "start": 0.33,
+      "end": 0.41,
+      "value": "A"
+    },
+    {
+      "start": 0.41,
+      "end": 0.9,
+      "value": "C"
+    },
+    {
+      "start": 0.9,
+      "end": 1.04,
+      "value": "B"
+    },
+    {
+      "start": 1.04,
+      "end": 1.54,
+      "value": "X"
+    },
+    {
+      "start": 1.54,
+      "end": 1.72,
+      "value": "B"
+    },
+    {
+      "start": 1.72,
+      "end": 1.79,
+      "value": "C"
+    },
+    {
+      "start": 1.79,
+      "end": 1.86,
+      "value": "B"
+    },
+    {
+      "start": 1.86,
+      "end": 1.94,
+      "value": "A"
+    },
+    {
+      "start": 1.94,
+      "end": 2.05,
+      "value": "C"
+    },
+    {
+      "start": 2.05,
+      "end": 2.19,
+      "value": "B"
+    },
+    {
+      "start": 2.19,
+      "end": 2.26,
+      "value": "C"
+    },
+    {
+      "start": 2.26,
+      "end": 2.47,
+      "value": "E"
+    },
+    {
+      "start": 2.47,
+      "end": 2.53,
+      "value": "X"
+    }
+  ]
+}

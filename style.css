@@ -75,3 +75,7 @@ body{padding-top:0}.player>aside{top:80px}
 .nail-option{display:inline-block;width:24px;height:30px;border:2px solid currentColor;border-radius:50% 50% 4px 4px;margin-right:14px;vertical-align:middle;background:#f5d9ce}
 .nail-option.long{height:44px}
 .nail-option.square{border-radius:3px}
+
+.swatch-chip { display:inline-block; width:38px; height:38px; border:1px solid #665b52; border-radius:8px; vertical-align:middle; margin-right:8px; }
+
+.plant-position {display:block; width:180px; max-width:100%; height:105px; margin:0 auto 8px;}
