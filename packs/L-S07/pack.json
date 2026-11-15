@@ -419,7 +419,7 @@
       "lesson": "L-S07",
       "audio": "audio/V2_S07_LINH_19.ogg",
       "audio_fallback": "audio/V2_S07_LINH_19.mp3",
-      "duration_ms": 1400,
+      "duration_ms": 1520,
       "sha256_wav": "5945afd9cffd0772c32bddd26cd291f157b16711a9d5ceff3475f155aec1298b",
       "sha256_ogg": "cb511d235ee1a874869e247b36b4b220e814b9cd670bd2fb534568a677f9232f",
       "status": "DRAFT",
@@ -2662,9 +2662,10 @@
       "character": "linh"
     },
     "V2_S07_LINH_19": {
-      "duration": 1.4,
-      "wav": "07_Production_Assets/audio/lessons_v2/L-S07/V2_S07_LINH_19.wav",
-      "sha256_wav": "5945afd9cffd0772c32bddd26cd291f157b16711a9d5ceff3475f155aec1298b",
+      "character": "linh",
+      "duration": 1.52,
+      "wav": "07_Production_Assets/audio/batch76/L-S07/V2_S07_LINH_19.wav",
+      "sha256_wav": "00c486e3b304015397387fc678406d346eff3059fcc253e0332142f2357668e4",
       "mouthCues": [
         {
           "start": 0.0,
@@ -2673,56 +2674,50 @@
         },
         {
           "start": 0.05,
-          "end": 0.28,
+          "end": 0.38,
           "value": "F"
         },
         {
-          "start": 0.28,
-          "end": 0.35,
+          "start": 0.38,
+          "end": 0.45,
           "value": "D"
         },
         {
-          "start": 0.35,
-          "end": 0.42,
-          "value": "B"
-        },
-        {
-          "start": 0.42,
-          "end": 0.63,
-          "value": "E"
-        },
-        {
-          "start": 0.63,
-          "end": 0.84,
-          "value": "B"
-        },
-        {
-          "start": 0.84,
-          "end": 0.91,
+          "start": 0.45,
+          "end": 0.52,
           "value": "F"
         },
         {
-          "start": 0.91,
-          "end": 1.05,
+          "start": 0.52,
+          "end": 0.66,
+          "value": "E"
+        },
+        {
+          "start": 0.66,
+          "end": 0.73,
+          "value": "F"
+        },
+        {
+          "start": 0.73,
+          "end": 1.15,
           "value": "B"
         },
         {
-          "start": 1.05,
-          "end": 1.12,
+          "start": 1.15,
+          "end": 1.22,
           "value": "C"
         },
         {
-          "start": 1.12,
-          "end": 1.33,
+          "start": 1.22,
+          "end": 1.43,
           "value": "B"
         },
         {
-          "start": 1.33,
-          "end": 1.4,
+          "start": 1.43,
+          "end": 1.52,
           "value": "X"
         }
-      ],
-      "character": "linh"
+      ]
     },
     "V2_S07_LINH_20": {
       "duration": 1.1,
@@ -4216,7 +4211,12 @@
     "07_Production_Assets/audio/lessons/L-S04/S04_G_LINH_01.ogg": "64f2256da9272113dd8b65a3a4a61ecc81cee284648358c76ebf9fe6e890a5f2",
     "07_Production_Assets/audio/lessons_v2/L-S07/V2_S07_LINH_31.mp3": "9d9d031f11351417db1e31f45b7ff4a15cd8f42a3ae3b90ee42dfcc8e801a293",
     "07_Production_Assets/audio/lessons/L-S04/S04_G_LINH_01.wav": "b925b35162ffb035160fe7bf2f008a1e24a2f03ff3cfea954f9a645e639a6c09",
-    "scripts/build_batch75.py": "c882518f8109edb321b35fe989288dd24c96e682cc5f0c5d85a40a68bcedfd09"
+    "scripts/build_batch75.py": "c882518f8109edb321b35fe989288dd24c96e682cc5f0c5d85a40a68bcedfd09",
+    "07_Production_Assets/audio/batch76/L-S07/V2_S07_LINH_19.wav": "00c486e3b304015397387fc678406d346eff3059fcc253e0332142f2357668e4",
+    "07_Production_Assets/audio/batch76/L-S07/V2_S07_LINH_19.ogg": "f349ff2d80ad98b05ab1fdb33f8af8640a97870a5b9494bca63c32ecbac8f97f",
+    "07_Production_Assets/audio/batch76/L-S07/V2_S07_LINH_19.mp3": "1d71ab9063d792b683bcb9da49b48c2c8aeab70297dbfb6611bb209f85448b83",
+    "07_Production_Assets/audio/batch76/L-S07/rhubarb/V2_S07_LINH_19.raw.json": "8a90cd3e6b75d97b8b7eb953d982b6b1bcb4cbf83e3ca2b1ae5beee5423f0542",
+    "07_Production_Assets/audio/batch76/L-S07/CUE_MANIFEST_v002_DRAFT.json": "31e5188fddde5f389552e40e9ce54e44094179f8ec00d31b897522f6eb68f8b8"
   },
   "files": [
     {
@@ -4596,13 +4596,13 @@
     },
     {
       "path": "audio/V2_S07_LINH_19.mp3",
-      "sha256": "2edee9d30c8f1e18610f13dadb16ac56bc92605ffe38a87d055b365b56b4e7d1",
-      "bytes": 12096
+      "sha256": "1d71ab9063d792b683bcb9da49b48c2c8aeab70297dbfb6611bb209f85448b83",
+      "bytes": 12792
     },
     {
       "path": "audio/V2_S07_LINH_19.ogg",
-      "sha256": "cb511d235ee1a874869e247b36b4b220e814b9cd670bd2fb534568a677f9232f",
-      "bytes": 7250
+      "sha256": "f349ff2d80ad98b05ab1fdb33f8af8640a97870a5b9494bca63c32ecbac8f97f",
+      "bytes": 7633
     },
     {
       "path": "audio/V2_S07_LINH_20.mp3",
@@ -5041,8 +5041,8 @@
     },
     {
       "path": "rhubarb/V2_S07_LINH_19.raw.json",
-      "sha256": "ae83e368aedfaeb7f3d245db68f62626649e2138465a27fd00ae4760350a6b96",
-      "bytes": 947
+      "sha256": "8a90cd3e6b75d97b8b7eb953d982b6b1bcb4cbf83e3ca2b1ae5beee5423f0542",
+      "bytes": 865
     },
     {
       "path": "rhubarb/V2_S07_LINH_20.dialog.txt",
@@ -5176,8 +5176,9 @@
     },
     {
       "path": "visemes.json",
-      "sha256": "f1fb0194e396d7317392e966982e5ce4a196a157e4bf84f6454660108ea11cf8",
-      "bytes": 53558
+      "sha256": "f928378eccec7fafe1540e7b0952e855c5ae479a795b313a8b486eb6e3f051f1",
+      "bytes": 53475
     }
-  ]
+  ],
+  "polish_version": "v016-DRAFT-2"
 }

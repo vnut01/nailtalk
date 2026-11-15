@@ -1530,83 +1530,78 @@
   },
   "V2_S06_MRS_CHEN_09": {
     "character": "mrschen",
-    "duration": 4.74,
-    "wav": "07_Production_Assets/audio/lessons_v2/L-S06/V2_S06_MRS_CHEN_09.wav",
-    "sha256_wav": "f3c849671d07c24cd14c8032f562693c7fe6165266d94a38f317fba2f29f6a6e",
+    "duration": 3.11,
+    "wav": "07_Production_Assets/audio/batch76/L-S06/V2_S06_MRS_CHEN_09.wav",
+    "sha256_wav": "6dd1c99b00d13637371244bde123b6f0e9dda41138542a6357b6da177ee6df0f",
     "mouthCues": [
       {
         "start": 0.0,
-        "end": 0.09,
+        "end": 0.1,
         "value": "X"
       },
       {
-        "start": 0.09,
+        "start": 0.1,
         "end": 0.15,
         "value": "B"
       },
       {
         "start": 0.15,
-        "end": 0.21,
+        "end": 0.2,
         "value": "C"
       },
       {
-        "start": 0.21,
-        "end": 0.28,
+        "start": 0.2,
+        "end": 0.27,
         "value": "B"
       },
       {
-        "start": 0.28,
-        "end": 0.56,
+        "start": 0.27,
+        "end": 0.55,
         "value": "F"
       },
       {
-        "start": 0.56,
-        "end": 0.7,
+        "start": 0.55,
+        "end": 0.69,
         "value": "B"
       },
       {
-        "start": 0.7,
-        "end": 3.07,
+        "start": 0.69,
+        "end": 1.65,
         "value": "X"
       },
       {
-        "start": 3.07,
-        "end": 3.14,
+        "start": 1.65,
+        "end": 1.7,
         "value": "B"
       },
       {
-        "start": 3.14,
-        "end": 3.49,
+        "start": 1.7,
+        "end": 1.75,
+        "value": "C"
+      },
+      {
+        "start": 1.75,
+        "end": 2.03,
         "value": "E"
       },
       {
-        "start": 3.49,
-        "end": 3.77,
+        "start": 2.03,
+        "end": 2.1,
         "value": "C"
       },
       {
-        "start": 3.77,
-        "end": 3.98,
-        "value": "B"
-      },
-      {
-        "start": 3.98,
-        "end": 4.05,
-        "value": "F"
-      },
-      {
-        "start": 4.05,
-        "end": 4.26,
+        "start": 2.1,
+        "end": 2.45,
         "value": "C"
       },
       {
-        "start": 4.26,
-        "end": 4.61,
+        "start": 2.45,
+        "end": 2.94,
         "value": "B"
       },
       {
-        "start": 4.61,
-        "end": 4.74,
+        "start": 2.94,
+        "end": 3.11,
         "value": "X"
       }
     ]

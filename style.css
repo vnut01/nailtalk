@@ -79,3 +79,7 @@ body{padding-top:0}.player>aside{top:80px}
 .swatch-chip { display:inline-block; width:38px; height:38px; border:1px solid #665b52; border-radius:8px; vertical-align:middle; margin-right:8px; }
 
 .plant-position {display:block; width:180px; max-width:100%; height:105px; margin:0 auto 8px;}
+
+/* Keep the playing control below Susan’s face after her leftward placement. */
+.scene[data-lesson="L-S06"] .scene-player.is-playing .audio-toggle{top:auto;bottom:8px}
+.scene[data-lesson="L-S06"] .scene-player.is-playing .listen-count{left:60px}

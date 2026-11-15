@@ -33,7 +33,7 @@ function bind(id, fn) {
 }
 async function persist() {
     await store.save(state, lessonId);
-    $("#storage").textContent = `Lưu tiến độ: ${store.storageMode}. Xóa dữ liệu trình duyệt có thể làm mất tiến độ.`;
+    $("#storage").textContent = `Lưu tiến độ: ${store.storageMode === 'Không lưu được' ? 'Chưa lưu được' : 'Trên thiết bị'}. Xóa dữ liệu trình duyệt có thể làm mất tiến độ.`;
 }
 function event(data) {
     return { ...data, at: new Date().toISOString(), pack: pack.pack_version, rubric: pack.rubric_version };
@@ -78,7 +78,7 @@ function nav(step) {
 }
 function cueHTML(id, reveal = false) {
     const c = pack.cues[id];
-    return `${!c.audio ? "<p class=\"warning\">Audio sắp có · Luyện tập có hỗ trợ; không chấm nghe.</p>" : ""}${reveal || !c.audio ? `<p class="target">${escape(c.english)}</p>${c.vietnamese ? `<p>${escape(c.vietnamese)}</p>` : ""}` : ""}`;
+    return `${!c.audio ? "<p class=\"warning\">Âm thanh sắp có · Luyện tập có hỗ trợ; không chấm nghe.</p>" : ""}${reveal || !c.audio ? `<p class="target">${escape(c.english)}</p>${c.vietnamese ? `<p>${escape(c.vietnamese)}</p>` : ""}` : ""}`;
 }
 // Retain transport position while support text/recap re-renders; dispose on navigation.
 const players = new Map(), playerConfigs = new Map();
@@ -87,7 +87,7 @@ function playerHTML(key, ids, options = {}) {
     ids=ids.filter(Boolean);
     if (!ids.length) return "";
     if (ids.some(id => !pack.cues[id]?.audio))
-        return "<p class=\"warning\">Audio sắp có</p>";
+        return "<p class=\"warning\">Âm thanh sắp có</p>";
     playerConfigs.set(key, { ids, options });
     return `<div class="${options.scene ? "scene-player" : options.compact && ids.length === 1 ? "audio-cue" : "audio-player"}" data-player="${key}">
 </div>`;
@@ -183,7 +183,7 @@ function shell(content) {
     const step = pack.steps[state.step];
     return `<section class="step-heading">${pack.title ? `<p class="eyebrow">${escape(pack.title)} · ${escape(pack.subtitle)}</p>` : ""}<h1>${escape(step ? `${state.step} · ${step.topic}` : titles[state.step])}</h1>${step ? `<p>${escape(step.goal)}</p>` : ""}</section>
 <div class="player ${hasScene ? "" : "task-only"} step-${state.step}">
-${hasScene ? `<aside><div role="group" aria-label="${escape(pack.ui?.scene_label || "Linh và Mark tại quầy Bella Nails")}" class="scene scene-main ${pack.ui?.contact_crop ? 'contact-crop' : ''} ${pack.scene.step_crop ? 'step-crop' : ''}" style="${cropStyle}">
+${hasScene ? `<aside><div role="group" aria-label="${escape(pack.ui?.scene_label || "Linh và Mark tại quầy Bella Nails")}" data-lesson="${lessonId}" class="scene scene-main ${pack.ui?.contact_crop ? 'contact-crop' : ''} ${pack.scene.step_crop ? 'step-crop' : ''}" style="${cropStyle}">
 <div class="scene-frame"><div class="scene-canvas"><span class="scene-layers" aria-hidden="true"></span>
 <img src="packs/${lessonId}/${pack.scene.small}" alt="${escape(pack.ui?.scene_label || "Linh và Mark tại quầy; bảng giá trên tường")}"></div></div>
 <span class="speaker-tag" aria-hidden="true">${escape(pack.ui?.scene_label || "Linh và Mark")}</span>
@@ -201,7 +201,7 @@ function renderHome() {
     stopMedia();
     document.body.classList.remove("in-lesson");
     scene.mount(null);
-    $("#app").innerHTML = `<section class="intro"><p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p><h1>Từng câu nhỏ.<br>Tự tin hơn mỗi ngày.</h1><p>Luyện nghe, chọn câu và nói cùng Linh.</p><span class="badge">DRAFT</span></section><div class="lessons">${catalog.map(p => `<article class="lesson active"><span class="eyebrow">${p.id} · ${p.estimated_minutes} phút</span><h2>${escape(p.title || homeTitles[Number(p.id.slice(-2))-1])}</h2><p>${escape(p.subtitle || canDos[Number(p.id.slice(-2))-1])}</p><span class="badge">DRAFT</span><div class="controls">${button(p.id === 'L-S07' ? 'start' : 'start-'+p.id,'Bắt đầu học','primary',!packAvailable)}</div></article>`).join('')}</div>${button("install", "Cài lên màn hình chính", "", !installPrompt)}`;
+    $("#app").innerHTML = `<section class="intro"><p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p><h1>Từng câu nhỏ.<br>Tự tin hơn mỗi ngày.</h1><p>Luyện nghe, chọn câu và nói cùng Linh.</p><span class="badge">Bản nháp</span></section><div class="lessons">${catalog.map(p => `<article class="lesson active"><span class="eyebrow">${p.id} · ${p.estimated_minutes} phút</span><h2>${escape(p.title || homeTitles[Number(p.id.slice(-2))-1])}</h2><p>${escape(p.subtitle || canDos[Number(p.id.slice(-2))-1])}</p><span class="badge">Bản nháp</span><div class="controls">${button(p.id === 'L-S07' ? 'start' : 'start-'+p.id,'Bắt đầu học','primary',!packAvailable)}</div></article>`).join('')}</div>${button("install", "Cài lên màn hình chính", "", !installPrompt)}`;
     for (const p of catalog) bind(p.id === 'L-S07' ? 'start' : 'start-'+p.id, () => { if(p.id === lessonId) nav('A'); else location.hash = `${p.id}/A`; });
     bind("install", async () => {
         await installPrompt?.prompt();
@@ -416,7 +416,7 @@ function speechUI(id, type) {
     const done = type === "E" ? state.e[`${id}:${attempt}`] : state.g[gIndex];
     const captured = pending?.id === id;
     const modelAllowed = type !== 'G' || !pack.transfer.require_spoken || captured || done?.some(a=>a.evidence !== 'không có bằng chứng');
-    return `<p class="muted mic-privacy">Ghi âm chỉ trên máy. <a href="#" id="privacy-link">Riêng tư</a></p>${!pack.cues[id].audio ? "<p class=\"warning\">Audio sắp có · Luyện có hỗ trợ.</p>" : ""}<div class="controls">${button("record", "Ghi âm", "primary", busy)}${button("stop", "Dừng", "", !busy)}${button("aloud", "Tôi đã nói thành tiếng", "", busy)}${button("speak-skip", "Bỏ qua lượt này", "", busy)}</div>
+    return `<p class="muted mic-privacy">Ghi âm chỉ trên máy. <a href="#" id="privacy-link">Riêng tư</a></p>${!pack.cues[id].audio ? "<p class=\"warning\">Âm thanh sắp có · Luyện có hỗ trợ.</p>" : ""}<div class="controls">${button("record", "Ghi âm", "primary", busy)}${button("stop", "Dừng", "", !busy)}${button("aloud", "Tôi đã nói thành tiếng", "", busy)}${button("speak-skip", "Bỏ qua lượt này", "", busy)}</div>
 <p id="timer" class="recording" role="status">
 </p>${takeURL ? `<p>Nghe bản của bạn:</p>
 <audio playsinline controls src="${takeURL}">
@@ -439,7 +439,7 @@ function bindCommon() {
     document.body.classList.add("in-lesson");
     bind("privacy-link", e => { e.preventDefault(); $("#settings").showModal(); $("#privacy").open = true; });
     bind("recap-toggle", () => {
-        if ((state.step === "B" && !(state.b[pack.b[index].id] || []).some(h => h.answer !== null)) || (state.step === "G" && pack.transfer.activity === 'swatch' && !state.gSwatch?.length) || (state.step === "E" && attempt === 2 && !pending && !showText)) return;
+        if ((state.step === "A" && !state.aFull) || (state.step === "G" && !pending && !showText) || (state.step === "B" && !(state.b[pack.b[index].id] || []).some(h => h.answer !== null)) || (state.step === "G" && pack.transfer.activity === 'swatch' && !state.gSwatch?.length) || (state.step === "E" && attempt === 2 && !pending && !showText)) return;
         recapOpen = !recapOpen;
         render();
     });
@@ -700,7 +700,7 @@ bind("motion-toggle", () => scene.setEnabled(!scene.enabled));
 scene.apply();
 bind("close-scene", () => $("#enlarge").close());
 bind("erase", async () => {
-    if (confirm("Xóa toàn bộ tiến độ, tự đánh giá, bản ghi và dữ liệu offline của NailTalk trên thiết bị này?")) {
+    if (confirm("Xóa toàn bộ tiến độ, tự đánh giá, bản ghi và dữ liệu ngoại tuyến của NailTalk trên thiết bị này?")) {
         stopMedia();
         await store.clear();
         scene.reset();
@@ -709,7 +709,7 @@ bind("erase", async () => {
         packAvailable = false;
         location.hash = "home";
         renderHome();
-        $("#offline").textContent = "Đã xóa dữ liệu. Tải lại bài để dùng offline.";
+        $("#offline").textContent = "Đã xóa dữ liệu. Tải lại bài để dùng ngoại tuyến.";
     }
 });
 bind("remove-pack", async () => {
@@ -717,7 +717,7 @@ bind("remove-pack", async () => {
     packAvailable = false;
     location.hash = "home";
     renderHome();
-    $("#offline").textContent = "Đã gỡ bài offline; tiến độ được giữ.";
+    $("#offline").textContent = "Đã gỡ bài ngoại tuyến; tiến độ được giữ.";
 });
 bind("download", async () => {
     try {
@@ -731,7 +731,7 @@ bind("download", async () => {
                         if (installing.state === "activated")
                             resolve();
                         if (installing.state === "redundant")
-                            reject(Error("Cài offline chưa xong"));
+                            reject(Error("Cài ngoại tuyến chưa xong"));
                     });
                 });
         }
@@ -763,10 +763,10 @@ async function checkOffline() {
         packAvailable = ready.ready;
         if (location.hash === "#home" || !location.hash)
             renderHome();
-        $("#offline").textContent = ready.ready ? `Sẵn sàng offline · ${Object.values(pack.cues).filter(c => c.audio).length}/${Object.keys(pack.cues).length} audio` : "Chưa sẵn sàng offline · Tải lại bài";
+        $("#offline").textContent = ready.ready ? `Sẵn sàng ngoại tuyến · ${Object.values(pack.cues).filter(c => c.audio).length}/${Object.keys(pack.cues).length} câu có âm thanh` : "Chưa sẵn sàng ngoại tuyến · Tải lại bài";
     }
     catch {
-        $("#offline").textContent = "Chưa kiểm tra được offline.";
+        $("#offline").textContent = "Chưa kiểm tra được ngoại tuyến.";
     }
 }
 if ("serviceWorker" in navigator) {
@@ -775,11 +775,11 @@ if ("serviceWorker" in navigator) {
         await checkOffline();
         console.info("NailTalk: service worker registered; manifest linked");
     }).catch(() => {
-        $("#offline").textContent = "Offline chưa khả dụng. Cần HTTPS hoặc localhost.";
+        $("#offline").textContent = "Chưa dùng được ngoại tuyến. Hãy mở bằng địa chỉ cài đặt được cung cấp.";
     });
 }
 else
-    $("#offline").textContent = "Offline cần HTTPS hoặc localhost.";
+    $("#offline").textContent = "Cần mở bằng địa chỉ cài đặt được cung cấp để tải bài.";
 const route = location.hash.split("/")[1];
 if (STEPS.includes(route))
     state.step = route;

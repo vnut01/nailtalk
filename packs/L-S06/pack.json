@@ -279,7 +279,7 @@
       "lesson": "L-S06",
       "audio": "audio/V2_S06_MRS_CHEN_09.ogg",
       "audio_fallback": "audio/V2_S06_MRS_CHEN_09.mp3",
-      "duration_ms": 4740,
+      "duration_ms": 3110,
       "sha256_wav": "f3c849671d07c24cd14c8032f562693c7fe6165266d94a38f317fba2f29f6a6e",
       "sha256_ogg": "1e3ef20ff391b84131ba9dc8901eb7a1ef241047bebeeab09d8f732873f8ffc4",
       "status": "DRAFT",
@@ -2168,83 +2168,78 @@
     },
     "V2_S06_MRS_CHEN_09": {
       "character": "mrschen",
-      "duration": 4.74,
-      "wav": "07_Production_Assets/audio/lessons_v2/L-S06/V2_S06_MRS_CHEN_09.wav",
-      "sha256_wav": "f3c849671d07c24cd14c8032f562693c7fe6165266d94a38f317fba2f29f6a6e",
+      "duration": 3.11,
+      "wav": "07_Production_Assets/audio/batch76/L-S06/V2_S06_MRS_CHEN_09.wav",
+      "sha256_wav": "6dd1c99b00d13637371244bde123b6f0e9dda41138542a6357b6da177ee6df0f",
       "mouthCues": [
         {
           "start": 0.0,
-          "end": 0.09,
+          "end": 0.1,
           "value": "X"
         },
         {
-          "start": 0.09,
+          "start": 0.1,
           "end": 0.15,
           "value": "B"
         },
         {
           "start": 0.15,
-          "end": 0.21,
+          "end": 0.2,
           "value": "C"
         },
         {
-          "start": 0.21,
-          "end": 0.28,
+          "start": 0.2,
+          "end": 0.27,
           "value": "B"
         },
         {
-          "start": 0.28,
-          "end": 0.56,
+          "start": 0.27,
+          "end": 0.55,
           "value": "F"
         },
         {
-          "start": 0.56,
-          "end": 0.7,
+          "start": 0.55,
+          "end": 0.69,
           "value": "B"
         },
         {
-          "start": 0.7,
-          "end": 3.07,
+          "start": 0.69,
+          "end": 1.65,
           "value": "X"
         },
         {
-          "start": 3.07,
-          "end": 3.14,
+          "start": 1.65,
+          "end": 1.7,
           "value": "B"
         },
         {
-          "start": 3.14,
-          "end": 3.49,
+          "start": 1.7,
+          "end": 1.75,
+          "value": "C"
+        },
+        {
+          "start": 1.75,
+          "end": 2.03,
           "value": "E"
         },
         {
-          "start": 3.49,
-          "end": 3.77,
+          "start": 2.03,
+          "end": 2.1,
           "value": "C"
         },
         {
-          "start": 3.77,
-          "end": 3.98,
-          "value": "B"
-        },
-        {
-          "start": 3.98,
-          "end": 4.05,
-          "value": "F"
-        },
-        {
-          "start": 4.05,
-          "end": 4.26,
+          "start": 2.1,
+          "end": 2.45,
           "value": "C"
         },
         {
-          "start": 4.26,
-          "end": 4.61,
+          "start": 2.45,
+          "end": 2.94,
           "value": "B"
         },
         {
-          "start": 4.61,
-          "end": 4.74,
+          "start": 2.94,
+          "end": 3.11,
           "value": "X"
         }
       ]
@@ -3792,8 +3787,8 @@
         "character": "linh"
       },
       {
-        "path": "susan_POSE_v001_DRAFT.webp",
-        "x": -190.0,
+        "path": "SUSAN_POSE_v002_DRAFT.webp",
+        "x": -235.0,
         "y": 17.5,
         "width": 660.0,
         "height": 492.80000000000007,
@@ -4494,7 +4489,13 @@
     "07_Production_Assets/audio/lessons/L-S06/S06_LINDA_06.wav": "d2235139d25fd50a334da3ae9f881dbf49f5218440f755fc2e13e16f9f788999",
     "07_Production_Assets/cinematic/history/L-S06_v1_DRAFT/audio/S06_LINDA_04.ogg": "d9ccbc848dedfd51f504e5f34d1a938ad39adee29da7c92a43bba12c0fc3a57c",
     "07_Production_Assets/cinematic/history/L-S06_v1_DRAFT/audio/S06_LINDA_04.mp3": "5fcadca1d6bf5dc6d32d7920d2a7d055ea9f817132e3b29581214c33256de55c",
-    "scripts/build_batch74.py": "a820a744a7ad4dc7654273bcab92eff4b4225bba25d5cd86bd399acf1d89f064"
+    "scripts/build_batch74.py": "a820a744a7ad4dc7654273bcab92eff4b4225bba25d5cd86bd399acf1d89f064",
+    "07_Production_Assets/audio/batch76/L-S06/V2_S06_MRS_CHEN_09.wav": "6dd1c99b00d13637371244bde123b6f0e9dda41138542a6357b6da177ee6df0f",
+    "07_Production_Assets/audio/batch76/L-S06/V2_S06_MRS_CHEN_09.ogg": "6a8a8e5dbbc163389ab7d30b999fdd6aa320db648c931659c7d92936118a31bd",
+    "07_Production_Assets/audio/batch76/L-S06/V2_S06_MRS_CHEN_09.mp3": "1a1aa9cfbd20ca4f043f2eb0db6fec074263c1ac0474ea1ebecf1c6ce5f70721",
+    "07_Production_Assets/audio/batch76/L-S06/rhubarb/V2_S06_MRS_CHEN_09.raw.json": "776bc26f9aa98d39f0409f88995cbe79fd2386f670268535edd073a4daa200b8",
+    "07_Production_Assets/audio/batch76/L-S06/CUE_MANIFEST_v002_DRAFT.json": "5d4fca5348edd830dc383c1f726efe656f6a52b6fb46b47bbc6d310f54389da2",
+    "07_Production_Assets/cinematic/batch76/SUSAN_POSE_v002_DRAFT.webp": "53e90b28ebdeb2ab5b69c04221b738a956a08af957dbb6d1f9f7c83f89c0f70a"
   },
   "files": [
     {
@@ -4526,6 +4527,11 @@
       "path": "MOUTH_X_v001_DRAFT.webp",
       "sha256": "9db04861cd9923e27c47aeba331c6029b6c7d9f625b781bdfb41338630c54a1a",
       "bytes": 2968
+    },
+    {
+      "path": "SUSAN_POSE_v002_DRAFT.webp",
+      "sha256": "53e90b28ebdeb2ab5b69c04221b738a956a08af957dbb6d1f9f7c83f89c0f70a",
+      "bytes": 477298
     },
     {
       "path": "audio/S06_LINDA_04.mp3",
@@ -4919,13 +4925,13 @@
     },
     {
       "path": "audio/V2_S06_MRS_CHEN_09.mp3",
-      "sha256": "02a54088e5319419166c15877171271c04d2d1c70330355c9533ed7e2bf1944b",
-      "bytes": 28344
+      "sha256": "1a1aa9cfbd20ca4f043f2eb0db6fec074263c1ac0474ea1ebecf1c6ce5f70721",
+      "bytes": 22200
     },
     {
       "path": "audio/V2_S06_MRS_CHEN_09.ogg",
-      "sha256": "1e3ef20ff391b84131ba9dc8901eb7a1ef241047bebeeab09d8f732873f8ffc4",
-      "bytes": 18140
+      "sha256": "6a8a8e5dbbc163389ab7d30b999fdd6aa320db648c931659c7d92936118a31bd",
+      "bytes": 14234
     },
     {
       "path": "audio/V2_S06_MRS_CHEN_10.mp3",
@@ -5379,8 +5385,8 @@
     },
     {
       "path": "rhubarb/V2_S06_MRS_CHEN_09.raw.json",
-      "sha256": "f604a7ca47f447a6b0e84a6d1a63d9522768fd8bf5d917fcb5225831513ad504",
-      "bytes": 1230
+      "sha256": "776bc26f9aa98d39f0409f88995cbe79fd2386f670268535edd073a4daa200b8",
+      "bytes": 1149
     },
     {
       "path": "rhubarb/V2_S06_MRS_CHEN_10.dialog.txt",
@@ -5453,14 +5459,10 @@
       "bytes": 14628
     },
     {
-      "path": "susan_POSE_v001_DRAFT.webp",
-      "sha256": "9f666fca04303a4143d0bf929315d082ab7a33f6b06d7a5b60572519e5a9785a",
-      "bytes": 415400
-    },
-    {
       "path": "visemes.json",
-      "sha256": "a1e04349f5db94a9f876e54f80c23f979ae3467edea55f5ec2b843b247452616",
-      "bytes": 56740
+      "sha256": "2d30ad77f7b76abbc60a73c9657db2c69423f0c03ceca50de03e8d47c443acc1",
+      "bytes": 56649
     }
-  ]
+  ],
+  "polish_version": "v016-DRAFT-2"
 }
