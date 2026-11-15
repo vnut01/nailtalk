@@ -20,12 +20,12 @@
       ],
       "question": "Linda sẽ ở nhà chị gái bao lâu?",
       "options": [
-        "Ba ngày",
-        "Hai tuần",
-        "Một tháng"
+        "Three days",
+        "Two weeks",
+        "One month"
       ],
       "key": 1,
-      "correct": "Đúng rồi: Hai tuần",
+      "correct": "Đúng rồi: Hai tuần.",
       "retry": "Nghe lại lượt 1–3 rồi thử lại nhé."
     },
     {
@@ -39,11 +39,11 @@
       "question": "Loại sơn nào giữ được khoảng hai tuần?",
       "options": [
         "Gel",
-        "Sơn thường",
-        "Bột nhúng"
+        "Regular",
+        "Dip"
       ],
       "key": 0,
-      "correct": "Đúng rồi: Gel",
+      "correct": "Đúng rồi: Gel.",
       "retry": "Nghe lại lượt 7–10 rồi thử lại nhé."
     },
     {
@@ -54,12 +54,12 @@
       ],
       "question": "Khi muốn tháo gel, Linda nên làm gì?",
       "options": [
-        "Tự bóc ở nhà",
-        "Để tự bong",
-        "Quay lại tiệm"
+        "Peel it off at home",
+        "Wait for it to come off",
+        "Come back to the salon"
       ],
       "key": 2,
-      "correct": "Đúng rồi: Quay lại tiệm",
+      "correct": "Đúng rồi: Quay lại tiệm.",
       "retry": "Nghe lại lượt 15–16 rồi thử lại nhé."
     }
   ],

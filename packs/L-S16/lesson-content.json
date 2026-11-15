@@ -24,12 +24,12 @@
       ],
       "question": "Jenny cần Susan giúp gì?",
       "options": [
-        "Đặt lịch cho mẹ",
-        "Tìm khăn xám chấm trắng",
-        "Chuyển thợ"
+        "Book for her mother",
+        "Find her scarf",
+        "Change her technician"
       ],
       "key": 1,
-      "correct": "Đúng rồi: Tìm khăn xám chấm trắng",
+      "correct": "Đúng rồi: Tìm khăn xám chấm trắng.",
       "retry": "Nghe lại lượt 1–7 rồi thử lại nhé."
     },
     {
@@ -48,7 +48,7 @@
         "0184"
       ],
       "key": 2,
-      "correct": "Đúng rồi: 0184",
+      "correct": "Đúng rồi: 0184.",
       "retry": "Nghe lại lượt 9–13 rồi thử lại nhé."
     },
     {
@@ -58,12 +58,12 @@
       ],
       "question": "Linh hứa điều gì?",
       "options": [
-        "Chuyển lời nhắn",
-        "Gọi trong 5 phút",
-        "Đã tìm được khăn"
+        "Give Susan the message",
+        "Call in five minutes",
+        "Find the scarf today"
       ],
       "key": 0,
-      "correct": "Đúng rồi: Chuyển lời nhắn",
+      "correct": "Đúng rồi: Chuyển lời nhắn.",
       "retry": "Nghe lại lượt 14 rồi thử lại nhé."
     }
   ],

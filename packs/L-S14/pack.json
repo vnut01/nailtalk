@@ -2823,7 +2823,7 @@
     "SPRITES_DRAFT_PHYSICAL_IPHONE_REVIEW_PENDING"
   ],
   "sources": {
-    "04_Learning_Design/LESSON_SET_v3.2_L-S09-L-S16.md": "7d0258ce45c2b32b85bbbb8a705b917f8617867299effa58dc68cd9f45a0f4cd",
+    "04_Learning_Design/LESSON_SET_v3.2_L-S09-L-S16.md": "aad1fa237129d6261c28dbba5fd14fe53b25ae075720f439116f70c0d67ba294",
     "07_Production_Assets/cinematic/lessons/L-S05_v2_DRAFT.json": "01d520af925cc58aa83b2825fd70e7885919a2f39997e2f2da021487ccf055e7",
     "app/packs/L-S02/cinematic-0.webp": "7d4af3840024361694e78ce11b12133f9624d995317707540de1850e0cc69762",
     "app/packs/L-S02/cinematic-1.webp": "efee2ee45ce9d3af6b01a19ee646bd4c14d23d6c2c3c7e85f54d12b60b561c1b",
@@ -3222,8 +3222,8 @@
     },
     {
       "path": "lesson-content.json",
-      "bytes": 4559,
-      "sha256": "a3f5f4b15c0401ae7eb10d9998605e92a0e2fe832edc2312df1021113533a73d"
+      "bytes": 4558,
+      "sha256": "1940db229daffe26b2d1918f12ba00c2a3f5ba6ef90e1f4c5f9ce275eae6748a"
     },
     {
       "path": "scene-1920.webp",

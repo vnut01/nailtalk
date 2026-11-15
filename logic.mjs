@@ -48,3 +48,36 @@ export function normalizeState(saved) {
   const fresh=initialState();
   return {...fresh,...saved,...Object.fromEntries(['listened','heard','answers','cards','recognition','positions','e','g'].map(k=>[k,saved[k]&&typeof saved[k]==='object'?saved[k]:{}]))};
 }
+
+// Speech check: compares what the browser's recognizer heard with the target words.
+// It measures "did the phone catch these words", not accent quality.
+const ONES=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const TENS=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+export function numberWords(n) {
+  n=Number(n);
+  if(n<20)return ONES[n];
+  if(n<100)return TENS[Math.floor(n/10)]+(n%10?' '+ONES[n%10]:'');
+  if(n<1000)return ONES[Math.floor(n/100)]+' hundred'+(n%100?' '+numberWords(n%100):'');
+  return String(n).split('').map(d=>ONES[d]).join(' ');
+}
+export function speechWords(text) {
+  return String(text??'').toLowerCase()
+    .replace(/\$\s?(\d+)(?:\.00)?/g,(_,n)=>numberWords(n)+' dollars')
+    .replace(/(\d{1,2}):(\d\d)/g,(_,h,m)=>numberWords(h)+(m==='00'?'':' '+(m[0]==='0'?'oh '+ONES[m[1]]:numberWords(m))))
+    .replace(/\d+/g,d=>d.length>2||d[0]==='0'?d.split('').map(c=>ONES[c]).join(' '):numberWords(d))
+    .replace(/[’']/g,'').replace(/\bok\b/g,'okay').replace(/[^a-z]+/g,' ').trim().split(' ').filter(Boolean);
+}
+export function speechScore(target, heard) {
+  const shown=String(target).split(/\s+/).filter(Boolean), owner=[], want=[];
+  shown.forEach((w,i)=>{for(const t of speechWords(w)){want.push(t);owner.push(i);}});
+  const got=speechWords(heard), m=want.length, n=got.length;
+  const table=Array.from({length:m+1},()=>new Array(n+1).fill(0));
+  for(let i=m-1;i>=0;i--)for(let j=n-1;j>=0;j--)table[i][j]=want[i]===got[j]?table[i+1][j+1]+1:Math.max(table[i+1][j],table[i][j+1]);
+  const hit=new Array(m).fill(false);
+  for(let i=0,j=0;i<m&&j<n;){if(want[i]===got[j]){hit[i]=true;i++;j++;}else if(table[i+1][j]>=table[i][j+1])i++;else j++;}
+  const words=shown.map((text,i)=>({text,ok:owner.some(o=>o===i)&&owner.every((o,k)=>o!==i||hit[k])}));
+  return {score:m?Math.round(100*hit.filter(Boolean).length/m):0,words};
+}
+export function bestSpeechScore(target, candidates) {
+  return candidates.filter(Boolean).map(heard=>({...speechScore(target,heard),heard})).sort((a,b)=>b.score-a.score)[0]||null;
+}

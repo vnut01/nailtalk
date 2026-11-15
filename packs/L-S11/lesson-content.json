@@ -20,12 +20,12 @@
       ],
       "question": "Linda đi lấy gì?",
       "options": [
-        "Giày",
-        "Áo đã sửa",
-        "Cây"
+        "Her shoes",
+        "Her coat",
+        "Her plant"
       ],
       "key": 1,
-      "correct": "Đúng rồi: Áo đã sửa",
+      "correct": "Đúng rồi: Áo đã sửa.",
       "retry": "Nghe lại lượt 1–3 rồi thử lại nhé."
     },
     {
@@ -38,12 +38,12 @@
       ],
       "question": "Vì sao chưa tự tìm chìa khóa?",
       "options": [
-        "Không có túi",
-        "Hết giờ",
-        "Sơn chưa khô"
+        "She has no bag",
+        "She has no time",
+        "The polish isn't dry"
       ],
       "key": 2,
-      "correct": "Đúng rồi: Sơn chưa khô",
+      "correct": "Đúng rồi: Sơn chưa khô.",
       "retry": "Nghe lại lượt 5–8 rồi thử lại nhé."
     },
     {
@@ -58,12 +58,12 @@
       ],
       "question": "Linh lấy gì sau khi được đồng ý?",
       "options": [
-        "Chỉ chìa khóa ở túi ngoài",
-        "Ví và điện thoại",
-        "Cả túi"
+        "Only the keys",
+        "Her wallet and phone",
+        "The whole bag"
       ],
       "key": 0,
-      "correct": "Đúng rồi: Chỉ chìa khóa ở túi ngoài",
+      "correct": "Đúng rồi: Chỉ chìa khóa ở túi ngoài.",
       "retry": "Nghe lại lượt 9–14 rồi thử lại nhé."
     }
   ],

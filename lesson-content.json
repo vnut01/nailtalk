@@ -13,9 +13,9 @@
         ],
         "question": "Buổi hẹn của Amy lúc mấy giờ?",
         "options": [
-          "Sáu giờ",
-          "Hai giờ",
-          "Bốn giờ"
+          "At six",
+          "At two",
+          "At four"
         ],
         "key": 0,
         "correct": "Đúng rồi, sáu giờ.",
@@ -28,9 +28,9 @@
         ],
         "question": "Amy muốn làm gì?",
         "options": [
-          "Chỉ làm chân",
-          "Chỉ làm tay",
-          "Cả tay và chân"
+          "Just a pedicure",
+          "Just a manicure",
+          "Both"
         ],
         "key": 1,
         "correct": "Đúng rồi, chỉ làm tay.",
@@ -43,9 +43,9 @@
         ],
         "question": "Amy hỏi có cần gì?",
         "options": [
-          "Đặt lịch",
-          "Chọn màu",
-          "Gọi cho chị"
+          "An appointment",
+          "A color",
+          "A phone call"
         ],
         "key": 0,
         "correct": "Đúng rồi, đặt lịch.",
@@ -98,8 +98,8 @@
       {
         "cue": "V2_S01_LINH_12",
         "options": [
-          "Làm tay",
-          "Làm chân"
+          "Manicure",
+          "Pedicure"
         ],
         "key": 0,
         "afterCard": 1
@@ -107,8 +107,8 @@
       {
         "cue": "V2_S01_LINH_13",
         "options": [
-          "Làm tay",
-          "Làm chân"
+          "Manicure",
+          "Pedicure"
         ],
         "key": 1,
         "afterCard": 1
@@ -148,9 +148,9 @@
         ],
         "question": "Căn bếp của Linda màu gì?",
         "options": [
-          "Vàng",
-          "Trắng",
-          "Xanh"
+          "Yellow",
+          "White",
+          "Blue"
         ],
         "key": 0,
         "correct": "Đúng rồi, vàng.",
@@ -163,9 +163,9 @@
         ],
         "question": "Linda muốn ô màu nào?",
         "options": [
-          "Đậm hơn, dưới cùng",
-          "Nhạt hơn, thứ hai từ trên",
-          "Giữ màu vừa chỉ"
+          "Darker, at the bottom",
+          "Lighter, second from the top",
+          "The same color"
         ],
         "key": 1,
         "correct": "Đúng rồi, nhạt hơn, thứ hai từ trên.",
@@ -178,9 +178,9 @@
         ],
         "question": "Linda muốn trang trí thế nào?",
         "options": [
-          "Thêm hoa",
-          "Chỉ sơn xanh, không vẽ",
-          "Sơn đỏ"
+          "Add flowers",
+          "Just blue, no design",
+          "Red polish"
         ],
         "key": 1,
         "correct": "Đúng rồi, chỉ sơn xanh, không vẽ.",
@@ -233,8 +233,8 @@
       {
         "cue": "V2_S02_LINH_12",
         "options": [
-          "Nhạt hơn",
-          "Đậm hơn"
+          "Lighter",
+          "Darker"
         ],
         "key": 0,
         "afterCard": 1
@@ -242,8 +242,8 @@
       {
         "cue": "V2_S02_LINH_15",
         "options": [
-          "Không họa tiết",
-          "Thêm họa tiết"
+          "No design",
+          "More design"
         ],
         "key": 0,
         "afterCard": 3
@@ -283,9 +283,9 @@
         ],
         "question": "Mark đặt dịch vụ cho ai?",
         "options": [
-          "Mẹ",
-          "Chị gái",
-          "Bản thân"
+          "His mother",
+          "His sister",
+          "Himself"
         ],
         "key": 0,
         "correct": "Đúng rồi, mẹ.",
@@ -298,9 +298,9 @@
         ],
         "question": "Khách muốn hẹn khi nào?",
         "options": [
-          "Thứ Năm, hai giờ",
-          "Thứ Sáu, hai giờ",
-          "Thứ Năm, ba giờ"
+          "Thursday at two",
+          "Friday at two",
+          "Thursday at three"
         ],
         "key": 0,
         "correct": "Đúng rồi, thứ năm, hai giờ.",
@@ -368,8 +368,8 @@
       {
         "cue": "V2_S03_LINH_14",
         "options": [
-          "Thứ Ba",
-          "Thứ Năm"
+          "Tuesday",
+          "Thursday"
         ],
         "key": 1,
         "afterCard": 3
@@ -377,8 +377,8 @@
       {
         "cue": "V2_S03_LINH_15",
         "options": [
-          "Lúc 2 giờ",
-          "Lúc 3 giờ"
+          "At two",
+          "At three"
         ],
         "key": 0,
         "afterCard": 3
@@ -441,9 +441,9 @@
         ],
         "question": "Xe buýt của Mike lúc mấy giờ?",
         "options": [
-          "Bốn giờ",
-          "Ba giờ rưỡi",
-          "Năm giờ"
+          "At four",
+          "At three thirty",
+          "At five"
         ],
         "key": 0,
         "correct": "Đúng rồi, bốn giờ.",
@@ -456,9 +456,9 @@
         ],
         "question": "Chỗ Linh trống lúc mấy giờ?",
         "options": [
-          "Ba giờ rưỡi",
-          "Bốn giờ rưỡi",
-          "Hai giờ"
+          "At three thirty",
+          "At four thirty",
+          "At two"
         ],
         "key": 0,
         "correct": "Đúng rồi, ba giờ rưỡi.",
@@ -471,9 +471,9 @@
         ],
         "question": "Linh có bao nhiêu phút?",
         "options": [
-          "Mười lăm phút",
-          "Bốn mươi lăm phút",
-          "Ba mươi phút"
+          "Fifteen minutes",
+          "Forty-five minutes",
+          "Thirty minutes"
         ],
         "key": 1,
         "correct": "Đúng rồi, bốn mươi lăm phút.",
@@ -530,8 +530,8 @@
       {
         "cue": "V2_S04_LINH_15",
         "options": [
-          "45 phút",
-          "15 phút"
+          "45 minutes",
+          "15 minutes"
         ],
         "key": 0,
         "afterCard": 2
@@ -603,9 +603,9 @@
         ],
         "question": "Linda vừa đăng ký học gì?",
         "options": [
-          "Đàn piano",
-          "Vẽ",
-          "Lái xe"
+          "Piano",
+          "Painting",
+          "Driving"
         ],
         "key": 0,
         "correct": "Đúng rồi, đàn piano.",
@@ -618,9 +618,9 @@
         ],
         "question": "Linda muốn móng dài hay ngắn?",
         "options": [
-          "Ngắn",
-          "Dài",
-          "Giữ nguyên"
+          "Short",
+          "Long",
+          "The same"
         ],
         "key": 0,
         "correct": "Đúng rồi, ngắn.",
@@ -633,9 +633,9 @@
         ],
         "question": "Linda chọn dáng móng nào?",
         "options": [
-          "Tròn",
-          "Vuông",
-          "Nhọn"
+          "Round",
+          "Square",
+          "Pointed"
         ],
         "key": 0,
         "correct": "Đúng rồi, tròn.",
@@ -688,8 +688,8 @@
       {
         "cue": "V2_S05_LINH_13",
         "options": [
-          "Tròn",
-          "Vuông"
+          "Round",
+          "Square"
         ],
         "key": 0,
         "afterCard": 1
@@ -697,8 +697,8 @@
       {
         "cue": "V2_S05_LINH_14",
         "options": [
-          "Tròn",
-          "Vuông"
+          "Round",
+          "Square"
         ],
         "key": 1,
         "afterCard": 1
@@ -738,9 +738,9 @@
         ],
         "question": "Bà Chen sắp gọi cho ai?",
         "options": [
-          "Cháu trai",
-          "Chị gái",
-          "Bác sĩ"
+          "Her grandson",
+          "Her sister",
+          "Her doctor"
         ],
         "key": 0,
         "correct": "Đúng rồi, cháu trai.",
@@ -753,9 +753,9 @@
         ],
         "question": "Bà Chen báo cảm giác gì?",
         "options": [
-          "Rát",
-          "Lạnh",
-          "Dễ chịu"
+          "It stings",
+          "It is cold",
+          "It feels good"
         ],
         "key": 0,
         "correct": "Đúng rồi, rát.",
@@ -768,9 +768,9 @@
         ],
         "question": "Linh nói sẽ gọi ai?",
         "options": [
-          "Quản lý",
-          "Cháu trai",
-          "Thợ sửa xe"
+          "Her manager",
+          "Her grandson",
+          "A mechanic"
         ],
         "key": 0,
         "correct": "Đúng rồi, quản lý.",
@@ -823,8 +823,8 @@
       {
         "cue": "V2_S06_LINH_14",
         "options": [
-          "Bị rát",
-          "Thấy dễ chịu"
+          "It stings",
+          "It feels good"
         ],
         "key": 0,
         "afterCard": 3
@@ -832,8 +832,8 @@
       {
         "cue": "V2_S06_LINH_17",
         "options": [
-          "Đau",
-          "Muốn chọn màu"
+          "It hurts",
+          "Pick a color"
         ],
         "key": 0,
         "afterCard": 0
@@ -893,9 +893,9 @@
         ],
         "question": "Amy sắp có dịp gì?",
         "options": [
-          "Tốt nghiệp",
-          "Sinh nhật",
-          "Chuyển nhà"
+          "Her graduation",
+          "Her birthday",
+          "A new house"
         ],
         "key": 0,
         "correct": "Đúng rồi, tốt nghiệp.",
@@ -908,9 +908,9 @@
         ],
         "question": "Linh báo giá bao nhiêu?",
         "options": [
-          "Mười ba đô",
-          "Ba mươi đô",
-          "Bốn mươi đô"
+          "Thirteen dollars",
+          "Thirty dollars",
+          "Forty dollars"
         ],
         "key": 1,
         "correct": "Đúng rồi, ba mươi đô.",
@@ -923,9 +923,9 @@
         ],
         "question": "Giá đã gồm phần nào?",
         "options": [
-          "Sơn gel",
-          "Sơn thường",
-          "Vẽ móng"
+          "Gel polish",
+          "Regular polish",
+          "Nail art"
         ],
         "key": 1,
         "correct": "Đúng rồi, sơn thường.",
@@ -1068,9 +1068,9 @@
         ],
         "question": "Bà Chen mang gì cho Linh?",
         "options": [
-          "Chậu cây",
-          "Chiếc cốc",
-          "Bức ảnh"
+          "A plant",
+          "A mug",
+          "A photo"
         ],
         "key": 0,
         "correct": "Đúng rồi, chậu cây.",
@@ -1083,9 +1083,9 @@
         ],
         "question": "Bà muốn chuyển cây thế nào?",
         "options": [
-          "Vào trong một chút",
-          "Trả lại cho bà",
-          "Ra cửa"
+          "Back a little",
+          "Back to her",
+          "To the door"
         ],
         "key": 0,
         "correct": "Đúng rồi, vào trong một chút.",
@@ -1098,9 +1098,9 @@
         ],
         "question": "Linh hỏi đặt cây ở đâu?",
         "options": [
-          "Giữa bàn",
-          "Sát mép",
-          "Dưới bàn"
+          "In the middle",
+          "At the edge",
+          "Under the table"
         ],
         "key": 0,
         "correct": "Đúng rồi, giữa bàn.",
@@ -1153,8 +1153,8 @@
       {
         "cue": "V2_S08_LINH_13",
         "options": [
-          "Chuyển vào trong",
-          "Trả lại cho bà"
+          "Move it back",
+          "Give it back"
         ],
         "key": 0,
         "afterCard": 3
@@ -1162,8 +1162,8 @@
       {
         "cue": "V2_S08_LINH_14",
         "options": [
-          "Ở giữa",
-          "Ở sát mép"
+          "In the middle",
+          "At the edge"
         ],
         "key": 0,
         "afterCard": 1

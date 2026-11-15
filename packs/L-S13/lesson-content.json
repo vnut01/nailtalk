@@ -22,12 +22,12 @@
       ],
       "question": "Jenny đang chuẩn bị gì?",
       "options": [
-        "Chuyển nhà",
-        "Cắm trại",
-        "Ngày tốt nghiệp"
+        "A new house",
+        "A camping trip",
+        "Her graduation"
       ],
       "key": 1,
-      "correct": "Đúng rồi: Cắm trại",
+      "correct": "Đúng rồi: Cắm trại.",
       "retry": "Nghe lại lượt 1–5 rồi thử lại nhé."
     },
     {
@@ -39,12 +39,12 @@
       ],
       "question": "Khách muốn dịch vụ nào hôm nay?",
       "options": [
-        "Gel mới",
-        "Đổi màu",
-        "Chỉ tháo gel cũ"
+        "New gel",
+        "A new color",
+        "Removal only"
       ],
       "key": 2,
-      "correct": "Đúng rồi: Chỉ tháo gel cũ",
+      "correct": "Đúng rồi: Chỉ tháo gel cũ.",
       "retry": "Nghe lại lượt 7–9 rồi thử lại nhé."
     },
     {
@@ -61,7 +61,7 @@
         "Amy"
       ],
       "key": 0,
-      "correct": "Đúng rồi: Susan",
+      "correct": "Đúng rồi: Susan.",
       "retry": "Nghe lại lượt 10–12 rồi thử lại nhé."
     }
   ],

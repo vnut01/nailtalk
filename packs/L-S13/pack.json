@@ -2361,7 +2361,7 @@
     "PHYSICAL_IPHONE_REVIEW_PENDING"
   ],
   "sources": {
-    "04_Learning_Design/LESSON_SET_v3.2_L-S09-L-S16.md": "7d0258ce45c2b32b85bbbb8a705b917f8617867299effa58dc68cd9f45a0f4cd",
+    "04_Learning_Design/LESSON_SET_v3.2_L-S09-L-S16.md": "aad1fa237129d6261c28dbba5fd14fe53b25ae075720f439116f70c0d67ba294",
     "07_Production_Assets/cinematic/lessons/L-S04_v2_DRAFT.json": "6b6292d5e1b676df3413cd4fc5653734f37bab085b3a3d6301a8c6e59a3d7f30",
     "07_Production_Assets/cinematic/batch75/L-S04/BASE_v001_DRAFT.webp": "7d9cba2ae8c121609199dfc7090077a1736b4f5155bc81983c7b757c4fc48365",
     "07_Production_Assets/cinematic/batch75/L-S04/MOUTH_X_v001_DRAFT.webp": "19b5e83e25fa9358d4ce54cc333dd556fa8dd9deb333b35a534414a3852981aa",
@@ -2722,8 +2722,8 @@
     },
     {
       "path": "lesson-content.json",
-      "bytes": 5478,
-      "sha256": "8af8897deda86df5e1775251a7a74c1d959dddbed3a4ce9eaa98bfa692786f3c"
+      "bytes": 5466,
+      "sha256": "59c47a01eb5ee8cb0222ced6c24c61fedbcd8d6100768430c1b43f463ece9e30"
     },
     {
       "path": "scene-1920.webp",

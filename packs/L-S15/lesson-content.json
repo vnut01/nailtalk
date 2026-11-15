@@ -20,12 +20,12 @@
       ],
       "question": "Linda hẹn gặp bạn lúc mấy giờ?",
       "options": [
-        "Mười hai giờ",
-        "Mười giờ",
-        "Hai giờ"
+        "At twelve",
+        "At ten",
+        "At two"
       ],
       "key": 0,
-      "correct": "Đúng rồi: Mười hai giờ",
+      "correct": "Đúng rồi: Mười hai giờ.",
       "retry": "Nghe lại lượt 5–7 rồi thử lại nhé."
     },
     {
@@ -38,12 +38,12 @@
       ],
       "question": "Tiệm trễ khoảng bao lâu?",
       "options": [
-        "Hai mươi phút",
-        "Mười phút",
-        "Ba mươi phút"
+        "Twenty minutes",
+        "Ten minutes",
+        "Thirty minutes"
       ],
       "key": 1,
-      "correct": "Đúng rồi: Mười phút",
+      "correct": "Đúng rồi: Mười phút.",
       "retry": "Nghe lại lượt 3–6 rồi thử lại nhé."
     },
     {
@@ -55,12 +55,12 @@
       ],
       "question": "Linda chọn gì lúc này?",
       "options": [
-        "Quay lại ngày mai",
-        "Hủy lịch",
-        "Chờ tiếp"
+        "Come back tomorrow",
+        "Cancel",
+        "Wait"
       ],
       "key": 2,
-      "correct": "Đúng rồi: Chờ tiếp",
+      "correct": "Đúng rồi: Chờ tiếp.",
       "retry": "Nghe lại lượt 13–15 rồi thử lại nhé."
     }
   ],

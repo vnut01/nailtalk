@@ -22,12 +22,12 @@
       ],
       "question": "Amy sẽ làm gì ở thư viện?",
       "options": [
-        "Đọc cho trẻ",
-        "Thi đàn",
-        "Sửa áo"
+        "Read to kids",
+        "Play the piano",
+        "Fix a coat"
       ],
       "key": 0,
-      "correct": "Đúng rồi: Đọc cho trẻ",
+      "correct": "Đúng rồi: Đọc cho trẻ.",
       "retry": "Nghe lại lượt 1–5 rồi thử lại nhé."
     },
     {
@@ -41,12 +41,12 @@
       ],
       "question": "Móng nào cần sửa?",
       "options": [
-        "Cái phải",
-        "Cái trái",
-        "Tất cả"
+        "Her right thumb",
+        "Her left thumb",
+        "All of them"
       ],
       "key": 1,
-      "correct": "Đúng rồi: Cái trái",
+      "correct": "Đúng rồi: Cái trái.",
       "retry": "Nghe lại lượt 7–11 rồi thử lại nhé."
     },
     {
@@ -61,12 +61,12 @@
       ],
       "question": "Linh được phép sửa phần nào?",
       "options": [
-        "Đổi toàn bộ màu",
-        "Cắt ngắn tất cả",
-        "Vệt ở một móng đã xác nhận"
+        "The whole color",
+        "All the nails",
+        "Just that one streak"
       ],
       "key": 2,
-      "correct": "Đúng rồi: Vệt ở một móng đã xác nhận",
+      "correct": "Đúng rồi: Vệt ở một móng đã xác nhận.",
       "retry": "Nghe lại lượt 11–16 rồi thử lại nhé."
     }
   ],

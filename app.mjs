@@ -1,9 +1,9 @@
-export const APP_VERSION = "v019-DRAFT-1";
+export const APP_VERSION = "v020-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
 import { AudioPlayer } from "./player.mjs";
-import { STEPS, nextStep, initialState, completeStep, outcome, normalizeState } from "./logic.mjs";
+import { STEPS, nextStep, initialState, completeStep, outcome, normalizeState, bestSpeechScore } from "./logic.mjs";
 import * as store from "./storage.mjs";
 const $ = s => document.querySelector(s);
 import {LESSON_ORDER, AVAILABLE_LESSONS, migrateProgress, practiced, reachedPhrases, lessonStatus, continueLesson} from './path.mjs';
@@ -24,6 +24,9 @@ const extraPacks = {};
 for(const id of AVAILABLE_LESSONS.filter(id=>reachedPhrases(progress[id])||!onHome&&id===lesson.review?.lesson))extraPacks[id]=await (await fetch(`./packs/${id}/pack.json`)).json();
 let reviewing=!onHome && !!lesson.review && (!progress[lessonId].reviewDone && progress[lessonId].step==='1' && (!location.hash.includes('/')||location.hash.endsWith('/1')) || location.hash.endsWith('/review'));
 let meaningOn=localStorage.getItem('nailtalk-meaning')==='true', subtitleLast=null;
+// Speech check uses the browser's own recognizer when it has one; everything else works without it.
+const Recognizer=window.SpeechRecognition||window.webkitSpeechRecognition;
+let scoringOn=localStorage.getItem('nailtalk-scoring')!=='false', asrBroken=false, asr=null;
 const enabled = step => STEPS.includes(step);
 const advance = step => { let next = nextStep(step); while(next !== 'summary' && !enabled(next)) next = nextStep(next); return next; };
 export const scene = new CinematicScene(pack);
@@ -70,6 +73,7 @@ function stopMedia() {
     stream = null;
     clearTimeout(recordTimer);
     clearInterval(timerTick);
+    asr?.abort();asr=null;
     recorder = null;
     busy = false;
     scene.recording = false; scene.apply();
@@ -88,6 +92,11 @@ function nav(step) {
     micError = "";
     location.hash = `${lessonId}/${step}`;
     render();
+}
+// A finished part reopens at its first item.
+function finishPart(next) {
+    (state.positions ||= {})[state.step] = {index:0, attempt:1, gIndex:0};
+    nav(next);
 }
 function cueHTML(id, reveal = false) {
     const c = pack.cues[id];
@@ -158,7 +167,7 @@ function shell(content) {
 <div class="player ${hasScene ? '' : 'task-only'} step-${state.step}">${hasScene ? `<aside><div data-lesson="${lessonId}" class="scene scene-main ${pack.ui?.contact_crop ? 'contact-crop' : ''}" style="${sceneStyle}"><div class="scene-frame"><div class="scene-canvas"><span class="scene-layers" aria-hidden="true"></span><img src="packs/${lessonId}/${pack.scene.small}" alt="Cảnh trong tiệm Bella Nails"></div></div>${scenePlayer}</div>${state.step==='1'?`<p class="scene-setter">${escape(lesson.sceneSetter)}</p>`:''}${state.step==='2'?`<button id="subtitle" class="subtitle" aria-label="Nghe lại câu phụ đề"></button><button id="meaning-toggle" aria-pressed="${meaningOn}">Nghĩa tiếng Việt: ${meaningOn?'Bật':'Tắt'}</button><p id="subtitle-meaning" class="subtitle-meaning"></p>`:''}</aside>` : ''}<section class="panel">${content}${micError ? `<p role="status" class="warning">${escape(micError)}</p>` : ''}</section></div>${navigation()}`;
 }
 function navigation() {
-    return state.step==='summary'?'':`<nav class="nav" aria-label="Điều hướng bài học"><div class="nav-actions">${button('next','Tiếp tục','primary',!completeStep(state,state.step,lesson))}${button('skip','Bỏ qua','text-link')}</div></nav>`;
+    return state.step==='summary'?'':`<nav class="nav" aria-label="Điều hướng bài học"><div class="nav-actions">${['1','2'].includes(state.step)?button('next','Tiếp tục','primary',!completeStep(state,state.step,lesson)):''}${button('skip',['1','2'].includes(state.step)?'Bỏ qua':'Bỏ qua phần này','text-link')}</div></nav>`;
 }
 function openLesson(id){if(!AVAILABLE_LESSONS.includes(id))return;const s=progress[id];location.hash=`${id}/${s?.step||'1'}`;if(id===lessonId&&onHome)location.reload();}
 function renderHome() {
@@ -203,25 +212,25 @@ function render() {
         scenePlayer=playerHTML('hear',pack.dialogue,{scene:true,slower:true,gaps:pack.scene_gaps,label:'Nghe toàn bộ câu chuyện',onUpdate:updateSubtitle,onFinish:()=>{state.listened[part]=true;persist();render();}});
     } else if (state.step==='3') {
         const q=lesson.comprehension[index % 3], h=state.answers[index] || [];
-        content=`<p class="task-count">${index+1}/3</p>${playerHTML('hear',q.listen,{label:'Nghe đoạn câu chuyện',onFinish:()=>{state.heard[index]=true;persist();render();}})}<h2>${escape(q.question)}</h2>${!state.heard[index]?'<p role="status">Nghe xong rồi chọn</p>':''}<div class="options">${q.options.map((o,n)=>button('choice'+n,escape(o),'',!state.heard[index])).join('')}</div>${h.length?`<p role="status">${escape(h.at(-1).correct?q.correct:q.retry)}</p>`:''}${button('item-next','Câu tiếp','',!h.length)}`;
+        content=`<p class="task-count">${index+1}/3</p>${playerHTML('hear',q.listen,{label:'Nghe đoạn câu chuyện',onFinish:()=>{state.heard[index]=true;persist();render();}})}<h2>${escape(q.question)}</h2>${!state.heard[index]?'<p role="status">Nghe xong rồi chọn</p>':''}<div class="options">${q.options.map((o,n)=>button('choice'+n,escape(o),'',!state.heard[index])).join('')}</div>${h.length?`<p role="status">${escape(h.at(-1).correct?q.correct:q.retry)}</p>`:''}${button('item-next',index<2?'Câu tiếp':'Xong · Sang phần 4','primary',!h.length)}`;
     } else if(state.step==='4') {
         content=`<p class="task-count">${"●".repeat(index+1)}${"○".repeat(3-index)}</p>${playerHTML('hear',[card.cue],{label:'Nghe câu mẫu',onFinish:()=>{state.cards[card.cue]=true;persist();render();}})}<p class="target">${escape(card.english)}</p><p>${escape(card.vietnamese)}</p><p>${escape(card.vocabulary)}</p>${card.note.split(' <br> ').map(line=>`<p>${escape(line)}</p>`).join('')}${card.chunks?`<p>Nghe và nói từng cụm, rồi nói cả câu.</p>${card.chunks.map((id,n)=>`<p>${n+1}. ${escape(pack.cues[id].english)}</p>${playerHTML('chunk-'+n,[id],{compact:true,label:'Nghe từng cụm'})}`).join('')}`:''}`;
         lesson.recognition.forEach((q,n)=>{
             if(index !== q.afterCard)return;
             const h=state.recognition[n];
-            content+=`<article><h3>Bạn vừa nghe ý nào?</h3>${playerHTML('mini-'+n,[q.cue],{label:'Nghe nhận biết',onFinish:()=>{(state.miniHeard||={})[n]=true;persist();render();}})}<div class="options">${q.options.map((o,j)=>`<button data-mini="${n}" data-answer="${j}" ${!state.miniHeard?.[n]?'disabled':''}>${escape(o)}</button>`).join('')}</div>${h?`<p role="status">${h.correct?'Đúng rồi, bạn nhận ra ý vừa nghe.':'Nghe lại rồi chọn ý phù hợp nhé.'}</p>`:''}</article>`;
+            content+=`<article><h3>Bạn vừa nghe từ nào?</h3>${playerHTML('mini-'+n,[q.cue],{label:'Nghe nhận biết',onFinish:()=>{(state.miniHeard||={})[n]=true;persist();render();}})}<div class="options">${q.options.map((o,j)=>`<button data-mini="${n}" data-answer="${j}" ${!state.miniHeard?.[n]?'disabled':''}>${escape(o)}</button>`).join('')}</div>${h?`<p role="status">${h.correct?'Đúng rồi, bạn nhận ra ý vừa nghe.':'Nghe lại rồi chọn ý phù hợp nhé.'}</p>`:''}</article>`;
         });
-        content+=button('card-next','Câu tiếp');
+        content+=button('card-next',index<3?'Câu tiếp':'Xong · Sang phần 5','primary');
     } else if(state.step==='5') {
         const done=state.e[`${card.cue}:2`]?.length;
-        content=`<p class="task-count">${"●".repeat(index+1)}${"○".repeat(3-index)} · ${attempt===1?'Cùng câu mẫu':'Tự nói'}</p><h2>${attempt===1?'Nói với câu mẫu':'Thử nói khi không nhìn câu mẫu'}</h2>${attempt===1||showText?`${playerHTML('hear',[card.cue],{label:'Nghe câu mẫu'})}<p class="target">${escape(card.english)}</p><p>${escape(card.vietnamese)}</p>`:`<p>${escape(card.focus.replace(/^\d+\. /,''))}</p>`}${speechUI(card.cue,'E')}${done?`<p>${escape(card.check)}</p>`:''}${button('e-next',attempt===1?'Thử tự nói':'Câu tiếp','',!state.e[`${card.cue}:${attempt}`]?.length)}`;
+        content=`<p class="task-count">${"●".repeat(index+1)}${"○".repeat(3-index)} · ${attempt===1?'Cùng câu mẫu':'Tự nói'}</p><h2>${attempt===1?'Nói với câu mẫu':'Thử nói khi không nhìn câu mẫu'}</h2>${attempt===1||showText?`${playerHTML('hear',[card.cue],{label:'Nghe câu mẫu'})}<p class="target">${escape(card.english)}</p><p>${escape(card.vietnamese)}</p>`:`<p>${escape(card.focus.replace(/^\d+\. /,''))}</p>`}${speechUI(card.cue,'E')}${done?`<p>${escape(card.check)}</p>`:''}${button('e-next',attempt===1?'Thử tự nói':index<3?'Câu tiếp':lesson.safetyRequired&&!completeStep(state,'5',lesson)?'Ôn an toàn':'Xong · Sang phần 6','primary',!state.e[`${card.cue}:${attempt}`]?.length)}`;
         if(lessonId==='L-S06'&&lesson.cards.every(c=>[1,2].every(n=>state.e[c.cue+':'+n]?.length)))content+=safetyHTML();
     } else if(state.step==='6') {
         const t=currentTurn(), h=state.g[gIndex], said=spoken(h)||pending?.id===t.models[0]&&pending.evidence!=='không có bằng chứng';
         const gate=lessonId==='L-S08'&&!state.water?.correct;
         content=`<p class="task-count">${"●".repeat(gIndex+1)}${"○".repeat(lesson.turns.length-gIndex-1)}</p><h2>${escape(t.instruction)}</h2>${playerHTML('hear',t.prompts,{label:'Nghe yêu cầu mới',onFinish:()=>{(state.transferHeard||={})[gIndex]=true;persist();render();}})}`;
         if(lessonId==='L-S02') content+=`<p>Đang chỉ ô B.</p><div class="options">${['#f4e9d2','#b6dce8','#e8806a','#35678b','#c8acd7','#b9494b'].map((color,n)=>`<button data-color="${n}" aria-pressed="${state.color===n}"><span class="swatch-chip" style="background:${color}"></span>${'ABCDEF'[n]}</button>`).join('')}</div>`;
-        if(lessonId==='L-S08')content+=`<h3>Bà đang xin gì?</h3>${['Nước uống','Chuyển cây','Trả cây'].map((o,n)=>button('water'+n,o,'',!state.transferHeard?.[gIndex])).join('')}${state.water?`<p>${state.water.correct?'Bạn đã hiểu yêu cầu; hãy nói điều mình sẽ làm.':'Nghe lại yêu cầu mới nhé.'}</p>`:''}`;
+        if(lessonId==='L-S08')content+=`<h3>Bà đang xin gì?</h3>${['A drink of water','Move the plant','Take the plant back'].map((o,n)=>button('water'+n,o,'',!state.transferHeard?.[gIndex])).join('')}${state.water?`<p>${state.water.correct?'Bạn đã hiểu yêu cầu; hãy nói điều mình sẽ làm.':'Nghe lại yêu cầu mới nhé.'}</p>`:''}`;
         if(lessonId==='L-S08')content+=button('request-repeat','Tôi đã xin nhắc lại')+(state.repeatRequested?playerHTML('repeat-request',['V2_S08_LINH_04'],{label:'Nghe mẫu sau lời xin nhắc lại',onBegin:()=>{state.repeatHelp=true;persist();}}):'');
         if(!gate) content+=speechUI(t.models[0],'G');
         if(said) {
@@ -232,21 +241,62 @@ function render() {
             if(lessonId==='L-S08')content+=playerHTML('repair-model',['V2_S08_LINH_06'],{label:'Nghe mẫu xin nhắc lại và xác nhận sau nỗ lực'});
         }
         if(lessonId==='L-S04'&&gIndex===2&&state.confirmed?.[2])content+=button('book','Ghi lịch mô phỏng');
-        const canAdvance=spoken(h)&& (lessonId!=='L-S03'||gIndex!==0||h?.some(a=>a.meaning&&a.clear&&a.evidence!=='không có bằng chứng'))&& (lessonId!=='L-S04'||gIndex!==2||!!state.confirmed?.[2]);
-        content+=button('g-next','Nói tiếp','',!canAdvance);
+        const canAdvance=!!h?.length&& (lessonId!=='L-S03'||gIndex!==0||h?.some(a=>a.meaning&&a.clear&&a.evidence!=='không có bằng chứng'))&& (lessonId!=='L-S04'||gIndex!==2||!!state.confirmed?.[2]);
+        content+=button('g-next',gIndex<lesson.turns.length-1?'Nói tiếp':'Xem kết quả','primary',!canAdvance);
     } else {
-        const said=practiced(state,lesson);
-        content=`<h2>Hôm nay bạn nói được ${said.length} câu này</h2><div class="end-phrases">${said.map(c=>`<article class="phrase cue-row">${playerHTML('recap-'+c.cue,[c.cue],{compact:true,label:'Nghe câu đã luyện'})}<p class="target">${escape(c.english)}</p></article>`).join('')}</div><h2>Bạn đã tự nói được chưa?</h2><div class="confidence-choices">${['Tự nói được','Cần nghe mẫu','Muốn luyện lại'].map((o,n)=>button('confidence'+n,o,state.confidence===o?'primary':'')).join('')}</div><div class="end-actions">${button('next-lesson','Bài tiếp theo','primary')}${button('phrases','Sổ câu của tôi')}${button('again','Luyện lại')}</div>`;
+        const said=practiced(state,lesson), number=LESSON_ORDER.indexOf(lessonId)+1;
+        const heardRight=lesson.comprehension.filter((_,n)=>state.answers[n]?.[0]?.correct).length;
+        const best=cue=>Math.max(-1,...[1,2].flatMap(n=>(state.e[cue+':'+n]||[]).map(a=>a.score??-1)));
+        const turnsDone=lesson.turns.filter((_,n)=>spoken(state.g[n])).length;
+        const scores=[...lesson.cards.map(c=>best(c.cue)),...lesson.turns.map((_,n)=>Math.max(-1,...(state.g[n]||[]).map(a=>a.score??-1)))].filter(v=>v>=0);
+        const average=scores.length?Math.round(scores.reduce((a,b)=>a+b,0)/scores.length):null;
+        const skipped=['3','4','5','6'].filter(n=>state.skips?.[n]);
+        const tile=(value,label)=>`<div class="result-tile"><strong>${value}</strong><span>${label}</span></div>`;
+        content=`<h2>Bạn đã học xong Bài ${number} 🎉</h2><p>${escape(lesson.homeCanDo)}</p><div class="result-grid">${tile(`${heardRight}/3`,'câu nghe hiểu đúng ngay lần đầu')}${tile(`${said.length}/${lesson.cards.length}`,'câu đã luyện nói')}${tile(`${turnsDone}/${lesson.turns.length}`,'tình huống vận dụng đã nói')}${average===null?'':tile(`${average}/100`,'điểm nói trung bình (máy nghe)')}</div>${skipped.length?`<p class="warning">Bạn đã bỏ qua phần ${skipped.join(', ')}. Chọn Luyện lại để học các phần đó.</p>`:''}${said.length?`<h2>Các câu bạn đã nói</h2><div class="end-phrases">${said.map(c=>`<article class="phrase cue-row">${playerHTML('recap-'+c.cue,[c.cue],{compact:true,label:'Nghe câu đã luyện'})}<p class="target">${escape(c.english)}${best(c.cue)>=0?` <span class="score-chip">${best(c.cue)}</span>`:''}</p></article>`).join('')}</div>`:''}<h2>Bạn đã tự nói được chưa?</h2><div class="confidence-choices">${['Tự nói được','Cần nghe mẫu','Muốn luyện lại'].map((o,n)=>button('confidence'+n,o,state.confidence===o?'primary':'')).join('')}</div><div class="end-actions">${button('next-lesson',AVAILABLE_LESSONS.indexOf(lessonId)<AVAILABLE_LESSONS.length-1?'Bài tiếp theo':'Về trang chính','primary')}${button('phrases','Sổ câu của tôi')}${button('again','Luyện lại')}</div>`;
     }
     $('#app').innerHTML=shell(content);
     bindCommon(); mountPlayers(); bindStep(); persist();
 }
+function speechTarget(id,type) {
+    if(type==='E')return lesson.cards[index].english;
+    const t=currentTurn();
+    return t.modelText||t.models.map(m=>pack.cues[m].english).join(' ');
+}
+function startASR() {
+    if(!Recognizer||!scoringOn||asrBroken)return null;
+    const session={texts:[],error:null};
+    try {
+        const r=new Recognizer();
+        r.lang='en-US';r.continuous=true;r.interimResults=false;r.maxAlternatives=3;
+        r.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++)if(e.results[i].isFinal)session.texts.push(Array.from(e.results[i]).map(a=>a.transcript));};
+        r.onerror=e=>{session.error=e.error;};
+        session.done=new Promise(resolve=>{r.onend=resolve;});
+        session.stop=()=>{try{r.stop();}catch{}};
+        session.abort=()=>{try{r.abort();}catch{}};
+        r.start();
+    } catch { return null; }
+    return session;
+}
+function asrResult(session,target) {
+    if(['not-allowed','service-not-allowed','audio-capture','language-not-supported'].includes(session.error)){asrBroken=true;return {note:'Máy này chưa chấm điểm được. Bạn nghe lại bản ghi và so với câu mẫu nhé.'};}
+    if(session.error==='network')return {note:'Cần có mạng để chấm điểm. Bạn nghe lại bản ghi và so với câu mẫu nhé.'};
+    if(!session.texts.length)return {note:'Máy chưa nghe được câu nào. Thử nói to và rõ hơn nhé.'};
+    return bestSpeechScore(target,[0,1,2].map(k=>session.texts.map(a=>a[k]??a[0]).join(' ')));
+}
+function scoreInner() {
+    const a=pending?.asr;
+    if(!a)return pending?.asrPending?'<p class="score-note">Đang chấm điểm…</p>':'';
+    if(a.note)return `<p class="score-note">${escape(a.note)}</p>`;
+    const label=a.score>=80?'Rõ rồi!':a.score>=50?'Gần được. Thử lại các từ màu cam.':'Máy chưa nghe rõ. Thử nói chậm và to hơn.';
+    return `<p class="score-number"><strong>${a.score}</strong>/100 · ${label}</p><p class="score-words">${a.words.map(w=>`<span class="${w.ok?'hit':'miss'}">${escape(w.text)}</span>`).join(' ')}</p><p class="score-heard">Máy nghe được: “${escape(a.heard)}”</p><p class="score-hint">Điểm cho biết máy nghe được bao nhiêu từ trong câu, chưa phải chấm giọng.</p>`;
+}
+const scoreHTML=()=>`<div id="score-slot" class="score" role="status">${scoreInner()}</div>`;
 function speechUI(id,type) {
     const history=type==='E'?state.e[`${id}:${attempt}`]:state.g[gIndex];
     const captured=pending?.id===id&&pending.evidence!=='không có bằng chứng';
     const allowed=type==='E'||captured||(lessonId==='L-S04'&&gIndex===0?history?.some(a=>a.id===id&&a.evidence!=='không có bằng chứng'):spoken(history));
-    if(type==='E')return `<div class="controls">${button('record','🎤 Nói thử','primary microphone',busy)}${button('stop','Dừng ghi','',!busy)}</div><p id="timer" class="recording" role="status"></p>${!captured?`<div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div>`:''}${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio>${button('play-take','Nghe lại bản ghi')}`:''}${captured?`${playerHTML('compare',[id],{label:'Nghe mẫu để so sánh'})}<p>${escape(lesson.cards[index].check)}</p>${button('accept-take','Được rồi','primary')}${button('delete-take','Luyện lại')}`:''}${history?.length?'<p>Đã lưu lần luyện nói.</p>':''}${attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu'):''}`;
-    return `<div class="controls">${button('record','🎤 Nói thử','primary microphone',busy)}${button('stop','Dừng ghi','',!busy)}</div><div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div><p id="timer" class="recording" role="status"></p>${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio><button id="play-take" aria-label="Nghe bản ghi của bạn">🔊</button>${button('delete-take','Luyện lại')}`:''}${allowed&&(captured||showText)?`${type==='E'&&attempt===2&&!showText?`<p class="target">${escape(lesson.cards[index].english)}</p><p>${escape(lesson.cards[index].vietnamese)}</p>`:''}${captured?`<form id="check"><label><input type="checkbox" name="meaning">Tôi đã nói đủ ý chính của câu.</label><label><input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label><label><input type="checkbox" name="other">Tôi nói đủ câu hỏi / lời xác nhận cần có.</label>${lessonId==='L-S06'?'<label><input type="checkbox" name="invented">Tôi đã tiếp tục, chẩn đoán, khuyên chữa trị hoặc trì hoãn giúp khẩn cấp.</label>':''}<button type="submit">Được rồi</button></form>`:''}`:''}${history?.length?`<p>${escape(history.at(-1).outcome)} · ${history.at(-1).assisted?'Có hỗ trợ':'Không nhìn câu mẫu'}</p>`:''}${type==='E'&&attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu hỗ trợ'):''}`;
+    if(type==='E')return `<div class="controls">${button('record','🎤 Nói thử','primary microphone',busy)}${button('stop','Dừng ghi','',!busy)}</div><p id="timer" class="recording" role="status"></p>${!captured?`<div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div>`:''}${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio>${button('play-take','Nghe lại bản ghi')}`:''}${captured?`${scoreHTML()}${playerHTML('compare',[id],{label:'Nghe mẫu để so sánh'})}<p>${escape(lesson.cards[index].check)}</p>${button('accept-take','Được rồi','primary')}${button('delete-take','Luyện lại')}`:''}${history?.length?'<p>Đã lưu lần luyện nói.</p>':''}${attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu'):''}`;
+    return `<div class="controls">${button('record','🎤 Nói thử','primary microphone',busy)}${button('stop','Dừng ghi','',!busy)}</div><div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div><p id="timer" class="recording" role="status"></p>${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio><button id="play-take" aria-label="Nghe bản ghi của bạn">🔊</button>${button('delete-take','Luyện lại')}`:''}${allowed&&(captured||showText)?`${type==='E'&&attempt===2&&!showText?`<p class="target">${escape(lesson.cards[index].english)}</p><p>${escape(lesson.cards[index].vietnamese)}</p>`:''}${captured?`${scoreHTML()}<form id="check"><label><input type="checkbox" name="meaning">Tôi đã nói đủ ý chính của câu.</label><label><input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label><label><input type="checkbox" name="other">Tôi nói đủ câu hỏi / lời xác nhận cần có.</label>${lessonId==='L-S06'?'<label><input type="checkbox" name="invented">Tôi đã tiếp tục, chẩn đoán, khuyên chữa trị hoặc trì hoãn giúp khẩn cấp.</label>':''}<button type="submit">Được rồi</button></form>`:''}`:''}${history?.length?`<p>${escape(history.at(-1).outcome)} · ${history.at(-1).assisted?'Có hỗ trợ':'Không nhìn câu mẫu'}</p>`:''}${type==='E'&&attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu hỗ trợ'):''}`;
 }
 function bindCommon() {
     bind('part-menu',()=>{$('#part-list').hidden=!$('#part-list').hidden;});
@@ -261,18 +311,18 @@ function saveSpeech(id,type,flags) {
     const evidence=pending?.evidence||'không có bằng chứng';
     if(type==='G'&&lessonId==='L-S02')flags.meaning &&= state.color===3;
     if(type==='G'&&lessonId==='L-S08')flags.meaning &&= !!state.water?.correct;
-    const result=event({id,...flags,outcome:outcome({...flags,evidence:evidence!=='không có bằng chứng'},type),evidence,assisted:pending?.assisted||false,source:'tự đánh giá',attempt:type==='E'?attempt:gIndex+1});
+    const result=event({id,...flags,outcome:outcome({...flags,evidence:evidence!=='không có bằng chứng'},type),evidence,score:pending?.asr?.score??null,assisted:pending?.assisted||false,source:'tự đánh giá',attempt:type==='E'?attempt:gIndex+1});
     const container=type==='E'?state.e:state.g,key=type==='E'?`${id}:${attempt}`:gIndex;
     (container[key]||=[]).push(result);pending=null;disposeTake();render();
 }
 function bindStep() {
-    bind('item-next',()=>{stopMedia();index=(index+1)%3;render();});
+    bind('item-next',()=>{stopMedia();if(index<2){index++;render();}else finishPart('4');});
     if(state.step==='3')lesson.comprehension[index].options.forEach((_,n)=>bind('choice'+n,()=>{if(!state.heard[index])return;(state.answers[index]||=[]).push(event({answer:n,correct:n===lesson.comprehension[index].key}));render();}));
     document.querySelectorAll('[data-mini]').forEach(el=>el.onclick=()=>{const n=Number(el.dataset.mini);state.recognition[n]=event({answer:Number(el.dataset.answer),correct:Number(el.dataset.answer)===lesson.recognition[n].key});render();});
-    bind('card-next',()=>{state.cards[lesson.cards[index].cue]=true;stopMedia();index=(index+1)%4;render();});
+    bind('card-next',()=>{state.cards[lesson.cards[index].cue]=true;stopMedia();if(index<3){index++;render();}else finishPart('5');});
     if(state.step==='5') {
         bindSpeech(lesson.cards[index].cue,'E');
-        bind('e-next',()=>{stopMedia();if(attempt===1)attempt=2;else{attempt=1;index=(index+1)%4;}render();});
+        bind('e-next',()=>{stopMedia();if(attempt===1)attempt=2;else if(index<3){attempt=1;index++;}else if(completeStep(state,'5',lesson)){finishPart('6');return;}render();});
         bindSafety();
     }
     if(state.step==='6') {
@@ -280,13 +330,13 @@ function bindStep() {
         bind('request-repeat',()=>{state.repeatRequested=event({evidence:'tự báo cáo, không ghi âm',source:'lời xin nhắc lại'});render();});
         document.querySelectorAll('[data-color]').forEach(el=>el.onclick=()=>{state.color=Number(el.dataset.color);render();});
         [0,1,2].forEach(n=>bind('water'+n,()=>{state.water=event({answer:n,correct:n===0});render();}));
-        bind('g-next',()=>{stopMedia();if(gIndex<lesson.turns.length-1)gIndex++;else if(completeStep(state,'6',lesson)){nav('summary');return;}render();});
+        bind('g-next',()=>{stopMedia();if(gIndex<lesson.turns.length-1)gIndex++;else if(completeStep(state,'6',lesson)){finishPart('summary');return;}render();});
         bind('book',()=>{state.booked=true;persist();$('#book').textContent='Đã ghi lịch mô phỏng';});
     }
     [0,1,2].forEach(n=>bind('confidence'+n,()=>{state.confidence=['Tự nói được','Cần nghe mẫu','Muốn luyện lại'][n];render();}));
     bind('again',()=>nav('1'));
     bind('phrases',()=>{location.hash='phrases';});
-    bind('next-lesson',()=>openLesson(AVAILABLE_LESSONS[AVAILABLE_LESSONS.indexOf(lessonId)+1]||AVAILABLE_LESSONS[0]));
+    bind('next-lesson',()=>{const next=AVAILABLE_LESSONS[AVAILABLE_LESSONS.indexOf(lessonId)+1];if(next)openLesson(next);else location.hash='home';});
 }
 const safety = [
  {text:'Khách báo rát',models:['V2_S06_LINH_25'],reply:'V2_S06_LINDA_01',note:'Dừng trước, chỉ hỏi vị trí khi cần, rồi báo quản lý.'},
@@ -300,7 +350,7 @@ function safetyHTML() {
 }
 function bindSafety() {
     bind('safety-said',()=>{const n=state.safetyIndex||0;((state.safety||={})[n]||={})[state.safetyRound||1]=event({evidence:'tự báo cáo, không ghi âm',source:'tự kiểm tra hành động'});render();});
-    bind('safety-next',()=>{stopMedia();if((state.safetyRound||1)===1)state.safetyRound=2;else{state.safetyRound=1;state.safetyIndex=((state.safetyIndex||0)+1)%4;}render();});
+    bind('safety-next',()=>{stopMedia();if((state.safetyRound||1)===1)state.safetyRound=2;else{state.safetyRound=1;state.safetyIndex=((state.safetyIndex||0)+1)%4;if(completeStep(state,'5',lesson)){finishPart('6');return;}}render();});
 }
 function bindSpeech(id, type) {
     bind('accept-take',()=>saveSpeech(id,type,{meaning:true,clear:true,other:true,invented:false}));
@@ -358,13 +408,21 @@ async function startRecording(id, type) {
             clearInterval(timerTick);
             busy = false;
             scene.recording = false; scene.apply();
+            const session=asr;asr=null;session?.stop();
             take = new Blob(chunks, { type: recorder.mimeType });
             if (!take.size) {
-                micError = "Chưa thu được tiếng. Bạn thử lại hoặc nói không dùng micro.";
+                // If the recognizer took the microphone away, record without it next time.
+                if(session){asrBroken=true;session.abort();}
+                micError = session?"Chưa thu được tiếng. Đã tắt chấm điểm trên máy này; bạn thử lại nhé.":"Chưa thu được tiếng. Bạn thử lại hoặc nói không dùng micro.";
             }
             else {
                 takeURL = URL.createObjectURL(take);
-                pending = { id, evidence: "đã ghi âm trên máy", assisted: showText || (type === "G" && !!state.repeatHelp) || (type === "E" && attempt === 1) || !pack.cues[id].audio };
+                const mine = pending = { id, evidence: "đã ghi âm trên máy", asrPending: !!session, assisted: showText || (type === "G" && !!state.repeatHelp) || (type === "E" && attempt === 1) || !pack.cues[id].audio };
+                if(session){
+                    const target=speechTarget(id,type);
+                    // The score fills its slot when the recognizer finishes; playback is not interrupted.
+                    Promise.race([session.done,new Promise(r=>setTimeout(r,4000))]).then(()=>{session.abort();mine.asr=asrResult(session,target);mine.asrPending=false;if(pending===mine&&$('#score-slot'))$('#score-slot').innerHTML=scoreInner();});
+                }
             }
             render();
             if(type==='E'&&takeURL){const audio=$('#take-audio');audio.onended=()=>players.get('compare')?.toggle();audio.play().catch(()=>{micError='Chạm Nghe lại bản ghi để nghe bạn rồi nghe mẫu.';});}
@@ -375,6 +433,7 @@ async function startRecording(id, type) {
             render();
         };
         recorder.start();
+        asr = startASR();
         busy = true;
         scene.recording = true; scene.apply();
         $("#record").disabled = true;
@@ -438,6 +497,14 @@ bind("settings-open", () => $("#settings").showModal());
 bind("settings-close", () => $("#settings").close());
 bind("lipsync-toggle", () => scene.setLipEnabled(!scene.lipEnabled));
 bind("motion-toggle", () => scene.setEnabled(!scene.enabled));
+function scoringLabel() {
+    const el=$("#scoring-toggle");if(!el)return;
+    el.disabled=!Recognizer;
+    el.setAttribute("aria-pressed",String(!!Recognizer&&scoringOn));
+    el.textContent=Recognizer?`Chấm điểm nói (thử nghiệm): ${scoringOn?"Bật":"Tắt"}`:"Chấm điểm nói: trình duyệt này chưa hỗ trợ";
+}
+bind("scoring-toggle", () => {scoringOn=!scoringOn;asrBroken=false;localStorage.setItem("nailtalk-scoring",String(scoringOn));scoringLabel();});
+scoringLabel();
 scene.apply();
 
 bind("erase", async () => {

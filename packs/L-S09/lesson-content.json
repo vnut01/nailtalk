@@ -21,12 +21,12 @@
       ],
       "question": "Amy đi đâu sau đó?",
       "options": [
-        "Chợ nông sản",
-        "Lễ tốt nghiệp",
-        "Trạm xe"
+        "The farmers' market",
+        "Her graduation",
+        "The bus stop"
       ],
       "key": 0,
-      "correct": "Đúng rồi: Chợ nông sản",
+      "correct": "Đúng rồi: Chợ nông sản.",
       "retry": "Nghe lại lượt 1–4 rồi thử lại nhé."
     },
     {
@@ -37,12 +37,12 @@
       ],
       "question": "Amy tự chọn tip bằng gì?",
       "options": [
-        "Bằng thẻ",
-        "Tiền mặt",
-        "Không tip"
+        "By card",
+        "In cash",
+        "No tip"
       ],
       "key": 1,
-      "correct": "Đúng rồi: Tiền mặt",
+      "correct": "Đúng rồi: Tiền mặt.",
       "retry": "Nghe lại lượt 7, 13 rồi thử lại nhé."
     },
     {
@@ -54,12 +54,12 @@
       ],
       "question": "Amy muốn biên lai gì?",
       "options": [
-        "Gửi email",
-        "Không lấy",
-        "Bản in"
+        "An email receipt",
+        "No receipt",
+        "A printed receipt"
       ],
       "key": 2,
-      "correct": "Đúng rồi: Bản in",
+      "correct": "Đúng rồi: Bản in.",
       "retry": "Nghe lại lượt 13–15 rồi thử lại nhé."
     }
   ],
