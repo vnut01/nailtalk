@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "soundFile": "sha256:823921b014657c48549f49bb5d0a21da08e59dba490e01f3a43667ca6a442de5",
+    "duration": 1.06
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.09,
+      "value": "X"
+    },
+    {
+      "start": 0.09,
+      "end": 0.44,
+      "value": "F"
+    },
+    {
+      "start": 0.44,
+      "end": 0.52,
+      "value": "A"
+    },
+    {
+      "start": 0.52,
+      "end": 0.65,
+      "value": "C"
+    },
+    {
+      "start": 0.65,
+      "end": 0.72,
+      "value": "H"
+    },
+    {
+      "start": 0.72,
+      "end": 0.79,
+      "value": "B"
+    },
+    {
+      "start": 0.79,
+      "end": 0.86,
+      "value": "C"
+    },
+    {
+      "start": 0.86,
+      "end": 1.0,
+      "value": "B"
+    },
+    {
+      "start": 1.0,
+      "end": 1.06,
+      "value": "X"
+    }
+  ]
+}

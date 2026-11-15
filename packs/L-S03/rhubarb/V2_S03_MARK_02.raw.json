@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "soundFile": "07_Production_Assets/audio/lessons_v2/L-S03/V2_S03_MARK_02.wav",
+    "duration": 2.73
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.1,
+      "value": "X"
+    },
+    {
+      "start": 0.1,
+      "end": 0.15,
+      "value": "H"
+    },
+    {
+      "start": 0.15,
+      "end": 0.19,
+      "value": "D"
+    },
+    {
+      "start": 0.19,
+      "end": 0.33,
+      "value": "B"
+    },
+    {
+      "start": 0.33,
+      "end": 0.41,
+      "value": "A"
+    },
+    {
+      "start": 0.41,
+      "end": 0.6,
+      "value": "D"
+    },
+    {
+      "start": 0.6,
+      "end": 0.74,
+      "value": "B"
+    },
+    {
+      "start": 0.74,
+      "end": 0.88,
+      "value": "C"
+    },
+    {
+      "start": 0.88,
+      "end": 1.56,
+      "value": "B"
+    },
+    {
+      "start": 1.56,
+      "end": 1.7,
+      "value": "E"
+    },
+    {
+      "start": 1.7,
+      "end": 1.77,
+      "value": "B"
+    },
+    {
+      "start": 1.77,
+      "end": 1.98,
+      "value": "E"
+    },
+    {
+      "start": 1.98,
+      "end": 2.0,
+      "value": "A"
+    },
+    {
+      "start": 2.0,
+      "end": 2.07,
+      "value": "C"
+    },
+    {
+      "start": 2.07,
+      "end": 2.13,
+      "value": "A"
+    },
+    {
+      "start": 2.13,
+      "end": 2.37,
+      "value": "F"
+    },
+    {
+      "start": 2.37,
+      "end": 2.65,
+      "value": "B"
+    },
+    {
+      "start": 2.65,
+      "end": 2.73,
+      "value": "X"
+    }
+  ]
+}

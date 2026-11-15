@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "soundFile": "07_Production_Assets/audio/lessons_v2/L-S04/V2_S04_KIM_01.wav",
+    "duration": 4.59
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.1,
+      "value": "X"
+    },
+    {
+      "start": 0.1,
+      "end": 0.21,
+      "value": "F"
+    },
+    {
+      "start": 0.21,
+      "end": 0.35,
+      "value": "B"
+    },
+    {
+      "start": 0.35,
+      "end": 0.42,
+      "value": "C"
+    },
+    {
+      "start": 0.42,
+      "end": 0.77,
+      "value": "B"
+    },
+    {
+      "start": 0.77,
+      "end": 0.84,
+      "value": "E"
+    },
+    {
+      "start": 0.84,
+      "end": 0.92,
+      "value": "A"
+    },
+    {
+      "start": 0.92,
+      "end": 1.24,
+      "value": "C"
+    },
+    {
+      "start": 1.24,
+      "end": 1.87,
+      "value": "B"
+    },
+    {
+      "start": 1.87,
+      "end": 1.94,
+      "value": "E"
+    },
+    {
+      "start": 1.94,
+      "end": 2.25,
+      "value": "B"
+    },
+    {
+      "start": 2.25,
+      "end": 2.36,
+      "value": "G"
+    },
+    {
+      "start": 2.36,
+      "end": 2.43,
+      "value": "E"
+    },
+    {
+      "start": 2.43,
+      "end": 2.57,
+      "value": "B"
+    },
+    {
+      "start": 2.57,
+      "end": 2.64,
+      "value": "G"
+    },
+    {
+      "start": 2.64,
+      "end": 2.71,
+      "value": "C"
+    },
+    {
+      "start": 2.71,
+      "end": 2.78,
+      "value": "B"
+    },
+    {
+      "start": 2.78,
+      "end": 2.86,
+      "value": "A"
+    },
+    {
+      "start": 2.86,
+      "end": 2.93,
+      "value": "B"
+    },
+    {
+      "start": 2.93,
+      "end": 3.0,
+      "value": "C"
+    },
+    {
+      "start": 3.0,
+      "end": 3.4,
+      "value": "B"
+    },
+    {
+      "start": 3.4,
+      "end": 3.46,
+      "value": "C"
+    },
+    {
+      "start": 3.46,
+      "end": 3.58,
+      "value": "B"
+    },
+    {
+      "start": 3.58,
+      "end": 3.65,
+      "value": "G"
+    },
+    {
+      "start": 3.65,
+      "end": 4.0,
+      "value": "B"
+    },
+    {
+      "start": 4.0,
+      "end": 4.07,
+      "value": "C"
+    },
+    {
+      "start": 4.07,
+      "end": 4.21,
+      "value": "B"
+    },
+    {
+      "start": 4.21,
+      "end": 4.28,
+      "value": "C"
+    },
+    {
+      "start": 4.28,
+      "end": 4.35,
+      "value": "B"
+    },
+    {
+      "start": 4.35,
+      "end": 4.42,
+      "value": "C"
+    },
+    {
+      "start": 4.42,
+      "end": 4.51,
+      "value": "A"
+    },
+    {
+      "start": 4.51,
+      "end": 4.59,
+      "value": "X"
+    }
+  ]
+}

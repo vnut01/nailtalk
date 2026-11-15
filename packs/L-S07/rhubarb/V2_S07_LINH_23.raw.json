@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "soundFile": "sha256:258f47215e3cfaf75334c787f994167054b02ffbacfbe9ce693514b3242ee3ae",
+    "duration": 0.78
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.1,
+      "value": "X"
+    },
+    {
+      "start": 0.1,
+      "end": 0.21,
+      "value": "G"
+    },
+    {
+      "start": 0.21,
+      "end": 0.28,
+      "value": "E"
+    },
+    {
+      "start": 0.28,
+      "end": 0.7,
+      "value": "B"
+    },
+    {
+      "start": 0.7,
+      "end": 0.78,
+      "value": "X"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "soundFile": "07_Production_Assets/audio/lessons_v2/L-S03/V2_S03_MARK_06.wav",
+    "duration": 0.55
+  },
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.06,
+      "value": "X"
+    },
+    {
+      "start": 0.06,
+      "end": 0.14,
+      "value": "A"
+    },
+    {
+      "start": 0.14,
+      "end": 0.37,
+      "value": "E"
+    },
+    {
+      "start": 0.37,
+      "end": 0.51,
+      "value": "B"
+    },
+    {
+      "start": 0.51,
+      "end": 0.55,
+      "value": "X"
+    }
+  ]
+}

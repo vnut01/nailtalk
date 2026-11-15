@@ -197,7 +197,8 @@ export class CinematicScene {
             this.root.dataset.speaker = this.speaker || '';
             this.root.classList.toggle('scene-paused', document.hidden || this.recording || !this.enabled);
             const tag = this.root.querySelector('.speaker-tag');
-            tag.textContent = this.speaker ? `${this.characters[this.speaker]?.label || this.speaker} đang nói` : (this.pack.ui?.scene_label || 'Linh và Mark');
+            const offscreen = this.player?.active && !this.player.inGap ? this.player.cues[this.player.index]?.speaker : null;
+            tag.textContent = offscreen && !this.speaker ? `${offscreen} đang nói · ngoài khung hình` : this.speaker ? `${this.characters[this.speaker]?.label || this.speaker} đang nói` : (this.pack.ui?.scene_label || 'Linh và Mark');
         }
         this.renderFaces();
         const toggle = document.getElementById('motion-toggle');
