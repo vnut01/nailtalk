@@ -5,7 +5,7 @@
   "status": "DRAFT",
   "schema_version": 1,
   "min_shell_version": 1,
-  "pack_version": "APP_PROTO_v014_L-S05_V2_DRAFT",
+  "pack_version": "APP_PROTO_v014-DRAFT-2_L-S05_V2_DRAFT",
   "rubric_version": "lesson-set-v2.1",
   "estimated_minutes": 8,
   "enabled_steps": [
@@ -60,6 +60,14 @@
         "width": 812,
         "height": 264,
         "character": null
+      },
+      {
+        "path": "LINDA_POSE_v001_DRAFT.webp",
+        "x": 390.0,
+        "y": 130.0,
+        "width": 792.0,
+        "height": 591.36,
+        "character": "linda"
       }
     ],
     "sprites": {
@@ -117,15 +125,57 @@
         "width": 79.0,
         "height": 34.0,
         "status": "UNCONFIRMED"
+      },
+      "LINDA_MOUTH_X": {
+        "character": "linda",
+        "part": "mouth",
+        "shape": "MOUTH_X",
+        "path": "LINDA_MOUTH_X_v001_DRAFT.webp",
+        "x": 331.32,
+        "y": 185.46,
+        "width": 34.32,
+        "height": 21.78,
+        "status": "DRAFT"
+      },
+      "LINDA_MOUTH_SLIGHT": {
+        "character": "linda",
+        "part": "mouth",
+        "shape": "MOUTH_SLIGHT",
+        "path": "LINDA_MOUTH_SLIGHT_v001_DRAFT.webp",
+        "x": 331.32,
+        "y": 185.46,
+        "width": 34.32,
+        "height": 21.78,
+        "status": "DRAFT"
+      },
+      "LINDA_MOUTH_OPEN": {
+        "character": "linda",
+        "part": "mouth",
+        "shape": "MOUTH_OPEN",
+        "path": "LINDA_MOUTH_OPEN_v001_DRAFT.webp",
+        "x": 331.32,
+        "y": 185.46,
+        "width": 34.32,
+        "height": 21.78,
+        "status": "DRAFT"
+      },
+      "LINDA_EYE_CLOSED": {
+        "character": "linda",
+        "part": "eye",
+        "shape": "EYE_CLOSED",
+        "path": "LINDA_EYE_CLOSED_v001_DRAFT.webp",
+        "x": 346.5,
+        "y": 135.3,
+        "width": 33.0,
+        "height": 31.35,
+        "status": "DRAFT"
       }
     },
     "speakers": {
       "Linh": "linh",
       "Linda": "linda"
     },
-    "offscreen_speakers": [
-      "Linda"
-    ],
+    "offscreen_speakers": [],
     "restUsesOriginal": false,
     "blinkMode": "closed",
     "restSprite": "MOUTH_X",
@@ -185,10 +235,31 @@
       },
       "linda": {
         "label": "Linda",
-        "mouthMap": {},
-        "eyeMap": {},
-        "offFrame": true,
-        "blinkMode": "closed"
+        "mouthMap": {
+          "X": "LINDA_MOUTH_X",
+          "A": "LINDA_MOUTH_X",
+          "B": "LINDA_MOUTH_SLIGHT",
+          "C": "LINDA_MOUTH_SLIGHT",
+          "D": "LINDA_MOUTH_OPEN",
+          "E": "LINDA_MOUTH_SLIGHT",
+          "F": "LINDA_MOUTH_SLIGHT",
+          "G": "LINDA_MOUTH_SLIGHT",
+          "H": "LINDA_MOUTH_SLIGHT",
+          "MOUTH_X": "LINDA_MOUTH_X",
+          "MOUTH_SLIGHT": "LINDA_MOUTH_SLIGHT",
+          "MOUTH_OPEN": "LINDA_MOUTH_OPEN",
+          "MOUTH_ROUND": "LINDA_MOUTH_SLIGHT",
+          "CLOSED": "LINDA_MOUTH_X",
+          "SLIGHT": "LINDA_MOUTH_SLIGHT",
+          "OPEN": "LINDA_MOUTH_OPEN",
+          "ROUND": "LINDA_MOUTH_SLIGHT"
+        },
+        "eyeMap": {
+          "CLOSED": "LINDA_EYE_CLOSED"
+        },
+        "restUsesOriginal": true,
+        "blinkMode": "closed",
+        "blinkTiming": "linda"
       }
     }
   },
@@ -3135,14 +3206,12 @@
   "questions": {},
   "recap": {},
   "flags": [
-    "INTERIM_S02_SINGLE_IMAGE",
-    "LINDA_OFF_FRAME_PENDING_TWO_SHOT",
+    "PARTNER_SPRITES_DRAFT_OWNER_FACE_REVIEW_PENDING",
     "SPRITES_DRAFT_PHYSICAL_IPHONE_REVIEW_PENDING"
   ],
   "interim": {
     "scene": "S02_APPROVED_MANICURE_STATION",
-    "linda_off_frame": true,
-    "pending_art": "Linda two-shot",
+    "linda_off_frame": false,
     "config_only_replacement": true
   },
   "dialogue": [
@@ -3347,9 +3416,9 @@
     }
   },
   "sources": {
-    "07_Production_Assets/cinematic/lessons/L-S05_v2_DRAFT.json": "ce40047d85d4bd7e527473bc35e5d63a07303360423fdf4e4222f8956c628c16",
-    "app/packs/L-S02/scene-1920.webp": "8a12d2aeb3a8c4b81d9200a98931d5b109c81e8923de6f96781812204e0c6e55",
-    "app/packs/L-S02/scene-960.webp": "4c2ff35bb48d0592a212934ff29f55b293c00feb2ade0cfc1af799efd7539405",
+    "07_Production_Assets/cinematic/lessons/L-S05_v2_DRAFT.json": "01d520af925cc58aa83b2825fd70e7885919a2f39997e2f2da021487ccf055e7",
+    "07_Production_Assets/characters_v2/linda/scene_preview/L-S05_SCENE_1920_v001_DRAFT.webp": "6413a7d352cd37767e7948b6916e9913b243447f8101b74a351dc92259df6ec5",
+    "07_Production_Assets/characters_v2/linda/scene_preview/L-S05_SCENE_960_v001_DRAFT.webp": "dccba521f033cfd832bc72a60ec9f282fc8f90c4c5ec2e5aae61f48cd0ae8d75",
     "app/packs/L-S02/cinematic-0.webp": "7d4af3840024361694e78ce11b12133f9624d995317707540de1850e0cc69762",
     "app/packs/L-S02/cinematic-1.webp": "efee2ee45ce9d3af6b01a19ee646bd4c14d23d6c2c3c7e85f54d12b60b561c1b",
     "app/packs/L-S02/cinematic-2.webp": "3cce7b6e9223527381d10bcb9d32910a0e8b8e92fe9e651da873a1e36f5c66bb",
@@ -3358,6 +3427,11 @@
     "app/packs/L-S02/S02_LINH_MOUTH_OPEN_01_v001_DRAFT.webp": "01649d39cd027eccb20bbdb3c30eb6c9f535c2026279e51bd354873288227c76",
     "app/packs/L-S02/S02_LINH_MOUTH_ROUND_01_v001_DRAFT.webp": "3df16a83307b270c5942bfdaef72a1e0afabdfcc1805be40a7ea2c8ae2317163",
     "app/packs/L-S02/S02_LINH_EYE_CLOSED_01_v001_DRAFT.webp": "ebd041fc2f34986808c0b7f2c2005c1b49b7346a398a283294dc4a9b3026ac32",
+    "07_Production_Assets/characters_v2/linda/POSE_v001_DRAFT.webp": "70613877108f2f8eb6dbd2740431662561a3e24868e7d0028a59247a77ad98a9",
+    "07_Production_Assets/characters_v2/linda/MOUTH_X_v001_DRAFT.webp": "cebc0a03fc88add78b2ec2e3af2053f152726665a398bb7b4ae5b01d15e5654d",
+    "07_Production_Assets/characters_v2/linda/MOUTH_SLIGHT_v001_DRAFT.webp": "e72ed1034122f91493fcd01d7a75363d0f28f7ebdfc6b4edb9086e22769fcb8e",
+    "07_Production_Assets/characters_v2/linda/MOUTH_OPEN_v001_DRAFT.webp": "429795bee09eacbd0d2d30d6ed009d174711faf01cb4e64429e2761928944940",
+    "07_Production_Assets/characters_v2/linda/EYE_CLOSED_v001_DRAFT.webp": "d8ad25d694fb5a2ef48fea2dbc9f36ff608b41705204e756d75244a7a7093b70",
     "07_Production_Assets/audio/lessons_v2/L-S05/CUE_MANIFEST_v002_DRAFT.json": "3460633860c829648a2fd05ca9b6208bb3eff55947b84aec647414b1c7254f45",
     "07_Production_Assets/audio/lessons_v2/L-S05/PREVIEW_TIMINGS_v002_DRAFT.json": "3a18b84a28b68ba577f67a9be385c114d67a01851936a12134c2336129e58a41",
     "04_Learning_Design/LESSON_SET_v2.1_L-S01-L-S08.md": "d04a59c9a3682c26f09910dd2a8eaf4ec6431e659f7180e05c293b7c7019809f",
@@ -3476,9 +3550,34 @@
     "07_Production_Assets/audio/lessons_v2/L-S05/V2_S05_LINDA_12.ogg": "dd863ae8a60ed52dc59c0451107bb634b2a2be8b853108f7643fa98ce41cd8a8",
     "07_Production_Assets/audio/lessons_v2/L-S05/V2_S05_LINDA_12.mp3": "20eb94059bc52af52fb71a632cf117fba96e428b893f9fa7aa2abbda7fb21baa",
     "07_Production_Assets/audio/lessons_v2/L-S05/V2_S05_LINDA_12.wav": "a4929634a92a64c579a4e2bf09414a8582be3f07dad14c5a88411b3374f37f19",
-    "scripts/build_batch71.py": "9bcf38222282589d29978f45308ff73d6a6827dee952b69051d5c53535f48713"
+    "scripts/build_batch71.py": "7a646511b29930652d98b8059226e952ec3daac6fb1be0ae35a73137130a8c18"
   },
   "files": [
+    {
+      "path": "LINDA_EYE_CLOSED_v001_DRAFT.webp",
+      "sha256": "d8ad25d694fb5a2ef48fea2dbc9f36ff608b41705204e756d75244a7a7093b70",
+      "bytes": 9182
+    },
+    {
+      "path": "LINDA_MOUTH_OPEN_v001_DRAFT.webp",
+      "sha256": "429795bee09eacbd0d2d30d6ed009d174711faf01cb4e64429e2761928944940",
+      "bytes": 7198
+    },
+    {
+      "path": "LINDA_MOUTH_SLIGHT_v001_DRAFT.webp",
+      "sha256": "e72ed1034122f91493fcd01d7a75363d0f28f7ebdfc6b4edb9086e22769fcb8e",
+      "bytes": 7272
+    },
+    {
+      "path": "LINDA_MOUTH_X_v001_DRAFT.webp",
+      "sha256": "cebc0a03fc88add78b2ec2e3af2053f152726665a398bb7b4ae5b01d15e5654d",
+      "bytes": 6946
+    },
+    {
+      "path": "LINDA_POSE_v001_DRAFT.webp",
+      "sha256": "70613877108f2f8eb6dbd2740431662561a3e24868e7d0028a59247a77ad98a9",
+      "bytes": 706680
+    },
     {
       "path": "S02_LINH_EYE_CLOSED_01_v001_DRAFT.webp",
       "sha256": "ebd041fc2f34986808c0b7f2c2005c1b49b7346a398a283294dc4a9b3026ac32",
@@ -4281,13 +4380,13 @@
     },
     {
       "path": "scene-1920.webp",
-      "sha256": "8a12d2aeb3a8c4b81d9200a98931d5b109c81e8923de6f96781812204e0c6e55",
-      "bytes": 170952
+      "sha256": "6413a7d352cd37767e7948b6916e9913b243447f8101b74a351dc92259df6ec5",
+      "bytes": 228468
     },
     {
       "path": "scene-960.webp",
-      "sha256": "4c2ff35bb48d0592a212934ff29f55b293c00feb2ade0cfc1af799efd7539405",
-      "bytes": 69110
+      "sha256": "dccba521f033cfd832bc72a60ec9f282fc8f90c4c5ec2e5aae61f48cd0ae8d75",
+      "bytes": 102910
     },
     {
       "path": "visemes.json",
