@@ -1,4 +1,4 @@
-export const APP_VERSION = "v017-DRAFT-1";
+export const APP_VERSION = "v018-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
@@ -6,23 +6,28 @@ import { AudioPlayer } from "./player.mjs";
 import { STEPS, nextStep, initialState, completeStep, outcome, normalizeState } from "./logic.mjs";
 import * as store from "./storage.mjs";
 const $ = s => document.querySelector(s);
+import {LESSON_ORDER, migrateProgress, practiced, reachedPhrases, lessonStatus, continueLesson} from './path.mjs';
+const content = await (await fetch('./lesson-content.json')).json();
+const progress = Object.fromEntries(await Promise.all(LESSON_ORDER.map(async id=>[id,migrateProgress(await store.load(id),id)])));
 const catalog = await (await fetch('./catalog.json')).json();
-const onHome = !location.hash || location.hash === '#home';
+const onHome = !location.hash || location.hash === '#home' || location.hash === '#phrases';
 // Give a newly opened lesson the network before fetching its manifest or art.
 if (!onHome) navigator.serviceWorker?.controller?.postMessage({type:'PAUSE'});
 const lessonId = catalog.some(p => p.id === location.hash.slice(1).split('/')[0]) ? location.hash.slice(1).split('/')[0] : 'L-S07';
 const pack = onHome ? {...catalog.find(p => p.id === lessonId), cues:{}} : await (await fetch(`./packs/${lessonId}/pack.json`)).json();
-const lesson = onHome ? null : (await (await fetch('./lesson-content.json')).json())[lessonId];
+const lesson = content[lessonId];
+const extraPacks = {};
+for(const id of LESSON_ORDER.filter(id=>reachedPhrases(progress[id])||!onHome&&id===lesson.review?.lesson))extraPacks[id]=await (await fetch(`./packs/${id}/pack.json`)).json();
+let reviewing=!onHome && !!lesson.review && (!progress[lessonId].reviewDone && progress[lessonId].step==='1' && (!location.hash.includes('/')||location.hash.endsWith('/1')) || location.hash.endsWith('/review'));
+let meaningOn=localStorage.getItem('nailtalk-meaning')==='true', subtitleLast=null;
 const enabled = step => STEPS.includes(step);
 const advance = step => { let next = nextStep(step); while(next !== 'summary' && !enabled(next)) next = nextStep(next); return next; };
 export const scene = new CinematicScene(pack);
 const format = audioFormat(type => document.createElement("audio").canPlayType(type));
 let state = await store.load(lessonId) || initialState(), index = 0, attempt = 1, gIndex = 0, recorder = null, stream = null, recordTimer = null, timerTick = null, take = null, takeURL = null, pending = null, showText = false, micError = "", busy = false, installPrompt = null, packAvailable = true;
-state = normalizeState(state);
+state = migrateProgress(state,lessonId);
 state.pack = pack.pack_version;
 const titles = {'1':'Nghe chuyện','2':'Nghe lại có phụ đề','3':'Nghe hiểu','4':'Câu và từ','5':'Nói lại','6':'Vận dụng',summary:'Tổng kết'};
-const homeTitles = ["Chào khách và mời chờ", "Xác nhận màu khách muốn", "Hỏi cách viết tên", "Kiểm tra và hẹn giờ", "Xin khách nhắc lại qua điện thoại", "Hỏi sự thoải mái và báo quản lý", "Nói giá và làm rõ con số", "Hiểu lời khách nói nhỏ"];
-const canDos = ["Trả lời khách ghé tiệm và mời ngồi chờ.", "Hỏi lại đúng màu trước khi bắt đầu.", "Hỏi cách viết và đọc lại tên đặt hẹn.", "Xin khách đợi trong khi kiểm tra giờ.", "Xin nhắc lại chi tiết và xác nhận qua điện thoại.", "Sắp xếp tay; dừng và báo quản lý khi có vấn đề.", "Nói rõ giá, sửa hiểu nhầm và xác nhận lựa chọn.", "Hiểu yêu cầu trước khi đáp và nói việc sẽ làm."];
 const escape = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]));
 const pronunciationHTML = s => escape(s).replace(/\*([^*]+)\*/g, "<em>$1</em>");
 const button = (id, text, cls = "", disabled = false) => `<button id="${id}" class="${cls}" ${disabled ? "disabled" : ""}>${text}</button>`;
@@ -34,6 +39,8 @@ function bind(id, fn) {
 async function persist() {
     state.positions ||= {};
     state.positions[state.step] = {index, attempt, gIndex};
+    state.updatedAt=new Date().toISOString();
+    progress[lessonId]=state;
     await store.save(state, lessonId);
     $("#storage").textContent = `Lưu tiến độ: ${store.storageMode === 'Không lưu được' ? 'Chưa lưu được' : 'Trên thiết bị'}. Xóa dữ liệu trình duyệt có thể làm mất tiến độ.`;
 }
@@ -69,6 +76,7 @@ function stopMedia() {
 }
 function nav(step) {
     stopMedia();
+    reviewing=false;
     state.step = step;
     index = state.positions?.[step]?.index || 0;
     attempt = state.positions?.[step]?.attempt || 1;
@@ -87,9 +95,10 @@ let recapOpen = false, scenePlayer = "";
 function playerHTML(key, ids, options = {}) {
     ids=ids.filter(Boolean);
     if (!ids.length) return "";
-    if (ids.some(id => !pack.cues[id]?.audio))
+    const source=options.sourcePack||pack;
+    if (ids.some(id => !source.cues[id]?.audio))
         return "<p class=\"warning\">Âm thanh sắp có</p>";
-    playerConfigs.set(key, { ids, options });
+    playerConfigs.set(key, { ids, options, source });
     return `<div class="${options.scene ? "scene-player" : options.compact && ids.length === 1 ? "audio-cue" : "audio-player"}" data-player="${key}">
 </div>`;
 }
@@ -101,19 +110,20 @@ function mountPlayers() {
             players.delete(key);
         }
     }
-    for (const [key, { ids, options }] of playerConfigs) {
+    for (const [key, { ids, options, source }] of playerConfigs) {
         if (!players.has(key)) {
-            const player = new AudioPlayer(ids.map(id => ({...pack.cues[id], gap_after_ms: options.gaps?.[id] || 0})), {
+            const player = new AudioPlayer(ids.map(id => ({...source.cues[id], gap_after_ms: options.gaps?.[id] || 0})), {
                 ...options,
                 blocked: () => busy,
                 onUpdate: player => { options.onUpdate?.(player); scene.update(player); },
                 activate: active => {
+                    document.querySelectorAll('audio').forEach(audio=>audio.pause());
                     for (const other of players.values())
                         if (other !== active)
                             other.stop();
                 },
                 onError: () => {
-                    micError = "Không phát được audio trên thiết bị này. Hãy thử lại; không chấm nghe.";
+                    micError = "Chưa phát được âm thanh. Bạn thử nghe lại nhé.";
                     state.audioFailed = true;
                     showText = true;
                     if(state.step === "D")state.d[pack.teaching[index]]=event({played:false,assisted:true});
@@ -127,47 +137,57 @@ function mountPlayers() {
     }
 }
 function updateSubtitle(player) {
-    const el = $('#subtitle');
-    if (!el) return;
-    const cue = subtitleCue(player.cues, player.position);
-    const active = player.active && !player.inGap ? cue : null;
-    if (el.dataset.cue !== (active?.id || '')) {
-        el.dataset.cue = active?.id || '';
-        el.innerHTML = active ? `<small>${escape(active.speaker)}:</small> ${escape(active.english)}` : '';
-        $('#subtitle-meaning').textContent = '';
-    }
-    el.onclick = () => { if (active) $('#subtitle-meaning').textContent = $('#subtitle-meaning').textContent ? '' : active.vietnamese; };
+    const el=$('#subtitle');if(!el)return;
+    const cue=subtitleCue(player.cues,player.position);
+    const active=player.active&&!player.inGap?cue:null;
+    if(active)subtitleLast=active;
+    el.dataset.cue=active?.id||'';
+    el.textContent=active?.english||'';
+    $('#subtitle-meaning').textContent=meaningOn&&active?active.vietnamese:'';
+    el.onclick=()=>{if(subtitleLast){const n=player.cues.findIndex(c=>c.id===subtitleLast.id);player.replayOnly=true;player.go(n,0,true);}};
 }
 function shell(content) {
     const crop = pack.scene.phone_crop;
     const sceneStyle = `--phone-scene-width:calc(100cqw * ${pack.geometry.width} / ${crop.width});--phone-scene-left:calc(-100cqw * ${crop.x} / ${crop.width});--phone-scene-top:calc(-100% * ${crop.y} / ${crop.height});--phone-scene-ratio:${crop.width} / ${crop.height}`;
     const hasScene = ['1','2'].includes(state.step);
-    return `<section class="step-heading"><p class="eyebrow">${escape(pack.title)} · ${escape(pack.subtitle)}</p><h1>${state.step === 'summary' ? '' : state.step + ' · '}${titles[state.step]}</h1></section>
-<div class="player ${hasScene ? '' : 'task-only'} step-${state.step}">${hasScene ? `<aside><div data-lesson="${lessonId}" class="scene scene-main ${pack.ui?.contact_crop ? 'contact-crop' : ''}" style="${sceneStyle}"><div class="scene-frame"><div class="scene-canvas"><span class="scene-layers" aria-hidden="true"></span><img src="packs/${lessonId}/${pack.scene.small}" alt="Cảnh trong tiệm Bella Nails"></div></div>${scenePlayer}</div>${state.step==='2'?'<button id="subtitle" class="subtitle" aria-label="Chạm xem nghĩa tiếng Việt"></button><p id="subtitle-meaning" class="subtitle-meaning"></p>':''}</aside>` : ''}<section class="panel">${content}${micError ? `<p role="status" class="warning">${escape(micError)}</p>` : ''}</section></div>${navigation()}`;
+    return `<section class="step-heading"><h1>Bài ${LESSON_ORDER.indexOf(lessonId)+1} · ${escape(pack.subtitle)}</h1>${state.step==='summary'?'':`<button id="part-menu" class="part-indicator">Phần ${state.step}/6 · ${titles[state.step]} ▾</button><div id="part-list" hidden>${STEPS.slice(0,6).map(n=>`<button data-step="${n}">${n} · ${titles[n]}</button>`).join('')}</div>`}</section>
+<div class="player ${hasScene ? '' : 'task-only'} step-${state.step}">${hasScene ? `<aside><div data-lesson="${lessonId}" class="scene scene-main ${pack.ui?.contact_crop ? 'contact-crop' : ''}" style="${sceneStyle}"><div class="scene-frame"><div class="scene-canvas"><span class="scene-layers" aria-hidden="true"></span><img src="packs/${lessonId}/${pack.scene.small}" alt="Cảnh trong tiệm Bella Nails"></div></div>${scenePlayer}</div>${state.step==='1'?`<p class="scene-setter">${escape(lesson.sceneSetter)}</p>`:''}${state.step==='2'?`<button id="subtitle" class="subtitle" aria-label="Nghe lại câu phụ đề"></button><button id="meaning-toggle" aria-pressed="${meaningOn}">Nghĩa tiếng Việt: ${meaningOn?'Bật':'Tắt'}</button><p id="subtitle-meaning" class="subtitle-meaning"></p>`:''}</aside>` : ''}<section class="panel">${content}${micError ? `<p role="status" class="warning">${escape(micError)}</p>` : ''}</section></div>${navigation()}`;
 }
 function navigation() {
-    return `<nav class="nav" aria-label="Điều hướng bài học"><div class="steps">${STEPS.map(s=>`<button data-step="${s}" class="${s===state.step?'current':''}" ${s===state.step?'aria-current="step"':''}>${s==='summary'?'Tổng kết':`${s}<small>${titles[s]}</small>`}</button>`).join('')}</div>${state.step==='summary'?'':`<div class="nav-actions">${button('next','Tiếp tục','primary',!completeStep(state,state.step,lesson))}${button('skip','Bỏ qua bước','text-link')}</div>`}</nav>`;
+    return state.step==='summary'?'':`<nav class="nav" aria-label="Điều hướng bài học"><div class="nav-actions">${button('next','Tiếp tục','primary',!completeStep(state,state.step,lesson))}${button('skip','Bỏ qua','text-link')}</div></nav>`;
 }
+function openLesson(id){const s=progress[id];location.hash=`${id}/${s?.step||'1'}`;if(id===lessonId&&onHome)location.reload();}
 function renderHome() {
-    stopMedia();
-    document.body.classList.remove("in-lesson");
-    scene.mount(null);
-    $("#app").innerHTML = `<section class="intro"><p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p><h1>Từng câu nhỏ.<br>Tự tin hơn mỗi ngày.</h1><p>Luyện nghe, chọn câu và nói cùng Linh.</p><span class="badge">Bản nháp</span></section><div class="lessons">${catalog.map(p => `<article class="lesson active"><span class="eyebrow">${p.id} · ${p.estimated_minutes} phút</span><h2>${escape(p.title || homeTitles[Number(p.id.slice(-2))-1])}</h2><p>${escape(p.subtitle || canDos[Number(p.id.slice(-2))-1])}</p><span class="badge">Bản nháp</span><div class="controls">${button(p.id === 'L-S07' ? 'start' : 'start-'+p.id,'Bắt đầu học','primary',!packAvailable)}</div></article>`).join('')}</div>${button("install", "Cài lên màn hình chính", "", !installPrompt)}`;
-    for (const p of catalog) bind(p.id === 'L-S07' ? 'start' : 'start-'+p.id, () => { if(p.id === lessonId && !onHome) nav(state.step); else { location.hash = `${p.id}/1`; if(p.id === lessonId) location.reload(); } });
-    bind("install", async () => {
-        await installPrompt?.prompt();
-        installPrompt = null;
-        renderHome();
-    });
+    stopMedia();playerConfigs.clear();document.body.classList.remove('in-lesson');scene.mount(null);
+    const id=continueLesson(progress),total=LESSON_ORDER.reduce((n,id)=>n+practiced(progress[id],content[id]).length,0);
+    const first=!LESSON_ORDER.some(id=>progress[id]?.visited?.length);
+    $('#app').innerHTML=`<section class="intro"><h1>Mỗi bài, dùng được ngay</h1><article class="lesson"><h2>Học tiếp</h2><p>${total}/32 câu đã luyện nói</p>${button('continue',first?'Bắt đầu Bài 1':`Học tiếp Bài ${LESSON_ORDER.indexOf(id)+1}`,'primary')}</article></section>${button('phrases','Sổ câu của tôi')}<div class="lessons">${LESSON_ORDER.map((id,n)=>{const p=catalog.find(p=>p.id===id);return `<article class="lesson"><span>Bài ${n+1}</span><h2>${escape(p.subtitle)}</h2><small>${escape(p.title)}</small><p>${escape(content[id].homeCanDo)}</p><p>${lessonStatus(progress[id],content[id])}</p>${button('start-'+id,'Mở bài')}</article>`;}).join('')}</div>${button('install','Cài lên màn hình chính','',!installPrompt)}`;
+    bind('continue',()=>openLesson(id));bind('phrases',()=>{location.hash='phrases';});
+    for(const id of LESSON_ORDER)bind('start-'+id,()=>openLesson(id));
+    bind('install',async()=>{await installPrompt?.prompt();installPrompt=null;renderHome();});
+}
+async function renderPhrases() {
+    stopMedia();playerConfigs.clear();scene.mount(null);document.body.classList.remove('in-lesson');
+    const ids=LESSON_ORDER.filter(id=>reachedPhrases(progress[id]));
+    await Promise.all(ids.map(async id=>{extraPacks[id]||=await (await fetch(`./packs/${id}/pack.json`)).json();}));
+    $('#app').innerHTML=`<h1>Sổ câu của tôi</h1>${ids.length?ids.map(id=>`<section><h2>Bài ${LESSON_ORDER.indexOf(id)+1} · ${escape(catalog.find(p=>p.id===id).subtitle)}</h2>${content[id].cards.map(c=>`<article class="phrase"><div class="cue-row">${playerHTML('phrase-'+c.cue,[c.cue],{compact:true,sourcePack:extraPacks[id],label:'Nghe câu trong sổ'})}<p class="target">${escape(c.english)}</p></div><p>${escape(c.vietnamese)}</p><p>${escape(c.useWhen)}</p></article>`).join('')}</section>`).join(''):'<p>Học đến phần Câu và từ, câu của bạn sẽ ở đây.</p>'}`;
+    mountPlayers();
 }
 function currentTurn() {
-    const t=lesson.turns[gIndex];
-    return lessonId==='L-S04'&&gIndex===0 ? {...t,prompts:state.s04Phase?[]:t.prompts,models:[t.models[state.s04Phase||0]]} : t;
+    return lesson.turns[gIndex];
 }
 function spoken(history) { return history?.some(a=>a.evidence !== 'không có bằng chứng'); }
 function modelHTML(ids) { return ids.map(id=>cueHTML(id,true)).join('') + playerHTML('full-model',ids,{label:'Nghe mẫu sau lượt nói'}); }
+function renderReview(){
+ stopMedia();playerConfigs.clear();scene.mount(null);document.body.classList.add('in-lesson');
+ const r=lesson.review,p=extraPacks[r.lesson];
+ $('#app').innerHTML=`<section class="review"><h1>Ôn một phút</h1><p>Nghe, nói lại rồi vào bài mới.</p>${r.cues.map((id,n)=>`<article class="phrase">${playerHTML('review-'+n,[id],{compact:true,sourcePack:p,label:'Nghe câu bài trước'})}<p class="target">${escape(p.cues[id].english)}</p><p>${escape(p.cues[id].vietnamese)}</p></article>`).join('')}${button('review-next','Tiếp tục','primary')}${button('review-skip','Bỏ qua','text-link')}</section>`;
+ const done=()=>{state.reviewDone=true;nav('1');};bind('review-next',done);bind('review-skip',done);mountPlayers();
+}
 function render() {
+    if(location.hash==='#phrases'){renderPhrases();return;}
     if (!location.hash || location.hash === '#home') { renderHome(); return; }
+    if(reviewing){renderReview();return;}
     if (!STEPS.includes(state.step)) state.step='1';
     if(state.step==='summary'&&!completeStep(state,'6',lesson))state.step='6';
     if (!state.visited.includes(state.step)) state.visited.push(state.step);
@@ -176,43 +196,43 @@ function render() {
     const card = lesson.cards[index % 4];
     if (['1','2'].includes(state.step)) {
         const part=state.step;
-        scenePlayer=playerHTML('hear',pack.dialogue,{scene:true,gaps:pack.scene_gaps,label:'Nghe toàn bộ câu chuyện',onUpdate:updateSubtitle,onFinish:()=>{state.listened[part]=true;persist();render();}});
+        scenePlayer=playerHTML('hear',pack.dialogue,{scene:true,slower:true,gaps:pack.scene_gaps,label:'Nghe toàn bộ câu chuyện',onUpdate:updateSubtitle,onFinish:()=>{state.listened[part]=true;persist();render();}});
     } else if (state.step==='3') {
-        const q=lesson.comprehension[index % 4], h=state.answers[index] || [];
-        content=`<p class="task-count">${index+1}/4</p>${playerHTML('hear',q.listen,{label:'Nghe đoạn câu chuyện',onFinish:()=>{state.heard[index]=true;persist();render();}})}<h2>${escape(q.question)}</h2><div class="options">${q.options.map((o,n)=>button('choice'+n,escape(o),'',!state.heard[index])).join('')}</div>${h.length?`<p role="status">${escape(h.at(-1).correct?q.correct:q.retry)}</p>`:''}${button('item-next','Câu tiếp','',!h.length)}`;
+        const q=lesson.comprehension[index % 3], h=state.answers[index] || [];
+        content=`<p class="task-count">${index+1}/3</p>${playerHTML('hear',q.listen,{label:'Nghe đoạn câu chuyện',onFinish:()=>{state.heard[index]=true;persist();render();}})}<h2>${escape(q.question)}</h2>${!state.heard[index]?'<p role="status">Nghe xong rồi chọn</p>':''}<div class="options">${q.options.map((o,n)=>button('choice'+n,escape(o),'',!state.heard[index])).join('')}</div>${h.length?`<p role="status">${escape(h.at(-1).correct?q.correct:q.retry)}</p>`:''}${button('item-next','Câu tiếp','',!h.length)}`;
     } else if(state.step==='4') {
-        content=`<p class="task-count">Thẻ ${index+1}/4</p>${playerHTML('hear',[card.cue],{label:'Nghe câu mẫu',onFinish:()=>{state.cards[card.cue]=true;persist();render();}})}<p class="target">${escape(card.english)}</p><p>${escape(card.vietnamese)}</p><p>${escape(card.vocabulary)}</p><p>${escape(card.note)}</p>`;
+        content=`<p class="task-count">${"●".repeat(index+1)}${"○".repeat(3-index)}</p>${playerHTML('hear',[card.cue],{label:'Nghe câu mẫu',onFinish:()=>{state.cards[card.cue]=true;persist();render();}})}<p class="target">${escape(card.english)}</p><p>${escape(card.vietnamese)}</p><p>${escape(card.vocabulary)}</p>${card.note.split(' <br> ').map(line=>`<p>${escape(line)}</p>`).join('')}${card.chunks?`<p>Nghe và nói từng cụm, rồi nói cả câu.</p>${card.chunks.map((id,n)=>`<p>${n+1}. ${escape(pack.cues[id].english)}</p>${playerHTML('chunk-'+n,[id],{compact:true,label:'Nghe từng cụm'})}`).join('')}`:''}`;
         lesson.recognition.forEach((q,n)=>{
             if(index !== q.afterCard)return;
             const h=state.recognition[n];
             content+=`<article><h3>Bạn vừa nghe ý nào?</h3>${playerHTML('mini-'+n,[q.cue],{label:'Nghe nhận biết',onFinish:()=>{(state.miniHeard||={})[n]=true;persist();render();}})}<div class="options">${q.options.map((o,j)=>`<button data-mini="${n}" data-answer="${j}" ${!state.miniHeard?.[n]?'disabled':''}>${escape(o)}</button>`).join('')}</div>${h?`<p role="status">${h.correct?'Đúng rồi, bạn nhận ra ý vừa nghe.':'Nghe lại rồi chọn ý phù hợp nhé.'}</p>`:''}</article>`;
         });
-        content+=button('card-next','Thẻ tiếp');
+        content+=button('card-next','Câu tiếp');
     } else if(state.step==='5') {
         const done=state.e[`${card.cue}:2`]?.length;
-        content=`<p class="task-count">Câu ${index+1}/4 · Lượt ${attempt}/2 · tự đánh giá</p><h2>${attempt===1?'Nói với câu mẫu':'Thử nói khi không nhìn câu mẫu'}</h2>${attempt===1||showText?`${playerHTML('hear',[card.cue],{label:'Nghe câu mẫu'})}<p class="target">${escape(card.english)}</p><p>${escape(card.vietnamese)}</p>`:`<p>${escape(card.focus.replace(/^\d+\. /,''))}</p>`}${speechUI(card.cue,'E')}${done?`<p>${escape(card.check)}</p><p>${escape(pack.feedback[0])}</p><p>${escape(pack.feedback[1])}</p>`:''}${button('e-next',attempt===1?'Lượt 2 · ẩn câu mẫu':'Câu tiếp','',!state.e[`${card.cue}:${attempt}`]?.length)}`;
+        content=`<p class="task-count">${"●".repeat(index+1)}${"○".repeat(3-index)} · ${attempt===1?'Cùng câu mẫu':'Tự nói'}</p><h2>${attempt===1?'Nói với câu mẫu':'Thử nói khi không nhìn câu mẫu'}</h2>${attempt===1||showText?`${playerHTML('hear',[card.cue],{label:'Nghe câu mẫu'})}<p class="target">${escape(card.english)}</p><p>${escape(card.vietnamese)}</p>`:`<p>${escape(card.focus.replace(/^\d+\. /,''))}</p>`}${speechUI(card.cue,'E')}${done?`<p>${escape(card.check)}</p>`:''}${button('e-next',attempt===1?'Thử tự nói':'Câu tiếp','',!state.e[`${card.cue}:${attempt}`]?.length)}`;
         if(lessonId==='L-S06'&&lesson.cards.every(c=>[1,2].every(n=>state.e[c.cue+':'+n]?.length)))content+=safetyHTML();
     } else if(state.step==='6') {
-        const t=currentTurn(), h=state.g[gIndex], said=(lessonId==='L-S04'&&gIndex===0?h?.some(a=>a.id===t.models[0]&&a.evidence!=='không có bằng chứng'):spoken(h))||pending?.id===t.models[0]&&pending.evidence!=='không có bằng chứng';
+        const t=currentTurn(), h=state.g[gIndex], said=spoken(h)||pending?.id===t.models[0]&&pending.evidence!=='không có bằng chứng';
         const gate=lessonId==='L-S08'&&!state.water?.correct;
-        content=`<p class="task-count">Lượt ${gIndex+1}/${lesson.turns.length} · tự đánh giá</p><h2>${escape(t.instruction)}</h2>${playerHTML('hear',t.prompts,{label:'Nghe yêu cầu mới',onFinish:()=>{(state.transferHeard||={})[gIndex]=true;persist();render();}})}`;
+        content=`<p class="task-count">${"●".repeat(gIndex+1)}${"○".repeat(lesson.turns.length-gIndex-1)}</p><h2>${escape(t.instruction)}</h2>${playerHTML('hear',t.prompts,{label:'Nghe yêu cầu mới',onFinish:()=>{(state.transferHeard||={})[gIndex]=true;persist();render();}})}`;
         if(lessonId==='L-S02') content+=`<p>Đang chỉ ô B.</p><div class="options">${['#f4e9d2','#b6dce8','#e8806a','#35678b','#c8acd7','#b9494b'].map((color,n)=>`<button data-color="${n}" aria-pressed="${state.color===n}"><span class="swatch-chip" style="background:${color}"></span>${'ABCDEF'[n]}</button>`).join('')}</div>`;
         if(lessonId==='L-S08')content+=`<h3>Bà đang xin gì?</h3>${['Nước uống','Chuyển cây','Trả cây'].map((o,n)=>button('water'+n,o,'',!state.transferHeard?.[gIndex])).join('')}${state.water?`<p>${state.water.correct?'Bạn đã hiểu yêu cầu; hãy nói điều mình sẽ làm.':'Nghe lại yêu cầu mới nhé.'}</p>`:''}`;
         if(lessonId==='L-S08')content+=button('request-repeat','Tôi đã xin nhắc lại')+(state.repeatRequested?playerHTML('repeat-request',['V2_S08_LINH_04'],{label:'Nghe mẫu sau lời xin nhắc lại',onBegin:()=>{state.repeatHelp=true;persist();}}):'');
         if(!gate) content+=speechUI(t.models[0],'G');
         if(said) {
-            content+=modelHTML(t.models);
-            if(h?.length&&(lessonId!=='L-S04'||gIndex!==0||h.some(a=>a.id==='V2_S04_LINH_05')))content+=`<p>${escape(t.check)}</p><p>${escape(t.retry)}</p>`;
-            const confirm=lessonId==='L-S02'?['V2_S02_LINDA_12']:lessonId==='L-S05'?['V2_S05_LINDA_12']:lessonId==='L-S04'?(gIndex===0?(state.s04Phase?[]:['V2_S04_JENNY_02']):['V2_S04_JENNY_03']):[];
-            if(h?.at(-1)?.meaning&&h.at(-1).clear) content+=playerHTML('confirmation',confirm,{label:'Nghe khách xác nhận',onFinish:()=>{(state.confirmed||={})[gIndex]=true;if(lessonId==='L-S04'&&gIndex===0){stopMedia();state.s04Phase=1;}persist();render();}});
+            content+=t.modelText?`<p class="target">${escape(t.modelText)}</p>${t.deferAudio?'':playerHTML('full-model',t.models,{label:'Nghe mẫu sau lượt nói'})}`:modelHTML(t.models);
+            if(h?.length)content+=`<p>${escape(t.check)}</p><p>${escape(t.retry)}</p>`;
+            const confirm=lessonId==='L-S02'?['V2_S02_LINDA_12']:lessonId==='L-S05'?['V2_S05_LINDA_12']:lessonId==='L-S04'?(gIndex===0?['V2_S04_JENNY_02']:gIndex===2?['V2_S04_JENNY_03']:[]):[];
+            if(h?.at(-1)?.meaning&&h.at(-1).clear) content+=playerHTML('confirmation',confirm,{label:'Nghe khách xác nhận',onFinish:()=>{(state.confirmed||={})[gIndex]=true;persist();render();}});
             if(lessonId==='L-S08')content+=playerHTML('repair-model',['V2_S08_LINH_06'],{label:'Nghe mẫu xin nhắc lại và xác nhận sau nỗ lực'});
         }
-        if(lessonId==='L-S04'&&gIndex===1&&state.confirmed?.[1])content+=button('book','Ghi lịch mô phỏng');
-        const canAdvance=spoken(h)&& (lessonId!=='L-S03'||gIndex!==0||h?.some(a=>a.meaning&&a.clear&&a.evidence!=='không có bằng chứng'))&& (lessonId!=='L-S04'||(gIndex===0?h?.some(a=>a.id==='V2_S04_LINH_05'&&a.meaning&&a.clear&&a.evidence!=='không có bằng chứng'):!!state.confirmed?.[1]));
-        content+=button('g-next','Lượt tiếp','',!canAdvance);
+        if(lessonId==='L-S04'&&gIndex===2&&state.confirmed?.[2])content+=button('book','Ghi lịch mô phỏng');
+        const canAdvance=spoken(h)&& (lessonId!=='L-S03'||gIndex!==0||h?.some(a=>a.meaning&&a.clear&&a.evidence!=='không có bằng chứng'))&& (lessonId!=='L-S04'||gIndex!==2||!!state.confirmed?.[2]);
+        content+=button('g-next','Nói tiếp','',!canAdvance);
     } else {
-        const answered=Object.values(state.answers).filter(h=>h.length);
-        content=`<h2>Bạn đã luyện: ${escape(lesson.canDo)} Bạn đã tự nói được chưa?</h2>${['Tự nói được','Cần nghe mẫu','Muốn luyện lại'].map((o,n)=>button('confidence'+n,o,state.confidence===o?'primary':'')).join('')}<h3>3 · Nghe hiểu</h3><p>${answered.filter(h=>h[0].correct).length}/${answered.length} lựa chọn đầu đúng.</p><h3>5 · Nói lại</h3><p>Tự kiểm tra nói · ${Object.keys(state.e).length} lượt đã lưu.</p><h3>6 · Vận dụng</h3>${lesson.turns.map((t,n)=>`<p>${n+1}: ${escape(state.g[n]?.at(-1)?.outcome||'Chưa có bằng chứng')} · tự đánh giá</p>`).join('')}<section class="recap"><h2>Tóm tắt nhanh</h2>${lesson.cards.map(c=>`<article><p>${escape(c.english)}</p><p>${escape(c.vietnamese)}</p>${playerHTML('recap-'+c.cue,[c.cue],{label:'Nghe lại câu đã luyện'})}</article>`).join('')}</section>${button('again','Luyện lại từ phần 1')}`;
+        const said=practiced(state,lesson);
+        content=`<h2>Hôm nay bạn nói được ${said.length} câu này</h2><div class="end-phrases">${said.map(c=>`<article class="phrase cue-row">${playerHTML('recap-'+c.cue,[c.cue],{compact:true,label:'Nghe câu đã luyện'})}<p class="target">${escape(c.english)}</p></article>`).join('')}</div><h2>Bạn đã tự nói được chưa?</h2><div class="confidence-choices">${['Tự nói được','Cần nghe mẫu','Muốn luyện lại'].map((o,n)=>button('confidence'+n,o,state.confidence===o?'primary':'')).join('')}</div><div class="end-actions">${button('next-lesson','Bài tiếp theo','primary')}${button('phrases','Sổ câu của tôi')}${button('again','Luyện lại')}</div>`;
     }
     $('#app').innerHTML=shell(content);
     bindCommon(); mountPlayers(); bindStep(); persist();
@@ -221,9 +241,12 @@ function speechUI(id,type) {
     const history=type==='E'?state.e[`${id}:${attempt}`]:state.g[gIndex];
     const captured=pending?.id===id&&pending.evidence!=='không có bằng chứng';
     const allowed=type==='E'||captured||(lessonId==='L-S04'&&gIndex===0?history?.some(a=>a.id===id&&a.evidence!=='không có bằng chứng'):spoken(history));
-    return `<p class="muted mic-privacy">Ghi âm chỉ trên máy. <a href="#" id="privacy-link">Riêng tư</a></p><div class="controls">${button('record','Ghi âm','primary',busy)}${button('stop','Dừng','',!busy)}${button('aloud','Tôi đã nói thành tiếng','',busy)}${button('speak-skip','Bỏ qua lượt này','',busy)}</div><p id="timer" class="recording" role="status"></p>${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio><button id="play-take" aria-label="Nghe bản ghi của bạn">🔊</button>${button('delete-take','Xóa bản ghi và thử lại')}`:''}${allowed&&(captured||showText)?`${type==='E'&&attempt===2&&!showText?`<p class="target">${escape(lesson.cards[index].english)}</p><p>${escape(lesson.cards[index].vietnamese)}</p>`:''}${captured?`<form id="check"><label><input type="checkbox" name="meaning">Tôi đã nói đủ ý chính của câu.</label><label><input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label><label><input type="checkbox" name="other">Tôi nói đủ câu hỏi / lời xác nhận cần có.</label>${lessonId==='L-S06'?'<label><input type="checkbox" name="invented">Tôi đã tiếp tục, chẩn đoán, khuyên chữa trị hoặc trì hoãn giúp khẩn cấp.</label>':''}<button type="submit">Lưu tự đánh giá</button></form>`:''}`:''}${history?.length?`<p>${escape(history.at(-1).outcome)} · tự đánh giá · ${history.at(-1).assisted?'Có hỗ trợ':'Không nhìn câu mẫu'}</p>`:''}${type==='E'&&attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu hỗ trợ'):''}`;
+    if(type==='E')return `<div class="controls">${button('record','🎤 Nói thử','primary microphone',busy)}${button('stop','Dừng ghi','',!busy)}</div><p id="timer" class="recording" role="status"></p>${!captured?`<div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div>`:''}${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio>${button('play-take','Nghe lại bản ghi')}`:''}${captured?`${playerHTML('compare',[id],{label:'Nghe mẫu để so sánh'})}<p>${escape(lesson.cards[index].check)}</p>${button('accept-take','Được rồi','primary')}${button('delete-take','Luyện lại')}`:''}${history?.length?'<p>Đã lưu lần luyện nói.</p>':''}${attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu'):''}`;
+    return `<div class="controls">${button('record','🎤 Nói thử','primary microphone',busy)}${button('stop','Dừng ghi','',!busy)}</div><div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div><p id="timer" class="recording" role="status"></p>${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio><button id="play-take" aria-label="Nghe bản ghi của bạn">🔊</button>${button('delete-take','Luyện lại')}`:''}${allowed&&(captured||showText)?`${type==='E'&&attempt===2&&!showText?`<p class="target">${escape(lesson.cards[index].english)}</p><p>${escape(lesson.cards[index].vietnamese)}</p>`:''}${captured?`<form id="check"><label><input type="checkbox" name="meaning">Tôi đã nói đủ ý chính của câu.</label><label><input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label><label><input type="checkbox" name="other">Tôi nói đủ câu hỏi / lời xác nhận cần có.</label>${lessonId==='L-S06'?'<label><input type="checkbox" name="invented">Tôi đã tiếp tục, chẩn đoán, khuyên chữa trị hoặc trì hoãn giúp khẩn cấp.</label>':''}<button type="submit">Được rồi</button></form>`:''}`:''}${history?.length?`<p>${escape(history.at(-1).outcome)} · ${history.at(-1).assisted?'Có hỗ trợ':'Không nhìn câu mẫu'}</p>`:''}${type==='E'&&attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu hỗ trợ'):''}`;
 }
 function bindCommon() {
+    bind('part-menu',()=>{$('#part-list').hidden=!$('#part-list').hidden;});
+    bind('meaning-toggle',()=>{meaningOn=!meaningOn;localStorage.setItem('nailtalk-meaning',String(meaningOn));$('#meaning-toggle').textContent='Nghĩa tiếng Việt: '+(meaningOn?'Bật':'Tắt');$('#meaning-toggle').setAttribute('aria-pressed',String(meaningOn));updateSubtitle(players.get('hear'));});
     document.querySelectorAll('[data-step]').forEach(el=>el.onclick=()=>{if(el.dataset.step==='summary'&&!completeStep(state,'6',lesson))return;nav(el.dataset.step);});
     scene.mount($('.scene'));scene.apply();document.body.classList.add('in-lesson');
     bind('privacy-link',e=>{e.preventDefault();$('#settings').showModal();$('#privacy').open=true;});
@@ -239,7 +262,7 @@ function saveSpeech(id,type,flags) {
     (container[key]||=[]).push(result);pending=null;disposeTake();render();
 }
 function bindStep() {
-    bind('item-next',()=>{stopMedia();index=(index+1)%4;render();});
+    bind('item-next',()=>{stopMedia();index=(index+1)%3;render();});
     if(state.step==='3')lesson.comprehension[index].options.forEach((_,n)=>bind('choice'+n,()=>{if(!state.heard[index])return;(state.answers[index]||=[]).push(event({answer:n,correct:n===lesson.comprehension[index].key}));render();}));
     document.querySelectorAll('[data-mini]').forEach(el=>el.onclick=()=>{const n=Number(el.dataset.mini);state.recognition[n]=event({answer:Number(el.dataset.answer),correct:Number(el.dataset.answer)===lesson.recognition[n].key});render();});
     bind('card-next',()=>{state.cards[lesson.cards[index].cue]=true;stopMedia();index=(index+1)%4;render();});
@@ -258,23 +281,26 @@ function bindStep() {
     }
     [0,1,2].forEach(n=>bind('confidence'+n,()=>{state.confidence=['Tự nói được','Cần nghe mẫu','Muốn luyện lại'][n];render();}));
     bind('again',()=>nav('1'));
+    bind('phrases',()=>{location.hash='phrases';});
+    bind('next-lesson',()=>openLesson(LESSON_ORDER[LESSON_ORDER.indexOf(lessonId)+1]||LESSON_ORDER[0]));
 }
 const safety = [
  {text:'Khách báo rát',models:['V2_S06_LINH_25'],reply:'V2_S06_LINDA_01',note:'Dừng trước, chỉ hỏi vị trí khi cần, rồi báo quản lý.'},
- {text:'Thấy vết thương/dấu hiệu bất thường hoặc nghi phản ứng; không cần prompt EN mới',models:['V2_S06_LINH_26','V2_S06_SUSAN_03'],note:'Tạm hoãn vùng bị ảnh hưởng, quản lý tiếp nhận, hướng tới bác sĩ theo nội dung đã duyệt; không chẩn đoán, khuyên thuốc hoặc hứa đổi sản phẩm an toàn.'},
- {text:'Thấy chảy máu; thẻ VN, không cần prompt EN',models:['V2_S06_LINH_28','V2_S06_SUSAN_03'],note:'Dừng, không dùng tiếp đồ nhiễm bẩn; Susan tiếp nhận quy trình phơi nhiễm máu theo Story Bible §9.'},
- {text:'khó thở hoặc choáng là tín hiệu khẩn cấp trong drill đã duyệt',prompt:'V2_S06_LINDA_02',models:['V2_S06_LINH_28','V2_S06_LINH_27'],note:'Dừng, báo Susan, gọi 911 ngay; không trì hoãn bằng hỏi thường.'}
+ {text:'Thấy vết thương/dấu hiệu bất thường hoặc nghi phản ứng',models:['V2_S06_LINH_26','V2_S06_SUSAN_03'],note:'Tạm hoãn vùng bị ảnh hưởng, quản lý tiếp nhận, hướng tới bác sĩ theo nội dung đã duyệt; không chẩn đoán, khuyên thuốc hoặc hứa đổi sản phẩm an toàn.'},
+ {text:'Thấy chảy máu',models:['V2_S06_LINH_28','V2_S06_SUSAN_03'],note:'Dừng, không dùng tiếp đồ nhiễm bẩn; Susan tiếp nhận việc xử lý chảy máu.'},
+ {text:'khó thở hoặc choáng là tín hiệu khẩn cấp ',prompt:'V2_S06_LINDA_02',models:['V2_S06_LINH_28','V2_S06_LINH_27'],note:'Dừng, báo Susan, gọi 911 ngay; không trì hoãn bằng hỏi thường.'}
 ];
 function safetyHTML() {
     const n=state.safetyIndex||0,t=safety[n], round=state.safetyRound||1, h=state.safety?.[n];
-    return `<section><h2>Ôn an toàn đã duyệt</h2><p>${escape(t.text)} · Lượt ${round}/2</p>${round===1?playerHTML('safety-model',t.models,{label:'Nghe mẫu ôn an toàn',format:'mp3'}):playerHTML('safety-prompt',[t.prompt],{label:'Nghe tình huống ôn an toàn',format:'mp3'})}${button('safety-said','Tôi đã nói thành tiếng')}${h?.[round]?`<p>${escape(t.note)} · tự kiểm tra hành động</p>${t.reply?playerHTML('safety-reply',[t.reply],{label:'Nghe khách trả lời vị trí',format:'mp3'}):''}${button('safety-next','Lượt ôn tiếp')}`:''}</section>`;
+    return `<section><h2>Ôn cách xử lý an toàn</h2><p>${escape(t.text)} · ${round===1?'Nghe và nói':'Tự nói'}</p>${round===1?playerHTML('safety-model',t.models,{label:'Nghe mẫu ôn an toàn',format:'mp3'}):playerHTML('safety-prompt',[t.prompt],{label:'Nghe tình huống ôn an toàn',format:'mp3'})}${button('safety-said','Tôi đã nói thành tiếng')}${h?.[round]?`<p>${escape(t.note)}</p>${t.reply?playerHTML('safety-reply',[t.reply],{label:'Nghe khách trả lời vị trí',format:'mp3'}):''}${button('safety-next','Tiếp tục ôn')}`:''}</section>`;
 }
 function bindSafety() {
     bind('safety-said',()=>{const n=state.safetyIndex||0;((state.safety||={})[n]||={})[state.safetyRound||1]=event({evidence:'tự báo cáo, không ghi âm',source:'tự kiểm tra hành động'});render();});
     bind('safety-next',()=>{stopMedia();if((state.safetyRound||1)===1)state.safetyRound=2;else{state.safetyRound=1;state.safetyIndex=((state.safetyIndex||0)+1)%4;}render();});
 }
 function bindSpeech(id, type) {
-    bind("play-take",()=>{const audio=$("#take-audio");audio.paused?audio.play():audio.pause();});
+    bind('accept-take',()=>saveSpeech(id,type,{meaning:true,clear:true,other:true,invented:false}));
+    bind("play-take",()=>{const audio=$("#take-audio");if(type==='E')audio.onended=()=>players.get('compare')?.toggle();if(audio.paused){for(const player of players.values())player.stop();audio.play();}else audio.pause();});
     bind("text-help", () => {
         showText = true;
         render();
@@ -330,17 +356,18 @@ async function startRecording(id, type) {
             scene.recording = false; scene.apply();
             take = new Blob(chunks, { type: recorder.mimeType });
             if (!take.size) {
-                micError = "Bản ghi trống: không có bằng chứng. Hãy thử lại hoặc tự báo cáo.";
+                micError = "Chưa thu được tiếng. Bạn thử lại hoặc nói không dùng micro.";
             }
             else {
                 takeURL = URL.createObjectURL(take);
                 pending = { id, evidence: "đã ghi âm trên máy", assisted: showText || (type === "G" && !!state.repeatHelp) || (type === "E" && attempt === 1) || !pack.cues[id].audio };
             }
             render();
+            if(type==='E'&&takeURL){const audio=$('#take-audio');audio.onended=()=>players.get('compare')?.toggle();audio.play().catch(()=>{micError='Chạm Nghe lại bản ghi để nghe bạn rồi nghe mẫu.';});}
         };
         recorder.onerror = () => {
             stopMedia();
-            micError = "Ghi âm bị gián đoạn: không có bằng chứng. Bạn có thể thử lại hoặc nói thành tiếng.";
+            micError = "Ghi âm bị ngắt. Bạn thử lại hoặc nói không dùng micro.";
             render();
         };
         recorder.start();
@@ -362,7 +389,7 @@ async function startRecording(id, type) {
     catch {
         stream?.getTracks().forEach(t => t.stop());
         busy = false;
-        micError = "Không mở được micro hoặc bạn chưa cho phép. Hãy nói thành tiếng rồi tự báo cáo, hoặc bỏ qua — không có bằng chứng ghi âm.";
+        micError = "Không mở được micro. Bạn có thể nói không dùng micro hoặc bỏ qua.";
         render();
     }
 }
@@ -388,7 +415,7 @@ document.addEventListener("visibilitychange", () => {
 window.addEventListener("pagehide", stopMedia);
 window.addEventListener("hashchange", () => {
     const requested = location.hash.slice(1).split("/")[0];
-    if (catalog.some(p => p.id === requested) && requested !== lessonId) { stopMedia(); location.reload(); return; }
+    if (catalog.some(p => p.id === requested) && (requested !== lessonId || onHome)) { stopMedia(); location.reload(); return; }
     const route = location.hash.split("/")[1];
     if (STEPS.includes(route)) {
         if (state.step !== route) {
@@ -401,7 +428,7 @@ window.addEventListener("hashchange", () => {
         render();
     }
     else
-        renderHome();
+        render();
 });
 bind("settings-open", () => $("#settings").showModal());
 bind("settings-close", () => $("#settings").close());
@@ -416,6 +443,7 @@ bind("erase", async () => {
         scene.reset();
         await workerMessage("CLEAR");
         state = initialState();
+        for(const id of LESSON_ORDER)progress[id]=migrateProgress(null,id);
         packAvailable = false;
         location.hash = "home";
         renderHome();
@@ -509,4 +537,4 @@ index = state.positions?.[state.step]?.index || 0;
 attempt = state.positions?.[state.step]?.attempt || 1;
 gIndex = state.positions?.[state.step]?.gIndex || 0;
 render();
-persist();
+if(!onHome)persist();

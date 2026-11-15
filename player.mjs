@@ -37,6 +37,7 @@ export class AudioPlayer {
         };
         this.audio.onended = () => {
             if (!this.active) return;
+            if(this.replayOnly){this.replayOnly=false;this.active=false;this.update();return;}
             if (this.index < this.cues.length - 1) {
                 const gap = this.cues[this.index].gap_after_ms || 0;
                 if (gap) {
@@ -61,14 +62,14 @@ export class AudioPlayer {
 ${this.options.slower ? '<div class="scene-transport"><button data-action="speed" aria-label="Tốc độ nghe">1×</button></div>' : ""}
 <div class="audio-progress" role="progressbar" aria-label="Tiến độ nghe" aria-valuemin="0" aria-valuemax="${this.track.total}" aria-valuenow="0"><div class="progress-fill"></div></div>` : compact ? `<button class="audio-toggle primary" type="button"></button>${this.options.slower ? '<button data-action="speed" aria-label="Tốc độ nghe">1×</button>' : ''}` : `<button class="audio-toggle primary" type="button">
 </button>
-      <p class="now-playing" aria-live="polite">
+      <p class="now-playing sr-only" aria-live="polite">
 </p>
       <div class="progress-wrap">
 <div class="audio-progress" role="progressbar" aria-label="Tiến độ nghe" aria-valuemin="0" aria-valuemax="${this.track.total}" aria-valuenow="0"><div class="progress-fill"></div></div>
 <div class="ticks" aria-hidden="true">${this.track.offsets.slice(1).map(t => `<i style="left:${100 * t / this.track.total}%">
 </i>`).join("")}</div>
 </div>
-      <p class="audio-time">
+      <p class="audio-time sr-only">
 </p>
       ${this.options.slower ? "<button data-action=\"speed\" aria-label=\"Tốc độ nghe\">1×</button>" : ""}`;
         root.querySelector(".audio-toggle").onclick = () => this.toggle();
@@ -85,7 +86,7 @@ ${this.options.slower ? '<div class="scene-transport"><button data-action="speed
         const speed = root.querySelector("[data-action=\"speed\"]");
         if (speed)
             speed.onclick = () => {
-                this.rate = this.rate === 1 ? 0.75 : 1;
+                this.rate = this.rate === 1 ? 0.8 : 1;
                 this.audio.playbackRate = this.rate;
                 this.update();
             };
@@ -122,6 +123,7 @@ ${this.options.slower ? '<div class="scene-transport"><button data-action="speed
     stop() {
         clearTimeout(this.gapTimer);
         this.inGap = false;
+        this.replayOnly = false;
         this.active = false;
         this.audio.pause();
         this.audio.currentTime = 0;
@@ -150,7 +152,7 @@ ${this.options.slower ? '<div class="scene-transport"><button data-action="speed
         toggle.setAttribute("aria-label", `${label} · ${this.options.label || "âm thanh"}`);
         this.root.classList.toggle("is-playing", this.active);
         const speed = this.root.querySelector('[data-action="speed"]');
-        if (speed) speed.textContent = this.rate === 1 ? "1×" : "0,75×";
+        if (speed) speed.textContent = this.rate === 1 ? "1×" : "0.8×";
         if (compact) {
             this.options.onUpdate?.(this);
             return;
