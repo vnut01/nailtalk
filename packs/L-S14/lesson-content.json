@@ -1,0 +1,122 @@
+{
+  "sceneSetter": "Linda và Linh trò chuyện trước khi chọn sơn.",
+  "homeCanDo": "Sau bài này bạn nói được: hỏi khách chọn sơn thường, gel hay bột nhúng, và nói gel giữ được khoảng bao lâu.",
+  "review": {
+    "lesson": "L-S09",
+    "cues": [
+      "B82_S09_D06",
+      "B82_S09_D08"
+    ]
+  },
+  "safetyRequired": false,
+  "canDo": "hỏi khách chọn sơn thường, gel hay bột nhúng, và nói gel giữ được khoảng bao lâu.",
+  "comprehension": [
+    {
+      "focus": "Linda sẽ ở nhà chị gái bao lâu?",
+      "listen": [
+        "B83_S14_D01",
+        "B83_S14_D02",
+        "B83_S14_D03"
+      ],
+      "question": "Linda sẽ ở nhà chị gái bao lâu?",
+      "options": [
+        "Ba ngày",
+        "Hai tuần",
+        "Một tháng"
+      ],
+      "key": 1,
+      "correct": "Đúng rồi: Hai tuần",
+      "retry": "Nghe lại lượt 1–3 rồi thử lại nhé."
+    },
+    {
+      "focus": "Loại sơn nào giữ được khoảng hai tuần?",
+      "listen": [
+        "B83_S14_D07",
+        "B83_S14_D08",
+        "B83_S14_D09",
+        "B83_S14_D10"
+      ],
+      "question": "Loại sơn nào giữ được khoảng hai tuần?",
+      "options": [
+        "Gel",
+        "Sơn thường",
+        "Bột nhúng"
+      ],
+      "key": 0,
+      "correct": "Đúng rồi: Gel",
+      "retry": "Nghe lại lượt 7–10 rồi thử lại nhé."
+    },
+    {
+      "focus": "Khi muốn tháo gel, Linda nên làm gì?",
+      "listen": [
+        "B83_S14_D15",
+        "B83_S14_D16"
+      ],
+      "question": "Khi muốn tháo gel, Linda nên làm gì?",
+      "options": [
+        "Tự bóc ở nhà",
+        "Để tự bong",
+        "Quay lại tiệm"
+      ],
+      "key": 2,
+      "correct": "Đúng rồi: Quay lại tiệm",
+      "retry": "Nghe lại lượt 15–16 rồi thử lại nhé."
+    }
+  ],
+  "cards": [
+    {
+      "focus": "Chị làm sơn thường, gel hay bột nhúng ạ?",
+      "cue": "B83_S14_K1",
+      "english": "Regular, gel, or dip?",
+      "vietnamese": "Chị làm sơn thường, gel hay bột nhúng ạ?",
+      "useWhen": "Dùng khi: Khách chưa nói muốn loại sơn nào.",
+      "vocabulary": "regular → sơn thường; dip → bột nhúng",
+      "note": "Dùng khi: Khách chưa nói muốn loại sơn nào. <br> Đổi từ: Regular or gel? dùng khi tiệm chỉ có hai loại.",
+      "check": "Tôi đã hỏi đủ ba loại sơn."
+    },
+    {
+      "focus": "Gel giữ được khoảng hai tuần.",
+      "cue": "B83_S14_D10",
+      "english": "Gel lasts about two weeks.",
+      "vietnamese": "Gel giữ được khoảng hai tuần.",
+      "useWhen": "Dùng khi: Khách hỏi sơn giữ được bao lâu.",
+      "vocabulary": "lasts → giữ được; about → khoảng",
+      "note": "Dùng khi: Khách hỏi sơn giữ được bao lâu. <br> Đổi từ: Regular lasts about a week. Luôn nói \"about\", không hứa chắc.",
+      "check": "Tôi đã nói \"about\", không hứa chắc."
+    },
+    {
+      "focus": "Chị muốn thử gel không ạ?",
+      "cue": "B83_S14_D14",
+      "english": "Would you like to try gel?",
+      "vietnamese": "Chị muốn thử gel không ạ?",
+      "useWhen": "Dùng khi: Gợi ý một loại sơn, để khách tự quyết.",
+      "vocabulary": "try → thử",
+      "note": "Dùng khi: Gợi ý một loại sơn, để khách tự quyết. <br> Đổi từ: Would you like to try dip?",
+      "check": "Tôi đã gợi ý và để khách tự chọn."
+    },
+    {
+      "focus": "Chị đừng tự bóc ra nhé.",
+      "cue": "B83_S14_K2",
+      "english": "Please don't peel it off.",
+      "vietnamese": "Chị đừng tự bóc ra nhé.",
+      "useWhen": "Dùng khi: Dặn khách sau khi làm gel hoặc dip.",
+      "vocabulary": "peel off → bóc ra",
+      "note": "Dùng khi: Dặn khách sau khi làm gel hoặc dip. <br> Đổi từ: Không có mẫu đổi từ.",
+      "check": "Tôi đã dặn khách đừng tự bóc."
+    }
+  ],
+  "recognition": [],
+  "turns": [
+    {
+      "prompts": [
+        "B83_S14_T1"
+      ],
+      "models": [
+        "B83_S14_M1"
+      ],
+      "instruction": "Lần sau Linda muốn loại giữ lâu hơn gel. Hãy gợi ý loại đó bằng một câu hỏi, để chị tự quyết.",
+      "check": "Tôi đã gợi ý dip, loại giữ lâu hơn, bằng câu hỏi.",
+      "retry": "nghe lại lời Linda, nhớ loại nào giữ lâu hơn gel, rồi nói lại."
+    }
+  ]
+}

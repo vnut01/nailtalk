@@ -1,0 +1,123 @@
+{
+  "sceneSetter": "Linda đến tiệm cho lịch hẹn của mình.",
+  "homeCanDo": "Sau bài này bạn nói được: báo thời gian trễ ước tính đã kiểm tra và cho khách chọn chờ hay quay lại.",
+  "review": {
+    "lesson": "L-S12",
+    "cues": [
+      "B82_S12_D08",
+      "B82_S12_D10"
+    ]
+  },
+  "safetyRequired": false,
+  "canDo": "báo thời gian trễ ước tính đã kiểm tra và cho khách chọn chờ hay quay lại.",
+  "comprehension": [
+    {
+      "focus": "Linda hẹn gặp bạn lúc mấy giờ?",
+      "listen": [
+        "B82_S15_D05",
+        "B82_S15_D06",
+        "B82_S15_D07"
+      ],
+      "question": "Linda hẹn gặp bạn lúc mấy giờ?",
+      "options": [
+        "Mười hai giờ",
+        "Mười giờ",
+        "Hai giờ"
+      ],
+      "key": 0,
+      "correct": "Đúng rồi: Mười hai giờ",
+      "retry": "Nghe lại lượt 5–7 rồi thử lại nhé."
+    },
+    {
+      "focus": "Tiệm trễ khoảng bao lâu?",
+      "listen": [
+        "B82_S15_D03",
+        "B82_S15_D04",
+        "B82_S15_D05",
+        "B82_S15_D06"
+      ],
+      "question": "Tiệm trễ khoảng bao lâu?",
+      "options": [
+        "Hai mươi phút",
+        "Mười phút",
+        "Ba mươi phút"
+      ],
+      "key": 1,
+      "correct": "Đúng rồi: Mười phút",
+      "retry": "Nghe lại lượt 3–6 rồi thử lại nhé."
+    },
+    {
+      "focus": "Linda chọn gì lúc này?",
+      "listen": [
+        "B82_S15_D13",
+        "B82_S15_D14",
+        "B82_S15_D15"
+      ],
+      "question": "Linda chọn gì lúc này?",
+      "options": [
+        "Quay lại ngày mai",
+        "Hủy lịch",
+        "Chờ tiếp"
+      ],
+      "key": 2,
+      "correct": "Đúng rồi: Chờ tiếp",
+      "retry": "Nghe lại lượt 13–15 rồi thử lại nhé."
+    }
+  ],
+  "cards": [
+    {
+      "focus": "Bên em đang trễ khoảng mười phút ạ.",
+      "cue": "B82_S15_D04",
+      "english": "We're about ten minutes behind.",
+      "vietnamese": "Bên em đang trễ khoảng mười phút ạ.",
+      "useWhen": "Dùng khi: Đã kiểm tiến độ; báo trễ giờ bắt đầu, chưa hứa giờ xong.",
+      "vocabulary": "about → khoảng; behind → trễ",
+      "note": "Dùng khi: Đã kiểm tiến độ; báo trễ giờ bắt đầu, chưa hứa giờ xong. <br> Đổi từ: ten → fifteen chỉ khi estimate đã được kiểm lại.",
+      "check": "Tôi đã báo trễ khoảng mười phút sau kiểm tra, không bảo đảm giờ."
+    },
+    {
+      "focus": "Em xin lỗi vì để chị chờ.",
+      "cue": "B82_S15_D02",
+      "english": "I'm sorry about the wait.",
+      "vietnamese": "Em xin lỗi vì để chị chờ.",
+      "useWhen": "Dùng khi: Nhận việc chờ, không đổ lỗi khách khác.",
+      "vocabulary": "sorry → xin lỗi; wait → việc chờ",
+      "note": "Dùng khi: Nhận việc chờ, không đổ lỗi khách khác. <br> Đổi từ: Giữ nguyên câu xin lỗi; không đổi thành lời hứa làm nhanh.",
+      "check": "Tôi đã xin lỗi việc khách phải chờ."
+    },
+    {
+      "focus": "Chị muốn chờ không ạ?",
+      "cue": "B82_S15_D08",
+      "english": "Would you like to wait?",
+      "vietnamese": "Chị muốn chờ không ạ?",
+      "useWhen": "Dùng khi: Cho khách chọn sau khi báo estimate, chấp nhận khách không chờ.",
+      "vocabulary": "like → muốn; wait → chờ",
+      "note": "Dùng khi: Cho khách chọn sau khi báo estimate, chấp nhận khách không chờ. <br> Đổi từ: Giữ nguyên; số phút đã báo ở câu riêng trước đó.",
+      "check": "Tôi đã cho khách chọn có chờ không."
+    },
+    {
+      "focus": "Để em xem còn giờ nào khác nhé chị.",
+      "cue": "B82_S15_D10",
+      "english": "We can check another time.",
+      "vietnamese": "Để em xem còn giờ nào khác nhé chị.",
+      "useWhen": "Dùng khi: Đề nghị kiểm, chưa xác nhận slot.",
+      "vocabulary": "check → kiểm tra; another time → giờ khác",
+      "note": "Dùng khi: Đề nghị kiểm, chưa xác nhận slot. <br> Đổi từ: another time → tomorrow’s times: We can check tomorrow’s times. Chưa hứa còn chỗ.",
+      "check": "Tôi đã đề nghị kiểm giờ khác, chưa tự hẹn."
+    }
+  ],
+  "recognition": [],
+  "turns": [
+    {
+      "prompts": [
+        "B82_S15_T1"
+      ],
+      "models": [
+        "B82_S15_M1"
+      ],
+      "instruction": "Thẻ VN: lịch ngày mai chưa được kiểm tra. Khách không thể chờ.",
+      "check": "Chấp nhận việc khách không chờ; kiểm tra ngày mai trước xác nhận, không tự hứa slot.",
+      "retry": "nghe lại prompt, kiểm tra chi tiết đã đổi rồi nói lại. Không tính nghe đúng là nói được."
+    }
+  ]
+}

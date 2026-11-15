@@ -1,4 +1,4 @@
-export const APP_VERSION = "v018-DRAFT-1";
+export const APP_VERSION = "v019-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
@@ -6,18 +6,22 @@ import { AudioPlayer } from "./player.mjs";
 import { STEPS, nextStep, initialState, completeStep, outcome, normalizeState } from "./logic.mjs";
 import * as store from "./storage.mjs";
 const $ = s => document.querySelector(s);
-import {LESSON_ORDER, migrateProgress, practiced, reachedPhrases, lessonStatus, continueLesson} from './path.mjs';
+import {LESSON_ORDER, AVAILABLE_LESSONS, migrateProgress, practiced, reachedPhrases, lessonStatus, continueLesson} from './path.mjs';
 const content = await (await fetch('./lesson-content.json')).json();
 const progress = Object.fromEntries(await Promise.all(LESSON_ORDER.map(async id=>[id,migrateProgress(await store.load(id),id)])));
 const catalog = await (await fetch('./catalog.json')).json();
+if(location.hash.slice(1).split('/')[0]==='L-S10')location.replace('#home');
 const onHome = !location.hash || location.hash === '#home' || location.hash === '#phrases';
 // Give a newly opened lesson the network before fetching its manifest or art.
 if (!onHome) navigator.serviceWorker?.controller?.postMessage({type:'PAUSE'});
 const lessonId = catalog.some(p => p.id === location.hash.slice(1).split('/')[0]) ? location.hash.slice(1).split('/')[0] : 'L-S07';
+// New text travels inside its pack; a first-time Lesson 1 loads only the original content.
+await Promise.all(AVAILABLE_LESSONS.filter(id=>!content[id]&&(!onHome&&id===lessonId||progress[id]?.visited?.length)).map(async id=>{content[id]=await(await fetch(`./packs/${id}/lesson-content.json`)).json();}));
+for(const p of catalog)content[p.id]||={homeCanDo:p.homeCanDo,cards:[]};
 const pack = onHome ? {...catalog.find(p => p.id === lessonId), cues:{}} : await (await fetch(`./packs/${lessonId}/pack.json`)).json();
 const lesson = content[lessonId];
 const extraPacks = {};
-for(const id of LESSON_ORDER.filter(id=>reachedPhrases(progress[id])||!onHome&&id===lesson.review?.lesson))extraPacks[id]=await (await fetch(`./packs/${id}/pack.json`)).json();
+for(const id of AVAILABLE_LESSONS.filter(id=>reachedPhrases(progress[id])||!onHome&&id===lesson.review?.lesson))extraPacks[id]=await (await fetch(`./packs/${id}/pack.json`)).json();
 let reviewing=!onHome && !!lesson.review && (!progress[lessonId].reviewDone && progress[lessonId].step==='1' && (!location.hash.includes('/')||location.hash.endsWith('/1')) || location.hash.endsWith('/review'));
 let meaningOn=localStorage.getItem('nailtalk-meaning')==='true', subtitleLast=null;
 const enabled = step => STEPS.includes(step);
@@ -156,19 +160,19 @@ function shell(content) {
 function navigation() {
     return state.step==='summary'?'':`<nav class="nav" aria-label="Điều hướng bài học"><div class="nav-actions">${button('next','Tiếp tục','primary',!completeStep(state,state.step,lesson))}${button('skip','Bỏ qua','text-link')}</div></nav>`;
 }
-function openLesson(id){const s=progress[id];location.hash=`${id}/${s?.step||'1'}`;if(id===lessonId&&onHome)location.reload();}
+function openLesson(id){if(!AVAILABLE_LESSONS.includes(id))return;const s=progress[id];location.hash=`${id}/${s?.step||'1'}`;if(id===lessonId&&onHome)location.reload();}
 function renderHome() {
     stopMedia();playerConfigs.clear();document.body.classList.remove('in-lesson');scene.mount(null);
-    const id=continueLesson(progress),total=LESSON_ORDER.reduce((n,id)=>n+practiced(progress[id],content[id]).length,0);
+    const id=continueLesson(progress),total=AVAILABLE_LESSONS.reduce((n,id)=>n+practiced(progress[id],content[id]).length,0);
     const first=!LESSON_ORDER.some(id=>progress[id]?.visited?.length);
-    $('#app').innerHTML=`<section class="intro"><h1>Mỗi bài, dùng được ngay</h1><article class="lesson"><h2>Học tiếp</h2><p>${total}/32 câu đã luyện nói</p>${button('continue',first?'Bắt đầu Bài 1':`Học tiếp Bài ${LESSON_ORDER.indexOf(id)+1}`,'primary')}</article></section>${button('phrases','Sổ câu của tôi')}<div class="lessons">${LESSON_ORDER.map((id,n)=>{const p=catalog.find(p=>p.id===id);return `<article class="lesson"><span>Bài ${n+1}</span><h2>${escape(p.subtitle)}</h2><small>${escape(p.title)}</small><p>${escape(content[id].homeCanDo)}</p><p>${lessonStatus(progress[id],content[id])}</p>${button('start-'+id,'Mở bài')}</article>`;}).join('')}</div>${button('install','Cài lên màn hình chính','',!installPrompt)}`;
+    $('#app').innerHTML=`<section class="intro"><h1>Mỗi bài, dùng được ngay</h1><article class="lesson"><h2>Học tiếp</h2><p>${total}/${AVAILABLE_LESSONS.length*4} câu đã luyện nói</p>${button('continue',first?'Bắt đầu Bài 1':`Học tiếp Bài ${LESSON_ORDER.indexOf(id)+1}`,'primary')}</article></section>${button('phrases','Sổ câu của tôi')}<div class="lessons">${LESSON_ORDER.map((id,n)=>{const p=catalog.find(p=>p.id===id);return `<article class="lesson"><span>Bài ${n+1}</span><h2>${escape(p.subtitle)}</h2><small>${escape(p.title)}</small><p>${escape(content[id].homeCanDo)}</p><p>${AVAILABLE_LESSONS.includes(id)?lessonStatus(progress[id],content[id]):'Sắp có'}</p>${button('start-'+id,AVAILABLE_LESSONS.includes(id)?'Mở bài':'Sắp có','',!AVAILABLE_LESSONS.includes(id))}</article>`;}).join('')}</div>${button('install','Cài lên màn hình chính','',!installPrompt)}`;
     bind('continue',()=>openLesson(id));bind('phrases',()=>{location.hash='phrases';});
     for(const id of LESSON_ORDER)bind('start-'+id,()=>openLesson(id));
     bind('install',async()=>{await installPrompt?.prompt();installPrompt=null;renderHome();});
 }
 async function renderPhrases() {
     stopMedia();playerConfigs.clear();scene.mount(null);document.body.classList.remove('in-lesson');
-    const ids=LESSON_ORDER.filter(id=>reachedPhrases(progress[id]));
+    const ids=AVAILABLE_LESSONS.filter(id=>reachedPhrases(progress[id]));
     await Promise.all(ids.map(async id=>{extraPacks[id]||=await (await fetch(`./packs/${id}/pack.json`)).json();}));
     $('#app').innerHTML=`<h1>Sổ câu của tôi</h1>${ids.length?ids.map(id=>`<section><h2>Bài ${LESSON_ORDER.indexOf(id)+1} · ${escape(catalog.find(p=>p.id===id).subtitle)}</h2>${content[id].cards.map(c=>`<article class="phrase"><div class="cue-row">${playerHTML('phrase-'+c.cue,[c.cue],{compact:true,sourcePack:extraPacks[id],label:'Nghe câu trong sổ'})}<p class="target">${escape(c.english)}</p></div><p>${escape(c.vietnamese)}</p><p>${escape(c.useWhen)}</p></article>`).join('')}</section>`).join(''):'<p>Học đến phần Câu và từ, câu của bạn sẽ ở đây.</p>'}`;
     mountPlayers();
@@ -282,7 +286,7 @@ function bindStep() {
     [0,1,2].forEach(n=>bind('confidence'+n,()=>{state.confidence=['Tự nói được','Cần nghe mẫu','Muốn luyện lại'][n];render();}));
     bind('again',()=>nav('1'));
     bind('phrases',()=>{location.hash='phrases';});
-    bind('next-lesson',()=>openLesson(LESSON_ORDER[LESSON_ORDER.indexOf(lessonId)+1]||LESSON_ORDER[0]));
+    bind('next-lesson',()=>openLesson(AVAILABLE_LESSONS[AVAILABLE_LESSONS.indexOf(lessonId)+1]||AVAILABLE_LESSONS[0]));
 }
 const safety = [
  {text:'Khách báo rát',models:['V2_S06_LINH_25'],reply:'V2_S06_LINDA_01',note:'Dừng trước, chỉ hỏi vị trí khi cần, rồi báo quản lý.'},
@@ -498,8 +502,8 @@ async function workerMessage(type, extra = {}) {
 }
 function offlineStatus(data) {
     if (!data || data.type !== 'OFFLINE_PROGRESS') return;
-    $('#offline').textContent = data.ready ? 'Sẵn sàng ngoại tuyến · 8/8 bài' : data.error ? 'Chưa tải xong. Chọn Tải lại bài để thử lại.' : !data.downloading ? 'Mở bài học để tải nội dung ngoại tuyến.' : `Đang tải bài cho dùng offline… ${data.completed}/8`;
-    $('#offline-progress').textContent = data.ready || data.error || !data.downloading ? '' : `Đang tải bài cho dùng offline… ${data.completed}/8`;
+    $('#offline').textContent = data.ready ? `Sẵn sàng ngoại tuyến · ${AVAILABLE_LESSONS.length}/${AVAILABLE_LESSONS.length} bài` : data.error ? 'Chưa tải xong. Chọn Tải lại bài để thử lại.' : !data.downloading ? 'Mở bài học để tải nội dung ngoại tuyến.' : `Đang tải bài cho dùng offline… ${data.completed}/${AVAILABLE_LESSONS.length}`;
+    $('#offline-progress').textContent = data.ready || data.error || !data.downloading ? '' : `Đang tải bài cho dùng offline… ${data.completed}/${AVAILABLE_LESSONS.length}`;
 }
 async function checkOffline() {
     try {

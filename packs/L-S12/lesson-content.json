@@ -1,0 +1,129 @@
+{
+  "sceneSetter": "Amy nhìn lại móng và nói chuyện với Linh.",
+  "homeCanDo": "Sau bài này bạn nói được: hỏi chỗ khách muốn sửa và xin phép sửa đúng phần đó.",
+  "review": {
+    "lesson": "L-S11",
+    "cues": [
+      "B82_S11_D06",
+      "B82_S11_D08"
+    ]
+  },
+  "safetyRequired": false,
+  "canDo": "hỏi chỗ khách muốn sửa và xin phép sửa đúng phần đó.",
+  "comprehension": [
+    {
+      "focus": "Amy sẽ làm gì ở thư viện?",
+      "listen": [
+        "B82_S12_D01",
+        "B82_S12_D02",
+        "B82_S12_D03",
+        "B82_S12_D04",
+        "B82_S12_D05"
+      ],
+      "question": "Amy sẽ làm gì ở thư viện?",
+      "options": [
+        "Đọc cho trẻ",
+        "Thi đàn",
+        "Sửa áo"
+      ],
+      "key": 0,
+      "correct": "Đúng rồi: Đọc cho trẻ",
+      "retry": "Nghe lại lượt 1–5 rồi thử lại nhé."
+    },
+    {
+      "focus": "Móng nào cần sửa?",
+      "listen": [
+        "B82_S12_D07",
+        "B82_S12_D08",
+        "B82_S12_D09",
+        "B82_S12_D10",
+        "B82_S12_D11"
+      ],
+      "question": "Móng nào cần sửa?",
+      "options": [
+        "Cái phải",
+        "Cái trái",
+        "Tất cả"
+      ],
+      "key": 1,
+      "correct": "Đúng rồi: Cái trái",
+      "retry": "Nghe lại lượt 7–11 rồi thử lại nhé."
+    },
+    {
+      "focus": "Linh được phép sửa phần nào?",
+      "listen": [
+        "B82_S12_D11",
+        "B82_S12_D12",
+        "B82_S12_D13",
+        "B82_S12_D14",
+        "B82_S12_D15",
+        "B82_S12_D16"
+      ],
+      "question": "Linh được phép sửa phần nào?",
+      "options": [
+        "Đổi toàn bộ màu",
+        "Cắt ngắn tất cả",
+        "Vệt ở một móng đã xác nhận"
+      ],
+      "key": 2,
+      "correct": "Đúng rồi: Vệt ở một móng đã xác nhận",
+      "retry": "Nghe lại lượt 11–16 rồi thử lại nhé."
+    }
+  ],
+  "cards": [
+    {
+      "focus": "Chị chỉ giúp em móng nào nhé?",
+      "cue": "B82_S12_D08",
+      "english": "Can you show me which nail?",
+      "vietnamese": "Chị chỉ giúp em móng nào nhé?",
+      "useWhen": "Dùng khi: Góp ý về bề mặt sơn, không đau/rát.",
+      "vocabulary": "nail → móng; show me → chỉ cho em",
+      "note": "Dùng khi: Góp ý về bề mặt sơn, không đau/rát. <br> Đổi từ: which nail → the spot: Can you show me the spot? Không đổi nail thành finger trong câu hỏi sửa sơn.",
+      "check": "Tôi đã mời khách chỉ đúng móng."
+    },
+    {
+      "focus": "Ngón cái trái, đúng không chị?",
+      "cue": "B82_S12_D10",
+      "english": "Your left thumb, right?",
+      "vietnamese": "Ngón cái trái, đúng không chị?",
+      "useWhen": "Dùng khi: Đọc lại đúng vị trí khách chỉ.",
+      "vocabulary": "left → trái; thumb → ngón cái",
+      "note": "Dùng khi: Đọc lại đúng vị trí khách chỉ. <br> Đổi từ: left → right; thumb → index finger.",
+      "check": "Tôi đã xác nhận đúng bên/ngón khách chỉ."
+    },
+    {
+      "focus": "Em sửa chỗ đó được không chị?",
+      "cue": "B82_S12_D12",
+      "english": "Can I fix that?",
+      "vietnamese": "Em sửa chỗ đó được không chị?",
+      "useWhen": "Dùng khi: Chờ đồng ý trước khi sửa.",
+      "vocabulary": "fix → sửa; that → chỗ khách vừa chỉ",
+      "note": "Dùng khi: Chờ đồng ý trước khi sửa. <br> Đổi từ: Không thay that bằng tên lỗi chưa xác nhận; chỉ đúng chỗ và chờ đồng ý.",
+      "check": "Tôi đã xin phép sửa và chờ đồng ý."
+    },
+    {
+      "focus": "Giờ nhìn ổn hơn chưa chị?",
+      "cue": "B82_S12_D16",
+      "english": "Does that look better?",
+      "vietnamese": "Giờ nhìn ổn hơn chưa chị?",
+      "useWhen": "Dùng khi: Mời khách kiểm tra lại kết quả.",
+      "vocabulary": "look → trông; better → đẹp/ổn hơn",
+      "note": "Dùng khi: Mời khách kiểm tra lại kết quả. <br> Đổi từ: Giữ nguyên câu kiểm kết quả; không dạy cảm nhận bằng cách chạm sơn.",
+      "check": "Tôi đã hỏi khách kiểm kết quả sau sửa."
+    }
+  ],
+  "recognition": [],
+  "turns": [
+    {
+      "prompts": [
+        "B82_S12_T1"
+      ],
+      "models": [
+        "B82_S12_M1"
+      ],
+      "instruction": "Thẻ VN: không có đau/rát; chỉ góp ý bề mặt, hỏi vị trí rồi xin phép.",
+      "check": "Đúng bên phải và ngón trỏ; xin đồng ý trước sửa, không sửa toàn bộ.",
+      "retry": "nghe lại prompt, kiểm tra chi tiết đã đổi rồi nói lại. Không tính nghe đúng là nói được."
+    }
+  ]
+}

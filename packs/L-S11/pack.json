@@ -1,0 +1,2694 @@
+{
+  "id": "L-S11",
+  "title": "Linda keeps her keys handy",
+  "subtitle": "Linda để sẵn chìa khóa",
+  "estimated_minutes": 8,
+  "pack_version": "APP_PROTO_v019-DRAFT-1_L-S11",
+  "rubric_version": "lesson-set-v3.2",
+  "available": true,
+  "homeCanDo": "Sau bài này bạn nói được: nhắc khách giữ tay yên, báo sơn chưa khô và đề nghị giúp lấy đồ.",
+  "status": "DRAFT",
+  "schema_version": 1,
+  "min_shell_version": 1,
+  "cues": {
+    "B82_S11_D01": {
+      "id": "B82_S11_D01",
+      "speaker": "Linda",
+      "english": "I'm picking up my coat from the tailor today.",
+      "vietnamese": "Hôm nay chị đi lấy áo khoác ở tiệm sửa đồ.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D01.ogg",
+      "audio_fallback": "audio/B82_S11_D01.mp3",
+      "duration_ms": 2140,
+      "status": "DRAFT"
+    },
+    "B82_S11_D02": {
+      "id": "B82_S11_D02",
+      "speaker": "Linh",
+      "english": "What did they fix?",
+      "vietnamese": "Họ sửa chỗ nào cho chị ạ?",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D02.ogg",
+      "audio_fallback": "audio/B82_S11_D02.mp3",
+      "duration_ms": 1210,
+      "status": "DRAFT"
+    },
+    "B82_S11_D03": {
+      "id": "B82_S11_D03",
+      "speaker": "Linda",
+      "english": "Just the sleeves. They covered half my hands.",
+      "vietnamese": "Ừ, chỉ sửa tay áo thôi. Nó che mất nửa bàn tay chị.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D03.ogg",
+      "audio_fallback": "audio/B82_S11_D03.mp3",
+      "duration_ms": 3070,
+      "status": "DRAFT"
+    },
+    "B82_S11_D04": {
+      "id": "B82_S11_D04",
+      "speaker": "Linh",
+      "english": "Now you'll be able to find your hands again.",
+      "vietnamese": "Giờ chị lại tìm thấy tay mình rồi.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D04.ogg",
+      "audio_fallback": "audio/B82_S11_D04.mp3",
+      "duration_ms": 2340,
+      "status": "DRAFT"
+    },
+    "B82_S11_D05": {
+      "id": "B82_S11_D05",
+      "speaker": "Linda",
+      "english": "Exactly. Let me get my keys before I put it on.",
+      "vietnamese": "Đúng đấy. Để chị lấy chìa khóa trước khi mặc áo.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D05.ogg",
+      "audio_fallback": "audio/B82_S11_D05.mp3",
+      "duration_ms": 3170,
+      "status": "DRAFT"
+    },
+    "B82_S11_D06": {
+      "id": "B82_S11_D06",
+      "speaker": "Linh",
+      "english": "The polish isn't dry yet.",
+      "vietnamese": "Sơn vẫn chưa khô chị nhé.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D06.ogg",
+      "audio_fallback": "audio/B82_S11_D06.mp3",
+      "duration_ms": 1900,
+      "status": "DRAFT"
+    },
+    "B82_S11_D07": {
+      "id": "B82_S11_D07",
+      "speaker": "Linda",
+      "english": "I'd better not dig around, then.",
+      "vietnamese": "Vậy chị chưa nên lục túi.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D07.ogg",
+      "audio_fallback": "audio/B82_S11_D07.mp3",
+      "duration_ms": 1650,
+      "status": "DRAFT"
+    },
+    "B82_S11_D08": {
+      "id": "B82_S11_D08",
+      "speaker": "Linh",
+      "english": "Please keep your hands still.",
+      "vietnamese": "Chị giữ tay yên nhé.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D08.ogg",
+      "audio_fallback": "audio/B82_S11_D08.mp3",
+      "duration_ms": 1740,
+      "status": "DRAFT"
+    },
+    "B82_S11_D09": {
+      "id": "B82_S11_D09",
+      "speaker": "Linda",
+      "english": "Could you help? They're in the side pocket.",
+      "vietnamese": "Em giúp chị nhé? Chìa khóa ở ngăn bên hông.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D09.ogg",
+      "audio_fallback": "audio/B82_S11_D09.mp3",
+      "duration_ms": 2240,
+      "status": "DRAFT"
+    },
+    "B82_S11_D10": {
+      "id": "B82_S11_D10",
+      "speaker": "Linh",
+      "english": "Can I get your keys?",
+      "vietnamese": "Em lấy chìa khóa giúp chị nhé?",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D10.ogg",
+      "audio_fallback": "audio/B82_S11_D10.mp3",
+      "duration_ms": 1310,
+      "status": "DRAFT"
+    },
+    "B82_S11_D11": {
+      "id": "B82_S11_D11",
+      "speaker": "Linda",
+      "english": "Yes, please. The little pocket on the outside.",
+      "vietnamese": "Ừ em. Cái ngăn nhỏ ở ngoài ấy.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D11.ogg",
+      "audio_fallback": "audio/B82_S11_D11.mp3",
+      "duration_ms": 2980,
+      "status": "DRAFT"
+    },
+    "B82_S11_D12": {
+      "id": "B82_S11_D12",
+      "speaker": "Linh",
+      "english": "This pocket? I'll only take the keys.",
+      "vietnamese": "Ngăn này ạ? Em chỉ lấy chìa khóa thôi.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D12.ogg",
+      "audio_fallback": "audio/B82_S11_D12.mp3",
+      "duration_ms": 2570,
+      "status": "DRAFT"
+    },
+    "B82_S11_D13": {
+      "id": "B82_S11_D13",
+      "speaker": "Linda",
+      "english": "That's it. You can put them beside my bag.",
+      "vietnamese": "Đúng rồi. Em để cạnh túi giúp chị nhé.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D13.ogg",
+      "audio_fallback": "audio/B82_S11_D13.mp3",
+      "duration_ms": 2670,
+      "status": "DRAFT"
+    },
+    "B82_S11_D14": {
+      "id": "B82_S11_D14",
+      "speaker": "Linh",
+      "english": "Here they are, away from the wet polish.",
+      "vietnamese": "Chìa khóa đây chị, em để xa chỗ sơn còn ướt.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D14.ogg",
+      "audio_fallback": "audio/B82_S11_D14.mp3",
+      "duration_ms": 2580,
+      "status": "DRAFT"
+    },
+    "B82_S11_D15": {
+      "id": "B82_S11_D15",
+      "speaker": "Linda",
+      "english": "Thank you. Can I go now?",
+      "vietnamese": "Cảm ơn em. Giờ chị đi được chưa?",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D15.ogg",
+      "audio_fallback": "audio/B82_S11_D15.mp3",
+      "duration_ms": 1880,
+      "status": "DRAFT"
+    },
+    "B82_S11_D16": {
+      "id": "B82_S11_D16",
+      "speaker": "Linh",
+      "english": "Let's check before you go.",
+      "vietnamese": "Mình kiểm tra trước khi chị về nhé.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D16.ogg",
+      "audio_fallback": "audio/B82_S11_D16.mp3",
+      "duration_ms": 1530,
+      "status": "DRAFT"
+    },
+    "B82_S11_D17": {
+      "id": "B82_S11_D17",
+      "speaker": "Linda",
+      "english": "Good idea. I don't want a mark on my new sleeves.",
+      "vietnamese": "Ừ. Chị không muốn làm lem tay áo mới sửa.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D17.ogg",
+      "audio_fallback": "audio/B82_S11_D17.mp3",
+      "duration_ms": 2970,
+      "status": "DRAFT"
+    },
+    "B82_S11_D18": {
+      "id": "B82_S11_D18",
+      "speaker": "Linh",
+      "english": "And we want to keep your polish smooth.",
+      "vietnamese": "Mình cũng muốn giữ lớp sơn đẹp nữa chị.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D18.ogg",
+      "audio_fallback": "audio/B82_S11_D18.mp3",
+      "duration_ms": 2220,
+      "status": "DRAFT"
+    },
+    "B82_S11_D19": {
+      "id": "B82_S11_D19",
+      "speaker": "Linda",
+      "english": "The coat can wait a few more minutes.",
+      "vietnamese": "Áo khoác chờ thêm vài phút cũng được.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D19.ogg",
+      "audio_fallback": "audio/B82_S11_D19.mp3",
+      "duration_ms": 1870,
+      "status": "DRAFT"
+    },
+    "B82_S11_D20": {
+      "id": "B82_S11_D20",
+      "speaker": "Linh",
+      "english": "You can rest your hands here.",
+      "vietnamese": "Chị để tay nghỉ ở đây nhé.",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_D20.ogg",
+      "audio_fallback": "audio/B82_S11_D20.mp3",
+      "duration_ms": 1660,
+      "status": "DRAFT"
+    },
+    "B82_S11_M1": {
+      "id": "B82_S11_M1",
+      "speaker": "Linh",
+      "english": "Can I put your bag here? The polish isn’t dry yet.",
+      "vietnamese": "",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_M1.ogg",
+      "audio_fallback": "audio/B82_S11_M1.mp3",
+      "duration_ms": 3050,
+      "status": "DRAFT"
+    },
+    "B82_S11_T1": {
+      "id": "B82_S11_T1",
+      "speaker": "Linda",
+      "english": "Could you get my bag instead?",
+      "vietnamese": "",
+      "lesson": "L-S11",
+      "audio": "audio/B82_S11_T1.ogg",
+      "audio_fallback": "audio/B82_S11_T1.mp3",
+      "duration_ms": 1490,
+      "status": "DRAFT"
+    }
+  },
+  "visemes": {
+    "B82_S11_D01": {
+      "character": "linda",
+      "duration": 2.14,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D01.wav",
+      "sha256_wav": "61633aa60251670496cbd7d7c54a13f693f1be8c0411e49cf0fbc43a475a13ed",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.07,
+          "value": "X"
+        },
+        {
+          "start": 0.07,
+          "end": 0.15,
+          "value": "C"
+        },
+        {
+          "start": 0.15,
+          "end": 0.23,
+          "value": "A"
+        },
+        {
+          "start": 0.23,
+          "end": 0.51,
+          "value": "B"
+        },
+        {
+          "start": 0.51,
+          "end": 0.62,
+          "value": "A"
+        },
+        {
+          "start": 0.62,
+          "end": 0.67,
+          "value": "C"
+        },
+        {
+          "start": 0.67,
+          "end": 0.86,
+          "value": "E"
+        },
+        {
+          "start": 0.86,
+          "end": 1.07,
+          "value": "B"
+        },
+        {
+          "start": 1.07,
+          "end": 1.15,
+          "value": "A"
+        },
+        {
+          "start": 1.15,
+          "end": 1.22,
+          "value": "B"
+        },
+        {
+          "start": 1.22,
+          "end": 1.35,
+          "value": "C"
+        },
+        {
+          "start": 1.35,
+          "end": 1.42,
+          "value": "B"
+        },
+        {
+          "start": 1.42,
+          "end": 1.56,
+          "value": "E"
+        },
+        {
+          "start": 1.56,
+          "end": 1.7,
+          "value": "B"
+        },
+        {
+          "start": 1.7,
+          "end": 1.91,
+          "value": "C"
+        },
+        {
+          "start": 1.91,
+          "end": 2.05,
+          "value": "B"
+        },
+        {
+          "start": 2.05,
+          "end": 2.14,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D02": {
+      "character": "linh",
+      "duration": 1.21,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D02.wav",
+      "sha256_wav": "b9fef7bc7ae2d55a1457f6cb99cd378e01bb694218348b9d485211a70bcf719e",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.16,
+          "value": "F"
+        },
+        {
+          "start": 0.16,
+          "end": 0.21,
+          "value": "C"
+        },
+        {
+          "start": 0.21,
+          "end": 0.49,
+          "value": "B"
+        },
+        {
+          "start": 0.49,
+          "end": 0.56,
+          "value": "C"
+        },
+        {
+          "start": 0.56,
+          "end": 0.63,
+          "value": "B"
+        },
+        {
+          "start": 0.63,
+          "end": 0.7,
+          "value": "B"
+        },
+        {
+          "start": 0.7,
+          "end": 1.12,
+          "value": "B"
+        },
+        {
+          "start": 1.12,
+          "end": 1.21,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D03": {
+      "character": "linda",
+      "duration": 3.07,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D03.wav",
+      "sha256_wav": "0fe0ac1e07515de060b79526054f9163180d9b9fda819c97b0dff549de25184c",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.11,
+          "value": "X"
+        },
+        {
+          "start": 0.11,
+          "end": 0.23,
+          "value": "B"
+        },
+        {
+          "start": 0.23,
+          "end": 0.37,
+          "value": "C"
+        },
+        {
+          "start": 0.37,
+          "end": 0.93,
+          "value": "B"
+        },
+        {
+          "start": 0.93,
+          "end": 1.0,
+          "value": "B"
+        },
+        {
+          "start": 1.0,
+          "end": 1.55,
+          "value": "B"
+        },
+        {
+          "start": 1.55,
+          "end": 1.82,
+          "value": "C"
+        },
+        {
+          "start": 1.82,
+          "end": 1.89,
+          "value": "B"
+        },
+        {
+          "start": 1.89,
+          "end": 1.96,
+          "value": "B"
+        },
+        {
+          "start": 1.96,
+          "end": 2.17,
+          "value": "C"
+        },
+        {
+          "start": 2.17,
+          "end": 2.24,
+          "value": "B"
+        },
+        {
+          "start": 2.24,
+          "end": 2.32,
+          "value": "A"
+        },
+        {
+          "start": 2.32,
+          "end": 2.37,
+          "value": "C"
+        },
+        {
+          "start": 2.37,
+          "end": 2.42,
+          "value": "B"
+        },
+        {
+          "start": 2.42,
+          "end": 2.7,
+          "value": "C"
+        },
+        {
+          "start": 2.7,
+          "end": 2.98,
+          "value": "B"
+        },
+        {
+          "start": 2.98,
+          "end": 3.07,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D04": {
+      "character": "linh",
+      "duration": 2.34,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D04.wav",
+      "sha256_wav": "2a444df25ff63e55f0e0989597d234d2aa3db3512c2dd9021e7f50195ab5f782",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.2,
+          "value": "C"
+        },
+        {
+          "start": 0.2,
+          "end": 0.41,
+          "value": "D"
+        },
+        {
+          "start": 0.41,
+          "end": 0.55,
+          "value": "E"
+        },
+        {
+          "start": 0.55,
+          "end": 0.62,
+          "value": "F"
+        },
+        {
+          "start": 0.62,
+          "end": 0.7,
+          "value": "A"
+        },
+        {
+          "start": 0.7,
+          "end": 0.86,
+          "value": "B"
+        },
+        {
+          "start": 0.86,
+          "end": 0.95,
+          "value": "A"
+        },
+        {
+          "start": 0.95,
+          "end": 1.0,
+          "value": "B"
+        },
+        {
+          "start": 1.0,
+          "end": 1.12,
+          "value": "F"
+        },
+        {
+          "start": 1.12,
+          "end": 1.26,
+          "value": "B"
+        },
+        {
+          "start": 1.26,
+          "end": 1.33,
+          "value": "B"
+        },
+        {
+          "start": 1.33,
+          "end": 1.47,
+          "value": "F"
+        },
+        {
+          "start": 1.47,
+          "end": 1.54,
+          "value": "B"
+        },
+        {
+          "start": 1.54,
+          "end": 2.24,
+          "value": "C"
+        },
+        {
+          "start": 2.24,
+          "end": 2.34,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D05": {
+      "character": "linda",
+      "duration": 3.17,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D05.wav",
+      "sha256_wav": "2fbb7734b950fff24dc568b26efc55fa1bf1485135f98eb980916ca69376b3a7",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.31,
+          "value": "B"
+        },
+        {
+          "start": 0.31,
+          "end": 0.45,
+          "value": "C"
+        },
+        {
+          "start": 0.45,
+          "end": 1.16,
+          "value": "B"
+        },
+        {
+          "start": 1.16,
+          "end": 1.25,
+          "value": "C"
+        },
+        {
+          "start": 1.25,
+          "end": 1.32,
+          "value": "B"
+        },
+        {
+          "start": 1.32,
+          "end": 1.4,
+          "value": "A"
+        },
+        {
+          "start": 1.4,
+          "end": 1.48,
+          "value": "C"
+        },
+        {
+          "start": 1.48,
+          "end": 1.55,
+          "value": "B"
+        },
+        {
+          "start": 1.55,
+          "end": 1.63,
+          "value": "A"
+        },
+        {
+          "start": 1.63,
+          "end": 1.69,
+          "value": "C"
+        },
+        {
+          "start": 1.69,
+          "end": 2.02,
+          "value": "B"
+        },
+        {
+          "start": 2.02,
+          "end": 2.1,
+          "value": "A"
+        },
+        {
+          "start": 2.1,
+          "end": 2.19,
+          "value": "B"
+        },
+        {
+          "start": 2.19,
+          "end": 2.26,
+          "value": "B"
+        },
+        {
+          "start": 2.26,
+          "end": 2.33,
+          "value": "E"
+        },
+        {
+          "start": 2.33,
+          "end": 2.4,
+          "value": "C"
+        },
+        {
+          "start": 2.4,
+          "end": 2.48,
+          "value": "A"
+        },
+        {
+          "start": 2.48,
+          "end": 2.58,
+          "value": "F"
+        },
+        {
+          "start": 2.58,
+          "end": 2.72,
+          "value": "B"
+        },
+        {
+          "start": 2.72,
+          "end": 3.0,
+          "value": "D"
+        },
+        {
+          "start": 3.0,
+          "end": 3.07,
+          "value": "C"
+        },
+        {
+          "start": 3.07,
+          "end": 3.17,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D06": {
+      "character": "linh",
+      "duration": 1.9,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D06.wav",
+      "sha256_wav": "d5bbf18752d3f73f733c4f4eee65df760eb5b684e83279d1b5092694adfd1831",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.04,
+          "value": "X"
+        },
+        {
+          "start": 0.04,
+          "end": 0.12,
+          "value": "B"
+        },
+        {
+          "start": 0.12,
+          "end": 0.2,
+          "value": "A"
+        },
+        {
+          "start": 0.2,
+          "end": 0.41,
+          "value": "D"
+        },
+        {
+          "start": 0.41,
+          "end": 0.46,
+          "value": "C"
+        },
+        {
+          "start": 0.46,
+          "end": 0.92,
+          "value": "B"
+        },
+        {
+          "start": 0.92,
+          "end": 0.99,
+          "value": "C"
+        },
+        {
+          "start": 0.99,
+          "end": 1.27,
+          "value": "B"
+        },
+        {
+          "start": 1.27,
+          "end": 1.34,
+          "value": "C"
+        },
+        {
+          "start": 1.34,
+          "end": 1.41,
+          "value": "B"
+        },
+        {
+          "start": 1.41,
+          "end": 1.62,
+          "value": "C"
+        },
+        {
+          "start": 1.62,
+          "end": 1.83,
+          "value": "B"
+        },
+        {
+          "start": 1.83,
+          "end": 1.9,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D07": {
+      "character": "linda",
+      "duration": 1.65,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D07.wav",
+      "sha256_wav": "47674b80594484d8b4f54354d926e09bd77f47797a0c38826d89906b0c652d05",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.14,
+          "value": "C"
+        },
+        {
+          "start": 0.14,
+          "end": 0.19,
+          "value": "B"
+        },
+        {
+          "start": 0.19,
+          "end": 0.27,
+          "value": "A"
+        },
+        {
+          "start": 0.27,
+          "end": 0.36,
+          "value": "C"
+        },
+        {
+          "start": 0.36,
+          "end": 0.5,
+          "value": "B"
+        },
+        {
+          "start": 0.5,
+          "end": 0.57,
+          "value": "D"
+        },
+        {
+          "start": 0.57,
+          "end": 0.78,
+          "value": "B"
+        },
+        {
+          "start": 0.78,
+          "end": 0.99,
+          "value": "E"
+        },
+        {
+          "start": 0.99,
+          "end": 1.06,
+          "value": "C"
+        },
+        {
+          "start": 1.06,
+          "end": 1.13,
+          "value": "E"
+        },
+        {
+          "start": 1.13,
+          "end": 1.27,
+          "value": "B"
+        },
+        {
+          "start": 1.27,
+          "end": 1.55,
+          "value": "C"
+        },
+        {
+          "start": 1.55,
+          "end": 1.65,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D08": {
+      "character": "linh",
+      "duration": 1.74,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D08.wav",
+      "sha256_wav": "0c4eca58465a435848f42d9b1eb1c2f926fa91584e1e74a416947ae59f31d7ab",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.01,
+          "value": "X"
+        },
+        {
+          "start": 0.01,
+          "end": 0.09,
+          "value": "A"
+        },
+        {
+          "start": 0.09,
+          "end": 0.61,
+          "value": "B"
+        },
+        {
+          "start": 0.61,
+          "end": 0.69,
+          "value": "A"
+        },
+        {
+          "start": 0.69,
+          "end": 0.83,
+          "value": "F"
+        },
+        {
+          "start": 0.83,
+          "end": 0.9,
+          "value": "B"
+        },
+        {
+          "start": 0.9,
+          "end": 1.18,
+          "value": "C"
+        },
+        {
+          "start": 1.18,
+          "end": 1.67,
+          "value": "B"
+        },
+        {
+          "start": 1.67,
+          "end": 1.74,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D09": {
+      "character": "linda",
+      "duration": 2.24,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D09.wav",
+      "sha256_wav": "3e2d178287ad7e72e25edc9c31e4acea8ed4814da5534ca52fd245394ec9ff5e",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.04,
+          "value": "X"
+        },
+        {
+          "start": 0.04,
+          "end": 0.35,
+          "value": "F"
+        },
+        {
+          "start": 0.35,
+          "end": 0.49,
+          "value": "C"
+        },
+        {
+          "start": 0.49,
+          "end": 0.56,
+          "value": "C"
+        },
+        {
+          "start": 0.56,
+          "end": 0.92,
+          "value": "A"
+        },
+        {
+          "start": 0.92,
+          "end": 0.99,
+          "value": "B"
+        },
+        {
+          "start": 0.99,
+          "end": 1.05,
+          "value": "C"
+        },
+        {
+          "start": 1.05,
+          "end": 1.47,
+          "value": "B"
+        },
+        {
+          "start": 1.47,
+          "end": 1.55,
+          "value": "A"
+        },
+        {
+          "start": 1.55,
+          "end": 1.72,
+          "value": "D"
+        },
+        {
+          "start": 1.72,
+          "end": 1.93,
+          "value": "C"
+        },
+        {
+          "start": 1.93,
+          "end": 2.14,
+          "value": "B"
+        },
+        {
+          "start": 2.14,
+          "end": 2.24,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D10": {
+      "character": "linh",
+      "duration": 1.31,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D10.wav",
+      "sha256_wav": "7137bc24ea7952a94fb2befa9022bc7f8a782d99c901b2bdbccbf19b2a01e850",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.05,
+          "value": "X"
+        },
+        {
+          "start": 0.05,
+          "end": 0.4,
+          "value": "C"
+        },
+        {
+          "start": 0.4,
+          "end": 0.47,
+          "value": "B"
+        },
+        {
+          "start": 0.47,
+          "end": 0.61,
+          "value": "F"
+        },
+        {
+          "start": 0.61,
+          "end": 1.24,
+          "value": "B"
+        },
+        {
+          "start": 1.24,
+          "end": 1.31,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D11": {
+      "character": "linda",
+      "duration": 2.98,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D11.wav",
+      "sha256_wav": "90bda8d2516f34c8354d98445a4c1576f52a5503d7138edfe5d27f2f96bbf31b",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.32,
+          "value": "C"
+        },
+        {
+          "start": 0.32,
+          "end": 0.39,
+          "value": "B"
+        },
+        {
+          "start": 0.39,
+          "end": 0.47,
+          "value": "A"
+        },
+        {
+          "start": 0.47,
+          "end": 1.0,
+          "value": "B"
+        },
+        {
+          "start": 1.0,
+          "end": 1.28,
+          "value": "X"
+        },
+        {
+          "start": 1.28,
+          "end": 1.32,
+          "value": "B"
+        },
+        {
+          "start": 1.32,
+          "end": 1.36,
+          "value": "C"
+        },
+        {
+          "start": 1.36,
+          "end": 1.57,
+          "value": "B"
+        },
+        {
+          "start": 1.57,
+          "end": 1.65,
+          "value": "A"
+        },
+        {
+          "start": 1.65,
+          "end": 1.84,
+          "value": "D"
+        },
+        {
+          "start": 1.84,
+          "end": 1.98,
+          "value": "C"
+        },
+        {
+          "start": 1.98,
+          "end": 2.12,
+          "value": "D"
+        },
+        {
+          "start": 2.12,
+          "end": 2.61,
+          "value": "B"
+        },
+        {
+          "start": 2.61,
+          "end": 2.68,
+          "value": "D"
+        },
+        {
+          "start": 2.68,
+          "end": 2.89,
+          "value": "B"
+        },
+        {
+          "start": 2.89,
+          "end": 2.98,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D12": {
+      "character": "linh",
+      "duration": 2.57,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D12.wav",
+      "sha256_wav": "d0ae63b0f34d63441e681cf45e76dfdf0d1b1e51d8529d6fa533da69770f31cb",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.31,
+          "value": "B"
+        },
+        {
+          "start": 0.31,
+          "end": 0.39,
+          "value": "A"
+        },
+        {
+          "start": 0.39,
+          "end": 0.58,
+          "value": "D"
+        },
+        {
+          "start": 0.58,
+          "end": 0.72,
+          "value": "C"
+        },
+        {
+          "start": 0.72,
+          "end": 0.86,
+          "value": "B"
+        },
+        {
+          "start": 0.86,
+          "end": 1.0,
+          "value": "C"
+        },
+        {
+          "start": 1.0,
+          "end": 1.24,
+          "value": "B"
+        },
+        {
+          "start": 1.24,
+          "end": 1.31,
+          "value": "C"
+        },
+        {
+          "start": 1.31,
+          "end": 1.51,
+          "value": "E"
+        },
+        {
+          "start": 1.51,
+          "end": 1.72,
+          "value": "B"
+        },
+        {
+          "start": 1.72,
+          "end": 1.86,
+          "value": "C"
+        },
+        {
+          "start": 1.86,
+          "end": 2.49,
+          "value": "B"
+        },
+        {
+          "start": 2.49,
+          "end": 2.57,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D13": {
+      "character": "linda",
+      "duration": 2.67,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D13.wav",
+      "sha256_wav": "de66a7a9bcda65ff208829e28ab5f7a0697b141a2c8cc0407a6ef776b2765a86",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.16,
+          "value": "B"
+        },
+        {
+          "start": 0.16,
+          "end": 0.22,
+          "value": "C"
+        },
+        {
+          "start": 0.22,
+          "end": 1.12,
+          "value": "B"
+        },
+        {
+          "start": 1.12,
+          "end": 1.28,
+          "value": "C"
+        },
+        {
+          "start": 1.28,
+          "end": 1.36,
+          "value": "A"
+        },
+        {
+          "start": 1.36,
+          "end": 1.53,
+          "value": "F"
+        },
+        {
+          "start": 1.53,
+          "end": 1.6,
+          "value": "C"
+        },
+        {
+          "start": 1.6,
+          "end": 1.68,
+          "value": "A"
+        },
+        {
+          "start": 1.68,
+          "end": 1.95,
+          "value": "B"
+        },
+        {
+          "start": 1.95,
+          "end": 2.03,
+          "value": "A"
+        },
+        {
+          "start": 2.03,
+          "end": 2.1,
+          "value": "C"
+        },
+        {
+          "start": 2.1,
+          "end": 2.17,
+          "value": "A"
+        },
+        {
+          "start": 2.17,
+          "end": 2.46,
+          "value": "C"
+        },
+        {
+          "start": 2.46,
+          "end": 2.6,
+          "value": "B"
+        },
+        {
+          "start": 2.6,
+          "end": 2.67,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D14": {
+      "character": "linh",
+      "duration": 2.58,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D14.wav",
+      "sha256_wav": "d9a0682fec700d3830d9628e85c906aa3cfab34994b4e7bf6b153134ff296a62",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.07,
+          "value": "X"
+        },
+        {
+          "start": 0.07,
+          "end": 0.26,
+          "value": "B"
+        },
+        {
+          "start": 0.26,
+          "end": 0.33,
+          "value": "C"
+        },
+        {
+          "start": 0.33,
+          "end": 0.4,
+          "value": "B"
+        },
+        {
+          "start": 0.4,
+          "end": 0.47,
+          "value": "D"
+        },
+        {
+          "start": 0.47,
+          "end": 1.03,
+          "value": "B"
+        },
+        {
+          "start": 1.03,
+          "end": 1.14,
+          "value": "C"
+        },
+        {
+          "start": 1.14,
+          "end": 1.21,
+          "value": "F"
+        },
+        {
+          "start": 1.21,
+          "end": 1.35,
+          "value": "C"
+        },
+        {
+          "start": 1.35,
+          "end": 1.42,
+          "value": "B"
+        },
+        {
+          "start": 1.42,
+          "end": 1.49,
+          "value": "B"
+        },
+        {
+          "start": 1.49,
+          "end": 1.56,
+          "value": "B"
+        },
+        {
+          "start": 1.56,
+          "end": 1.64,
+          "value": "A"
+        },
+        {
+          "start": 1.64,
+          "end": 1.71,
+          "value": "B"
+        },
+        {
+          "start": 1.71,
+          "end": 1.78,
+          "value": "F"
+        },
+        {
+          "start": 1.78,
+          "end": 1.85,
+          "value": "B"
+        },
+        {
+          "start": 1.85,
+          "end": 1.93,
+          "value": "A"
+        },
+        {
+          "start": 1.93,
+          "end": 2.14,
+          "value": "D"
+        },
+        {
+          "start": 2.14,
+          "end": 2.19,
+          "value": "C"
+        },
+        {
+          "start": 2.19,
+          "end": 2.51,
+          "value": "B"
+        },
+        {
+          "start": 2.51,
+          "end": 2.58,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D15": {
+      "character": "linda",
+      "duration": 1.88,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D15.wav",
+      "sha256_wav": "e65d3cea7966d51a676f91756f174ea3e696154af88095d2010d737ca7a7f6a4",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.23,
+          "value": "C"
+        },
+        {
+          "start": 0.23,
+          "end": 0.58,
+          "value": "F"
+        },
+        {
+          "start": 0.58,
+          "end": 0.84,
+          "value": "X"
+        },
+        {
+          "start": 0.84,
+          "end": 0.96,
+          "value": "B"
+        },
+        {
+          "start": 0.96,
+          "end": 1.17,
+          "value": "C"
+        },
+        {
+          "start": 1.17,
+          "end": 1.38,
+          "value": "E"
+        },
+        {
+          "start": 1.38,
+          "end": 1.45,
+          "value": "F"
+        },
+        {
+          "start": 1.45,
+          "end": 1.66,
+          "value": "C"
+        },
+        {
+          "start": 1.66,
+          "end": 1.8,
+          "value": "E"
+        },
+        {
+          "start": 1.8,
+          "end": 1.88,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D16": {
+      "character": "linh",
+      "duration": 1.53,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D16.wav",
+      "sha256_wav": "78880629134736782a89c5bda10350679b4ffcb279cfbd039c1587a88b9476c1",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.04,
+          "value": "X"
+        },
+        {
+          "start": 0.04,
+          "end": 0.16,
+          "value": "C"
+        },
+        {
+          "start": 0.16,
+          "end": 0.23,
+          "value": "C"
+        },
+        {
+          "start": 0.23,
+          "end": 0.51,
+          "value": "B"
+        },
+        {
+          "start": 0.51,
+          "end": 0.58,
+          "value": "C"
+        },
+        {
+          "start": 0.58,
+          "end": 0.65,
+          "value": "B"
+        },
+        {
+          "start": 0.65,
+          "end": 0.73,
+          "value": "A"
+        },
+        {
+          "start": 0.73,
+          "end": 0.82,
+          "value": "B"
+        },
+        {
+          "start": 0.82,
+          "end": 0.89,
+          "value": "B"
+        },
+        {
+          "start": 0.89,
+          "end": 0.96,
+          "value": "E"
+        },
+        {
+          "start": 0.96,
+          "end": 1.1,
+          "value": "F"
+        },
+        {
+          "start": 1.1,
+          "end": 1.38,
+          "value": "E"
+        },
+        {
+          "start": 1.38,
+          "end": 1.45,
+          "value": "F"
+        },
+        {
+          "start": 1.45,
+          "end": 1.53,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D17": {
+      "character": "linda",
+      "duration": 2.97,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D17.wav",
+      "sha256_wav": "cf31e46170e2bd77dc7bd201669ca12204f5ca06b8eaebcb48c6d0a95aad18cc",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.05,
+          "value": "X"
+        },
+        {
+          "start": 0.05,
+          "end": 0.25,
+          "value": "B"
+        },
+        {
+          "start": 0.25,
+          "end": 0.39,
+          "value": "C"
+        },
+        {
+          "start": 0.39,
+          "end": 0.6,
+          "value": "B"
+        },
+        {
+          "start": 0.6,
+          "end": 0.81,
+          "value": "D"
+        },
+        {
+          "start": 0.81,
+          "end": 1.05,
+          "value": "C"
+        },
+        {
+          "start": 1.05,
+          "end": 1.22,
+          "value": "B"
+        },
+        {
+          "start": 1.22,
+          "end": 1.29,
+          "value": "C"
+        },
+        {
+          "start": 1.29,
+          "end": 1.36,
+          "value": "B"
+        },
+        {
+          "start": 1.36,
+          "end": 1.43,
+          "value": "E"
+        },
+        {
+          "start": 1.43,
+          "end": 1.57,
+          "value": "F"
+        },
+        {
+          "start": 1.57,
+          "end": 1.64,
+          "value": "B"
+        },
+        {
+          "start": 1.64,
+          "end": 1.72,
+          "value": "A"
+        },
+        {
+          "start": 1.72,
+          "end": 1.78,
+          "value": "D"
+        },
+        {
+          "start": 1.78,
+          "end": 1.83,
+          "value": "B"
+        },
+        {
+          "start": 1.83,
+          "end": 1.93,
+          "value": "D"
+        },
+        {
+          "start": 1.93,
+          "end": 1.97,
+          "value": "C"
+        },
+        {
+          "start": 1.97,
+          "end": 2.05,
+          "value": "A"
+        },
+        {
+          "start": 2.05,
+          "end": 2.11,
+          "value": "C"
+        },
+        {
+          "start": 2.11,
+          "end": 2.31,
+          "value": "F"
+        },
+        {
+          "start": 2.31,
+          "end": 2.66,
+          "value": "B"
+        },
+        {
+          "start": 2.66,
+          "end": 2.73,
+          "value": "B"
+        },
+        {
+          "start": 2.73,
+          "end": 2.87,
+          "value": "B"
+        },
+        {
+          "start": 2.87,
+          "end": 2.97,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D18": {
+      "character": "linh",
+      "duration": 2.22,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D18.wav",
+      "sha256_wav": "2924b7c6a2b59d2309ffabce6549e80bdbb428d07b4d3930af35690211bc8a71",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.29,
+          "value": "C"
+        },
+        {
+          "start": 0.29,
+          "end": 0.34,
+          "value": "E"
+        },
+        {
+          "start": 0.34,
+          "end": 0.52,
+          "value": "F"
+        },
+        {
+          "start": 0.52,
+          "end": 0.66,
+          "value": "B"
+        },
+        {
+          "start": 0.66,
+          "end": 0.73,
+          "value": "F"
+        },
+        {
+          "start": 0.73,
+          "end": 0.8,
+          "value": "D"
+        },
+        {
+          "start": 0.8,
+          "end": 0.94,
+          "value": "F"
+        },
+        {
+          "start": 0.94,
+          "end": 1.08,
+          "value": "B"
+        },
+        {
+          "start": 1.08,
+          "end": 1.16,
+          "value": "A"
+        },
+        {
+          "start": 1.16,
+          "end": 1.3,
+          "value": "F"
+        },
+        {
+          "start": 1.3,
+          "end": 1.38,
+          "value": "A"
+        },
+        {
+          "start": 1.38,
+          "end": 1.52,
+          "value": "D"
+        },
+        {
+          "start": 1.52,
+          "end": 1.56,
+          "value": "C"
+        },
+        {
+          "start": 1.56,
+          "end": 1.82,
+          "value": "B"
+        },
+        {
+          "start": 1.82,
+          "end": 1.9,
+          "value": "A"
+        },
+        {
+          "start": 1.9,
+          "end": 2.18,
+          "value": "B"
+        },
+        {
+          "start": 2.18,
+          "end": 2.22,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D19": {
+      "character": "linda",
+      "duration": 1.87,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D19.wav",
+      "sha256_wav": "47c388a84b05b4b3dce19b8d2fdd9f5fe7a0b2f5faa59754e4e0dee0c4c8eb42",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.03,
+          "value": "X"
+        },
+        {
+          "start": 0.03,
+          "end": 0.1,
+          "value": "B"
+        },
+        {
+          "start": 0.1,
+          "end": 0.3,
+          "value": "E"
+        },
+        {
+          "start": 0.3,
+          "end": 0.37,
+          "value": "B"
+        },
+        {
+          "start": 0.37,
+          "end": 0.58,
+          "value": "C"
+        },
+        {
+          "start": 0.58,
+          "end": 0.65,
+          "value": "F"
+        },
+        {
+          "start": 0.65,
+          "end": 0.72,
+          "value": "C"
+        },
+        {
+          "start": 0.72,
+          "end": 0.79,
+          "value": "B"
+        },
+        {
+          "start": 0.79,
+          "end": 0.86,
+          "value": "C"
+        },
+        {
+          "start": 0.86,
+          "end": 1.0,
+          "value": "B"
+        },
+        {
+          "start": 1.0,
+          "end": 1.07,
+          "value": "F"
+        },
+        {
+          "start": 1.07,
+          "end": 1.15,
+          "value": "A"
+        },
+        {
+          "start": 1.15,
+          "end": 1.25,
+          "value": "E"
+        },
+        {
+          "start": 1.25,
+          "end": 1.33,
+          "value": "A"
+        },
+        {
+          "start": 1.33,
+          "end": 1.39,
+          "value": "B"
+        },
+        {
+          "start": 1.39,
+          "end": 1.51,
+          "value": "C"
+        },
+        {
+          "start": 1.51,
+          "end": 1.79,
+          "value": "B"
+        },
+        {
+          "start": 1.79,
+          "end": 1.87,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_D20": {
+      "character": "linh",
+      "duration": 1.66,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D20.wav",
+      "sha256_wav": "7f65d7b3290cd34f3366da058a495185915aa658c04f8c4f122702fc0850eb57",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.25,
+          "value": "F"
+        },
+        {
+          "start": 0.25,
+          "end": 0.6,
+          "value": "C"
+        },
+        {
+          "start": 0.6,
+          "end": 0.67,
+          "value": "B"
+        },
+        {
+          "start": 0.67,
+          "end": 0.74,
+          "value": "C"
+        },
+        {
+          "start": 0.74,
+          "end": 0.93,
+          "value": "F"
+        },
+        {
+          "start": 0.93,
+          "end": 0.98,
+          "value": "E"
+        },
+        {
+          "start": 0.98,
+          "end": 1.16,
+          "value": "C"
+        },
+        {
+          "start": 1.16,
+          "end": 1.58,
+          "value": "B"
+        },
+        {
+          "start": 1.58,
+          "end": 1.66,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_M1": {
+      "character": "linh",
+      "duration": 3.05,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_M1.wav",
+      "sha256_wav": "3d9694c267d24f077e5ab7e8e71cba2d723e4cf4ac773c3e857d10a5a8d751bb",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.05,
+          "value": "X"
+        },
+        {
+          "start": 0.05,
+          "end": 0.37,
+          "value": "C"
+        },
+        {
+          "start": 0.37,
+          "end": 0.45,
+          "value": "A"
+        },
+        {
+          "start": 0.45,
+          "end": 0.65,
+          "value": "F"
+        },
+        {
+          "start": 0.65,
+          "end": 0.73,
+          "value": "A"
+        },
+        {
+          "start": 0.73,
+          "end": 0.83,
+          "value": "C"
+        },
+        {
+          "start": 0.83,
+          "end": 1.39,
+          "value": "B"
+        },
+        {
+          "start": 1.39,
+          "end": 1.66,
+          "value": "X"
+        },
+        {
+          "start": 1.66,
+          "end": 1.74,
+          "value": "B"
+        },
+        {
+          "start": 1.74,
+          "end": 1.82,
+          "value": "A"
+        },
+        {
+          "start": 1.82,
+          "end": 1.95,
+          "value": "D"
+        },
+        {
+          "start": 1.95,
+          "end": 2.51,
+          "value": "B"
+        },
+        {
+          "start": 2.51,
+          "end": 2.58,
+          "value": "C"
+        },
+        {
+          "start": 2.58,
+          "end": 2.65,
+          "value": "B"
+        },
+        {
+          "start": 2.65,
+          "end": 2.79,
+          "value": "C"
+        },
+        {
+          "start": 2.79,
+          "end": 2.93,
+          "value": "B"
+        },
+        {
+          "start": 2.93,
+          "end": 3.05,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S11_T1": {
+      "character": "linda",
+      "duration": 1.49,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_T1.wav",
+      "sha256_wav": "595f8e3fde8183938187000f7de638d822b4c9026a7a175bcc360af1897b220b",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.19,
+          "value": "F"
+        },
+        {
+          "start": 0.19,
+          "end": 0.33,
+          "value": "C"
+        },
+        {
+          "start": 0.33,
+          "end": 0.4,
+          "value": "B"
+        },
+        {
+          "start": 0.4,
+          "end": 0.47,
+          "value": "A"
+        },
+        {
+          "start": 0.47,
+          "end": 0.54,
+          "value": "C"
+        },
+        {
+          "start": 0.54,
+          "end": 0.6,
+          "value": "A"
+        },
+        {
+          "start": 0.6,
+          "end": 0.75,
+          "value": "C"
+        },
+        {
+          "start": 0.75,
+          "end": 1.03,
+          "value": "B"
+        },
+        {
+          "start": 1.03,
+          "end": 1.24,
+          "value": "C"
+        },
+        {
+          "start": 1.24,
+          "end": 1.38,
+          "value": "B"
+        },
+        {
+          "start": 1.38,
+          "end": 1.49,
+          "value": "X"
+        }
+      ]
+    }
+  },
+  "dialogue": [
+    "B82_S11_D01",
+    "B82_S11_D02",
+    "B82_S11_D03",
+    "B82_S11_D04",
+    "B82_S11_D05",
+    "B82_S11_D06",
+    "B82_S11_D07",
+    "B82_S11_D08",
+    "B82_S11_D09",
+    "B82_S11_D10",
+    "B82_S11_D11",
+    "B82_S11_D12",
+    "B82_S11_D13",
+    "B82_S11_D14",
+    "B82_S11_D15",
+    "B82_S11_D16",
+    "B82_S11_D17",
+    "B82_S11_D18",
+    "B82_S11_D19",
+    "B82_S11_D20"
+  ],
+  "scene_gaps": {
+    "B82_S11_D01": 500,
+    "B82_S11_D02": 500,
+    "B82_S11_D03": 500,
+    "B82_S11_D04": 500,
+    "B82_S11_D05": 700,
+    "B82_S11_D06": 500,
+    "B82_S11_D07": 500,
+    "B82_S11_D08": 500,
+    "B82_S11_D09": 500,
+    "B82_S11_D10": 500,
+    "B82_S11_D11": 500,
+    "B82_S11_D12": 500,
+    "B82_S11_D13": 700,
+    "B82_S11_D14": 500,
+    "B82_S11_D15": 500,
+    "B82_S11_D16": 500,
+    "B82_S11_D17": 500,
+    "B82_S11_D18": 500,
+    "B82_S11_D19": 500
+  },
+  "geometry": {
+    "fit": "contain",
+    "width": 1920,
+    "height": 1080
+  },
+  "scene": {
+    "full": "scene-1920.webp",
+    "small": "scene-960.webp",
+    "phone_crop": {
+      "x": 160,
+      "y": 30,
+      "width": 1760,
+      "height": 990
+    }
+  },
+  "cinematic": {
+    "width": 960,
+    "height": 540,
+    "layers": [
+      {
+        "path": "BASE_v001_DRAFT.webp",
+        "x": 0,
+        "y": 0,
+        "width": 960,
+        "height": 540,
+        "character": "linh"
+      },
+      {
+        "path": "linda_POSE_v001_DRAFT.webp",
+        "x": 385.0,
+        "y": 150.0,
+        "width": 720.0,
+        "height": 537.6,
+        "character": "linda"
+      }
+    ],
+    "sprites": {
+      "MOUTH_X": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "MOUTH_X",
+        "path": "MOUTH_X_v001_DRAFT.webp",
+        "x": 475.0,
+        "y": 195.5,
+        "width": 30.0,
+        "height": 20.0,
+        "status": "DRAFT"
+      },
+      "MOUTH_SLIGHT": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "MOUTH_SLIGHT",
+        "path": "MOUTH_SLIGHT_v001_DRAFT.webp",
+        "x": 475.0,
+        "y": 195.5,
+        "width": 30.0,
+        "height": 20.0,
+        "status": "DRAFT"
+      },
+      "MOUTH_OPEN": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "MOUTH_OPEN",
+        "path": "MOUTH_OPEN_v001_DRAFT.webp",
+        "x": 475.0,
+        "y": 195.5,
+        "width": 30.0,
+        "height": 20.0,
+        "status": "DRAFT"
+      },
+      "MOUTH_ROUND": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "MOUTH_ROUND",
+        "path": "MOUTH_ROUND_v001_DRAFT.webp",
+        "x": 475.0,
+        "y": 195.5,
+        "width": 30.0,
+        "height": 20.0,
+        "status": "DRAFT"
+      },
+      "EYE_CLOSED": {
+        "character": "linh",
+        "part": "eye",
+        "shape": "EYE_CLOSED",
+        "path": "EYE_CLOSED_v001_DRAFT.webp",
+        "x": 448.0,
+        "y": 163.0,
+        "width": 66.5,
+        "height": 31.5,
+        "status": "DRAFT"
+      },
+      "LINDA_MOUTH_X": {
+        "character": "linda",
+        "part": "mouth",
+        "shape": "MOUTH_X",
+        "path": "linda_MOUTH_X_v001_DRAFT.webp",
+        "x": 301.2,
+        "y": 168.6,
+        "width": 31.2,
+        "height": 19.8,
+        "status": "DRAFT"
+      },
+      "LINDA_MOUTH_SLIGHT": {
+        "character": "linda",
+        "part": "mouth",
+        "shape": "MOUTH_SLIGHT",
+        "path": "linda_MOUTH_SLIGHT_v001_DRAFT.webp",
+        "x": 301.2,
+        "y": 168.6,
+        "width": 31.2,
+        "height": 19.8,
+        "status": "DRAFT"
+      },
+      "LINDA_MOUTH_OPEN": {
+        "character": "linda",
+        "part": "mouth",
+        "shape": "MOUTH_OPEN",
+        "path": "linda_MOUTH_OPEN_v001_DRAFT.webp",
+        "x": 301.2,
+        "y": 168.6,
+        "width": 31.2,
+        "height": 19.8,
+        "status": "DRAFT"
+      },
+      "LINDA_EYE_CLOSED": {
+        "character": "linda",
+        "part": "eye",
+        "shape": "EYE_CLOSED",
+        "path": "linda_EYE_CLOSED_v001_DRAFT.webp",
+        "x": 315.0,
+        "y": 123.0,
+        "width": 30.0,
+        "height": 28.5,
+        "status": "DRAFT"
+      }
+    },
+    "speakers": {
+      "Linh": "linh",
+      "Linda": "linda"
+    },
+    "characters": {
+      "linh": {
+        "label": "Linh",
+        "mouthMap": {
+          "MOUTH_X": "MOUTH_X",
+          "MOUTH_SLIGHT": "MOUTH_SLIGHT",
+          "MOUTH_OPEN": "MOUTH_OPEN",
+          "MOUTH_ROUND": "MOUTH_ROUND",
+          "X": "MOUTH_X",
+          "A": "MOUTH_X",
+          "B": "MOUTH_SLIGHT",
+          "C": "MOUTH_SLIGHT",
+          "E": "MOUTH_SLIGHT",
+          "G": "MOUTH_SLIGHT",
+          "H": "MOUTH_SLIGHT",
+          "D": "MOUTH_OPEN",
+          "F": "MOUTH_ROUND"
+        },
+        "eyeMap": {
+          "CLOSED": "EYE_CLOSED"
+        },
+        "restUsesOriginal": false,
+        "blinkMode": "closed",
+        "deferBlinkOnPlosive": true
+      },
+      "linda": {
+        "label": "Linda",
+        "mouthMap": {
+          "X": "LINDA_MOUTH_X",
+          "A": "LINDA_MOUTH_X",
+          "B": "LINDA_MOUTH_SLIGHT",
+          "C": "LINDA_MOUTH_SLIGHT",
+          "D": "LINDA_MOUTH_OPEN",
+          "E": "LINDA_MOUTH_SLIGHT",
+          "F": "LINDA_MOUTH_SLIGHT",
+          "G": "LINDA_MOUTH_SLIGHT",
+          "H": "LINDA_MOUTH_SLIGHT"
+        },
+        "eyeMap": {
+          "CLOSED": "LINDA_EYE_CLOSED"
+        },
+        "restUsesOriginal": true,
+        "blinkMode": "closed",
+        "blinkTiming": "linda"
+      }
+    },
+    "offscreen_speakers": [],
+    "motion": {
+      "translate_x_css_px": 0,
+      "translate_y_css_px": 0,
+      "rotate_deg": 0,
+      "speaking_seconds": 6,
+      "idle_seconds": 12
+    }
+  },
+  "flags": [
+    "DRAFT_OWNER_FACE_REVIEW_PENDING",
+    "PHYSICAL_IPHONE_REVIEW_PENDING"
+  ],
+  "sources": {
+    "04_Learning_Design/LESSON_SET_v3.2_L-S09-L-S16.md": "7d0258ce45c2b32b85bbbb8a705b917f8617867299effa58dc68cd9f45a0f4cd",
+    "07_Production_Assets/cinematic/lessons/L-S02_v2_DRAFT.json": "dec6907dcf8782cae7281ca5696b028357ac96d96e144b4d0ebcf397f2ccb94b",
+    "07_Production_Assets/cinematic/batch74/L-S02/BASE_v001_DRAFT.webp": "f258ad770b8722059d90471e41150cb4d17f876ffcc0da11ed058589b2f261f1",
+    "07_Production_Assets/cinematic/batch74/L-S02/MOUTH_X_v001_DRAFT.webp": "9db04861cd9923e27c47aeba331c6029b6c7d9f625b781bdfb41338630c54a1a",
+    "07_Production_Assets/cinematic/batch74/L-S02/MOUTH_SLIGHT_v001_DRAFT.webp": "7682ce1cdb6ce42402bfb75d66b87287eac1434062be26d8426c89f162d1f3c8",
+    "07_Production_Assets/cinematic/batch74/L-S02/MOUTH_OPEN_v001_DRAFT.webp": "7e49f2f70f6f584ecdedc0a23f96cf9115a53368cf03da75ea36a9254ce1db0e",
+    "07_Production_Assets/cinematic/batch74/L-S02/MOUTH_ROUND_v001_DRAFT.webp": "91daba155e810b14de81317b53bf8951249b36cd92430cdbbb503b72ae10285a",
+    "07_Production_Assets/cinematic/batch74/L-S02/EYE_CLOSED_v001_DRAFT.webp": "cbd1e10b3e7b44b02d67b370feaf4a50332818b47e2dc70f794ab9c6f71177d8",
+    "07_Production_Assets/characters_v2/linda/POSE_v001_DRAFT.webp": "70613877108f2f8eb6dbd2740431662561a3e24868e7d0028a59247a77ad98a9",
+    "07_Production_Assets/characters_v2/linda/MOUTH_X_v001_DRAFT.webp": "cebc0a03fc88add78b2ec2e3af2053f152726665a398bb7b4ae5b01d15e5654d",
+    "07_Production_Assets/characters_v2/linda/MOUTH_SLIGHT_v001_DRAFT.webp": "e72ed1034122f91493fcd01d7a75363d0f28f7ebdfc6b4edb9086e22769fcb8e",
+    "07_Production_Assets/characters_v2/linda/MOUTH_OPEN_v001_DRAFT.webp": "429795bee09eacbd0d2d30d6ed009d174711faf01cb4e64429e2761928944940",
+    "07_Production_Assets/characters_v2/linda/EYE_CLOSED_v001_DRAFT.webp": "d8ad25d694fb5a2ef48fea2dbc9f36ff608b41705204e756d75244a7a7093b70",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D01.ogg": "2f8dd1bec5ae70b1625bb9fa502fc03c956ea4a9518bfd3fca7946f1435d5e2f",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D01.mp3": "920ddf2c48289ff8f1213a092838feee37bd93c2a3ebecb2bd93f6ae310b4617",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D01.wav": "61633aa60251670496cbd7d7c54a13f693f1be8c0411e49cf0fbc43a475a13ed",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D02.ogg": "8280ed746150f41244b541e99593e972b501b361c712df62a6e6e6677af3cfba",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D02.mp3": "a72e70357b699d8e1e53925fe1313f58f54f0924dc87c2860da52d9b0659e333",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D02.wav": "b9fef7bc7ae2d55a1457f6cb99cd378e01bb694218348b9d485211a70bcf719e",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D03.ogg": "9210337cc9482fa74581fc46825ef357b105f9cac742f1049440043073989714",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D03.mp3": "9f1b48c4f66416cdf8c618b3ae6d8abd4b42bed438c8cb97e251a4e6daa95227",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D03.wav": "0fe0ac1e07515de060b79526054f9163180d9b9fda819c97b0dff549de25184c",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D04.ogg": "594eb071d66a26bf10ad2f25b6771a82ce8a2358749f376acfe84339735deec5",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D04.mp3": "e11595772bbc8a0f987622739fc29d465dca0dc4353aa91fa5d73a63e3192196",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D04.wav": "2a444df25ff63e55f0e0989597d234d2aa3db3512c2dd9021e7f50195ab5f782",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D05.ogg": "d912c446588d07ccede20183957e3c0862b154bfa29cfb33b2874db6f5245b96",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D05.mp3": "eec1dff9b1e95cf1442cb52c2cf0d84354939201c90fd4aa8eddb9c823c4aedf",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D05.wav": "2fbb7734b950fff24dc568b26efc55fa1bf1485135f98eb980916ca69376b3a7",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D06.ogg": "4bb33c7ef6cfcccce15ec3b842d395dd43e8a88360ad0a2b2019c37225f83611",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D06.mp3": "9e11fa1fd7be106ab4e2bb973ae4e7b289cd8c32718543b805f4f9a07f19cdf5",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D06.wav": "d5bbf18752d3f73f733c4f4eee65df760eb5b684e83279d1b5092694adfd1831",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D07.ogg": "d3372ed6debe5e4c8518df9737aeee111d0cb177f55b26374bc588433f343dc4",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D07.mp3": "984996b231f5b37cad82fee09ca049cc3d53c8cbf69b149ceefa2019c8bbef23",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D07.wav": "47674b80594484d8b4f54354d926e09bd77f47797a0c38826d89906b0c652d05",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D08.ogg": "09d90c30a31a867c0b601e4636bbd735a537b2eeb60fd079e4fb666c6d18c2bd",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D08.mp3": "32b198acc874419eff9234d8825e4fcc97af23918a4768482610dbc2c81d02f1",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D08.wav": "0c4eca58465a435848f42d9b1eb1c2f926fa91584e1e74a416947ae59f31d7ab",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D09.ogg": "060a57b09e891269ff02253eddc40e5cbf5854466637a87befe17b09ac31aa3d",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D09.mp3": "d9fc109c21590cfdc1f38073b6f6f0c00d6ada8d8de7bbe327e5d3605c52ba9f",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D09.wav": "3e2d178287ad7e72e25edc9c31e4acea8ed4814da5534ca52fd245394ec9ff5e",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D10.ogg": "2835b85aea43b2970a6197b0c4bf19c643b7df333a277560ca5e4d6752b121b1",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D10.mp3": "d4e0018dad9e06ebfe42a87945aa47afb380690233ec19349e73bc03870791e4",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D10.wav": "7137bc24ea7952a94fb2befa9022bc7f8a782d99c901b2bdbccbf19b2a01e850",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D11.ogg": "44c1212641d19c5c7f06d05b63a46c22fbb2280588ed1c65a4202e8e4a77bb2d",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D11.mp3": "0e780278b3da925c052660e780dfceea55a36e11d53a1c7d9c13fd17fef24f5f",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D11.wav": "90bda8d2516f34c8354d98445a4c1576f52a5503d7138edfe5d27f2f96bbf31b",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D12.ogg": "fb0b595645675990374fae46970eec2d90891521648d0eafb2e2743aedee1de8",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D12.mp3": "446e998fed51ec85fcea8f3f13510b01429203cb8f76780dd00ac7a92101e444",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D12.wav": "d0ae63b0f34d63441e681cf45e76dfdf0d1b1e51d8529d6fa533da69770f31cb",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D13.ogg": "277c1d362bd1857103a506e0a6715d3b0dc4b7df99c77c8abd27ceff3d9f5ccb",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D13.mp3": "b02b7578f827d75214221b561bc9cda1e88b6a7d7b0b1da1271683871db072d4",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D13.wav": "de66a7a9bcda65ff208829e28ab5f7a0697b141a2c8cc0407a6ef776b2765a86",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D14.ogg": "4a6a246b76f40126d450106ffc3246588e4836b746fcbc7a084c0a22da074e3d",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D14.mp3": "9beffd136dc8c6ce7f38e27ed50f365573afd8580cc449d6ec7d167eeb0a71fc",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D14.wav": "d9a0682fec700d3830d9628e85c906aa3cfab34994b4e7bf6b153134ff296a62",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D15.ogg": "48ea464a58777719bd14051f9313c6e168f05b1a328f19b6b1c2216342dffe89",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D15.mp3": "8c1b912ceaa6cd4257b1a35f58fceec78b92e782fecf0cb7ccc889784b4b90e4",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D15.wav": "e65d3cea7966d51a676f91756f174ea3e696154af88095d2010d737ca7a7f6a4",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D16.ogg": "9eadb88cc4c484db16fd462ddfa5765c612394a68e96d532018c9fdb0835a977",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D16.mp3": "e590e90e0d3d275765b277c9e133f5265bdd1122a3420bde45b308d88e827f9c",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D16.wav": "78880629134736782a89c5bda10350679b4ffcb279cfbd039c1587a88b9476c1",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D17.ogg": "b8f16fa66b9a005ad6f113d32410c805c8736cfb3898322c9285d3850b217da1",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D17.mp3": "e2f13af9015808ccaa7e6121c3ecab744d8b9def5fe9c6f7f3eee49c36bc9a59",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D17.wav": "cf31e46170e2bd77dc7bd201669ca12204f5ca06b8eaebcb48c6d0a95aad18cc",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D18.ogg": "c253e7f965cae18c4eb734e2fdb173653ffd813061c17a8ea18a94cbf1bad5e0",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D18.mp3": "383c789a4af31120026f670c14c54b7526084ec3c753cef28694eb79f513c3d8",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D18.wav": "2924b7c6a2b59d2309ffabce6549e80bdbb428d07b4d3930af35690211bc8a71",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D19.ogg": "3c7a080841d322df212f111567c84b3ff85fc2a1de9f1e7d01619cb87b3bc9d2",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D19.mp3": "e8cc5aa7f4b7d5ac106038e267ecc4649e41f142faf4f270af1fc70542cdfe7a",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D19.wav": "47c388a84b05b4b3dce19b8d2fdd9f5fe7a0b2f5faa59754e4e0dee0c4c8eb42",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D20.ogg": "796b7acbb3294b4e3561d0fc2240c8c8ca3f4ea354c9d99774af3877e679a41d",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D20.mp3": "7f3ad885641159477a178124c93fda22dcb67767924db586eee939f41ba70fbb",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_D20.wav": "7f65d7b3290cd34f3366da058a495185915aa658c04f8c4f122702fc0850eb57",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_M1.ogg": "1edc1f0890dd155c57b7e525a4b0d3c8c459ebdef07203304cca167c02ba1e6f",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_M1.mp3": "60b9679991d4c88e08a7ad91105f136174bafdfa300b739381d1424be3a1f669",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_M1.wav": "3d9694c267d24f077e5ab7e8e71cba2d723e4cf4ac773c3e857d10a5a8d751bb",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_T1.ogg": "09d53f3cace3e6accd265652a022166187a20a597b1755999f8b71fb5e684a3b",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_T1.mp3": "295cf22be07c30ff5a40c2010d393c55784f13e738913ce68b3b29558f6a88cb",
+    "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_T1.wav": "595f8e3fde8183938187000f7de638d822b4c9026a7a175bcc360af1897b220b",
+    "07_Production_Assets/audio/lessons_v3/L-S11/CUE_MANIFEST_v002_DRAFT.json": "38c6f5f21b6ceeb81fdf2fc353646200907b4917ae7f2aa57735d8ad604c6720",
+    "07_Production_Assets/audio/lessons_v3/L-S11/VISEMES_v002_DRAFT.json": "67891b0db4abfd7a80509902a63afb23ea6539845640bfd8714eea445f894c46",
+    "07_Production_Assets/audio/lessons_v3/L-S11/PREVIEW_TIMINGS_v002_DRAFT.json": "25af2a976aec13d07c66d2517f69550ca3320fb512f0ebb3d69800913da063e1"
+  },
+  "files": [
+    {
+      "path": "BASE_v001_DRAFT.webp",
+      "bytes": 472802,
+      "sha256": "f258ad770b8722059d90471e41150cb4d17f876ffcc0da11ed058589b2f261f1"
+    },
+    {
+      "path": "EYE_CLOSED_v001_DRAFT.webp",
+      "bytes": 7054,
+      "sha256": "cbd1e10b3e7b44b02d67b370feaf4a50332818b47e2dc70f794ab9c6f71177d8"
+    },
+    {
+      "path": "MOUTH_OPEN_v001_DRAFT.webp",
+      "bytes": 3306,
+      "sha256": "7e49f2f70f6f584ecdedc0a23f96cf9115a53368cf03da75ea36a9254ce1db0e"
+    },
+    {
+      "path": "MOUTH_ROUND_v001_DRAFT.webp",
+      "bytes": 3114,
+      "sha256": "91daba155e810b14de81317b53bf8951249b36cd92430cdbbb503b72ae10285a"
+    },
+    {
+      "path": "MOUTH_SLIGHT_v001_DRAFT.webp",
+      "bytes": 3360,
+      "sha256": "7682ce1cdb6ce42402bfb75d66b87287eac1434062be26d8426c89f162d1f3c8"
+    },
+    {
+      "path": "MOUTH_X_v001_DRAFT.webp",
+      "bytes": 2968,
+      "sha256": "9db04861cd9923e27c47aeba331c6029b6c7d9f625b781bdfb41338630c54a1a"
+    },
+    {
+      "path": "audio/B82_S11_D01.mp3",
+      "bytes": 18264,
+      "sha256": "920ddf2c48289ff8f1213a092838feee37bd93c2a3ebecb2bd93f6ae310b4617"
+    },
+    {
+      "path": "audio/B82_S11_D01.ogg",
+      "bytes": 10551,
+      "sha256": "2f8dd1bec5ae70b1625bb9fa502fc03c956ea4a9518bfd3fca7946f1435d5e2f"
+    },
+    {
+      "path": "audio/B82_S11_D02.mp3",
+      "bytes": 10224,
+      "sha256": "a72e70357b699d8e1e53925fe1313f58f54f0924dc87c2860da52d9b0659e333"
+    },
+    {
+      "path": "audio/B82_S11_D02.ogg",
+      "bytes": 6370,
+      "sha256": "8280ed746150f41244b541e99593e972b501b361c712df62a6e6e6677af3cfba"
+    },
+    {
+      "path": "audio/B82_S11_D03.mp3",
+      "bytes": 24432,
+      "sha256": "9f1b48c4f66416cdf8c618b3ae6d8abd4b42bed438c8cb97e251a4e6daa95227"
+    },
+    {
+      "path": "audio/B82_S11_D03.ogg",
+      "bytes": 14571,
+      "sha256": "9210337cc9482fa74581fc46825ef357b105f9cac742f1049440043073989714"
+    },
+    {
+      "path": "audio/B82_S11_D04.mp3",
+      "bytes": 19608,
+      "sha256": "e11595772bbc8a0f987622739fc29d465dca0dc4353aa91fa5d73a63e3192196"
+    },
+    {
+      "path": "audio/B82_S11_D04.ogg",
+      "bytes": 11514,
+      "sha256": "594eb071d66a26bf10ad2f25b6771a82ce8a2358749f376acfe84339735deec5"
+    },
+    {
+      "path": "audio/B82_S11_D05.mp3",
+      "bytes": 25512,
+      "sha256": "eec1dff9b1e95cf1442cb52c2cf0d84354939201c90fd4aa8eddb9c823c4aedf"
+    },
+    {
+      "path": "audio/B82_S11_D05.ogg",
+      "bytes": 14980,
+      "sha256": "d912c446588d07ccede20183957e3c0862b154bfa29cfb33b2874db6f5245b96"
+    },
+    {
+      "path": "audio/B82_S11_D06.mp3",
+      "bytes": 15960,
+      "sha256": "9e11fa1fd7be106ab4e2bb973ae4e7b289cd8c32718543b805f4f9a07f19cdf5"
+    },
+    {
+      "path": "audio/B82_S11_D06.ogg",
+      "bytes": 9596,
+      "sha256": "4bb33c7ef6cfcccce15ec3b842d395dd43e8a88360ad0a2b2019c37225f83611"
+    },
+    {
+      "path": "audio/B82_S11_D07.mp3",
+      "bytes": 15528,
+      "sha256": "984996b231f5b37cad82fee09ca049cc3d53c8cbf69b149ceefa2019c8bbef23"
+    },
+    {
+      "path": "audio/B82_S11_D07.ogg",
+      "bytes": 8253,
+      "sha256": "d3372ed6debe5e4c8518df9737aeee111d0cb177f55b26374bc588433f343dc4"
+    },
+    {
+      "path": "audio/B82_S11_D08.mp3",
+      "bytes": 14280,
+      "sha256": "32b198acc874419eff9234d8825e4fcc97af23918a4768482610dbc2c81d02f1"
+    },
+    {
+      "path": "audio/B82_S11_D08.ogg",
+      "bytes": 8725,
+      "sha256": "09d90c30a31a867c0b601e4636bbd735a537b2eeb60fd079e4fb666c6d18c2bd"
+    },
+    {
+      "path": "audio/B82_S11_D09.mp3",
+      "bytes": 18720,
+      "sha256": "d9fc109c21590cfdc1f38073b6f6f0c00d6ada8d8de7bbe327e5d3605c52ba9f"
+    },
+    {
+      "path": "audio/B82_S11_D09.ogg",
+      "bytes": 10819,
+      "sha256": "060a57b09e891269ff02253eddc40e5cbf5854466637a87befe17b09ac31aa3d"
+    },
+    {
+      "path": "audio/B82_S11_D10.mp3",
+      "bytes": 10848,
+      "sha256": "d4e0018dad9e06ebfe42a87945aa47afb380690233ec19349e73bc03870791e4"
+    },
+    {
+      "path": "audio/B82_S11_D10.ogg",
+      "bytes": 6794,
+      "sha256": "2835b85aea43b2970a6197b0c4bf19c643b7df333a277560ca5e4d6752b121b1"
+    },
+    {
+      "path": "audio/B82_S11_D11.mp3",
+      "bytes": 24648,
+      "sha256": "0e780278b3da925c052660e780dfceea55a36e11d53a1c7d9c13fd17fef24f5f"
+    },
+    {
+      "path": "audio/B82_S11_D11.ogg",
+      "bytes": 14181,
+      "sha256": "44c1212641d19c5c7f06d05b63a46c22fbb2280588ed1c65a4202e8e4a77bb2d"
+    },
+    {
+      "path": "audio/B82_S11_D12.mp3",
+      "bytes": 21936,
+      "sha256": "446e998fed51ec85fcea8f3f13510b01429203cb8f76780dd00ac7a92101e444"
+    },
+    {
+      "path": "audio/B82_S11_D12.ogg",
+      "bytes": 12352,
+      "sha256": "fb0b595645675990374fae46970eec2d90891521648d0eafb2e2743aedee1de8"
+    },
+    {
+      "path": "audio/B82_S11_D13.mp3",
+      "bytes": 24408,
+      "sha256": "b02b7578f827d75214221b561bc9cda1e88b6a7d7b0b1da1271683871db072d4"
+    },
+    {
+      "path": "audio/B82_S11_D13.ogg",
+      "bytes": 12805,
+      "sha256": "277c1d362bd1857103a506e0a6715d3b0dc4b7df99c77c8abd27ceff3d9f5ccb"
+    },
+    {
+      "path": "audio/B82_S11_D14.mp3",
+      "bytes": 20568,
+      "sha256": "9beffd136dc8c6ce7f38e27ed50f365573afd8580cc449d6ec7d167eeb0a71fc"
+    },
+    {
+      "path": "audio/B82_S11_D14.ogg",
+      "bytes": 12494,
+      "sha256": "4a6a246b76f40126d450106ffc3246588e4836b746fcbc7a084c0a22da074e3d"
+    },
+    {
+      "path": "audio/B82_S11_D15.mp3",
+      "bytes": 14088,
+      "sha256": "8c1b912ceaa6cd4257b1a35f58fceec78b92e782fecf0cb7ccc889784b4b90e4"
+    },
+    {
+      "path": "audio/B82_S11_D15.ogg",
+      "bytes": 8898,
+      "sha256": "48ea464a58777719bd14051f9313c6e168f05b1a328f19b6b1c2216342dffe89"
+    },
+    {
+      "path": "audio/B82_S11_D16.mp3",
+      "bytes": 14520,
+      "sha256": "e590e90e0d3d275765b277c9e133f5265bdd1122a3420bde45b308d88e827f9c"
+    },
+    {
+      "path": "audio/B82_S11_D16.ogg",
+      "bytes": 7916,
+      "sha256": "9eadb88cc4c484db16fd462ddfa5765c612394a68e96d532018c9fdb0835a977"
+    },
+    {
+      "path": "audio/B82_S11_D17.mp3",
+      "bytes": 24336,
+      "sha256": "e2f13af9015808ccaa7e6121c3ecab744d8b9def5fe9c6f7f3eee49c36bc9a59"
+    },
+    {
+      "path": "audio/B82_S11_D17.ogg",
+      "bytes": 14067,
+      "sha256": "b8f16fa66b9a005ad6f113d32410c805c8736cfb3898322c9285d3850b217da1"
+    },
+    {
+      "path": "audio/B82_S11_D18.mp3",
+      "bytes": 18504,
+      "sha256": "383c789a4af31120026f670c14c54b7526084ec3c753cef28694eb79f513c3d8"
+    },
+    {
+      "path": "audio/B82_S11_D18.ogg",
+      "bytes": 10997,
+      "sha256": "c253e7f965cae18c4eb734e2fdb173653ffd813061c17a8ea18a94cbf1bad5e0"
+    },
+    {
+      "path": "audio/B82_S11_D19.mp3",
+      "bytes": 16320,
+      "sha256": "e8cc5aa7f4b7d5ac106038e267ecc4649e41f142faf4f270af1fc70542cdfe7a"
+    },
+    {
+      "path": "audio/B82_S11_D19.ogg",
+      "bytes": 9409,
+      "sha256": "3c7a080841d322df212f111567c84b3ff85fc2a1de9f1e7d01619cb87b3bc9d2"
+    },
+    {
+      "path": "audio/B82_S11_D20.mp3",
+      "bytes": 14472,
+      "sha256": "7f3ad885641159477a178124c93fda22dcb67767924db586eee939f41ba70fbb"
+    },
+    {
+      "path": "audio/B82_S11_D20.ogg",
+      "bytes": 8439,
+      "sha256": "796b7acbb3294b4e3561d0fc2240c8c8ca3f4ea354c9d99774af3877e679a41d"
+    },
+    {
+      "path": "audio/B82_S11_M1.mp3",
+      "bytes": 24912,
+      "sha256": "60b9679991d4c88e08a7ad91105f136174bafdfa300b739381d1424be3a1f669"
+    },
+    {
+      "path": "audio/B82_S11_M1.ogg",
+      "bytes": 14368,
+      "sha256": "1edc1f0890dd155c57b7e525a4b0d3c8c459ebdef07203304cca167c02ba1e6f"
+    },
+    {
+      "path": "audio/B82_S11_T1.mp3",
+      "bytes": 14232,
+      "sha256": "295cf22be07c30ff5a40c2010d393c55784f13e738913ce68b3b29558f6a88cb"
+    },
+    {
+      "path": "audio/B82_S11_T1.ogg",
+      "bytes": 7503,
+      "sha256": "09d53f3cace3e6accd265652a022166187a20a597b1755999f8b71fb5e684a3b"
+    },
+    {
+      "path": "lesson-content.json",
+      "bytes": 4709,
+      "sha256": "62dcee397450943dcdbfd72c01f72b062c13d65468df0e498b4ede9849e37d37"
+    },
+    {
+      "path": "linda_EYE_CLOSED_v001_DRAFT.webp",
+      "bytes": 9182,
+      "sha256": "d8ad25d694fb5a2ef48fea2dbc9f36ff608b41705204e756d75244a7a7093b70"
+    },
+    {
+      "path": "linda_MOUTH_OPEN_v001_DRAFT.webp",
+      "bytes": 7198,
+      "sha256": "429795bee09eacbd0d2d30d6ed009d174711faf01cb4e64429e2761928944940"
+    },
+    {
+      "path": "linda_MOUTH_SLIGHT_v001_DRAFT.webp",
+      "bytes": 7272,
+      "sha256": "e72ed1034122f91493fcd01d7a75363d0f28f7ebdfc6b4edb9086e22769fcb8e"
+    },
+    {
+      "path": "linda_MOUTH_X_v001_DRAFT.webp",
+      "bytes": 6946,
+      "sha256": "cebc0a03fc88add78b2ec2e3af2053f152726665a398bb7b4ae5b01d15e5654d"
+    },
+    {
+      "path": "linda_POSE_v001_DRAFT.webp",
+      "bytes": 706680,
+      "sha256": "70613877108f2f8eb6dbd2740431662561a3e24868e7d0028a59247a77ad98a9"
+    },
+    {
+      "path": "scene-1920.webp",
+      "bytes": 264910,
+      "sha256": "6aecf2b9b02eeed3d998f0c2c890ad1db19527bd5db5381f8e01ff37f84da77a"
+    },
+    {
+      "path": "scene-960.webp",
+      "bytes": 103762,
+      "sha256": "873b7b7bb3e30023327302065949dd3fdf728c0089ccc16c89d0a5e8680e73e6"
+    }
+  ]
+}

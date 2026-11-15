@@ -1,0 +1,126 @@
+{
+  "sceneSetter": "Linda và Linh trò chuyện sau khi sơn móng.",
+  "homeCanDo": "Sau bài này bạn nói được: nhắc khách giữ tay yên, báo sơn chưa khô và đề nghị giúp lấy đồ.",
+  "review": {
+    "lesson": "L-S13",
+    "cues": [
+      "B82_S13_D06",
+      "B82_S13_D08"
+    ]
+  },
+  "safetyRequired": false,
+  "canDo": "nhắc khách giữ tay yên, báo sơn chưa khô và đề nghị giúp lấy đồ.",
+  "comprehension": [
+    {
+      "focus": "Linda đi lấy gì?",
+      "listen": [
+        "B82_S11_D01",
+        "B82_S11_D02",
+        "B82_S11_D03"
+      ],
+      "question": "Linda đi lấy gì?",
+      "options": [
+        "Giày",
+        "Áo đã sửa",
+        "Cây"
+      ],
+      "key": 1,
+      "correct": "Đúng rồi: Áo đã sửa",
+      "retry": "Nghe lại lượt 1–3 rồi thử lại nhé."
+    },
+    {
+      "focus": "Vì sao chưa tự tìm chìa khóa?",
+      "listen": [
+        "B82_S11_D05",
+        "B82_S11_D06",
+        "B82_S11_D07",
+        "B82_S11_D08"
+      ],
+      "question": "Vì sao chưa tự tìm chìa khóa?",
+      "options": [
+        "Không có túi",
+        "Hết giờ",
+        "Sơn chưa khô"
+      ],
+      "key": 2,
+      "correct": "Đúng rồi: Sơn chưa khô",
+      "retry": "Nghe lại lượt 5–8 rồi thử lại nhé."
+    },
+    {
+      "focus": "Linh lấy gì sau khi được đồng ý?",
+      "listen": [
+        "B82_S11_D09",
+        "B82_S11_D10",
+        "B82_S11_D11",
+        "B82_S11_D12",
+        "B82_S11_D13",
+        "B82_S11_D14"
+      ],
+      "question": "Linh lấy gì sau khi được đồng ý?",
+      "options": [
+        "Chỉ chìa khóa ở túi ngoài",
+        "Ví và điện thoại",
+        "Cả túi"
+      ],
+      "key": 0,
+      "correct": "Đúng rồi: Chỉ chìa khóa ở túi ngoài",
+      "retry": "Nghe lại lượt 9–14 rồi thử lại nhé."
+    }
+  ],
+  "cards": [
+    {
+      "focus": "Sơn vẫn chưa khô chị nhé.",
+      "cue": "B82_S11_D06",
+      "english": "The polish isn't dry yet.",
+      "vietnamese": "Sơn vẫn chưa khô chị nhé.",
+      "useWhen": "Dùng khi: Đúng loại sơn thường trong cảnh.",
+      "vocabulary": "polish → sơn; isn’t dry yet → vẫn chưa khô",
+      "note": "Dùng khi: Đúng loại sơn thường trong cảnh. <br> Đổi từ: Không dùng cho gel như cùng quy trình khô.",
+      "check": "Tôi đã báo sơn chưa khô, không hứa khô sau số phút."
+    },
+    {
+      "focus": "Chị giữ tay yên nhé.",
+      "cue": "B82_S11_D08",
+      "english": "Please keep your hands still.",
+      "vietnamese": "Chị giữ tay yên nhé.",
+      "useWhen": "Dùng khi: Tránh chạm đồ khi sơn còn ướt.",
+      "vocabulary": "hands → tay; still → yên",
+      "note": "Dùng khi: Tránh chạm đồ khi sơn còn ướt. <br> Đổi từ: hands → fingers nếu chỉ ngón.",
+      "check": "Tôi đã nhắc giữ tay yên nhẹ nhàng."
+    },
+    {
+      "focus": "Em lấy chìa khóa giúp chị nhé?",
+      "cue": "B82_S11_D10",
+      "english": "Can I get your keys?",
+      "vietnamese": "Em lấy chìa khóa giúp chị nhé?",
+      "useWhen": "Dùng khi: Xin phép trước khi chạm đồ cá nhân.",
+      "vocabulary": "get → lấy; keys → chìa khóa",
+      "note": "Dùng khi: Xin phép trước khi chạm đồ cá nhân. <br> Đổi từ: keys → bag: Can I get your bag? Hỏi chỗ đặt: Can I put your bag here? Chỉ lấy sau đồng ý, không mở túi.",
+      "check": "Tôi đã xin phép lấy chìa khóa và chờ đồng ý."
+    },
+    {
+      "focus": "Mình kiểm tra trước khi chị về nhé.",
+      "cue": "B82_S11_D16",
+      "english": "Let's check before you go.",
+      "vietnamese": "Mình kiểm tra trước khi chị về nhé.",
+      "useWhen": "Dùng khi: Không hứa khô sau một số phút cố định.",
+      "vocabulary": "check → kiểm tra; go → đi",
+      "note": "Dùng khi: Không hứa khô sau một số phút cố định. <br> Đổi từ: go → leave.",
+      "check": "Tôi đã đề nghị kiểm trước khi khách rời đi."
+    }
+  ],
+  "recognition": [],
+  "turns": [
+    {
+      "prompts": [
+        "B82_S11_T1"
+      ],
+      "models": [
+        "B82_S11_M1"
+      ],
+      "instruction": "Thẻ VN: khách đã đồng ý lấy cả túi, sơn thường còn ướt.",
+      "check": "Đổi đồ từ chìa khóa sang túi, xin xác nhận chỗ đặt; không hứa sơn đã khô.",
+      "retry": "nghe lại prompt, kiểm tra chi tiết đã đổi rồi nói lại. Không tính nghe đúng là nói được."
+    }
+  ]
+}

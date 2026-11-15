@@ -1,0 +1,124 @@
+{
+  "sceneSetter": "Jenny ghé tiệm và trao đổi với Linh trước khi làm.",
+  "homeCanDo": "Sau bài này bạn nói được: hỏi lớp đang có, xác nhận chỉ tháo và xin kiểm tra sản phẩm, giá, thời gian trước khi làm.",
+  "review": {
+    "lesson": "L-S14",
+    "cues": [
+      "B83_S14_K1",
+      "B83_S14_D10"
+    ]
+  },
+  "safetyRequired": false,
+  "canDo": "hỏi lớp đang có, xác nhận chỉ tháo và xin kiểm tra sản phẩm, giá, thời gian trước khi làm.",
+  "comprehension": [
+    {
+      "focus": "Jenny đang chuẩn bị gì?",
+      "listen": [
+        "B82_S13_D01",
+        "B82_S13_D02",
+        "B82_S13_D03",
+        "B82_S13_D04",
+        "B82_S13_D05"
+      ],
+      "question": "Jenny đang chuẩn bị gì?",
+      "options": [
+        "Chuyển nhà",
+        "Cắm trại",
+        "Ngày tốt nghiệp"
+      ],
+      "key": 1,
+      "correct": "Đúng rồi: Cắm trại",
+      "retry": "Nghe lại lượt 1–5 rồi thử lại nhé."
+    },
+    {
+      "focus": "Khách muốn dịch vụ nào hôm nay?",
+      "listen": [
+        "B82_S13_D07",
+        "B82_S13_D08",
+        "B82_S13_D09"
+      ],
+      "question": "Khách muốn dịch vụ nào hôm nay?",
+      "options": [
+        "Gel mới",
+        "Đổi màu",
+        "Chỉ tháo gel cũ"
+      ],
+      "key": 2,
+      "correct": "Đúng rồi: Chỉ tháo gel cũ",
+      "retry": "Nghe lại lượt 7–9 rồi thử lại nhé."
+    },
+    {
+      "focus": "Linh sẽ nhờ ai kiểm tra sản phẩm?",
+      "listen": [
+        "B82_S13_D10",
+        "B82_S13_D11",
+        "B82_S13_D12"
+      ],
+      "question": "Linh sẽ nhờ ai kiểm tra sản phẩm?",
+      "options": [
+        "Susan",
+        "Mike",
+        "Amy"
+      ],
+      "key": 0,
+      "correct": "Đúng rồi: Susan",
+      "retry": "Nghe lại lượt 10–12 rồi thử lại nhé."
+    }
+  ],
+  "cards": [
+    {
+      "focus": "Hiện chị có sơn gel không ạ?",
+      "cue": "B82_S13_D06",
+      "english": "Do you have gel on now?",
+      "vietnamese": "Hiện chị có sơn gel không ạ?",
+      "useWhen": "Dùng khi: Hỏi khách về lớp sơn đang có.",
+      "vocabulary": "gel → sơn gel; on now → đang có",
+      "note": "Dùng khi: Hỏi khách về lớp sơn đang có. <br> Đổi từ: Do you have regular polish on now? dùng hỏi sơn thường. Khách không biết: nhờ kiểm tra, không đoán gel/dip/acrylic qua câu trả lời.",
+      "check": "Tôi đã hỏi về lớp sơn đang có, không chẩn đoán."
+    },
+    {
+      "focus": "Hôm nay chị chỉ tháo thôi, đúng không ạ?",
+      "cue": "B82_S13_D08",
+      "english": "Just removal today?",
+      "vietnamese": "Hôm nay chị chỉ tháo thôi, đúng không ạ?",
+      "useWhen": "Dùng khi: Hỏi trước khi thao tác.",
+      "vocabulary": "just → chỉ; removal → tháo lớp cũ",
+      "note": "Dùng khi: Hỏi trước khi thao tác. <br> Đổi từ: Khách thêm dịch vụ: Removal and [dịch vụ khách chọn]? Dùng từ dịch vụ đã học, chỉ xác nhận nhu cầu, chưa hứa thao tác/giá. Không biến thành lời hứa tháo được mọi sản phẩm.",
+      "check": "Tôi đã xác nhận khách chỉ muốn tháo."
+    },
+    {
+      "focus": "Em kiểm tra giá và thời gian nhé.",
+      "cue": "B82_S13_D10",
+      "english": "I'll check the price and time.",
+      "vietnamese": "Em kiểm tra giá và thời gian nhé.",
+      "useWhen": "Dùng khi: Trước khi chốt dịch vụ, báo cần kiểm cả giá và thời gian; chưa báo số cụ thể.",
+      "vocabulary": "price → giá; time → thời gian",
+      "note": "Dùng khi: Trước khi chốt dịch vụ, báo cần kiểm cả giá và thời gian; chưa báo số cụ thể. <br> Đổi từ: Không tự đổi thành một số phút chưa kiểm tra.",
+      "check": "Tôi đã nói sẽ kiểm giá và thời gian trước khi chốt."
+    },
+    {
+      "focus": "Em nhờ Susan kiểm tra lớp sản phẩm trước nhé.",
+      "cue": "B82_S13_D12",
+      "english": "I'll have Susan check the product first.",
+      "vietnamese": "Em nhờ Susan kiểm tra lớp sản phẩm trước nhé.",
+      "useWhen": "Dùng khi: Chưa chắc loại sản phẩm/quy trình.",
+      "vocabulary": "product → sản phẩm trên móng; first → trước",
+      "note": "Dùng khi: Chưa chắc loại sản phẩm/quy trình. <br> Đổi từ: Susan → tên quản lý/người được giao kiểm tra. Không coi lời khách là xác nhận kỹ thuật cuối cùng.",
+      "check": "Tôi đã nhờ người được giao kiểm sản phẩm trước khi làm."
+    }
+  ],
+  "recognition": [],
+  "turns": [
+    {
+      "prompts": [
+        "B82_S13_T1"
+      ],
+      "models": [
+        "B82_S13_M1"
+      ],
+      "instruction": "Thẻ VN: khách đổi từ chỉ tháo sang muốn sơn màu mới sau tháo. Xác nhận nhu cầu mới rồi kiểm lại giá/thời gian trước chốt; chưa làm khi sản phẩm chưa rõ.",
+      "check": "Nhắc đúng cả tháo và sơn màu mới; không lặp removal-only. Kiểm lại giá/thời gian, vẫn cần người được giao kiểm sản phẩm trước thao tác.",
+      "retry": "nghe lại prompt, kiểm tra chi tiết đã đổi rồi nói lại. Không tính nghe đúng là nói được."
+    }
+  ]
+}

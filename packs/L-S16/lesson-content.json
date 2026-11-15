@@ -1,0 +1,126 @@
+{
+  "sceneSetter": "Jenny ghé quầy và hỏi Linh về Susan.",
+  "homeCanDo": "Sau bài này bạn nói được: nhận lời nhắn, hỏi số gọi lại và đọc lại trước khi chuyển cho quản lý.",
+  "review": {
+    "lesson": "L-S15",
+    "cues": [
+      "B82_S15_D04",
+      "B82_S15_D02"
+    ]
+  },
+  "safetyRequired": false,
+  "canDo": "nhận lời nhắn, hỏi số gọi lại và đọc lại trước khi chuyển cho quản lý.",
+  "comprehension": [
+    {
+      "focus": "Jenny cần Susan giúp gì?",
+      "listen": [
+        "B82_S16_D01",
+        "B82_S16_D02",
+        "B82_S16_D03",
+        "B82_S16_D04",
+        "B82_S16_D05",
+        "B82_S16_D06",
+        "B82_S16_D07"
+      ],
+      "question": "Jenny cần Susan giúp gì?",
+      "options": [
+        "Đặt lịch cho mẹ",
+        "Tìm khăn xám chấm trắng",
+        "Chuyển thợ"
+      ],
+      "key": 1,
+      "correct": "Đúng rồi: Tìm khăn xám chấm trắng",
+      "retry": "Nghe lại lượt 1–7 rồi thử lại nhé."
+    },
+    {
+      "focus": "Số đọc lại kết thúc bằng gì?",
+      "listen": [
+        "B82_S16_D09",
+        "B82_S16_D10",
+        "B82_S16_D11",
+        "B82_S16_D12",
+        "B82_S16_D13"
+      ],
+      "question": "Số đọc lại kết thúc bằng gì?",
+      "options": [
+        "0146",
+        "0814",
+        "0184"
+      ],
+      "key": 2,
+      "correct": "Đúng rồi: 0184",
+      "retry": "Nghe lại lượt 9–13 rồi thử lại nhé."
+    },
+    {
+      "focus": "Linh hứa điều gì?",
+      "listen": [
+        "B82_S16_D14"
+      ],
+      "question": "Linh hứa điều gì?",
+      "options": [
+        "Chuyển lời nhắn",
+        "Gọi trong 5 phút",
+        "Đã tìm được khăn"
+      ],
+      "key": 0,
+      "correct": "Đúng rồi: Chuyển lời nhắn",
+      "retry": "Nghe lại lượt 14 rồi thử lại nhé."
+    }
+  ],
+  "cards": [
+    {
+      "focus": "Em nhận lời nhắn giúp chị nhé?",
+      "cue": "B82_S16_K1",
+      "english": "Can I take a message?",
+      "vietnamese": "Em nhận lời nhắn giúp chị nhé?",
+      "useWhen": "Dùng khi: Người cần gặp đang bận.",
+      "vocabulary": "take → nhận; message → lời nhắn",
+      "note": "Dùng khi: Người cần gặp đang bận. <br> Đổi từ: a message → your message.",
+      "check": "Tôi đã đề nghị nhận lời nhắn khi người cần gặp bận."
+    },
+    {
+      "focus": "Bên em có thể gọi cho chị ở số nào ạ?",
+      "cue": "B82_S16_D08",
+      "english": "What number can we call you at?",
+      "vietnamese": "Bên em có thể gọi cho chị ở số nào ạ?",
+      "useWhen": "Dùng khi: Xin số liên hệ cho lời nhắn.",
+      "vocabulary": "call you → gọi cho chị; number → số",
+      "note": "Dùng khi: Xin số liên hệ cho lời nhắn. <br> Đổi từ: Không xin thêm địa chỉ hoặc thông tin không cần.",
+      "check": "Tôi đã xin đúng số để liên hệ về lời nhắn."
+    },
+    {
+      "focus": "Em đọc lại chị kiểm tra nhé.",
+      "cue": "B82_S16_D10",
+      "english": "Let me read that back.",
+      "vietnamese": "Em đọc lại chị kiểm tra nhé.",
+      "useWhen": "Dùng khi: Trước khi chuyển thông tin.",
+      "vocabulary": "read back → đọc lại; let me → để em",
+      "note": "Dùng khi: Trước khi chuyển thông tin. <br> Đổi từ: Không xác nhận khi số còn chưa rõ.",
+      "check": "Tôi đã báo sẽ đọc lại rồi đọc rõ, chờ xác nhận."
+    },
+    {
+      "focus": "Em chuyển lời nhắn cho Susan nhé.",
+      "cue": "B82_S16_D14",
+      "english": "I'll give Susan your message.",
+      "vietnamese": "Em chuyển lời nhắn cho Susan nhé.",
+      "useWhen": "Dùng khi: Chỉ hứa chuyển lời, không hứa giờ gọi.",
+      "vocabulary": "give → chuyển; message → lời nhắn",
+      "note": "Dùng khi: Chỉ hứa chuyển lời, không hứa giờ gọi. <br> Đổi từ: Susan → người tiếp nhận đã xác minh.",
+      "check": "Tôi đã hứa chuyển đúng người, không hứa giờ gọi."
+    }
+  ],
+  "recognition": [],
+  "turns": [
+    {
+      "prompts": [
+        "B82_S16_T1"
+      ],
+      "models": [
+        "B82_S16_M1"
+      ],
+      "instruction": "Thẻ VN: vẫn nhắn tìm khăn, số mới. Đọc lại đủ từng cụm và hỏi xác nhận; dừng để khách kiểm tra trước khi chuyển. Không in sẵn số mới trên thẻ VN; phải nghe prompt, được xin nghe lại theo S08.",
+      "check": "Đúng 202-555-0169, không dùng lại 0184; hỏi xác nhận rồi dừng chờ khách. Chỉ sau khi khách xác nhận mới chuyển đúng lời nhắn cho Susan; không hứa tìm thấy hoặc giờ gọi.",
+      "retry": "nghe lại prompt, kiểm tra chi tiết đã đổi rồi nói lại. Không tính nghe đúng là nói được."
+    }
+  ]
+}

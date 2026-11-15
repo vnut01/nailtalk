@@ -1,0 +1,2739 @@
+{
+  "id": "L-S13",
+  "title": "Jenny leaves the polish at home",
+  "subtitle": "Jenny để đồ sơn móng ở nhà",
+  "estimated_minutes": 8,
+  "pack_version": "APP_PROTO_v019-DRAFT-1_L-S13",
+  "rubric_version": "lesson-set-v3.2",
+  "available": true,
+  "homeCanDo": "Sau bài này bạn nói được: hỏi lớp đang có, xác nhận chỉ tháo và xin kiểm tra sản phẩm, giá, thời gian trước khi làm.",
+  "status": "DRAFT",
+  "schema_version": 1,
+  "min_shell_version": 1,
+  "cues": {
+    "B82_S13_D01": {
+      "id": "B82_S13_D01",
+      "speaker": "Jenny",
+      "english": "I'm packing for a camping trip.",
+      "vietnamese": "Chị đang soạn đồ đi cắm trại.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D01.ogg",
+      "audio_fallback": "audio/B82_S13_D01.mp3",
+      "duration_ms": 1540,
+      "status": "DRAFT"
+    },
+    "B82_S13_D02": {
+      "id": "B82_S13_D02",
+      "speaker": "Linh",
+      "english": "Are you taking a lot of things?",
+      "vietnamese": "Chị mang nhiều đồ không ạ?",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D02.ogg",
+      "audio_fallback": "audio/B82_S13_D02.mp3",
+      "duration_ms": 1780,
+      "status": "DRAFT"
+    },
+    "B82_S13_D03": {
+      "id": "B82_S13_D03",
+      "speaker": "Jenny",
+      "english": "Too many. I'm trying to leave a few things at home.",
+      "vietnamese": "Nhiều quá. Chị đang tính để bớt vài thứ ở nhà.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D03.ogg",
+      "audio_fallback": "audio/B82_S13_D03.mp3",
+      "duration_ms": 2860,
+      "status": "DRAFT"
+    },
+    "B82_S13_D04": {
+      "id": "B82_S13_D04",
+      "speaker": "Linh",
+      "english": "Like what?",
+      "vietnamese": "Ví dụ thứ gì ạ?",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D04.ogg",
+      "audio_fallback": "audio/B82_S13_D04.mp3",
+      "duration_ms": 820,
+      "status": "DRAFT"
+    },
+    "B82_S13_D05": {
+      "id": "B82_S13_D05",
+      "speaker": "Jenny",
+      "english": "My polish and remover. Can you take this old polish off?",
+      "vietnamese": "Sơn móng và nước tẩy. Em tháo lớp sơn cũ giúp chị được không?",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D05.ogg",
+      "audio_fallback": "audio/B82_S13_D05.mp3",
+      "duration_ms": 3340,
+      "status": "DRAFT"
+    },
+    "B82_S13_D06": {
+      "id": "B82_S13_D06",
+      "speaker": "Linh",
+      "english": "Do you have gel on now?",
+      "vietnamese": "Hiện chị có sơn gel không ạ?",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D06.ogg",
+      "audio_fallback": "audio/B82_S13_D06.mp3",
+      "duration_ms": 1450,
+      "status": "DRAFT"
+    },
+    "B82_S13_D07": {
+      "id": "B82_S13_D07",
+      "speaker": "Jenny",
+      "english": "Yes. Another salon did it.",
+      "vietnamese": "Có em. Chị làm ở tiệm khác.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D07.ogg",
+      "audio_fallback": "audio/B82_S13_D07.mp3",
+      "duration_ms": 2230,
+      "status": "DRAFT"
+    },
+    "B82_S13_D08": {
+      "id": "B82_S13_D08",
+      "speaker": "Linh",
+      "english": "Just removal today?",
+      "vietnamese": "Hôm nay chị chỉ tháo thôi, đúng không ạ?",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D08.ogg",
+      "audio_fallback": "audio/B82_S13_D08.mp3",
+      "duration_ms": 1390,
+      "status": "DRAFT"
+    },
+    "B82_S13_D09": {
+      "id": "B82_S13_D09",
+      "speaker": "Jenny",
+      "english": "Yes, removal only today. No new color.",
+      "vietnamese": "Ừ, hôm nay chỉ tháo. Không sơn màu mới.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D09.ogg",
+      "audio_fallback": "audio/B82_S13_D09.mp3",
+      "duration_ms": 2860,
+      "status": "DRAFT"
+    },
+    "B82_S13_D10": {
+      "id": "B82_S13_D10",
+      "speaker": "Linh",
+      "english": "I'll check the price and time.",
+      "vietnamese": "Em kiểm tra giá và thời gian nhé.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D10.ogg",
+      "audio_fallback": "audio/B82_S13_D10.mp3",
+      "duration_ms": 1550,
+      "status": "DRAFT"
+    },
+    "B82_S13_D11": {
+      "id": "B82_S13_D11",
+      "speaker": "Jenny",
+      "english": "Okay. Let me know before we start.",
+      "vietnamese": "Ừ. Em báo chị trước khi bắt đầu nhé.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D11.ogg",
+      "audio_fallback": "audio/B82_S13_D11.mp3",
+      "duration_ms": 2210,
+      "status": "DRAFT"
+    },
+    "B82_S13_D12": {
+      "id": "B82_S13_D12",
+      "speaker": "Linh",
+      "english": "I'll have Susan check the product first.",
+      "vietnamese": "Em nhờ Susan kiểm tra lớp sản phẩm trước nhé.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D12.ogg",
+      "audio_fallback": "audio/B82_S13_D12.mp3",
+      "duration_ms": 2170,
+      "status": "DRAFT"
+    },
+    "B82_S13_D13": {
+      "id": "B82_S13_D13",
+      "speaker": "Jenny",
+      "english": "Thanks. I don't know exactly what the other salon used.",
+      "vietnamese": "Cảm ơn em. Chị không biết chính xác tiệm kia dùng loại gì.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D13.ogg",
+      "audio_fallback": "audio/B82_S13_D13.mp3",
+      "duration_ms": 3210,
+      "status": "DRAFT"
+    },
+    "B82_S13_D14": {
+      "id": "B82_S13_D14",
+      "speaker": "Linh",
+      "english": "We'll check before we start.",
+      "vietnamese": "Bên em sẽ kiểm tra trước khi bắt đầu.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D14.ogg",
+      "audio_fallback": "audio/B82_S13_D14.mp3",
+      "duration_ms": 1610,
+      "status": "DRAFT"
+    },
+    "B82_S13_D15": {
+      "id": "B82_S13_D15",
+      "speaker": "Jenny",
+      "english": "Good. I won't try to peel it off.",
+      "vietnamese": "Tốt rồi. Chị sẽ không tự bóc ra.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D15.ogg",
+      "audio_fallback": "audio/B82_S13_D15.mp3",
+      "duration_ms": 1930,
+      "status": "DRAFT"
+    },
+    "B82_S13_D16": {
+      "id": "B82_S13_D16",
+      "speaker": "Linh",
+      "english": "Then you can leave the polish at home.",
+      "vietnamese": "Vậy chị để đồ sơn móng ở nhà được rồi.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D16.ogg",
+      "audio_fallback": "audio/B82_S13_D16.mp3",
+      "duration_ms": 1880,
+      "status": "DRAFT"
+    },
+    "B82_S13_D17": {
+      "id": "B82_S13_D17",
+      "speaker": "Jenny",
+      "english": "Yes. More room for snacks.",
+      "vietnamese": "Ừ. Có thêm chỗ đựng đồ ăn vặt.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D17.ogg",
+      "audio_fallback": "audio/B82_S13_D17.mp3",
+      "duration_ms": 2080,
+      "status": "DRAFT"
+    },
+    "B82_S13_D18": {
+      "id": "B82_S13_D18",
+      "speaker": "Linh",
+      "english": "What's your favorite camping snack?",
+      "vietnamese": "Chị thích mang món gì đi cắm trại nhất?",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D18.ogg",
+      "audio_fallback": "audio/B82_S13_D18.mp3",
+      "duration_ms": 1780,
+      "status": "DRAFT"
+    },
+    "B82_S13_D19": {
+      "id": "B82_S13_D19",
+      "speaker": "Jenny",
+      "english": "Crackers. My sister always brings too many.",
+      "vietnamese": "Bánh quy giòn. Em gái chị lúc nào cũng mang nhiều quá.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D19.ogg",
+      "audio_fallback": "audio/B82_S13_D19.mp3",
+      "duration_ms": 2780,
+      "status": "DRAFT"
+    },
+    "B82_S13_D20": {
+      "id": "B82_S13_D20",
+      "speaker": "Linh",
+      "english": "At least you won't run out.",
+      "vietnamese": "Ít ra mình không sợ hết bánh chị nhỉ.",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_D20.ogg",
+      "audio_fallback": "audio/B82_S13_D20.mp3",
+      "duration_ms": 1400,
+      "status": "DRAFT"
+    },
+    "B82_S13_M1": {
+      "id": "B82_S13_M1",
+      "speaker": "Linh",
+      "english": "Removal and new color? I’ll check the price and time.",
+      "vietnamese": "",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_M1.ogg",
+      "audio_fallback": "audio/B82_S13_M1.mp3",
+      "duration_ms": 3160,
+      "status": "DRAFT"
+    },
+    "B82_S13_T1": {
+      "id": "B82_S13_T1",
+      "speaker": "Jenny",
+      "english": "Can I get a new color after removal, too?",
+      "vietnamese": "",
+      "lesson": "L-S13",
+      "audio": "audio/B82_S13_T1.ogg",
+      "audio_fallback": "audio/B82_S13_T1.mp3",
+      "duration_ms": 2350,
+      "status": "DRAFT"
+    }
+  },
+  "visemes": {
+    "B82_S13_D01": {
+      "character": "jenny",
+      "duration": 1.54,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D01.wav",
+      "sha256_wav": "2f9920c23c1320109b07de85ea00684088814bdabbf86b9d3b1ffc78be1bf18f",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.14,
+          "value": "C"
+        },
+        {
+          "start": 0.14,
+          "end": 0.22,
+          "value": "A"
+        },
+        {
+          "start": 0.22,
+          "end": 0.34,
+          "value": "C"
+        },
+        {
+          "start": 0.34,
+          "end": 0.62,
+          "value": "B"
+        },
+        {
+          "start": 0.62,
+          "end": 0.69,
+          "value": "B"
+        },
+        {
+          "start": 0.69,
+          "end": 0.76,
+          "value": "E"
+        },
+        {
+          "start": 0.76,
+          "end": 0.97,
+          "value": "C"
+        },
+        {
+          "start": 0.97,
+          "end": 1.05,
+          "value": "A"
+        },
+        {
+          "start": 1.05,
+          "end": 1.39,
+          "value": "B"
+        },
+        {
+          "start": 1.39,
+          "end": 1.48,
+          "value": "A"
+        },
+        {
+          "start": 1.48,
+          "end": 1.54,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D02": {
+      "character": "linh",
+      "duration": 1.78,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D02.wav",
+      "sha256_wav": "a4c9f786b3859922bec3f2ada935728a93f0826d2940873fe7d06f5e2e823a03",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.07,
+          "value": "X"
+        },
+        {
+          "start": 0.07,
+          "end": 0.13,
+          "value": "D"
+        },
+        {
+          "start": 0.13,
+          "end": 0.25,
+          "value": "B"
+        },
+        {
+          "start": 0.25,
+          "end": 0.46,
+          "value": "F"
+        },
+        {
+          "start": 0.46,
+          "end": 0.53,
+          "value": "B"
+        },
+        {
+          "start": 0.53,
+          "end": 0.67,
+          "value": "C"
+        },
+        {
+          "start": 0.67,
+          "end": 0.88,
+          "value": "B"
+        },
+        {
+          "start": 0.88,
+          "end": 0.95,
+          "value": "C"
+        },
+        {
+          "start": 0.95,
+          "end": 1.02,
+          "value": "C"
+        },
+        {
+          "start": 1.02,
+          "end": 1.16,
+          "value": "B"
+        },
+        {
+          "start": 1.16,
+          "end": 1.23,
+          "value": "B"
+        },
+        {
+          "start": 1.23,
+          "end": 1.72,
+          "value": "B"
+        },
+        {
+          "start": 1.72,
+          "end": 1.78,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D03": {
+      "character": "jenny",
+      "duration": 2.86,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D03.wav",
+      "sha256_wav": "aae86725af630ae8c0645ab9b4e72c806663a3b839abf81c471f71182b55d036",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.05,
+          "value": "X"
+        },
+        {
+          "start": 0.05,
+          "end": 0.21,
+          "value": "F"
+        },
+        {
+          "start": 0.21,
+          "end": 0.29,
+          "value": "A"
+        },
+        {
+          "start": 0.29,
+          "end": 0.36,
+          "value": "C"
+        },
+        {
+          "start": 0.36,
+          "end": 0.56,
+          "value": "B"
+        },
+        {
+          "start": 0.56,
+          "end": 0.88,
+          "value": "X"
+        },
+        {
+          "start": 0.88,
+          "end": 1.04,
+          "value": "B"
+        },
+        {
+          "start": 1.04,
+          "end": 1.18,
+          "value": "C"
+        },
+        {
+          "start": 1.18,
+          "end": 1.32,
+          "value": "B"
+        },
+        {
+          "start": 1.32,
+          "end": 1.39,
+          "value": "C"
+        },
+        {
+          "start": 1.39,
+          "end": 1.53,
+          "value": "F"
+        },
+        {
+          "start": 1.53,
+          "end": 1.67,
+          "value": "B"
+        },
+        {
+          "start": 1.67,
+          "end": 1.74,
+          "value": "B"
+        },
+        {
+          "start": 1.74,
+          "end": 1.81,
+          "value": "C"
+        },
+        {
+          "start": 1.81,
+          "end": 1.88,
+          "value": "B"
+        },
+        {
+          "start": 1.88,
+          "end": 2.02,
+          "value": "F"
+        },
+        {
+          "start": 2.02,
+          "end": 2.3,
+          "value": "B"
+        },
+        {
+          "start": 2.3,
+          "end": 2.58,
+          "value": "E"
+        },
+        {
+          "start": 2.58,
+          "end": 2.65,
+          "value": "F"
+        },
+        {
+          "start": 2.65,
+          "end": 2.76,
+          "value": "A"
+        },
+        {
+          "start": 2.76,
+          "end": 2.86,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D04": {
+      "character": "linh",
+      "duration": 0.82,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D04.wav",
+      "sha256_wav": "41e490a0050dbf7165ecc5823e97e15e32672d7efeab687b1f1b7454f932e00b",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.18,
+          "value": "X"
+        },
+        {
+          "start": 0.18,
+          "end": 0.25,
+          "value": "C"
+        },
+        {
+          "start": 0.25,
+          "end": 0.38,
+          "value": "C"
+        },
+        {
+          "start": 0.38,
+          "end": 0.45,
+          "value": "B"
+        },
+        {
+          "start": 0.45,
+          "end": 0.52,
+          "value": "F"
+        },
+        {
+          "start": 0.52,
+          "end": 0.66,
+          "value": "D"
+        },
+        {
+          "start": 0.66,
+          "end": 0.73,
+          "value": "B"
+        },
+        {
+          "start": 0.73,
+          "end": 0.82,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D05": {
+      "character": "jenny",
+      "duration": 3.34,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D05.wav",
+      "sha256_wav": "770de38a9633a4a840338b0f7cb2cf2d47d1b4693e50454e85553b653ef6b179",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.04,
+          "value": "X"
+        },
+        {
+          "start": 0.04,
+          "end": 0.1,
+          "value": "A"
+        },
+        {
+          "start": 0.1,
+          "end": 0.16,
+          "value": "C"
+        },
+        {
+          "start": 0.16,
+          "end": 0.21,
+          "value": "A"
+        },
+        {
+          "start": 0.21,
+          "end": 0.44,
+          "value": "D"
+        },
+        {
+          "start": 0.44,
+          "end": 0.49,
+          "value": "C"
+        },
+        {
+          "start": 0.49,
+          "end": 0.67,
+          "value": "B"
+        },
+        {
+          "start": 0.67,
+          "end": 0.81,
+          "value": "C"
+        },
+        {
+          "start": 0.81,
+          "end": 0.95,
+          "value": "B"
+        },
+        {
+          "start": 0.95,
+          "end": 1.04,
+          "value": "A"
+        },
+        {
+          "start": 1.04,
+          "end": 1.1,
+          "value": "F"
+        },
+        {
+          "start": 1.1,
+          "end": 1.15,
+          "value": "B"
+        },
+        {
+          "start": 1.15,
+          "end": 1.36,
+          "value": "E"
+        },
+        {
+          "start": 1.36,
+          "end": 1.66,
+          "value": "C"
+        },
+        {
+          "start": 1.66,
+          "end": 1.83,
+          "value": "B"
+        },
+        {
+          "start": 1.83,
+          "end": 1.97,
+          "value": "F"
+        },
+        {
+          "start": 1.97,
+          "end": 2.11,
+          "value": "C"
+        },
+        {
+          "start": 2.11,
+          "end": 2.39,
+          "value": "B"
+        },
+        {
+          "start": 2.39,
+          "end": 2.46,
+          "value": "E"
+        },
+        {
+          "start": 2.46,
+          "end": 2.53,
+          "value": "F"
+        },
+        {
+          "start": 2.53,
+          "end": 2.61,
+          "value": "A"
+        },
+        {
+          "start": 2.61,
+          "end": 2.78,
+          "value": "D"
+        },
+        {
+          "start": 2.78,
+          "end": 2.82,
+          "value": "C"
+        },
+        {
+          "start": 2.82,
+          "end": 3.01,
+          "value": "B"
+        },
+        {
+          "start": 3.01,
+          "end": 3.22,
+          "value": "E"
+        },
+        {
+          "start": 3.22,
+          "end": 3.29,
+          "value": "B"
+        },
+        {
+          "start": 3.29,
+          "end": 3.34,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D06": {
+      "character": "linh",
+      "duration": 1.45,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D06.wav",
+      "sha256_wav": "60e215db28ae3829a8fb5d4c70de9d83265daea689d2d916719564fa59da12bc",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.05,
+          "value": "X"
+        },
+        {
+          "start": 0.05,
+          "end": 0.38,
+          "value": "F"
+        },
+        {
+          "start": 0.38,
+          "end": 0.52,
+          "value": "C"
+        },
+        {
+          "start": 0.52,
+          "end": 0.59,
+          "value": "B"
+        },
+        {
+          "start": 0.59,
+          "end": 0.73,
+          "value": "B"
+        },
+        {
+          "start": 0.73,
+          "end": 0.8,
+          "value": "C"
+        },
+        {
+          "start": 0.8,
+          "end": 0.87,
+          "value": "C"
+        },
+        {
+          "start": 0.87,
+          "end": 1.01,
+          "value": "D"
+        },
+        {
+          "start": 1.01,
+          "end": 1.29,
+          "value": "C"
+        },
+        {
+          "start": 1.29,
+          "end": 1.36,
+          "value": "E"
+        },
+        {
+          "start": 1.36,
+          "end": 1.45,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D07": {
+      "character": "jenny",
+      "duration": 2.23,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D07.wav",
+      "sha256_wav": "acb810d94c7206b072fc911c6d614b43adf058775ad4eb45714438969d674faf",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.43,
+          "value": "C"
+        },
+        {
+          "start": 0.43,
+          "end": 0.64,
+          "value": "B"
+        },
+        {
+          "start": 0.64,
+          "end": 1.0,
+          "value": "X"
+        },
+        {
+          "start": 1.0,
+          "end": 1.23,
+          "value": "C"
+        },
+        {
+          "start": 1.23,
+          "end": 1.3,
+          "value": "B"
+        },
+        {
+          "start": 1.3,
+          "end": 1.37,
+          "value": "E"
+        },
+        {
+          "start": 1.37,
+          "end": 1.44,
+          "value": "B"
+        },
+        {
+          "start": 1.44,
+          "end": 1.51,
+          "value": "C"
+        },
+        {
+          "start": 1.51,
+          "end": 1.58,
+          "value": "C"
+        },
+        {
+          "start": 1.58,
+          "end": 1.72,
+          "value": "D"
+        },
+        {
+          "start": 1.72,
+          "end": 2.14,
+          "value": "B"
+        },
+        {
+          "start": 2.14,
+          "end": 2.23,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D08": {
+      "character": "linh",
+      "duration": 1.39,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D08.wav",
+      "sha256_wav": "81b92a5c78f0192eeed5d8f3484650fd3d5600ce48f15791899ce6eea7034cc0",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.15,
+          "value": "B"
+        },
+        {
+          "start": 0.15,
+          "end": 0.27,
+          "value": "C"
+        },
+        {
+          "start": 0.27,
+          "end": 0.55,
+          "value": "B"
+        },
+        {
+          "start": 0.55,
+          "end": 0.63,
+          "value": "A"
+        },
+        {
+          "start": 0.63,
+          "end": 0.7,
+          "value": "F"
+        },
+        {
+          "start": 0.7,
+          "end": 0.76,
+          "value": "B"
+        },
+        {
+          "start": 0.76,
+          "end": 0.83,
+          "value": "C"
+        },
+        {
+          "start": 0.83,
+          "end": 0.97,
+          "value": "B"
+        },
+        {
+          "start": 0.97,
+          "end": 1.18,
+          "value": "C"
+        },
+        {
+          "start": 1.18,
+          "end": 1.32,
+          "value": "B"
+        },
+        {
+          "start": 1.32,
+          "end": 1.39,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D09": {
+      "character": "jenny",
+      "duration": 2.86,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D09.wav",
+      "sha256_wav": "6efbbb4b13163fddfe46715225909682c579737ca65e59b9caf779b5268d839d",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.32,
+          "value": "C"
+        },
+        {
+          "start": 0.32,
+          "end": 0.74,
+          "value": "B"
+        },
+        {
+          "start": 0.74,
+          "end": 0.82,
+          "value": "A"
+        },
+        {
+          "start": 0.82,
+          "end": 0.9,
+          "value": "F"
+        },
+        {
+          "start": 0.9,
+          "end": 0.97,
+          "value": "C"
+        },
+        {
+          "start": 0.97,
+          "end": 1.11,
+          "value": "E"
+        },
+        {
+          "start": 1.11,
+          "end": 1.46,
+          "value": "B"
+        },
+        {
+          "start": 1.46,
+          "end": 1.67,
+          "value": "C"
+        },
+        {
+          "start": 1.67,
+          "end": 1.98,
+          "value": "B"
+        },
+        {
+          "start": 1.98,
+          "end": 2.08,
+          "value": "C"
+        },
+        {
+          "start": 2.08,
+          "end": 2.36,
+          "value": "F"
+        },
+        {
+          "start": 2.36,
+          "end": 2.43,
+          "value": "B"
+        },
+        {
+          "start": 2.43,
+          "end": 2.5,
+          "value": "C"
+        },
+        {
+          "start": 2.5,
+          "end": 2.78,
+          "value": "E"
+        },
+        {
+          "start": 2.78,
+          "end": 2.86,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D10": {
+      "character": "linh",
+      "duration": 1.55,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D10.wav",
+      "sha256_wav": "8a87aa1cb468888e289b89a8b0415d6575897b09b7c554c082be2b3bfd537f97",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.07,
+          "value": "X"
+        },
+        {
+          "start": 0.07,
+          "end": 0.27,
+          "value": "B"
+        },
+        {
+          "start": 0.27,
+          "end": 0.34,
+          "value": "C"
+        },
+        {
+          "start": 0.34,
+          "end": 0.48,
+          "value": "B"
+        },
+        {
+          "start": 0.48,
+          "end": 0.59,
+          "value": "A"
+        },
+        {
+          "start": 0.59,
+          "end": 0.64,
+          "value": "B"
+        },
+        {
+          "start": 0.64,
+          "end": 0.76,
+          "value": "C"
+        },
+        {
+          "start": 0.76,
+          "end": 0.9,
+          "value": "B"
+        },
+        {
+          "start": 0.9,
+          "end": 0.97,
+          "value": "C"
+        },
+        {
+          "start": 0.97,
+          "end": 1.04,
+          "value": "B"
+        },
+        {
+          "start": 1.04,
+          "end": 1.25,
+          "value": "C"
+        },
+        {
+          "start": 1.25,
+          "end": 1.32,
+          "value": "B"
+        },
+        {
+          "start": 1.32,
+          "end": 1.46,
+          "value": "A"
+        },
+        {
+          "start": 1.46,
+          "end": 1.55,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D11": {
+      "character": "jenny",
+      "duration": 2.21,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D11.wav",
+      "sha256_wav": "0b5ede1a632f601cf8ed7e582bbae53e58a15a4ad85bdbf2b658c47f8aceb31f",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.13,
+          "value": "E"
+        },
+        {
+          "start": 0.13,
+          "end": 0.32,
+          "value": "C"
+        },
+        {
+          "start": 0.32,
+          "end": 0.39,
+          "value": "B"
+        },
+        {
+          "start": 0.39,
+          "end": 0.53,
+          "value": "X"
+        },
+        {
+          "start": 0.53,
+          "end": 0.69,
+          "value": "B"
+        },
+        {
+          "start": 0.69,
+          "end": 0.83,
+          "value": "C"
+        },
+        {
+          "start": 0.83,
+          "end": 0.9,
+          "value": "B"
+        },
+        {
+          "start": 0.9,
+          "end": 0.98,
+          "value": "A"
+        },
+        {
+          "start": 0.98,
+          "end": 1.06,
+          "value": "B"
+        },
+        {
+          "start": 1.06,
+          "end": 1.13,
+          "value": "C"
+        },
+        {
+          "start": 1.13,
+          "end": 1.21,
+          "value": "A"
+        },
+        {
+          "start": 1.21,
+          "end": 1.29,
+          "value": "B"
+        },
+        {
+          "start": 1.29,
+          "end": 1.43,
+          "value": "B"
+        },
+        {
+          "start": 1.43,
+          "end": 1.5,
+          "value": "E"
+        },
+        {
+          "start": 1.5,
+          "end": 1.57,
+          "value": "F"
+        },
+        {
+          "start": 1.57,
+          "end": 1.71,
+          "value": "B"
+        },
+        {
+          "start": 1.71,
+          "end": 1.85,
+          "value": "D"
+        },
+        {
+          "start": 1.85,
+          "end": 2.13,
+          "value": "B"
+        },
+        {
+          "start": 2.13,
+          "end": 2.21,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D12": {
+      "character": "linh",
+      "duration": 2.17,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D12.wav",
+      "sha256_wav": "852f7c52d56ad42c43086854e6b362c8a9fdd918bf0de1c5183752e67a85fa3e",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.14,
+          "value": "C"
+        },
+        {
+          "start": 0.14,
+          "end": 0.2,
+          "value": "B"
+        },
+        {
+          "start": 0.2,
+          "end": 0.27,
+          "value": "C"
+        },
+        {
+          "start": 0.27,
+          "end": 0.41,
+          "value": "C"
+        },
+        {
+          "start": 0.41,
+          "end": 0.48,
+          "value": "B"
+        },
+        {
+          "start": 0.48,
+          "end": 0.69,
+          "value": "F"
+        },
+        {
+          "start": 0.69,
+          "end": 0.76,
+          "value": "B"
+        },
+        {
+          "start": 0.76,
+          "end": 0.9,
+          "value": "C"
+        },
+        {
+          "start": 0.9,
+          "end": 0.97,
+          "value": "B"
+        },
+        {
+          "start": 0.97,
+          "end": 1.04,
+          "value": "C"
+        },
+        {
+          "start": 1.04,
+          "end": 1.18,
+          "value": "B"
+        },
+        {
+          "start": 1.18,
+          "end": 1.28,
+          "value": "A"
+        },
+        {
+          "start": 1.28,
+          "end": 1.66,
+          "value": "B"
+        },
+        {
+          "start": 1.66,
+          "end": 1.87,
+          "value": "E"
+        },
+        {
+          "start": 1.87,
+          "end": 2.08,
+          "value": "B"
+        },
+        {
+          "start": 2.08,
+          "end": 2.17,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D13": {
+      "character": "jenny",
+      "duration": 3.21,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D13.wav",
+      "sha256_wav": "a856fe6f63c9fdff1b5a95d2790520211081fb8e2651a8ce8c028888c2ec6166",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.13,
+          "value": "B"
+        },
+        {
+          "start": 0.13,
+          "end": 0.24,
+          "value": "C"
+        },
+        {
+          "start": 0.24,
+          "end": 0.94,
+          "value": "B"
+        },
+        {
+          "start": 0.94,
+          "end": 1.01,
+          "value": "C"
+        },
+        {
+          "start": 1.01,
+          "end": 1.08,
+          "value": "B"
+        },
+        {
+          "start": 1.08,
+          "end": 1.22,
+          "value": "E"
+        },
+        {
+          "start": 1.22,
+          "end": 1.29,
+          "value": "F"
+        },
+        {
+          "start": 1.29,
+          "end": 1.36,
+          "value": "E"
+        },
+        {
+          "start": 1.36,
+          "end": 1.43,
+          "value": "F"
+        },
+        {
+          "start": 1.43,
+          "end": 1.57,
+          "value": "B"
+        },
+        {
+          "start": 1.57,
+          "end": 1.64,
+          "value": "C"
+        },
+        {
+          "start": 1.64,
+          "end": 2.06,
+          "value": "B"
+        },
+        {
+          "start": 2.06,
+          "end": 2.13,
+          "value": "C"
+        },
+        {
+          "start": 2.13,
+          "end": 2.41,
+          "value": "B"
+        },
+        {
+          "start": 2.41,
+          "end": 2.48,
+          "value": "C"
+        },
+        {
+          "start": 2.48,
+          "end": 2.55,
+          "value": "D"
+        },
+        {
+          "start": 2.55,
+          "end": 2.97,
+          "value": "F"
+        },
+        {
+          "start": 2.97,
+          "end": 3.11,
+          "value": "B"
+        },
+        {
+          "start": 3.11,
+          "end": 3.21,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D14": {
+      "character": "linh",
+      "duration": 1.61,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D14.wav",
+      "sha256_wav": "48385f4e0f6995a471433bc7f98e8bbd80f25780a4aaa9576b997d4bed1a29a5",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.11,
+          "value": "X"
+        },
+        {
+          "start": 0.11,
+          "end": 0.18,
+          "value": "F"
+        },
+        {
+          "start": 0.18,
+          "end": 0.46,
+          "value": "B"
+        },
+        {
+          "start": 0.46,
+          "end": 0.53,
+          "value": "C"
+        },
+        {
+          "start": 0.53,
+          "end": 0.6,
+          "value": "B"
+        },
+        {
+          "start": 0.6,
+          "end": 0.68,
+          "value": "A"
+        },
+        {
+          "start": 0.68,
+          "end": 0.82,
+          "value": "B"
+        },
+        {
+          "start": 0.82,
+          "end": 0.89,
+          "value": "B"
+        },
+        {
+          "start": 0.89,
+          "end": 0.96,
+          "value": "E"
+        },
+        {
+          "start": 0.96,
+          "end": 1.03,
+          "value": "F"
+        },
+        {
+          "start": 1.03,
+          "end": 1.17,
+          "value": "B"
+        },
+        {
+          "start": 1.17,
+          "end": 1.31,
+          "value": "D"
+        },
+        {
+          "start": 1.31,
+          "end": 1.52,
+          "value": "B"
+        },
+        {
+          "start": 1.52,
+          "end": 1.61,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D15": {
+      "character": "jenny",
+      "duration": 1.93,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D15.wav",
+      "sha256_wav": "89ebeaf63fd796a8b3bc7ce0024b342adcb59dc1427db8b5163885d693cc2e18",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.04,
+          "value": "X"
+        },
+        {
+          "start": 0.04,
+          "end": 0.34,
+          "value": "B"
+        },
+        {
+          "start": 0.34,
+          "end": 0.6,
+          "value": "X"
+        },
+        {
+          "start": 0.6,
+          "end": 0.76,
+          "value": "D"
+        },
+        {
+          "start": 0.76,
+          "end": 0.83,
+          "value": "B"
+        },
+        {
+          "start": 0.83,
+          "end": 0.9,
+          "value": "F"
+        },
+        {
+          "start": 0.9,
+          "end": 0.97,
+          "value": "E"
+        },
+        {
+          "start": 0.97,
+          "end": 1.25,
+          "value": "B"
+        },
+        {
+          "start": 1.25,
+          "end": 1.33,
+          "value": "A"
+        },
+        {
+          "start": 1.33,
+          "end": 1.61,
+          "value": "B"
+        },
+        {
+          "start": 1.61,
+          "end": 1.82,
+          "value": "E"
+        },
+        {
+          "start": 1.82,
+          "end": 1.89,
+          "value": "B"
+        },
+        {
+          "start": 1.89,
+          "end": 1.93,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D16": {
+      "character": "linh",
+      "duration": 1.88,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D16.wav",
+      "sha256_wav": "f2ae4d1e276c1c11451885a75dd2021637c5dca301bbbb2488a2e6e565276824",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.16,
+          "value": "B"
+        },
+        {
+          "start": 0.16,
+          "end": 0.57,
+          "value": "C"
+        },
+        {
+          "start": 0.57,
+          "end": 0.85,
+          "value": "B"
+        },
+        {
+          "start": 0.85,
+          "end": 0.93,
+          "value": "A"
+        },
+        {
+          "start": 0.93,
+          "end": 1.08,
+          "value": "D"
+        },
+        {
+          "start": 1.08,
+          "end": 1.12,
+          "value": "C"
+        },
+        {
+          "start": 1.12,
+          "end": 1.38,
+          "value": "B"
+        },
+        {
+          "start": 1.38,
+          "end": 1.59,
+          "value": "E"
+        },
+        {
+          "start": 1.59,
+          "end": 1.66,
+          "value": "F"
+        },
+        {
+          "start": 1.66,
+          "end": 1.79,
+          "value": "A"
+        },
+        {
+          "start": 1.79,
+          "end": 1.88,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D17": {
+      "character": "jenny",
+      "duration": 2.08,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D17.wav",
+      "sha256_wav": "e1e92b7b82270e12fdeba98a681f8fcb34c13df820860e8294e5713ac4db3005",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.08,
+          "value": "X"
+        },
+        {
+          "start": 0.08,
+          "end": 0.3,
+          "value": "C"
+        },
+        {
+          "start": 0.3,
+          "end": 0.51,
+          "value": "B"
+        },
+        {
+          "start": 0.51,
+          "end": 0.73,
+          "value": "X"
+        },
+        {
+          "start": 0.73,
+          "end": 0.89,
+          "value": "B"
+        },
+        {
+          "start": 0.89,
+          "end": 0.98,
+          "value": "A"
+        },
+        {
+          "start": 0.98,
+          "end": 1.05,
+          "value": "E"
+        },
+        {
+          "start": 1.05,
+          "end": 1.19,
+          "value": "F"
+        },
+        {
+          "start": 1.19,
+          "end": 1.27,
+          "value": "A"
+        },
+        {
+          "start": 1.27,
+          "end": 1.33,
+          "value": "B"
+        },
+        {
+          "start": 1.33,
+          "end": 1.38,
+          "value": "E"
+        },
+        {
+          "start": 1.38,
+          "end": 1.52,
+          "value": "B"
+        },
+        {
+          "start": 1.52,
+          "end": 1.73,
+          "value": "C"
+        },
+        {
+          "start": 1.73,
+          "end": 2.01,
+          "value": "B"
+        },
+        {
+          "start": 2.01,
+          "end": 2.08,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D18": {
+      "character": "linh",
+      "duration": 1.78,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D18.wav",
+      "sha256_wav": "04749d6fc43fae5c043ef54653655b38697ca17bf172ce877099ba7b9fda4ba4",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.1,
+          "value": "X"
+        },
+        {
+          "start": 0.1,
+          "end": 0.16,
+          "value": "F"
+        },
+        {
+          "start": 0.16,
+          "end": 0.21,
+          "value": "C"
+        },
+        {
+          "start": 0.21,
+          "end": 0.49,
+          "value": "F"
+        },
+        {
+          "start": 0.49,
+          "end": 0.63,
+          "value": "B"
+        },
+        {
+          "start": 0.63,
+          "end": 0.7,
+          "value": "C"
+        },
+        {
+          "start": 0.7,
+          "end": 0.77,
+          "value": "B"
+        },
+        {
+          "start": 0.77,
+          "end": 0.84,
+          "value": "B"
+        },
+        {
+          "start": 0.84,
+          "end": 1.05,
+          "value": "C"
+        },
+        {
+          "start": 1.05,
+          "end": 1.13,
+          "value": "A"
+        },
+        {
+          "start": 1.13,
+          "end": 1.35,
+          "value": "B"
+        },
+        {
+          "start": 1.35,
+          "end": 1.56,
+          "value": "C"
+        },
+        {
+          "start": 1.56,
+          "end": 1.7,
+          "value": "B"
+        },
+        {
+          "start": 1.7,
+          "end": 1.78,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D19": {
+      "character": "jenny",
+      "duration": 2.78,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D19.wav",
+      "sha256_wav": "da6bbaddf0e9709c61d5c6ec57f4ae6a97eb2437beab3c1afce9cbe31f554e94",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.04,
+          "value": "X"
+        },
+        {
+          "start": 0.04,
+          "end": 0.17,
+          "value": "B"
+        },
+        {
+          "start": 0.17,
+          "end": 0.24,
+          "value": "C"
+        },
+        {
+          "start": 0.24,
+          "end": 0.45,
+          "value": "E"
+        },
+        {
+          "start": 0.45,
+          "end": 0.66,
+          "value": "B"
+        },
+        {
+          "start": 0.66,
+          "end": 0.87,
+          "value": "X"
+        },
+        {
+          "start": 0.87,
+          "end": 1.05,
+          "value": "B"
+        },
+        {
+          "start": 1.05,
+          "end": 1.13,
+          "value": "A"
+        },
+        {
+          "start": 1.13,
+          "end": 1.18,
+          "value": "C"
+        },
+        {
+          "start": 1.18,
+          "end": 1.43,
+          "value": "B"
+        },
+        {
+          "start": 1.43,
+          "end": 1.71,
+          "value": "E"
+        },
+        {
+          "start": 1.71,
+          "end": 1.78,
+          "value": "B"
+        },
+        {
+          "start": 1.78,
+          "end": 1.86,
+          "value": "A"
+        },
+        {
+          "start": 1.86,
+          "end": 2.09,
+          "value": "B"
+        },
+        {
+          "start": 2.09,
+          "end": 2.3,
+          "value": "F"
+        },
+        {
+          "start": 2.3,
+          "end": 2.38,
+          "value": "A"
+        },
+        {
+          "start": 2.38,
+          "end": 2.47,
+          "value": "C"
+        },
+        {
+          "start": 2.47,
+          "end": 2.68,
+          "value": "B"
+        },
+        {
+          "start": 2.68,
+          "end": 2.78,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_D20": {
+      "character": "linh",
+      "duration": 1.4,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D20.wav",
+      "sha256_wav": "94ea059098c6e51524bc200e368ff26fcb7191ed5e88efad552ef8e730b2bd9c",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.07,
+          "value": "X"
+        },
+        {
+          "start": 0.07,
+          "end": 0.13,
+          "value": "C"
+        },
+        {
+          "start": 0.13,
+          "end": 0.39,
+          "value": "B"
+        },
+        {
+          "start": 0.39,
+          "end": 0.6,
+          "value": "F"
+        },
+        {
+          "start": 0.6,
+          "end": 0.67,
+          "value": "E"
+        },
+        {
+          "start": 0.67,
+          "end": 0.74,
+          "value": "F"
+        },
+        {
+          "start": 0.74,
+          "end": 0.88,
+          "value": "B"
+        },
+        {
+          "start": 0.88,
+          "end": 1.09,
+          "value": "C"
+        },
+        {
+          "start": 1.09,
+          "end": 1.3,
+          "value": "B"
+        },
+        {
+          "start": 1.3,
+          "end": 1.4,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_M1": {
+      "character": "linh",
+      "duration": 3.16,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_M1.wav",
+      "sha256_wav": "37bba8644e9a76f779d278bcdb9d506c6bbb588857eec1ff670ab6e54b36138a",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.09,
+          "value": "X"
+        },
+        {
+          "start": 0.09,
+          "end": 0.19,
+          "value": "B"
+        },
+        {
+          "start": 0.19,
+          "end": 0.28,
+          "value": "A"
+        },
+        {
+          "start": 0.28,
+          "end": 0.4,
+          "value": "F"
+        },
+        {
+          "start": 0.4,
+          "end": 0.47,
+          "value": "B"
+        },
+        {
+          "start": 0.47,
+          "end": 0.61,
+          "value": "C"
+        },
+        {
+          "start": 0.61,
+          "end": 0.68,
+          "value": "C"
+        },
+        {
+          "start": 0.68,
+          "end": 0.82,
+          "value": "F"
+        },
+        {
+          "start": 0.82,
+          "end": 1.38,
+          "value": "E"
+        },
+        {
+          "start": 1.38,
+          "end": 1.59,
+          "value": "B"
+        },
+        {
+          "start": 1.59,
+          "end": 1.81,
+          "value": "X"
+        },
+        {
+          "start": 1.81,
+          "end": 2.0,
+          "value": "B"
+        },
+        {
+          "start": 2.0,
+          "end": 2.07,
+          "value": "C"
+        },
+        {
+          "start": 2.07,
+          "end": 2.21,
+          "value": "B"
+        },
+        {
+          "start": 2.21,
+          "end": 2.3,
+          "value": "A"
+        },
+        {
+          "start": 2.3,
+          "end": 2.34,
+          "value": "B"
+        },
+        {
+          "start": 2.34,
+          "end": 2.38,
+          "value": "C"
+        },
+        {
+          "start": 2.38,
+          "end": 2.66,
+          "value": "B"
+        },
+        {
+          "start": 2.66,
+          "end": 2.87,
+          "value": "C"
+        },
+        {
+          "start": 2.87,
+          "end": 2.94,
+          "value": "B"
+        },
+        {
+          "start": 2.94,
+          "end": 3.07,
+          "value": "A"
+        },
+        {
+          "start": 3.07,
+          "end": 3.16,
+          "value": "X"
+        }
+      ]
+    },
+    "B82_S13_T1": {
+      "character": "jenny",
+      "duration": 2.35,
+      "wav": "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_T1.wav",
+      "sha256_wav": "3fa47f89d7e634658f6fa1b25a9d9722d144d27386685ae83166eaab8624960a",
+      "mouthCues": [
+        {
+          "start": 0.0,
+          "end": 0.05,
+          "value": "X"
+        },
+        {
+          "start": 0.05,
+          "end": 0.32,
+          "value": "C"
+        },
+        {
+          "start": 0.32,
+          "end": 0.46,
+          "value": "B"
+        },
+        {
+          "start": 0.46,
+          "end": 0.53,
+          "value": "C"
+        },
+        {
+          "start": 0.53,
+          "end": 0.67,
+          "value": "F"
+        },
+        {
+          "start": 0.67,
+          "end": 1.16,
+          "value": "E"
+        },
+        {
+          "start": 1.16,
+          "end": 1.3,
+          "value": "C"
+        },
+        {
+          "start": 1.3,
+          "end": 1.51,
+          "value": "B"
+        },
+        {
+          "start": 1.51,
+          "end": 1.59,
+          "value": "A"
+        },
+        {
+          "start": 1.59,
+          "end": 1.65,
+          "value": "F"
+        },
+        {
+          "start": 1.65,
+          "end": 1.7,
+          "value": "B"
+        },
+        {
+          "start": 1.7,
+          "end": 1.77,
+          "value": "C"
+        },
+        {
+          "start": 1.77,
+          "end": 2.26,
+          "value": "F"
+        },
+        {
+          "start": 2.26,
+          "end": 2.35,
+          "value": "X"
+        }
+      ]
+    }
+  },
+  "dialogue": [
+    "B82_S13_D01",
+    "B82_S13_D02",
+    "B82_S13_D03",
+    "B82_S13_D04",
+    "B82_S13_D05",
+    "B82_S13_D06",
+    "B82_S13_D07",
+    "B82_S13_D08",
+    "B82_S13_D09",
+    "B82_S13_D10",
+    "B82_S13_D11",
+    "B82_S13_D12",
+    "B82_S13_D13",
+    "B82_S13_D14",
+    "B82_S13_D15",
+    "B82_S13_D16",
+    "B82_S13_D17",
+    "B82_S13_D18",
+    "B82_S13_D19",
+    "B82_S13_D20"
+  ],
+  "scene_gaps": {
+    "B82_S13_D01": 500,
+    "B82_S13_D02": 500,
+    "B82_S13_D03": 500,
+    "B82_S13_D04": 500,
+    "B82_S13_D05": 700,
+    "B82_S13_D06": 500,
+    "B82_S13_D07": 500,
+    "B82_S13_D08": 500,
+    "B82_S13_D09": 500,
+    "B82_S13_D10": 500,
+    "B82_S13_D11": 500,
+    "B82_S13_D12": 500,
+    "B82_S13_D13": 700,
+    "B82_S13_D14": 500,
+    "B82_S13_D15": 500,
+    "B82_S13_D16": 500,
+    "B82_S13_D17": 500,
+    "B82_S13_D18": 500,
+    "B82_S13_D19": 500
+  },
+  "geometry": {
+    "fit": "contain",
+    "width": 1920,
+    "height": 1080
+  },
+  "scene": {
+    "full": "scene-1920.webp",
+    "small": "scene-960.webp",
+    "phone_crop": {
+      "x": 0,
+      "y": 30,
+      "width": 1860,
+      "height": 1046
+    }
+  },
+  "cinematic": {
+    "width": 960,
+    "height": 540,
+    "layers": [
+      {
+        "path": "BASE_v001_DRAFT.webp",
+        "x": 0,
+        "y": 0,
+        "width": 960,
+        "height": 540,
+        "character": "linh"
+      },
+      {
+        "path": "jenny_POSE_v001_DRAFT.webp",
+        "x": 400.0,
+        "y": 150.0,
+        "width": 708.0,
+        "height": 528.64,
+        "character": "jenny"
+      }
+    ],
+    "sprites": {
+      "MOUTH_X": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "MOUTH_X",
+        "path": "MOUTH_X_v001_DRAFT.webp",
+        "x": 225.83333333333334,
+        "y": 280.0,
+        "width": 30.0,
+        "height": 29.166666666666668,
+        "status": "DRAFT"
+      },
+      "MOUTH_SLIGHT": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "MOUTH_SLIGHT",
+        "path": "MOUTH_SLIGHT_v001_DRAFT.webp",
+        "x": 225.83333333333334,
+        "y": 280.0,
+        "width": 30.0,
+        "height": 29.166666666666668,
+        "status": "DRAFT"
+      },
+      "MOUTH_OPEN": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "MOUTH_OPEN",
+        "path": "MOUTH_OPEN_v001_DRAFT.webp",
+        "x": 225.83333333333334,
+        "y": 280.0,
+        "width": 30.0,
+        "height": 29.166666666666668,
+        "status": "DRAFT"
+      },
+      "MOUTH_ROUND": {
+        "character": "linh",
+        "part": "mouth",
+        "shape": "MOUTH_ROUND",
+        "path": "MOUTH_ROUND_v001_DRAFT.webp",
+        "x": 225.83333333333334,
+        "y": 280.0,
+        "width": 30.0,
+        "height": 29.166666666666668,
+        "status": "DRAFT"
+      },
+      "EYE_CLOSED": {
+        "character": "linh",
+        "part": "eye",
+        "shape": "EYE_CLOSED",
+        "path": "EYE_CLOSED_v001_DRAFT.webp",
+        "x": 176.66666666666669,
+        "y": 223.33333333333334,
+        "width": 100.0,
+        "height": 65.83333333333334,
+        "status": "DRAFT"
+      },
+      "JENNY_MOUTH_X": {
+        "character": "jenny",
+        "part": "mouth",
+        "shape": "MOUTH_X",
+        "path": "jenny_MOUTH_X_v001_DRAFT.webp",
+        "x": 278.775,
+        "y": 151.33499999999998,
+        "width": 35.4,
+        "height": 19.47,
+        "status": "DRAFT"
+      },
+      "JENNY_MOUTH_SLIGHT": {
+        "character": "jenny",
+        "part": "mouth",
+        "shape": "MOUTH_SLIGHT",
+        "path": "jenny_MOUTH_SLIGHT_v001_DRAFT.webp",
+        "x": 278.775,
+        "y": 151.33499999999998,
+        "width": 35.4,
+        "height": 19.47,
+        "status": "DRAFT"
+      },
+      "JENNY_MOUTH_OPEN": {
+        "character": "jenny",
+        "part": "mouth",
+        "shape": "MOUTH_OPEN",
+        "path": "jenny_MOUTH_OPEN_v001_DRAFT.webp",
+        "x": 278.775,
+        "y": 151.33499999999998,
+        "width": 35.4,
+        "height": 19.47,
+        "status": "DRAFT"
+      },
+      "JENNY_EYE_CLOSED": {
+        "character": "jenny",
+        "part": "eye",
+        "shape": "EYE_CLOSED",
+        "path": "jenny_EYE_CLOSED_v001_DRAFT.webp",
+        "x": 296.47499999999997,
+        "y": 111.21499999999999,
+        "width": 31.564999999999998,
+        "height": 28.91,
+        "status": "DRAFT"
+      }
+    },
+    "speakers": {
+      "Linh": "linh",
+      "Jenny": "jenny"
+    },
+    "characters": {
+      "linh": {
+        "label": "Linh",
+        "mouthMap": {
+          "MOUTH_X": "MOUTH_X",
+          "MOUTH_SLIGHT": "MOUTH_SLIGHT",
+          "MOUTH_OPEN": "MOUTH_OPEN",
+          "MOUTH_ROUND": "MOUTH_ROUND",
+          "X": "MOUTH_X",
+          "A": "MOUTH_X",
+          "B": "MOUTH_SLIGHT",
+          "C": "MOUTH_SLIGHT",
+          "E": "MOUTH_SLIGHT",
+          "G": "MOUTH_SLIGHT",
+          "H": "MOUTH_SLIGHT",
+          "D": "MOUTH_OPEN",
+          "F": "MOUTH_ROUND"
+        },
+        "eyeMap": {
+          "CLOSED": "EYE_CLOSED"
+        },
+        "restUsesOriginal": false,
+        "blinkMode": "closed",
+        "deferBlinkOnPlosive": true
+      },
+      "jenny": {
+        "label": "Jenny",
+        "mouthMap": {
+          "X": "JENNY_MOUTH_X",
+          "A": "JENNY_MOUTH_X",
+          "B": "JENNY_MOUTH_SLIGHT",
+          "C": "JENNY_MOUTH_SLIGHT",
+          "D": "JENNY_MOUTH_OPEN",
+          "E": "JENNY_MOUTH_SLIGHT",
+          "F": "JENNY_MOUTH_SLIGHT",
+          "G": "JENNY_MOUTH_SLIGHT",
+          "H": "JENNY_MOUTH_SLIGHT"
+        },
+        "eyeMap": {
+          "CLOSED": "JENNY_EYE_CLOSED"
+        },
+        "restUsesOriginal": true,
+        "blinkMode": "closed",
+        "blinkTiming": "jenny"
+      }
+    },
+    "offscreen_speakers": [],
+    "motion": {
+      "translate_x_css_px": 0,
+      "translate_y_css_px": 0,
+      "rotate_deg": 0,
+      "speaking_seconds": 6,
+      "idle_seconds": 12
+    }
+  },
+  "flags": [
+    "DRAFT_OWNER_FACE_REVIEW_PENDING",
+    "PHYSICAL_IPHONE_REVIEW_PENDING"
+  ],
+  "sources": {
+    "04_Learning_Design/LESSON_SET_v3.2_L-S09-L-S16.md": "7d0258ce45c2b32b85bbbb8a705b917f8617867299effa58dc68cd9f45a0f4cd",
+    "07_Production_Assets/cinematic/lessons/L-S04_v2_DRAFT.json": "6b6292d5e1b676df3413cd4fc5653734f37bab085b3a3d6301a8c6e59a3d7f30",
+    "07_Production_Assets/cinematic/batch75/L-S04/BASE_v001_DRAFT.webp": "7d9cba2ae8c121609199dfc7090077a1736b4f5155bc81983c7b757c4fc48365",
+    "07_Production_Assets/cinematic/batch75/L-S04/MOUTH_X_v001_DRAFT.webp": "19b5e83e25fa9358d4ce54cc333dd556fa8dd9deb333b35a534414a3852981aa",
+    "07_Production_Assets/cinematic/batch75/L-S04/MOUTH_SLIGHT_v001_DRAFT.webp": "5f34c5dedb91cdfa71e1e46ee3403658dbb4f3ebc066d41c4d6b36ca41161de3",
+    "07_Production_Assets/cinematic/batch75/L-S04/MOUTH_OPEN_v001_DRAFT.webp": "c6e98f3d3bf8a9c8bba3ecc74f2f392d724e98362edcfff5d148781249ebd18c",
+    "07_Production_Assets/cinematic/batch75/L-S04/MOUTH_ROUND_v001_DRAFT.webp": "3965b95f354714d0d6c07617a272c4364dfcb30e8edbb841151ea05769f5f3ea",
+    "07_Production_Assets/cinematic/batch75/L-S04/EYE_CLOSED_v001_DRAFT.webp": "d2c02e86fc255ad19745fc633584cddd03380013d2cbda3fdd29d607a468689a",
+    "07_Production_Assets/characters_v2/jenny/POSE_v001_DRAFT.webp": "fc1c338eda5fe265e32608f1f862db6c91f5f094f60dcf52d43e74f0c6dc42fb",
+    "07_Production_Assets/characters_v2/jenny/MOUTH_X_v001_DRAFT.webp": "58b723e027caea94aebee1146cab61b85cc952b42ef43fa8ad226682ad89c789",
+    "07_Production_Assets/characters_v2/jenny/MOUTH_SLIGHT_v001_DRAFT.webp": "a91e0faa14005db058a4fcc40284427d14446cfd016a6a9b0e3750f86ed5481a",
+    "07_Production_Assets/characters_v2/jenny/MOUTH_OPEN_v001_DRAFT.webp": "fbcd97b71a624ed201bf22690c84b9f3ef80a3d5c37c3728a10d328835a1218c",
+    "07_Production_Assets/characters_v2/jenny/EYE_CLOSED_v001_DRAFT.webp": "64dc98a0f45ba0e835c20c60bb2d69a2a639a83b44d5f1a5e7bc9b3ad77654a3",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D01.ogg": "0811aa2e55c67944eaa15c668bdea92c924845af8de3da187cd4d3dd1a7a3bae",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D01.mp3": "00f5a67e9d0e5336d0c002f814fdc8487d52b5938489eb28900ce20961c652e7",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D01.wav": "2f9920c23c1320109b07de85ea00684088814bdabbf86b9d3b1ffc78be1bf18f",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D02.ogg": "4f286eaa5cc414827bce6533a51763399fcb85a5a0c928eb8ecfb190a7dfb099",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D02.mp3": "88aea951d459abaca30ff3720246251f38afb0fb1d6fd342cc4ba801868f33d5",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D02.wav": "a4c9f786b3859922bec3f2ada935728a93f0826d2940873fe7d06f5e2e823a03",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D03.ogg": "edb6eed47e0e0a7995bc405c651daaf9b6c35559d3c183393a375905b193b1d1",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D03.mp3": "bc0fa7834313ef8bf17e3daddcb76eae58accc1a4fab4b6a1d483bc9f306f0aa",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D03.wav": "aae86725af630ae8c0645ab9b4e72c806663a3b839abf81c471f71182b55d036",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D04.ogg": "361c7c9e6f47e3cbacaaf326c38ed05c77b817c25bb52a767d79fe1a075afb0d",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D04.mp3": "f1b369be17c7311dd0893fdda1a9f0d4b0447102f892063e39e34fad05319a21",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D04.wav": "41e490a0050dbf7165ecc5823e97e15e32672d7efeab687b1f1b7454f932e00b",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D05.ogg": "e0a9925bc4cdc23dc15d85befb46471486bb071258b7e5844da16d77ef996c8a",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D05.mp3": "bbf3ea70c1c8e8a4530f6ebbf5f02005e95d73de6458caf43572ee908379984a",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D05.wav": "770de38a9633a4a840338b0f7cb2cf2d47d1b4693e50454e85553b653ef6b179",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D06.ogg": "aa9517c9d8e501bbd352519d0eb6c00b4b26d1827ec47e1ae67fcb64f9956541",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D06.mp3": "50e8470f8fb5f7682633dbe454a16afc6621ca62aa74126e434d288c43b2aeeb",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D06.wav": "60e215db28ae3829a8fb5d4c70de9d83265daea689d2d916719564fa59da12bc",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D07.ogg": "4e65ecbc4b06762772ac8d703ccf1135d74c8ae1be4bd59aba1aac2d15cf32e5",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D07.mp3": "6591fedfb85547b20e28ead67c0d4b7c1f5bfe6697995c801aa75edab9f41b3f",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D07.wav": "acb810d94c7206b072fc911c6d614b43adf058775ad4eb45714438969d674faf",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D08.ogg": "5824df5402d13f55d76bc8caf73e2dcb6329fb471bfd0a4c2b577a28d6ec0dea",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D08.mp3": "66b8fb435432574771f7e6c8d90074fc103aaf90c4dd173784c53fb4eba7021d",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D08.wav": "81b92a5c78f0192eeed5d8f3484650fd3d5600ce48f15791899ce6eea7034cc0",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D09.ogg": "0c345d03183082774c45629601048182d530495d8456f2925bd2f5cf43950ed8",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D09.mp3": "a1c756ff8b947267371045ff97079742d46a7cf854bbc1e89cf94ed632b7812d",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D09.wav": "6efbbb4b13163fddfe46715225909682c579737ca65e59b9caf779b5268d839d",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D10.ogg": "dc133c5e783f99cb86aed0f3b615c71ab1aa6c35629421deaad634f31b3e53ab",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D10.mp3": "938b5ab4e92083c849ebca0bba50b674c0e6dc149de14f407188a0b28a986e0b",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D10.wav": "8a87aa1cb468888e289b89a8b0415d6575897b09b7c554c082be2b3bfd537f97",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D11.ogg": "c5e858b1ae142c321050480e59fd97d45674ac2abe50a8417e45ba9d73ab82df",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D11.mp3": "5282bd31fca5b3a9025367fdeac858c81e2085f4dfe5f5a61ebccf8c3638ff01",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D11.wav": "0b5ede1a632f601cf8ed7e582bbae53e58a15a4ad85bdbf2b658c47f8aceb31f",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D12.ogg": "84cbe634be440414d1bc37f6a9c401ebfa47d57ceab8319b620979625c90dbbe",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D12.mp3": "caad487ea2ce0f4873c48b824118fe79020f24b2f05c52a59dc1d9770baba2fc",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D12.wav": "852f7c52d56ad42c43086854e6b362c8a9fdd918bf0de1c5183752e67a85fa3e",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D13.ogg": "2d6f7bd3e0115710bfe5949790fcde04327ded2b6d3ab7089893b6bc6e823929",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D13.mp3": "7692e13a93cb9ed4f2badb8f9edd2f8745182ce22cf1e6bc2b8dca72fee0304f",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D13.wav": "a856fe6f63c9fdff1b5a95d2790520211081fb8e2651a8ce8c028888c2ec6166",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D14.ogg": "54f1c798e66ca15d708d15d65fc106237e958284709b466158bdacd5a8a1cc7b",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D14.mp3": "a790de7949e39bce6b0b7addc385f007ea98b62a6131f5d5e0905b5424d5d9c3",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D14.wav": "48385f4e0f6995a471433bc7f98e8bbd80f25780a4aaa9576b997d4bed1a29a5",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D15.ogg": "f65be2f0bcb1454e34389a3eada79497d4591f98177a99b1639c341aa1867f45",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D15.mp3": "c3f729955c685b74b253d61c8e8dfbe410cedc8d5c3653f1789dd1b5d747d2cf",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D15.wav": "89ebeaf63fd796a8b3bc7ce0024b342adcb59dc1427db8b5163885d693cc2e18",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D16.ogg": "aa3ad85cfe0dcaf9dc0732b0b2739fc715514ecc87d0e74eff7ea62e44bc4524",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D16.mp3": "17dc8c7a38e4af203175d770852c8eb408aea0335ba3c2be391b5aab32f51a21",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D16.wav": "f2ae4d1e276c1c11451885a75dd2021637c5dca301bbbb2488a2e6e565276824",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D17.ogg": "bc3e1c9d686387b64b71a48a79397078a132b4b9443c977cfe4090c6e64d5f7a",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D17.mp3": "a839cfbcf62b83df2dfcb31750d23a3df5c5574a3fdf756463f7fea0b9822788",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D17.wav": "e1e92b7b82270e12fdeba98a681f8fcb34c13df820860e8294e5713ac4db3005",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D18.ogg": "85df875a358d228169c715603c8a4c012364f2e70dd062bffdaa64496a95c1a4",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D18.mp3": "4a7da9ec0a9963c1a9499aa3809b3fafc8d16bb38c0ca8a0f20b9e729b832421",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D18.wav": "04749d6fc43fae5c043ef54653655b38697ca17bf172ce877099ba7b9fda4ba4",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D19.ogg": "4fa83cf1ec67155f011e97575ff6c304eca5e57ea3030939b632989707678898",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D19.mp3": "5695ce1931cceb0dd0177a1b892cd163909896104d6f0f308d55e52dcdbb1969",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D19.wav": "da6bbaddf0e9709c61d5c6ec57f4ae6a97eb2437beab3c1afce9cbe31f554e94",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D20.ogg": "99670fab5e367cf98e7a579259e5789e2dff6c86e5a515d4ce39a2094d573567",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D20.mp3": "704132218f46e58bc3b8f47eefa0c4cfd26c35ac4024486102408d69fe4197a0",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_D20.wav": "94ea059098c6e51524bc200e368ff26fcb7191ed5e88efad552ef8e730b2bd9c",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_M1.ogg": "97e34ff967702c473a8543aeb57228067b78629b1c3e54bbb4f2c0140a427dfd",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_M1.mp3": "3f92c10635d5b5650097df4379ce3b0db61bae91de1d3dd7205ada212eeb0568",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_M1.wav": "37bba8644e9a76f779d278bcdb9d506c6bbb588857eec1ff670ab6e54b36138a",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_T1.ogg": "08c103eb936307fa1e8b09768645bf5e94469fcf6afd0e405aaa9c061dbb2fae",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_T1.mp3": "86e1b9138d726991a6195881774a2d02fbe63e03a6685a8230bf447df5864fce",
+    "07_Production_Assets/audio/lessons_v3/L-S13/B82_S13_T1.wav": "3fa47f89d7e634658f6fa1b25a9d9722d144d27386685ae83166eaab8624960a",
+    "07_Production_Assets/audio/lessons_v3/L-S13/CUE_MANIFEST_v002_DRAFT.json": "946fc912c1855807beccb6855770c722f49a751c6863576add5e0b0e773ce4e0",
+    "07_Production_Assets/audio/lessons_v3/L-S13/VISEMES_v002_DRAFT.json": "6f90082be93d640c05170d5a9ed4dd4cfc71174a2fe90a6089f7ba6bbc964cd5",
+    "07_Production_Assets/audio/lessons_v3/L-S13/PREVIEW_TIMINGS_v002_DRAFT.json": "586d0d5cbc46dc9f6a8957eca9c378c8606fb928449f34ec46f4d66f146ed4f4"
+  },
+  "files": [
+    {
+      "path": "BASE_v001_DRAFT.webp",
+      "bytes": 428922,
+      "sha256": "7d9cba2ae8c121609199dfc7090077a1736b4f5155bc81983c7b757c4fc48365"
+    },
+    {
+      "path": "EYE_CLOSED_v001_DRAFT.webp",
+      "bytes": 6812,
+      "sha256": "d2c02e86fc255ad19745fc633584cddd03380013d2cbda3fdd29d607a468689a"
+    },
+    {
+      "path": "MOUTH_OPEN_v001_DRAFT.webp",
+      "bytes": 2048,
+      "sha256": "c6e98f3d3bf8a9c8bba3ecc74f2f392d724e98362edcfff5d148781249ebd18c"
+    },
+    {
+      "path": "MOUTH_ROUND_v001_DRAFT.webp",
+      "bytes": 2250,
+      "sha256": "3965b95f354714d0d6c07617a272c4364dfcb30e8edbb841151ea05769f5f3ea"
+    },
+    {
+      "path": "MOUTH_SLIGHT_v001_DRAFT.webp",
+      "bytes": 2110,
+      "sha256": "5f34c5dedb91cdfa71e1e46ee3403658dbb4f3ebc066d41c4d6b36ca41161de3"
+    },
+    {
+      "path": "MOUTH_X_v001_DRAFT.webp",
+      "bytes": 1986,
+      "sha256": "19b5e83e25fa9358d4ce54cc333dd556fa8dd9deb333b35a534414a3852981aa"
+    },
+    {
+      "path": "audio/B82_S13_D01.mp3",
+      "bytes": 13824,
+      "sha256": "00f5a67e9d0e5336d0c002f814fdc8487d52b5938489eb28900ce20961c652e7"
+    },
+    {
+      "path": "audio/B82_S13_D01.ogg",
+      "bytes": 7847,
+      "sha256": "0811aa2e55c67944eaa15c668bdea92c924845af8de3da187cd4d3dd1a7a3bae"
+    },
+    {
+      "path": "audio/B82_S13_D02.mp3",
+      "bytes": 14856,
+      "sha256": "88aea951d459abaca30ff3720246251f38afb0fb1d6fd342cc4ba801868f33d5"
+    },
+    {
+      "path": "audio/B82_S13_D02.ogg",
+      "bytes": 9010,
+      "sha256": "4f286eaa5cc414827bce6533a51763399fcb85a5a0c928eb8ecfb190a7dfb099"
+    },
+    {
+      "path": "audio/B82_S13_D03.mp3",
+      "bytes": 22704,
+      "sha256": "bc0fa7834313ef8bf17e3daddcb76eae58accc1a4fab4b6a1d483bc9f306f0aa"
+    },
+    {
+      "path": "audio/B82_S13_D03.ogg",
+      "bytes": 13543,
+      "sha256": "edb6eed47e0e0a7995bc405c651daaf9b6c35559d3c183393a375905b193b1d1"
+    },
+    {
+      "path": "audio/B82_S13_D04.mp3",
+      "bytes": 7680,
+      "sha256": "f1b369be17c7311dd0893fdda1a9f0d4b0447102f892063e39e34fad05319a21"
+    },
+    {
+      "path": "audio/B82_S13_D04.ogg",
+      "bytes": 4450,
+      "sha256": "361c7c9e6f47e3cbacaaf326c38ed05c77b817c25bb52a767d79fe1a075afb0d"
+    },
+    {
+      "path": "audio/B82_S13_D05.mp3",
+      "bytes": 28368,
+      "sha256": "bbf3ea70c1c8e8a4530f6ebbf5f02005e95d73de6458caf43572ee908379984a"
+    },
+    {
+      "path": "audio/B82_S13_D05.ogg",
+      "bytes": 15778,
+      "sha256": "e0a9925bc4cdc23dc15d85befb46471486bb071258b7e5844da16d77ef996c8a"
+    },
+    {
+      "path": "audio/B82_S13_D06.mp3",
+      "bytes": 11016,
+      "sha256": "50e8470f8fb5f7682633dbe454a16afc6621ca62aa74126e434d288c43b2aeeb"
+    },
+    {
+      "path": "audio/B82_S13_D06.ogg",
+      "bytes": 7372,
+      "sha256": "aa9517c9d8e501bbd352519d0eb6c00b4b26d1827ec47e1ae67fcb64f9956541"
+    },
+    {
+      "path": "audio/B82_S13_D07.mp3",
+      "bytes": 18432,
+      "sha256": "6591fedfb85547b20e28ead67c0d4b7c1f5bfe6697995c801aa75edab9f41b3f"
+    },
+    {
+      "path": "audio/B82_S13_D07.ogg",
+      "bytes": 10697,
+      "sha256": "4e65ecbc4b06762772ac8d703ccf1135d74c8ae1be4bd59aba1aac2d15cf32e5"
+    },
+    {
+      "path": "audio/B82_S13_D08.mp3",
+      "bytes": 11352,
+      "sha256": "66b8fb435432574771f7e6c8d90074fc103aaf90c4dd173784c53fb4eba7021d"
+    },
+    {
+      "path": "audio/B82_S13_D08.ogg",
+      "bytes": 7137,
+      "sha256": "5824df5402d13f55d76bc8caf73e2dcb6329fb471bfd0a4c2b577a28d6ec0dea"
+    },
+    {
+      "path": "audio/B82_S13_D09.mp3",
+      "bytes": 24216,
+      "sha256": "a1c756ff8b947267371045ff97079742d46a7cf854bbc1e89cf94ed632b7812d"
+    },
+    {
+      "path": "audio/B82_S13_D09.ogg",
+      "bytes": 13542,
+      "sha256": "0c345d03183082774c45629601048182d530495d8456f2925bd2f5cf43950ed8"
+    },
+    {
+      "path": "audio/B82_S13_D10.mp3",
+      "bytes": 13920,
+      "sha256": "938b5ab4e92083c849ebca0bba50b674c0e6dc149de14f407188a0b28a986e0b"
+    },
+    {
+      "path": "audio/B82_S13_D10.ogg",
+      "bytes": 7918,
+      "sha256": "dc133c5e783f99cb86aed0f3b615c71ab1aa6c35629421deaad634f31b3e53ab"
+    },
+    {
+      "path": "audio/B82_S13_D11.mp3",
+      "bytes": 19608,
+      "sha256": "5282bd31fca5b3a9025367fdeac858c81e2085f4dfe5f5a61ebccf8c3638ff01"
+    },
+    {
+      "path": "audio/B82_S13_D11.ogg",
+      "bytes": 10616,
+      "sha256": "c5e858b1ae142c321050480e59fd97d45674ac2abe50a8417e45ba9d73ab82df"
+    },
+    {
+      "path": "audio/B82_S13_D12.mp3",
+      "bytes": 19632,
+      "sha256": "caad487ea2ce0f4873c48b824118fe79020f24b2f05c52a59dc1d9770baba2fc"
+    },
+    {
+      "path": "audio/B82_S13_D12.ogg",
+      "bytes": 10777,
+      "sha256": "84cbe634be440414d1bc37f6a9c401ebfa47d57ceab8319b620979625c90dbbe"
+    },
+    {
+      "path": "audio/B82_S13_D13.mp3",
+      "bytes": 28272,
+      "sha256": "7692e13a93cb9ed4f2badb8f9edd2f8745182ce22cf1e6bc2b8dca72fee0304f"
+    },
+    {
+      "path": "audio/B82_S13_D13.ogg",
+      "bytes": 15391,
+      "sha256": "2d6f7bd3e0115710bfe5949790fcde04327ded2b6d3ab7089893b6bc6e823929"
+    },
+    {
+      "path": "audio/B82_S13_D14.mp3",
+      "bytes": 14544,
+      "sha256": "a790de7949e39bce6b0b7addc385f007ea98b62a6131f5d5e0905b5424d5d9c3"
+    },
+    {
+      "path": "audio/B82_S13_D14.ogg",
+      "bytes": 8208,
+      "sha256": "54f1c798e66ca15d708d15d65fc106237e958284709b466158bdacd5a8a1cc7b"
+    },
+    {
+      "path": "audio/B82_S13_D15.mp3",
+      "bytes": 16464,
+      "sha256": "c3f729955c685b74b253d61c8e8dfbe410cedc8d5c3653f1789dd1b5d747d2cf"
+    },
+    {
+      "path": "audio/B82_S13_D15.ogg",
+      "bytes": 9604,
+      "sha256": "f65be2f0bcb1454e34389a3eada79497d4591f98177a99b1639c341aa1867f45"
+    },
+    {
+      "path": "audio/B82_S13_D16.mp3",
+      "bytes": 15072,
+      "sha256": "17dc8c7a38e4af203175d770852c8eb408aea0335ba3c2be391b5aab32f51a21"
+    },
+    {
+      "path": "audio/B82_S13_D16.ogg",
+      "bytes": 9382,
+      "sha256": "aa3ad85cfe0dcaf9dc0732b0b2739fc715514ecc87d0e74eff7ea62e44bc4524"
+    },
+    {
+      "path": "audio/B82_S13_D17.mp3",
+      "bytes": 17784,
+      "sha256": "a839cfbcf62b83df2dfcb31750d23a3df5c5574a3fdf756463f7fea0b9822788"
+    },
+    {
+      "path": "audio/B82_S13_D17.ogg",
+      "bytes": 10062,
+      "sha256": "bc3e1c9d686387b64b71a48a79397078a132b4b9443c977cfe4090c6e64d5f7a"
+    },
+    {
+      "path": "audio/B82_S13_D18.mp3",
+      "bytes": 15408,
+      "sha256": "4a7da9ec0a9963c1a9499aa3809b3fafc8d16bb38c0ca8a0f20b9e729b832421"
+    },
+    {
+      "path": "audio/B82_S13_D18.ogg",
+      "bytes": 8984,
+      "sha256": "85df875a358d228169c715603c8a4c012364f2e70dd062bffdaa64496a95c1a4"
+    },
+    {
+      "path": "audio/B82_S13_D19.mp3",
+      "bytes": 24912,
+      "sha256": "5695ce1931cceb0dd0177a1b892cd163909896104d6f0f308d55e52dcdbb1969"
+    },
+    {
+      "path": "audio/B82_S13_D19.ogg",
+      "bytes": 13292,
+      "sha256": "4fa83cf1ec67155f011e97575ff6c304eca5e57ea3030939b632989707678898"
+    },
+    {
+      "path": "audio/B82_S13_D20.mp3",
+      "bytes": 12888,
+      "sha256": "704132218f46e58bc3b8f47eefa0c4cfd26c35ac4024486102408d69fe4197a0"
+    },
+    {
+      "path": "audio/B82_S13_D20.ogg",
+      "bytes": 7240,
+      "sha256": "99670fab5e367cf98e7a579259e5789e2dff6c86e5a515d4ce39a2094d573567"
+    },
+    {
+      "path": "audio/B82_S13_M1.mp3",
+      "bytes": 26160,
+      "sha256": "3f92c10635d5b5650097df4379ce3b0db61bae91de1d3dd7205ada212eeb0568"
+    },
+    {
+      "path": "audio/B82_S13_M1.ogg",
+      "bytes": 15138,
+      "sha256": "97e34ff967702c473a8543aeb57228067b78629b1c3e54bbb4f2c0140a427dfd"
+    },
+    {
+      "path": "audio/B82_S13_T1.mp3",
+      "bytes": 20592,
+      "sha256": "86e1b9138d726991a6195881774a2d02fbe63e03a6685a8230bf447df5864fce"
+    },
+    {
+      "path": "audio/B82_S13_T1.ogg",
+      "bytes": 11327,
+      "sha256": "08c103eb936307fa1e8b09768645bf5e94469fcf6afd0e405aaa9c061dbb2fae"
+    },
+    {
+      "path": "jenny_EYE_CLOSED_v001_DRAFT.webp",
+      "bytes": 10308,
+      "sha256": "64dc98a0f45ba0e835c20c60bb2d69a2a639a83b44d5f1a5e7bc9b3ad77654a3"
+    },
+    {
+      "path": "jenny_MOUTH_OPEN_v001_DRAFT.webp",
+      "bytes": 7588,
+      "sha256": "fbcd97b71a624ed201bf22690c84b9f3ef80a3d5c37c3728a10d328835a1218c"
+    },
+    {
+      "path": "jenny_MOUTH_SLIGHT_v001_DRAFT.webp",
+      "bytes": 7254,
+      "sha256": "a91e0faa14005db058a4fcc40284427d14446cfd016a6a9b0e3750f86ed5481a"
+    },
+    {
+      "path": "jenny_MOUTH_X_v001_DRAFT.webp",
+      "bytes": 7386,
+      "sha256": "58b723e027caea94aebee1146cab61b85cc952b42ef43fa8ad226682ad89c789"
+    },
+    {
+      "path": "jenny_POSE_v001_DRAFT.webp",
+      "bytes": 708398,
+      "sha256": "fc1c338eda5fe265e32608f1f862db6c91f5f094f60dcf52d43e74f0c6dc42fb"
+    },
+    {
+      "path": "lesson-content.json",
+      "bytes": 5478,
+      "sha256": "8af8897deda86df5e1775251a7a74c1d959dddbed3a4ce9eaa98bfa692786f3c"
+    },
+    {
+      "path": "scene-1920.webp",
+      "bytes": 221626,
+      "sha256": "9bcf07a29fa04b4e309385ce89b1c827175e3c0e99e54f09e38a5124106a2d85"
+    },
+    {
+      "path": "scene-960.webp",
+      "bytes": 87944,
+      "sha256": "c56395c35376f112caccf7a76812aa1e952463d004041d88e821b614a35438d4"
+    }
+  ]
+}

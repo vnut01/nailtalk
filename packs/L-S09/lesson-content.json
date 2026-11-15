@@ -1,0 +1,122 @@
+{
+  "sceneSetter": "Amy và Linh trò chuyện ở quầy sau buổi làm móng.",
+  "homeCanDo": "Sau bài này bạn nói được: hỏi cách trả tiền, chỉ máy thẻ, xác nhận thanh toán và hỏi biên lai; không gây áp lực tip.",
+  "review": {
+    "lesson": "L-S04",
+    "cues": [
+      "V2_S04_LINH_04",
+      "V2_S04_LINH_05"
+    ]
+  },
+  "safetyRequired": false,
+  "canDo": "hỏi cách trả tiền, chỉ máy thẻ, xác nhận thanh toán và hỏi biên lai; không gây áp lực tip.",
+  "comprehension": [
+    {
+      "focus": "Amy đi đâu sau đó?",
+      "listen": [
+        "B82_S09_D01",
+        "B82_S09_D02",
+        "B82_S09_D03",
+        "B82_S09_D04"
+      ],
+      "question": "Amy đi đâu sau đó?",
+      "options": [
+        "Chợ nông sản",
+        "Lễ tốt nghiệp",
+        "Trạm xe"
+      ],
+      "key": 0,
+      "correct": "Đúng rồi: Chợ nông sản",
+      "retry": "Nghe lại lượt 1–4 rồi thử lại nhé."
+    },
+    {
+      "focus": "Amy tự chọn tip bằng gì?",
+      "listen": [
+        "B82_S09_D07",
+        "B82_S09_D13"
+      ],
+      "question": "Amy tự chọn tip bằng gì?",
+      "options": [
+        "Bằng thẻ",
+        "Tiền mặt",
+        "Không tip"
+      ],
+      "key": 1,
+      "correct": "Đúng rồi: Tiền mặt",
+      "retry": "Nghe lại lượt 7, 13 rồi thử lại nhé."
+    },
+    {
+      "focus": "Amy muốn biên lai gì?",
+      "listen": [
+        "B82_S09_D13",
+        "B82_S09_D14",
+        "B82_S09_D15"
+      ],
+      "question": "Amy muốn biên lai gì?",
+      "options": [
+        "Gửi email",
+        "Không lấy",
+        "Bản in"
+      ],
+      "key": 2,
+      "correct": "Đúng rồi: Bản in",
+      "retry": "Nghe lại lượt 13–15 rồi thử lại nhé."
+    }
+  ],
+  "cards": [
+    {
+      "focus": "Chị muốn trả bằng cách nào ạ?",
+      "cue": "B82_S09_D06",
+      "english": "How would you like to pay?",
+      "vietnamese": "Chị muốn trả bằng cách nào ạ?",
+      "useWhen": "Dùng khi: Hỏi sau khi kiểm tra hóa đơn.",
+      "vocabulary": "pay → trả tiền; card → thẻ",
+      "note": "Dùng khi: Hỏi sau khi kiểm tra hóa đơn. <br> Đổi từ: Giữ nguyên câu hỏi; không có từ cần đổi. Không hỏi tip ở đây.",
+      "check": "Tôi đã hỏi khách chọn cách thanh toán."
+    },
+    {
+      "focus": "Chị chạm thẻ ở đây nhé.",
+      "cue": "B82_S09_D08",
+      "english": "You can tap your card here.",
+      "vietnamese": "Chị chạm thẻ ở đây nhé.",
+      "useWhen": "Dùng khi: Chỉ đúng máy hỗ trợ tap.",
+      "vocabulary": "tap → chạm; card → thẻ",
+      "note": "Dùng khi: Chỉ đúng máy hỗ trợ tap. <br> Đổi từ: tap → insert chỉ khi máy yêu cầu cắm thẻ.",
+      "check": "Tôi đã nói tap và chỉ đúng máy hỗ trợ."
+    },
+    {
+      "focus": "Thanh toán của chị đã xong rồi ạ.",
+      "cue": "B82_S09_D12",
+      "english": "Your payment went through.",
+      "vietnamese": "Thanh toán của chị đã xong rồi ạ.",
+      "useWhen": "Dùng khi: Chỉ sau máy xác nhận giao dịch thành công.",
+      "vocabulary": "payment → thanh toán; went through → đã được máy xác nhận thành công",
+      "note": "Dùng khi: Chỉ sau máy xác nhận giao dịch thành công. <br> Đổi từ: Giữ nguyên; không nói khi máy còn chờ hoặc báo lỗi. Không suy từ tap thành đã xong.",
+      "check": "Tôi đã xác nhận thanh toán sau máy báo xong; không tự hỏi hay gợi tip."
+    },
+    {
+      "focus": "Chị có muốn lấy biên lai không ạ?",
+      "cue": "B82_S09_K4",
+      "english": "Would you like a receipt?",
+      "vietnamese": "Chị có muốn lấy biên lai không ạ?",
+      "useWhen": "Dùng khi: Hỏi lựa chọn biên lai.",
+      "vocabulary": "receipt → biên lai; would you like → có muốn",
+      "note": "Dùng khi: Hỏi lựa chọn biên lai. <br> Đổi từ: a receipt → a printed receipt: Would you like a printed receipt?",
+      "check": "Tôi đã hỏi khách muốn biên lai, không tự chọn thay."
+    }
+  ],
+  "recognition": [],
+  "turns": [
+    {
+      "prompts": [
+        "B82_S09_T1"
+      ],
+      "models": [
+        "B82_S09_M1"
+      ],
+      "instruction": "Thẻ VN: hóa đơn đã kiểm tra; máy đang yêu cầu cắm thẻ và hỗ trợ insert. Khách hỏi thay vì chạm thẻ. Chỉ đúng khe máy; không xin số thẻ.",
+      "check": "Nói insert theo yêu cầu máy, chỉ đúng khe; không tiếp tục bảo tap, không hỏi tip.",
+      "retry": "nghe lại prompt, kiểm tra chi tiết đã đổi rồi nói lại. Không tính nghe đúng là nói được."
+    }
+  ]
+}
