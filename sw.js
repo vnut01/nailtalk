@@ -1,37 +1,86 @@
 // Local static assets only. No telemetry, uploads or external requests.
 import {rangeResponse} from './range.mjs';
-const CACHE='nailtalk-APP_PROTO-v016-DRAFT-2';
-const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','player.mjs','storage.mjs','media.mjs','cinematic.mjs','lipsync.mjs','range.mjs','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
+const CACHE='nailtalk-APP_PROTO-v016-DRAFT-3';
+const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','player.mjs','storage.mjs','media.mjs','cinematic.mjs','lipsync.mjs','range.mjs','catalog.json','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
 const PACKS=['L-S01','L-S02','L-S03','L-S04','L-S05','L-S06','L-S07','L-S08'];
 const url=p=>new URL(p,self.registration.scope).href;
 const FORMAT=url('audio-format');
-async function sha(response){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',await response.arrayBuffer()))].map(b=>b.toString(16).padStart(2,'0')).join('');}
+const marker=id=>url('offline-ready/'+id);
 const needed=(file,format)=>!file.path.startsWith('audio/') || file.path.endsWith('.'+format);
+async function sha(response){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',await response.arrayBuffer()))].map(b=>b.toString(16).padStart(2,'0')).join('');}
 async function currentFormat(){return (await (await caches.open(CACHE)).match(FORMAT))?.text();}
-async function installPack(format){
-  const stage=await caches.open(CACHE+'-stage');
-  try {
-  for(const id of PACKS){
-  const PACK=`packs/${id}/pack.json`;
-  const response=await fetch(url(PACK),{cache:'no-store'});if(!response.ok)throw Error('pack unavailable');
-  const pack=await response.clone().json();if(pack.schema_version!==1||pack.min_shell_version>1)throw Error('incompatible pack');
-    await stage.put(url(PACK),response);
-    for(const f of pack.files.filter(f=>needed(f,format))){
-      const r=await fetch(url(`packs/${id}/`+f.path),{cache:'no-store'});
-      if(!r.ok||await sha(r.clone())!==f.sha256)throw Error('incomplete pack');
-      await stage.put(url(`packs/${id}/`+f.path),r);
-    }
-  }
-    const active=await caches.open(CACHE);
-    for(const request of await stage.keys())await active.put(request,await stage.match(request));
-    // Commit selection only after all assets validate. Remove the previous codec.
-    if(format){
-      for(const request of await active.keys())if(/\/audio\//.test(request.url)&&!request.url.endsWith('.'+format))await active.delete(request);
-      await active.put(FORMAT,new Response(format));
-    }
-  } finally {await caches.delete(CACHE+'-stage');}
+async function status(){
+  const cache=await caches.open(CACHE), format=await currentFormat(), ids=[];
+  for(const id of PACKS)if((await cache.match(marker(id)))&&format)ids.push(id);
+  return {ready:ids.length===PACKS.length,completed:ids.length,ids,format,downloading:running};
 }
-self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(SHELL.map(url));await installPack(null);await self.skipWaiting();})()));
+async function progress(error){
+  const data={type:'OFFLINE_PROGRESS',...await status(),...(error?{error}: {})};
+  for(const client of await self.clients.matchAll({includeUncontrolled:true}))client.postMessage(data);
+}
+async function verifyPack(id,format){
+  const cache=await caches.open(CACHE), response=await cache.match(url(`packs/${id}/pack.json`));
+  if(!response)return false;
+  const pack=await response.json();
+  for(const f of pack.files.filter(f=>needed(f,format))){const r=await cache.match(url(`packs/${id}/`+f.path));if(!r||await sha(r)!==f.sha256)return false;}
+  return true;
+}
+let preferred=null, runningId=null, running=false, stopped=false;
+// Mutations are serialized. START can reprioritize at the next asset boundary.
+let queue=Promise.resolve();
+function serialize(fn){const task=queue.catch(()=>{}).then(fn);queue=task;return task;}
+async function selectFormat(format){
+  if(!['ogg','mp3'].includes(format))throw Error('unsupported audio');
+  if(await currentFormat()===format)return;
+  const cache=await caches.open(CACHE);
+  for(const r of await cache.keys())if(r.url.includes('/offline-ready/')||(/\/audio\//.test(r.url)&&!r.url.endsWith('.'+format)))await cache.delete(r);
+  await cache.put(FORMAT,new Response(format));
+}
+async function installPack(id,format){
+  const cache=await caches.open(CACHE);
+  if(await verifyPack(id,format)){await cache.put(marker(id),new Response(format));return true;}
+  await cache.delete(marker(id));
+  const response=await fetch(url(`packs/${id}/pack.json`));
+  if(!response.ok)throw Error('pack unavailable');
+  const pack=await response.clone().json();
+  if(pack.schema_version!==1||pack.min_shell_version>1)throw Error('incompatible pack');
+  const files=pack.files.filter(f=>needed(f,format));
+  // Only one pack at a time, with six bounded asset requests inside that pack.
+  let cursor=0;
+  const results=await Promise.allSettled(Array.from({length:6},async()=>{
+    while(cursor<files.length){
+      if(stopped||preferred&&preferred!==id)return;
+      const f=files[cursor++], path=url(`packs/${id}/`+f.path), cached=await cache.match(path);
+      if(cached&&await sha(cached.clone())===f.sha256)continue;
+      const r=await fetch(path);
+      if(!r.ok||await sha(r.clone())!==f.sha256)throw Error('incomplete pack');
+      await cache.put(path,r);
+    }
+  }));
+  const failure=results.find(r=>r.status==='rejected');if(failure)throw failure.reason;
+  if(stopped||preferred&&preferred!==id)return false;
+  await cache.put(url(`packs/${id}/pack.json`),response);
+  // Marker is the commit: partial/interrupted packs can never be offline-ready.
+  if(!await verifyPack(id,format))throw Error('pack verification failed');
+  await cache.put(marker(id),new Response(format));
+  return true;
+}
+async function downloadAll(){
+  if(running)return;
+  running=true;stopped=false;
+  try{
+    const format=await currentFormat();if(!format)throw Error('unsupported audio');await progress();
+    const remaining=new Set(PACKS);
+    while(remaining.size&&!stopped){
+      const id=preferred||remaining.values().next().value;
+      runningId=id;
+      const complete=await installPack(id,format);
+      if(complete){remaining.delete(id);if(preferred===id)preferred=null;await progress();}
+    }
+  }catch(error){await progress(error.message);}
+  finally{running=false;runningId=null;}
+}
+self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(SHELL.map(url));await self.skipWaiting();})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('nailtalk-')&&key!==CACHE)await caches.delete(key);await self.clients.claim();})()));
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin)return;
@@ -41,39 +90,41 @@ self.addEventListener('fetch',event=>{
       if(event.request.headers.has('Range')&&/\/audio\//.test(event.request.url))return rangeResponse(cached,event.request.headers.get('Range'));
       return cached;
     }
-    // First codec installation may still be staging when a learner taps play.
-    // Serve same-origin media online during that window; offline misses still fail.
-    try { const response=await fetch(event.request); if(response.ok)return response; } catch {}
+    try{const r=await fetch(event.request);if(r.ok)return r;}catch{}
     return event.request.mode==='navigate'?await cache.match(url('index.html')):new Response('Local asset unavailable',{status:503});
   })());
 });
-// Serialize mutations so multiple open clients cannot mix staged packs/codecs.
-let queue=Promise.resolve();
 self.addEventListener('message',event=>{
-  queue=queue.catch(()=>{}).then(async()=>{
-    try {
-      const cache=await caches.open(CACHE);
-      switch(event.data.type){
-        case 'CLEAR':for(const key of await caches.keys())if(key.startsWith('nailtalk-'))await caches.delete(key);await self.registration.unregister();break;
-        case 'REMOVE_PACK':for(const r of await cache.keys())if(r.url.includes('/packs/')&&!r.url.endsWith('/pack.json'))await cache.delete(r);break;
-        case 'SELECT_FORMAT':
-          if(!['ogg','mp3'].includes(event.data.format))throw Error('unsupported audio');
-          if(await currentFormat()!==event.data.format)await installPack(event.data.format);
-          break;
-        case 'INSTALL_PACK':await cache.addAll(SHELL.map(url));await installPack(event.data.format||await currentFormat());break;
-        case 'CHECK':{
-          const format=await currentFormat();let ready=!!format;
-          for(const p of SHELL)if(!await cache.match(url(p)))ready=false;
-          for(const id of PACKS){
-          const r=await cache.match(url(`packs/${id}/pack.json`));
-          if(!r)ready=false;
-          else{const pack=await r.json();for(const f of pack.files.filter(f=>needed(f,format))){const asset=await cache.match(url(`packs/${id}/`+f.path));if(!asset||await sha(asset)!==f.sha256)ready=false;}}
-          }
-          event.ports[0]?.postMessage({ready,format});return;
-        }
+  const {type,format,id}=event.data;
+  if(['START','INSTALL_PACK'].includes(type)&&PACKS.includes(id))preferred=id;
+  if(['CLEAR','REMOVE_PACK','SELECT_FORMAT'].includes(type)&&type!=='SELECT_FORMAT')stopped=true;
+  const reply=data=>event.ports[0]?.postMessage(data);
+  if(type==='PAUSE'){stopped=true;reply({ok:true});return;}
+  if(type==='START'||type==='INSTALL_PACK'){
+    if(!PACKS.includes(id)){reply({error:'unknown pack'});return;}
+    reply({ok:true});
+    event.waitUntil(serialize(async()=>{await selectFormat(format||await currentFormat());await downloadAll();}));return;
+  }
+  if(type==='STATUS'){event.waitUntil(status().then(reply));return;}
+  // A matching codec must not interrupt an ongoing download when a page reloads.
+  if(type==='SELECT_FORMAT'){
+    event.waitUntil((async()=>{
+      if(await currentFormat()!==format){stopped=true;await serialize(()=>selectFormat(format));}
+      reply({ok:true});
+    })().catch(error=>reply({error:error.message})));return;
+  }
+  event.waitUntil(serialize(async()=>{
+    const cache=await caches.open(CACHE);
+    switch(type){
+      case 'CLEAR':for(const key of await caches.keys())if(key.startsWith('nailtalk-'))await caches.delete(key);await self.registration.unregister();break;
+      case 'REMOVE_PACK':for(const r of await cache.keys())if(r.url.includes('/packs/')||r.url.includes('/offline-ready/'))await cache.delete(r);break;
+      case 'CHECK':{
+        let ready=!!await currentFormat();
+        for(const p of SHELL)if(!await cache.match(url(p)))ready=false;
+        for(const id of PACKS)if(!await verifyPack(id,await currentFormat())){ready=false;await cache.delete(marker(id));}
+        reply({...await status(),ready});return;
       }
-      event.ports[0]?.postMessage({ok:true});
-    }catch(error){event.ports[0]?.postMessage({error:error.message});}
-  });
-  event.waitUntil(queue);
+    }
+    reply({ok:true});
+  }).catch(error=>reply({error:error.message})));
 });

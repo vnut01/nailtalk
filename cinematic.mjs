@@ -1,4 +1,4 @@
-import { visemeAt, markShape, nextBlink, characterBlink, gestureAt } from './lipsync.mjs';
+import { linhVisemeAt, visemeAt, markShape, nextBlink, characterBlink, gestureAt } from './lipsync.mjs';
 export function motionEnabled(saved, reduced) {
     return saved === 'on' ? true : saved === 'off' ? false : !reduced;
 }
@@ -133,7 +133,7 @@ export class CinematicScene {
         const shape = playing ? visemeAt(this.pack.visemes?.[cue?.id], this.player.audio.currentTime) : 'X';
         const mouths = {}, blinks = {};
         for (const [id, config] of Object.entries(this.characters)) {
-            mouths[id] = speaker === id ? shape : 'X';
+            mouths[id] = speaker === id ? (id === 'linh' ? linhVisemeAt(this.pack.visemes?.[cue?.id], this.player.audio.currentTime) : shape) : 'X';
             blinks[id] = null;
         }
         if (active && !document.hidden && !this.recording) {

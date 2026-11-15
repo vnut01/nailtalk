@@ -83,3 +83,5 @@ body{padding-top:0}.player>aside{top:80px}
 /* Keep the playing control below Susan’s face after her leftward placement. */
 .scene[data-lesson="L-S06"] .scene-player.is-playing .audio-toggle{top:auto;bottom:8px}
 .scene[data-lesson="L-S06"] .scene-player.is-playing .listen-count{left:60px}
+
+.offline-progress {font-size:.8rem;margin:.25rem 1rem}.offline-progress:empty {display:none}

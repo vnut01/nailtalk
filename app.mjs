@@ -4,9 +4,12 @@ import { AudioPlayer } from "./player.mjs";
 import { STEPS, nextStep, cueState, initialState, completeStep, summarize, outcome } from "./logic.mjs";
 import * as store from "./storage.mjs";
 const $ = s => document.querySelector(s);
-const catalog = await Promise.all(['L-S01','L-S02','L-S03','L-S04','L-S05','L-S06','L-S07','L-S08'].map(async id => (await fetch(`./packs/${id}/pack.json`)).json()));
+const catalog = await (await fetch('./catalog.json')).json();
+const onHome = !location.hash || location.hash === '#home';
+// Give a newly opened lesson the network before fetching its manifest or art.
+if (!onHome) navigator.serviceWorker?.controller?.postMessage({type:'PAUSE'});
 const lessonId = catalog.some(p => p.id === location.hash.slice(1).split('/')[0]) ? location.hash.slice(1).split('/')[0] : 'L-S07';
-const pack = catalog.find(p => p.id === lessonId);
+const pack = onHome ? {...catalog.find(p => p.id === lessonId), cues:{}} : await (await fetch(`./packs/${lessonId}/pack.json`)).json();
 const native = pack.ui?.kind === 'native';
 const pilot = native || pack.ui?.kind === 'clarification';
 const enabled = step => !pack.enabled_steps || pack.enabled_steps.includes(step);
@@ -202,7 +205,7 @@ function renderHome() {
     document.body.classList.remove("in-lesson");
     scene.mount(null);
     $("#app").innerHTML = `<section class="intro"><p class="eyebrow">Bella Nails · Tiếng Anh dùng tại tiệm</p><h1>Từng câu nhỏ.<br>Tự tin hơn mỗi ngày.</h1><p>Luyện nghe, chọn câu và nói cùng Linh.</p><span class="badge">Bản nháp</span></section><div class="lessons">${catalog.map(p => `<article class="lesson active"><span class="eyebrow">${p.id} · ${p.estimated_minutes} phút</span><h2>${escape(p.title || homeTitles[Number(p.id.slice(-2))-1])}</h2><p>${escape(p.subtitle || canDos[Number(p.id.slice(-2))-1])}</p><span class="badge">Bản nháp</span><div class="controls">${button(p.id === 'L-S07' ? 'start' : 'start-'+p.id,'Bắt đầu học','primary',!packAvailable)}</div></article>`).join('')}</div>${button("install", "Cài lên màn hình chính", "", !installPrompt)}`;
-    for (const p of catalog) bind(p.id === 'L-S07' ? 'start' : 'start-'+p.id, () => { if(p.id === lessonId) nav('A'); else location.hash = `${p.id}/A`; });
+    for (const p of catalog) bind(p.id === 'L-S07' ? 'start' : 'start-'+p.id, () => { if(p.id === lessonId && !onHome) nav('A'); else { location.hash = `${p.id}/A`; if(p.id === lessonId) location.reload(); } });
     bind("install", async () => {
         await installPrompt?.prompt();
         installPrompt = null;
@@ -735,7 +738,9 @@ bind("download", async () => {
                     });
                 });
         }
-        await workerMessage("INSTALL_PACK");
+        await workerMessage("INSTALL_PACK", {id:lessonId});
+        packAvailable = true;
+        if (!location.hash || location.hash === "#home") renderHome();
         await checkOffline();
     }
     catch (error) {
@@ -743,7 +748,7 @@ bind("download", async () => {
         $("#offline").textContent = "Chưa tải xong. Thử lại khi máy chủ cục bộ đang chạy.";
     }
 });
-async function workerMessage(type) {
+async function workerMessage(type, extra = {}) {
     const reg = await navigator.serviceWorker?.getRegistration();
     if (!reg?.active)
         throw Error("No service worker");
@@ -753,22 +758,32 @@ async function workerMessage(type) {
             clearTimeout(timeout);
             e.data.error ? reject(Error(e.data.error)) : resolve(e.data);
         };
-        reg.active.postMessage({ type, format }, [channel.port2]);
+        reg.active.postMessage({ type, format, ...extra }, [channel.port2]);
     });
+}
+function offlineStatus(data) {
+    if (!data || data.type !== 'OFFLINE_PROGRESS') return;
+    $('#offline').textContent = data.ready ? 'Sẵn sàng ngoại tuyến · 8/8 bài' : data.error ? 'Chưa tải xong. Chọn Tải lại bài để thử lại.' : !data.downloading ? 'Mở bài học để tải nội dung ngoại tuyến.' : `Đang tải bài cho dùng offline… ${data.completed}/8`;
+    $('#offline-progress').textContent = data.ready || data.error || !data.downloading ? '' : `Đang tải bài cho dùng offline… ${data.completed}/8`;
 }
 async function checkOffline() {
     try {
-        await workerMessage("SELECT_FORMAT");
-        const ready = await workerMessage("CHECK");
-        packAvailable = ready.ready;
-        if (location.hash === "#home" || !location.hash)
-            renderHome();
-        $("#offline").textContent = ready.ready ? `Sẵn sàng ngoại tuyến · ${Object.values(pack.cues).filter(c => c.audio).length}/${Object.keys(pack.cues).length} câu có âm thanh` : "Chưa sẵn sàng ngoại tuyến · Tải lại bài";
-    }
-    catch {
-        $("#offline").textContent = "Chưa kiểm tra được ngoại tuyến.";
-    }
+        await workerMessage('SELECT_FORMAT');
+        offlineStatus({type:'OFFLINE_PROGRESS', ...await workerMessage('STATUS')});
+        // Home stays light; download only after an opened scene has decoded.
+        if (!onHome) {
+            const waitForScene = () => new Promise(resolve => {
+                const poll = () => scene.failed || scene.spriteFailed || !scene.root || (scene.ready && scene.spriteReady) ? resolve() : setTimeout(poll, 50);
+                poll();
+            });
+            await waitForScene();
+            await workerMessage('START', {id:lessonId});
+        }
+    } catch { $('#offline').textContent = 'Chưa kiểm tra được ngoại tuyến.'; }
 }
+navigator.serviceWorker?.addEventListener('message', event => offlineStatus(event.data));
+navigator.serviceWorker?.addEventListener('controllerchange', () => checkOffline());
+window.addEventListener('online', () => checkOffline());
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./sw.js", { type: "module" }).then(async () => {
         await navigator.serviceWorker.ready;

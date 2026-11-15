@@ -84,3 +84,13 @@ export function characterBlink(now, starts, character, plosive = false, random =
     if (character === 'linh' && plosive && now >= starts.linh) starts.linh = now+100;
     return blinkAt(now,starts[character],mode);
 }
+
+// Batch77: temporal 60/40 SLIGHT/OPEN mix, measured in audio source time.
+// Use the raw vowel interval so smoothing cannot promote a short vowel to OPEN.
+export function linhVisemeAt(track, time) {
+    const shape = visemeAt(track, time);
+    if (shape !== 'D') return shape;
+    const cue = track.mouthCues.find(c => time >= c.start && time < c.end);
+    if (cue?.value !== 'D' || cue.end-cue.start < .120-1e-7) return 'C';
+    return time < cue.start + .6*(cue.end-cue.start) ? 'C' : 'D';
+}
