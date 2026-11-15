@@ -4,12 +4,6 @@ export const speakerIcon = `<svg viewBox="0 0 24 24" aria-hidden="true">
 <path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/>
 <path d="M16 8q5 4 0 8m3-11q8 7 0 14" fill="none" stroke="currentColor" stroke-width="2"/>
 </svg>`;
-const playIcon = `<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="m7 4 14 8-14 8z" fill="currentColor"/>
-</svg>`;
-const stopIcon = `<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M5 5h14v14H5z" fill="currentColor"/>
-</svg>`;
 export function timeline(cues) {
     let total = 0;
     const offsets = cues.map(c => {
@@ -35,7 +29,7 @@ export class AudioPlayer {
         this.audio.setAttribute?.('playsinline', '');
         this.audio.preload = 'none';
         this.audio.autoplay = false;
-        this.format = audioFormat(type => this.audio.canPlayType?.(type) || '');
+        this.format = options.format || audioFormat(type => this.audio.canPlayType?.(type) || '');
         this.audio.ontimeupdate = () => {
             if (!this.active) return;
             this.position = Math.min(this.track.total, this.track.offsets[this.index] + this.audio.currentTime * 1000);
@@ -151,10 +145,9 @@ ${this.options.slower ? '<div class="scene-transport"><button data-action="speed
         const toggle = this.root.querySelector(".audio-toggle");
         const label = this.active ? "Dừng" : this.options.scene ? "Phát tình huống" : "Nghe";
         const compact = this.options.compact && this.cues.length === 1;
-        toggle.innerHTML = this.options.scene ? `${this.active ? stopIcon : playIcon}<span>${this.active ? "Dừng" : "Phát"}</span>` : `${compact ? (this.active ? stopIcon : speakerIcon) : `${speakerIcon}${this.active ? stopIcon : playIcon}<span>${label}</span>`}
-<span class="sound-waves" aria-hidden="true">▂▆▃</span>`;
+        toggle.innerHTML = '<span aria-hidden="true">🔊</span>';
         toggle.setAttribute("aria-pressed", String(this.active));
-        toggle.setAttribute("aria-label", `${label} · ${this.options.label || "audio"}`);
+        toggle.setAttribute("aria-label", `${label} · ${this.options.label || "âm thanh"}`);
         this.root.classList.toggle("is-playing", this.active);
         const speed = this.root.querySelector('[data-action="speed"]');
         if (speed) speed.textContent = this.rate === 1 ? "1×" : "0,75×";

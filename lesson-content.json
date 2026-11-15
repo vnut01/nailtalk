@@ -1,0 +1,1210 @@
+{
+  "L-S01": {
+    "safetyRequired": false,
+    "canDo": "Hỏi làm tay hay chân, xác nhận dịch vụ rồi tiếp đón theo lịch đã kiểm tra. Nghe trọng tâm: chỉ làm tay.",
+    "comprehension": [
+      {
+        "focus": "1. bối cảnh",
+        "listen": [
+          "V2_S01_AMY_01",
+          "V2_S01_AMY_02"
+        ],
+        "question": "Vì sao Amy hơi hồi hộp hôm nay?",
+        "options": [
+          "Sắp gặp người hẹn lần đầu",
+          "Sắp chuyển nhà",
+          "Sắp thi lái xe"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, đây là lần hẹn đầu của Amy.",
+        "retry": "Nghe lại phần Amy kể về buổi gặp nhé."
+      },
+      {
+        "focus": "2. dịch vụ",
+        "listen": [
+          "V2_S01_AMY_05"
+        ],
+        "question": "Linh cần chuẩn bị dịch vụ nào cho Amy?",
+        "options": [
+          "Chỉ làm chân",
+          "Chỉ làm tay",
+          "Cả tay và chân"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, Amy chỉ muốn làm tay.",
+        "retry": "Nghe xem Amy nhắc đến tay hay chân nhé."
+      },
+      {
+        "focus": "3. hỏi trước khi chọn",
+        "listen": [
+          "V2_S01_AMY_04"
+        ],
+        "question": "Amy mới nói muốn tay đẹp. Linh nên làm gì tiếp?",
+        "options": [
+          "Tự chọn dịch vụ cho nhanh",
+          "Hỏi rõ khách muốn làm tay hay chân",
+          "Chỉ tiếp tục hỏi chuyện gia đình"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, hỏi rõ giúp chọn đúng dịch vụ.",
+        "retry": "Mong muốn tay đẹp chưa thay cho việc hỏi dịch vụ."
+      },
+      {
+        "focus": "4. kiểm tra trước khi nhận",
+        "listen": [
+          "V2_S01_AMY_06",
+          "V2_S01_LINH_06",
+          "V2_S01_AMY_07",
+          "V2_S01_LINH_07"
+        ],
+        "question": "Linh nhận Amy ngay sau bước nào?",
+        "options": [
+          "Sau khi kiểm tra khả năng nhận khách",
+          "Ngay khi thấy Amy bước vào",
+          "Sau khi Amy hẹn lại ngày khác"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, Linh kiểm tra rồi mới nhận.",
+        "retry": "Nghe trình tự từ câu hỏi về lịch hẹn đến lúc Linh nhận khách."
+      }
+    ],
+    "cards": [
+      {
+        "focus": "1. tiếp đón",
+        "cue": "V2_S01_LINH_01",
+        "english": "Hi! Welcome in. Please have a seat.",
+        "vietnamese": "Chào chị! Mời chị vào. Chị ngồi nhé.",
+        "vocabulary": "Welcome in — mời vào (Dùng khi khách bước vào tiệm.); have a seat — mời ngồi (Cách mời khách ngồi lịch sự.)",
+        "note": "Câu mời ngắn đi cùng lời chào giúp khách biết nên làm gì tiếp.",
+        "check": "Tôi đã chào và mời khách ngồi; có thể luyện nhẹ âm cuối trong từ mời ngồi."
+      },
+      {
+        "focus": "2. hỏi dịch vụ",
+        "cue": "V2_S01_LINH_04",
+        "english": "Would you like a manicure or a pedicure?",
+        "vietnamese": "Chị muốn làm móng tay hay móng chân ạ?",
+        "vocabulary": "manicure — làm móng tay (Phân biệt với dịch vụ chân.); pedicure — làm móng chân (Dùng khi hỏi khách chọn dịch vụ chân.)",
+        "note": "Câu này đưa ra hai lựa chọn để khách nói rõ nhu cầu.",
+        "check": "Tôi đã hỏi đủ hai lựa chọn tay hoặc chân, không tự đoán."
+      },
+      {
+        "focus": "3. xác nhận dịch vụ",
+        "cue": "V2_S01_LINH_05",
+        "english": "Yes, a manicure.",
+        "vietnamese": "Dạ đúng rồi, làm móng tay ạ.",
+        "vocabulary": "Yes — dạ đúng (Dùng để đồng ý điều vừa hỏi.); a manicure — một buổi làm móng tay (Nhắc lại dịch vụ để chốt đúng ý.)",
+        "note": "Sau lời đồng ý, nhắc lại dịch vụ giúp hai bên hiểu giống nhau.",
+        "check": "Tôi đã xác nhận đúng dịch vụ làm tay."
+      },
+      {
+        "focus": "4. kiểm tra khả năng nhận",
+        "cue": "V2_S01_LINH_11",
+        "english": "Let me check.",
+        "vietnamese": "Để em kiểm tra nhé.",
+        "vocabulary": "Let me — để em (Mở lời nhận việc về mình.); check — kiểm tra (Xem lại trước khi hứa nhận khách.)",
+        "note": "Câu này báo mình sẽ kiểm tra, chưa có nghĩa là đã nhận khách.",
+        "check": "Tôi đã xin kiểm tra trước khi hứa nhận khách."
+      }
+    ],
+    "recognition": [
+      {
+        "cue": "V2_S01_LINH_12",
+        "options": [
+          "Làm tay",
+          "Làm chân"
+        ],
+        "key": 0,
+        "afterCard": 1
+      },
+      {
+        "cue": "V2_S01_LINH_13",
+        "options": [
+          "Làm tay",
+          "Làm chân"
+        ],
+        "key": 1,
+        "afterCard": 1
+      }
+    ],
+    "turns": [
+      {
+        "prompts": [
+          "V2_S01_CUSTOMER_01"
+        ],
+        "models": [
+          "V2_S01_LINH_27"
+        ],
+        "instruction": "Khách mới vừa nói nhu cầu. Bạn là Linh, hãy xác nhận dịch vụ phù hợp bằng lời.",
+        "check": "Tôi đã xác nhận làm chân theo nhu cầu mới, không lặp làm tay.",
+        "retry": "Nghe lại xem khách muốn làm tay hay chân rồi nói lại."
+      }
+    ]
+  },
+  "L-S02": {
+    "safetyRequired": false,
+    "canDo": "Chỉ ô màu cụ thể, nghe yêu cầu nhạt hơn và vị trí thứ hai từ trên xuống, hỏi lại rồi mới chốt.",
+    "comprehension": [
+      {
+        "focus": "1. bối cảnh",
+        "listen": [
+          "V2_S02_LINDA_01",
+          "V2_S02_LINDA_02"
+        ],
+        "question": "Màu vàng trong câu chuyện là màu của thứ gì?",
+        "options": [
+          "Căn bếp Linda tự sơn",
+          "Màu móng Linh đã chọn xong",
+          "Chiếc xe mới"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, Linda kể chuyện tự sơn bếp.",
+        "retry": "Nghe lại đoạn Linda kể chuyện ở nhà."
+      },
+      {
+        "focus": "2. lighter và vị trí",
+        "listen": [
+          "V2_S02_LINDA_04"
+        ],
+        "question": "So với màu Linh vừa chỉ, Linda muốn màu thế nào?",
+        "options": [
+          "Đậm hơn, ở dưới cùng",
+          "Nhạt hơn, ô thứ hai từ trên xuống",
+          "Giữ nguyên màu vừa chỉ"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, cần nghe cả độ nhạt và vị trí ô màu.",
+        "retry": "Nghe lại hai chi tiết: nhạt hay đậm và thứ tự từ trên xuống."
+      },
+      {
+        "focus": "3. xác nhận trước khi chốt",
+        "listen": [
+          "V2_S02_LINH_04",
+          "V2_S02_LINDA_05",
+          "V2_S02_LINH_05"
+        ],
+        "question": "Khi nào Linh chốt màu xanh mới?",
+        "options": [
+          "Sau khi Linda đồng ý ô màu Linh chỉ lại",
+          "Ngay khi thấy chiếc cốc",
+          "Trước khi Linda nói màu nhạt hơn"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, chỉ lại rồi chờ khách đồng ý.",
+        "retry": "Chiếc cốc là gợi ý; vẫn cần khách xác nhận ô màu."
+      },
+      {
+        "focus": "4. phạm vi yêu cầu",
+        "listen": [
+          "V2_S02_LINDA_06",
+          "V2_S02_LINH_06"
+        ],
+        "question": "Linh cần ghi yêu cầu trang trí thế nào?",
+        "options": [
+          "Thêm hoa văn tùy ý",
+          "Chỉ sơn màu đã chọn",
+          "Đổi sang màu khác"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, không thêm họa tiết.",
+        "retry": "Nghe lại phần Linda nói về họa tiết nhé."
+      }
+    ],
+    "cards": [
+      {
+        "focus": "1. hỏi đúng ô màu",
+        "cue": "V2_S02_LINH_03",
+        "english": "Do you mean this color?",
+        "vietnamese": "Ý chị là màu này phải không ạ?",
+        "vocabulary": "mean — muốn nói đến (Dùng khi kiểm tra mình hiểu đúng ý.); this color — màu này (Đi cùng việc chỉ một ô màu cụ thể.)",
+        "note": "Vừa hỏi vừa chỉ ô màu để khách biết mình đang kiểm tra màu nào.",
+        "check": "Tôi đã hỏi đúng ô màu; có thể lên giọng nhẹ ở cuối câu hỏi."
+      },
+      {
+        "focus": "2. kiểm tra màu mới",
+        "cue": "V2_S02_LINH_04",
+        "english": "This one?",
+        "vietnamese": "Màu này ạ?",
+        "vocabulary": "This — này (Đi cùng việc chỉ ô đang hỏi.); one — ô được chọn (Thay cho việc lặp lại tên ô màu trong câu này.)",
+        "note": "Câu ngắn này dùng khi cả hai đang nhìn cùng bảng màu.",
+        "check": "Tôi đã chỉ lại màu mới và chờ khách đồng ý."
+      },
+      {
+        "focus": "3. chốt sau đồng ý",
+        "cue": "V2_S02_LINH_05",
+        "english": "Got it, this blue.",
+        "vietnamese": "Dạ, đúng màu xanh này nhé chị.",
+        "vocabulary": "Got it — đã hiểu (Chỉ nói sau khi ý khách đã rõ.); blue — màu xanh dương (Nhắc đúng màu vừa được đồng ý.)",
+        "note": "Nhắc lại màu sau lời đồng ý giúp chốt lựa chọn.",
+        "check": "Tôi đã xác nhận màu xanh sau khi khách đồng ý."
+      },
+      {
+        "focus": "4. phạm vi dịch vụ",
+        "cue": "V2_S02_LINH_06",
+        "english": "Just this color. No design.",
+        "vietnamese": "Dạ, chỉ màu này, không họa tiết ạ.",
+        "vocabulary": "Just — chỉ (Giới hạn yêu cầu ở phần được nói.); No design — không họa tiết (Không tự thêm trang trí.)",
+        "note": "Từ mang nghĩa chỉ giúp giới hạn yêu cầu; câu sau nói rõ phần khách không muốn.",
+        "check": "Tôi đã nhắc đúng chỉ sơn màu, không thêm họa tiết."
+      }
+    ],
+    "recognition": [
+      {
+        "cue": "V2_S02_LINH_12",
+        "options": [
+          "Nhạt hơn",
+          "Đậm hơn"
+        ],
+        "key": 0,
+        "afterCard": 1
+      },
+      {
+        "cue": "V2_S02_LINH_15",
+        "options": [
+          "Không họa tiết",
+          "Thêm họa tiết"
+        ],
+        "key": 0,
+        "afterCard": 3
+      }
+    ],
+    "turns": [
+      {
+        "prompts": [
+          "V2_S02_LINDA_11"
+        ],
+        "models": [
+          "V2_S02_LINH_22"
+        ],
+        "instruction": "Khách đang chỉ ô xanh nhạt hiện tại. Hãy chọn ô bạn đề nghị trên bảng rồi hỏi khách bằng lời; chờ khách xác nhận.",
+        "check": "Tôi đã chỉ ô xanh đậm hơn, hỏi lại và chờ khách đồng ý.",
+        "retry": "Nghe lại hướng thay đổi màu rồi chọn và nói lại."
+      }
+    ]
+  },
+  "L-S03": {
+    "safetyRequired": false,
+    "canDo": "Hỏi đánh vần, đọc lại tên người đặt, người nhận dịch vụ và ngày giờ; dùng liên hệ người đặt để giữ bí mật.",
+    "comprehension": [
+      {
+        "focus": "1. người nhận dịch vụ",
+        "listen": [
+          "V2_S03_MARK_01",
+          "V2_S03_MARK_03"
+        ],
+        "question": "Mark đặt buổi làm chân cho ai, vì sao?",
+        "options": [
+          "Cho mẹ để cảm ơn mẹ giúp chuyển nhà",
+          "Cho chính mình trước buổi hẹn",
+          "Cho chị gái để mừng sinh nhật"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, mẹ Mark là người nhận dịch vụ.",
+        "retry": "Phân biệt người đang đặt lịch với người sẽ làm chân."
+      },
+      {
+        "focus": "2. ngày giờ",
+        "listen": [
+          "V2_S03_MARK_04"
+        ],
+        "question": "Linh cần giữ khung hẹn nào?",
+        "options": [
+          "Thứ Ba, 2 giờ",
+          "Thứ Năm, 3 giờ",
+          "Thứ Năm, 2 giờ"
+        ],
+        "key": 2,
+        "correct": "Đúng rồi, lịch là thứ Năm lúc 2 giờ.",
+        "retry": "Nghe lại cả ngày và giờ, đừng chỉ nhớ số hai."
+      },
+      {
+        "focus": "3. tên và liên hệ",
+        "listen": [
+          "V2_S03_MARK_05",
+          "V2_S03_MARK_06"
+        ],
+        "question": "Tên và số điện thoại nào được dùng để đặt lịch?",
+        "options": [
+          "Của người đặt là Mark",
+          "Của mẹ Mark",
+          "Của bất kỳ người nhà nào"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, dùng thông tin của Mark để giữ bất ngờ.",
+        "retry": "Nghe lại lời Mark dặn về tên và số liên hệ."
+      },
+      {
+        "focus": "4. hỏi đánh vần",
+        "listen": [
+          "V2_S03_MARK_06",
+          "V2_S03_LINH_06",
+          "V2_S03_MARK_07"
+        ],
+        "question": "Để ghi đúng tên vừa nghe, Linh đã làm gì?",
+        "options": [
+          "Đoán chữ cuối theo thói quen",
+          "Nhờ khách đọc từng chữ",
+          "Hỏi lại dịch vụ của mẹ"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, hỏi đánh vần giúp ghi đúng tên.",
+        "retry": "Nghe câu Linh hỏi ngay sau tên Mark."
+      }
+    ],
+    "cards": [
+      {
+        "focus": "1. hỏi lịch cho người nhận",
+        "cue": "V2_S03_LINH_03",
+        "english": "What day and time works for her?",
+        "vietnamese": "Ngày nào, giờ nào thì tiện cho mẹ anh ạ?",
+        "vocabulary": "day — ngày (Hỏi ngày hẹn.); time — giờ (Hỏi cùng ngày để đủ thông tin.)",
+        "note": "Câu này hỏi lịch thuận tiện cho người nữ đang được nhắc tới, ở đây là mẹ Mark.",
+        "check": "Tôi đã hỏi cả ngày lẫn giờ cho mẹ khách."
+      },
+      {
+        "focus": "2. hỏi tên người đặt",
+        "cue": "V2_S03_LINH_05",
+        "english": "And your name, please?",
+        "vietnamese": "Dạ, anh cho em xin tên ạ?",
+        "vocabulary": "your name — tên của anh (Ở đây hỏi Mark, người đang đặt lịch.); please — làm ơn / nhé (Giúp lời hỏi lịch sự.)",
+        "note": "Câu hỏi tên ngắn dùng được khi đã rõ ai đang được hỏi.",
+        "check": "Tôi đã hỏi tên người đặt, không ghi nhầm thành người làm dịch vụ."
+      },
+      {
+        "focus": "3. xin đánh vần",
+        "cue": "V2_S03_LINH_06",
+        "english": "Could you spell that for me?",
+        "vietnamese": "Anh đánh vần giúp em được không ạ?",
+        "vocabulary": "spell — đánh vần (Nhờ khách đọc từng chữ cái.); for me — giúp em (Làm lời nhờ tự nhiên hơn.)",
+        "note": "Dùng cả câu để nhờ khách đọc từng chữ khi mình chưa chắc cách viết tên.",
+        "check": "Tôi đã xin đánh vần rồi chờ khách đọc các chữ."
+      },
+      {
+        "focus": "4. đọc lại đủ dữ kiện",
+        "cue": "V2_S03_LINH_07",
+        "english": "M-A-R-K. A pedicure for your mom, Thursday at two. We'll keep it a surprise.",
+        "vietnamese": "M-A-R-K. Lịch làm chân cho mẹ anh, thứ Năm lúc hai giờ. Bên em sẽ giữ bí mật ạ.",
+        "vocabulary": "Thursday — thứ Năm (Đọc lại ngày hẹn.); surprise — điều bất ngờ (Ở đây là món quà cần giữ kín.)",
+        "note": "Đọc lại tên, dịch vụ và ngày giờ thành từng đoạn ngắn để khách dễ kiểm tra.",
+        "check": "Tôi đã đọc đúng M-A-R-K, làm chân cho mẹ, thứ Năm 2 giờ và giữ bí mật; chú ý đọc rõ chữ A."
+      }
+    ],
+    "recognition": [
+      {
+        "cue": "V2_S03_LINH_14",
+        "options": [
+          "Thứ Ba",
+          "Thứ Năm"
+        ],
+        "key": 1,
+        "afterCard": 3
+      },
+      {
+        "cue": "V2_S03_LINH_15",
+        "options": [
+          "Lúc 2 giờ",
+          "Lúc 3 giờ"
+        ],
+        "key": 0,
+        "afterCard": 3
+      }
+    ],
+    "turns": [
+      {
+        "prompts": [
+          "V2_S03_MARK_11"
+        ],
+        "models": [
+          "V2_S03_LINH_06"
+        ],
+        "instruction": "Nghe tên người đặt mới rồi xin khách đánh vần bằng lời. Khách chỉ đọc các chữ sau khi bạn đã hỏi.",
+        "check": "Tôi đã xin đánh vần rồi chờ câu trả lời.",
+        "retry": "Hãy hỏi khách đọc từng chữ trước khi ghi tên."
+      },
+      {
+        "prompts": [
+          "V2_S03_MARK_12"
+        ],
+        "models": [
+          "V2_S03_LINH_22"
+        ],
+        "instruction": "Đọc lại tên vừa được đánh vần và lịch giữ nguyên: làm chân cho mẹ, thứ Năm 2 giờ; giữ bí mật và chỉ liên hệ người đặt.",
+        "check": "Tôi đã đọc đúng G-I-N-A, người nhận, dịch vụ và ngày giờ; giữ bí mật.",
+        "retry": "Nghe lại từng chữ rồi đọc đủ thông tin lịch hẹn."
+      }
+    ]
+  },
+  "L-S04": {
+    "safetyRequired": false,
+    "canDo": "Xin chờ, kiểm tra đủ thời lượng, báo giờ và xin đồng ý đổi thợ trước khi ghi lịch; phân biệt giờ xe với giờ hẹn.",
+    "comprehension": [
+      {
+        "focus": "1. bối cảnh và giờ xe",
+        "listen": [
+          "V2_S04_MIKE_01",
+          "V2_S04_MIKE_02"
+        ],
+        "question": "Mốc 4 giờ trong lời Mike là giờ gì?",
+        "options": [
+          "Giờ xe buýt của Mike",
+          "Giờ đã nhận Jenny",
+          "Giờ đóng tiệm"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, đó là giờ xe, chưa phải lịch của Jenny.",
+        "retry": "Nghe Mike kể chuyện đi lại trước khi Jenny hỏi dịch vụ."
+      },
+      {
+        "focus": "2. không rút ngắn dịch vụ",
+        "listen": [
+          "V2_S04_JENNY_01",
+          "V2_S04_MIKE_04"
+        ],
+        "question": "Vì sao cần tìm người khác nhận Jenny?",
+        "options": [
+          "Mike không đủ thời gian làm trọn buổi trước giờ xe",
+          "Jenny chỉ muốn làm móng tay",
+          "Tiệm không có dịch vụ làm chân"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, không làm vội để kịp xe.",
+        "retry": "Nghe lý do Mike chưa thể nhận trọn buổi làm chân."
+      },
+      {
+        "focus": "3. giờ và thời lượng đã kiểm tra",
+        "listen": [
+          "V2_S04_KIM_01",
+          "V2_S04_LINH_06"
+        ],
+        "question": "Khung nào đã được kiểm tra đủ cho Jenny?",
+        "options": [
+          "Bắt đầu 4 giờ, làm thật nhanh",
+          "Bắt đầu 3:30, có đủ 45 phút",
+          "Nhận ngay, chưa biết thời lượng"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, 3:30 có đủ 45 phút.",
+        "retry": "Tách giờ xe 4 giờ khỏi giờ trống mà Kim xác nhận."
+      },
+      {
+        "focus": "4. đồng ý đổi thợ",
+        "listen": [
+          "V2_S04_JENNY_02",
+          "V2_S04_LINH_06",
+          "V2_S04_JENNY_03",
+          "V2_S04_LINH_07"
+        ],
+        "question": "Trước khi ghi lịch với mình, Linh cần Jenny đồng ý điều gì?",
+        "options": [
+          "Chỉ đồng ý chờ một chút",
+          "Đồng ý giờ đã báo và đổi từ Mike sang Linh",
+          "Đồng ý làm ngắn hơn"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, đồng ý chờ chưa phải đồng ý giờ và đổi thợ.",
+        "retry": "Nghe lời Jenny sau khi Linh báo giờ và hỏi đổi thợ."
+      }
+    ],
+    "cards": [
+      {
+        "focus": "1. xin chờ",
+        "cue": "V2_S04_LINH_04",
+        "english": "One moment, please.",
+        "vietnamese": "Chị chờ em một chút nhé.",
+        "vocabulary": "One moment — một chút (Xin khách đợi ngắn để mình xử lý.); please — nhé (Làm lời nhờ lịch sự.)",
+        "note": "Câu xin chờ tạo thời gian kiểm tra, chưa phải lời hứa có chỗ.",
+        "check": "Tôi đã xin khách chờ; có thể nhấn rõ phần đầu của từ mang nghĩa một chút."
+      },
+      {
+        "focus": "2. kiểm tra trước khi nhận",
+        "cue": "V2_S04_LINH_05",
+        "english": "Let me check.",
+        "vietnamese": "Để em kiểm tra nhé chị.",
+        "vocabulary": "Let me — để em (Nhận phần kiểm tra về mình.); check — kiểm tra (Xem lịch và đủ thời lượng trước khi báo khách.)",
+        "note": "Nói sẽ kiểm tra rồi mới xem lịch và báo kết quả.",
+        "check": "Tôi đã kiểm tra giờ, thời lượng và người làm trước khi nhận."
+      },
+      {
+        "focus": "3. báo giờ và xin đổi thợ",
+        "cue": "V2_S04_LINH_06",
+        "english": "I have forty-five minutes at three thirty. Is another tech okay?",
+        "vietnamese": "Em có bốn mươi lăm phút lúc ba giờ rưỡi. Chị đổi sang thợ khác được không ạ?",
+        "vocabulary": "forty-five minutes — 45 phút (Thời lượng đủ cho buổi này.); three thirty — 3 giờ rưỡi (Giờ bắt đầu, không phải giờ xe.); another tech — thợ khác (Cần hỏi khách có đồng ý đổi không.)",
+        "note": "Báo thời gian rồi hỏi đổi thợ; chưa ghi lịch khi khách chưa đồng ý.",
+        "check": "Tôi đã báo 3:30, đủ 45 phút và hỏi khách đồng ý đổi thợ."
+      },
+      {
+        "focus": "4. xin đồng ý giờ",
+        "cue": "V2_S04_LINH_24",
+        "english": "Does that work for you?",
+        "vietnamese": "Giờ đó có tiện cho chị không ạ?",
+        "vocabulary": "work — phù hợp / tiện (Ở câu này hỏi thời gian có tiện không.); for you — với chị (Hỏi theo sự thuận tiện của khách.)",
+        "note": "Câu hỏi này kiểm tra giờ vừa đề nghị có tiện cho khách không.",
+        "check": "Tôi đã hỏi giờ có tiện và chờ khách trả lời."
+      }
+    ],
+    "recognition": [
+      {
+        "cue": "V2_S04_LINH_15",
+        "options": [
+          "45 phút",
+          "15 phút"
+        ],
+        "key": 0,
+        "afterCard": 2
+      },
+      {
+        "cue": "V2_S04_LINH_16",
+        "options": [
+          "3:30",
+          "4:00"
+        ],
+        "key": 0,
+        "afterCard": 2
+      }
+    ],
+    "turns": [
+      {
+        "prompts": [
+          "V2_S04_JENNY_01",
+          "V2_S04_MIKE_04"
+        ],
+        "models": [
+          "V2_S04_LINH_04",
+          "V2_S04_LINH_05"
+        ],
+        "instruction": "Jenny lại hỏi làm chân chiều nay, Mike vẫn không đủ thời gian trước giờ xe. Hãy xin Jenny chờ, rồi nói bạn sẽ kiểm tra.",
+        "check": "Tôi đã xin khách chờ và kiểm tra trước khi báo giờ.",
+        "retry": "Đừng lấy giờ xe làm giờ hẹn; hãy xin kiểm tra trước."
+      },
+      {
+        "prompts": [],
+        "models": [
+          "V2_S04_LINH_25"
+        ],
+        "instruction": "Lịch vừa kiểm tra: Linh · 4:30–5:15 · đủ 45 phút. Hãy báo giờ, thời lượng, hỏi giờ có tiện và hỏi khách đồng ý đổi thợ không.",
+        "check": "Tôi đã nói 4:30, đủ 45 phút, hỏi giờ có tiện và xin đồng ý đổi thợ trước khi ghi lịch.",
+        "retry": "Dùng giờ trên lịch mới, nói đủ thời lượng và hai ý cần khách đồng ý."
+      }
+    ]
+  },
+  "L-S05": {
+    "safetyRequired": false,
+    "canDo": "Hỏi và xác nhận độ dài cùng dáng trước khi cắt hoặc giũa; nghe ngắn, tròn và mốc độ dài cụ thể.",
+    "comprehension": [
+      {
+        "focus": "1. bối cảnh",
+        "listen": [
+          "V2_S05_LINDA_01",
+          "V2_S05_LINDA_03"
+        ],
+        "question": "Vì sao Linda muốn thay đổi móng?",
+        "options": [
+          "Để chơi piano thuận hơn",
+          "Để đi biển",
+          "Để sơn giống căn bếp"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, móng đang vướng khi Linda chơi đàn.",
+        "retry": "Nghe Linda kể về việc học lại piano và các phím đàn."
+      },
+      {
+        "focus": "2. độ dài và dáng",
+        "listen": [
+          "V2_S05_LINDA_04",
+          "V2_S05_LINDA_05"
+        ],
+        "question": "Linh cần xác nhận cặp lựa chọn nào?",
+        "options": [
+          "Dài và tròn",
+          "Ngắn và vuông",
+          "Ngắn và tròn"
+        ],
+        "key": 2,
+        "correct": "Đúng rồi, cần giữ cả độ dài ngắn và dáng tròn.",
+        "retry": "Nghe riêng câu trả lời về độ dài rồi câu trả lời về dáng."
+      },
+      {
+        "focus": "3. mép nhẵn",
+        "listen": [
+          "V2_S05_LINDA_04"
+        ],
+        "question": "Ngoài độ dài, Linda còn muốn mép móng thế nào?",
+        "options": [
+          "Nhẵn, không sắc",
+          "Càng nhọn càng tốt",
+          "Không quan tâm đến mép"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, mép cần nhẵn.",
+        "retry": "Nghe phần Linda nói thêm sau khi chọn móng ngắn."
+      },
+      {
+        "focus": "4. kiểm tra mốc cụ thể",
+        "listen": [
+          "V2_S05_LINH_05",
+          "V2_S05_LINDA_06",
+          "V2_S05_LINH_06",
+          "V2_S05_LINDA_07"
+        ],
+        "question": "Trước khi bắt đầu, Linh kiểm tra thêm điều gì theo hình?",
+        "options": [
+          "Độ dài cụ thể khách đồng ý",
+          "Ngày học đàn của khách",
+          "Màu vàng trong nhà"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, cần cho khách đồng ý mốc độ dài cụ thể.",
+        "retry": "Nghe câu hỏi ngắn của Linh sau khi khách nhắc đến hình."
+      }
+    ],
+    "cards": [
+      {
+        "focus": "1. hỏi độ dài",
+        "cue": "V2_S05_LINH_03",
+        "english": "Would you like them shorter?",
+        "vietnamese": "Chị muốn làm ngắn hơn không ạ?",
+        "vocabulary": "them — móng của chị (Chỉ những móng đang nói tới.); shorter — ngắn hơn (So với độ dài hiện tại.)",
+        "note": "Câu này hỏi khách có muốn làm ngắn hơn không, chưa tự quyết định cắt.",
+        "check": "Tôi đã hỏi khách có muốn móng ngắn hơn."
+      },
+      {
+        "focus": "2. hỏi dáng",
+        "cue": "V2_S05_LINH_04",
+        "english": "Round or square?",
+        "vietnamese": "Chị thích bo tròn hay vuông ạ?",
+        "vocabulary": "Round — tròn (Dáng bo tròn.); square — vuông (Dáng có đầu vuông.)",
+        "note": "Đưa hai dáng để khách chọn; vẫn phải hỏi riêng độ dài.",
+        "check": "Tôi đã hỏi đúng dáng tròn hay vuông."
+      },
+      {
+        "focus": "3. xác nhận cả hai",
+        "cue": "V2_S05_LINH_05",
+        "english": "Short and round?",
+        "vietnamese": "Ngắn và bo tròn, đúng không chị?",
+        "vocabulary": "Short — ngắn (Thông tin về độ dài.); round — tròn (Thông tin về dáng.)",
+        "note": "Nối hai lựa chọn để kiểm tra cùng lúc độ dài và dáng.",
+        "check": "Tôi đã xác nhận ngắn và tròn; có thể nói nhẹ âm cuối của từ chỉ dáng tròn."
+      },
+      {
+        "focus": "4. kiểm tra mốc dài",
+        "cue": "V2_S05_LINH_06",
+        "english": "This length?",
+        "vietnamese": "Độ dài này được không chị?",
+        "vocabulary": "This — này (Chỉ đúng mốc đang cho khách xem.); length — độ dài (Cần khách đồng ý trước khi làm.)",
+        "note": "Câu hỏi ngắn đi cùng hình hoặc mốc chỉ cụ thể để chốt độ dài.",
+        "check": "Tôi đã chỉ độ dài cụ thể và chờ khách đồng ý."
+      }
+    ],
+    "recognition": [
+      {
+        "cue": "V2_S05_LINH_13",
+        "options": [
+          "Tròn",
+          "Vuông"
+        ],
+        "key": 0,
+        "afterCard": 1
+      },
+      {
+        "cue": "V2_S05_LINH_14",
+        "options": [
+          "Tròn",
+          "Vuông"
+        ],
+        "key": 1,
+        "afterCard": 1
+      }
+    ],
+    "turns": [
+      {
+        "prompts": [
+          "V2_S05_LINDA_11"
+        ],
+        "models": [
+          "V2_S05_LINH_37"
+        ],
+        "instruction": "Linda đổi lựa chọn. Hãy hỏi lại cả độ dài và dáng móng bằng lời, rồi chờ chị đồng ý.",
+        "check": "Tôi đã xác nhận ngắn và vuông, rồi chờ khách đồng ý.",
+        "retry": "Nghe lại: giữ độ dài nhưng dáng đã thay đổi."
+      }
+    ]
+  },
+  "L-S06": {
+    "safetyRequired": true,
+    "canDo": "Nghe tín hiệu rát, dừng ngay và gọi quản lý, báo đúng lời khách; không luyện phát âm.",
+    "comprehension": [
+      {
+        "focus": "1. bối cảnh",
+        "listen": [
+          "V2_S06_MRS_CHEN_01",
+          "V2_S06_MRS_CHEN_02"
+        ],
+        "question": "Bà Chen đang mong đợi việc gì?",
+        "options": [
+          "Gọi video với cháu trai ở xa",
+          "Đi học piano",
+          "Chuyển sang căn nhà mới"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, bà mong cuộc gọi với cháu.",
+        "retry": "Nghe bà kể về cháu trai ở đầu câu chuyện."
+      },
+      {
+        "focus": "2. tín hiệu dừng",
+        "listen": [
+          "V2_S06_MRS_CHEN_07",
+          "V2_S06_LINH_07"
+        ],
+        "question": "Nghe khách báo rát, Linh cần làm gì ngay?",
+        "options": [
+          "Dừng, đặt dụng cụ xuống và gọi quản lý",
+          "Làm nốt cho xong",
+          "Tự đổi sản phẩm rồi tiếp tục"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, dừng ngay và gọi quản lý.",
+        "retry": "Lời báo rát cần được xử lý ngay, không chờ làm xong."
+      },
+      {
+        "focus": "3. báo đúng lời khách",
+        "listen": [
+          "V2_S06_MRS_CHEN_08",
+          "V2_S06_LINH_08"
+        ],
+        "question": "Linh báo Susan thông tin nào?",
+        "options": [
+          "Ngón tay bà Chen bị rát theo lời bà",
+          "Bà chỉ đang lo cuộc gọi",
+          "Linh đã biết chắc nguyên nhân"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, báo vị trí và cảm giác theo lời khách.",
+        "retry": "Nghe phần bà chỉ ngón tay và lời Linh báo Susan."
+      },
+      {
+        "focus": "4. không làm tiếp",
+        "listen": [
+          "V2_S06_SUSAN_01",
+          "V2_S06_LINH_09"
+        ],
+        "question": "Sau khi Susan tiếp nhận, dịch vụ ở tay bị rát thế nào?",
+        "options": [
+          "Tiếp tục với sản phẩm khác",
+          "Dừng trong hôm nay, bà được hướng tới bác sĩ",
+          "Làm nhanh hơn để kịp cuộc gọi"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, không làm tiếp trên tay bị rát.",
+        "retry": "Nghe quyết định của Susan; cuộc gọi không làm thay đổi việc dừng."
+      }
+    ],
+    "cards": [
+      {
+        "focus": "1. mời báo khó chịu",
+        "cue": "V2_S06_LINH_06",
+        "english": "Let me know if anything hurts.",
+        "vietnamese": "Có chỗ nào đau bà cứ báo cháu nhé.",
+        "vocabulary": "Let me know — báo cháu biết (Khuyến khích khách nói ngay.); hurts — đau (Tín hiệu cần được lắng nghe.)",
+        "note": "Câu này mời khách báo khi có bất kỳ chỗ nào đau.",
+        "check": "Tôi đã mời khách báo ngay nếu có chỗ đau."
+      },
+      {
+        "focus": "2. dừng ngay",
+        "cue": "V2_S06_LINH_11",
+        "english": "I'm sorry. I'll stop.",
+        "vietnamese": "Cháu xin lỗi. Cháu dừng lại ạ.",
+        "vocabulary": "I'm sorry — cháu xin lỗi (Thể hiện sự quan tâm.); I'll stop — cháu sẽ dừng (Nói đi cùng việc dừng ngay.)",
+        "note": "Câu nói sẽ dừng phải đi cùng hành động dừng và đặt dụng cụ xuống.",
+        "check": "Tôi đã xin lỗi, dừng ngay và đặt dụng cụ xuống."
+      },
+      {
+        "focus": "3. gọi quản lý",
+        "cue": "V2_S06_LINH_12",
+        "english": "I'll get my manager.",
+        "vietnamese": "Cháu sẽ gọi quản lý ạ.",
+        "vocabulary": "get — gọi / nhờ đến (Ở đây là gọi người phụ trách đến.); my manager — quản lý của cháu (Người tiếp nhận sự việc.)",
+        "note": "Nói mình sẽ gọi quản lý rồi thực hiện ngay, không tự quyết định làm tiếp.",
+        "check": "Tôi đã gọi quản lý, không tự đổi sản phẩm để làm tiếp."
+      },
+      {
+        "focus": "4. báo đúng lời khách",
+        "cue": "V2_S06_LINH_08",
+        "english": "Susan, Mrs. Chen says her finger stings.",
+        "vietnamese": "Chị Susan, bà Chen nói ngón tay bà bị rát ạ.",
+        "vocabulary": "finger — ngón tay (Vị trí bà vừa chỉ.); stings — bị rát (Cảm giác theo lời khách.)",
+        "note": "Nhắc tên khách rồi báo điều khách nói; không tự thêm nguyên nhân.",
+        "check": "Tôi đã báo ngón tay bị rát đúng lời bà, không tự chẩn đoán."
+      }
+    ],
+    "recognition": [
+      {
+        "cue": "V2_S06_LINH_14",
+        "options": [
+          "Bị rát",
+          "Thấy dễ chịu"
+        ],
+        "key": 0,
+        "afterCard": 3
+      },
+      {
+        "cue": "V2_S06_LINH_17",
+        "options": [
+          "Đau",
+          "Muốn chọn màu"
+        ],
+        "key": 0,
+        "afterCard": 0
+      }
+    ],
+    "turns": [
+      {
+        "prompts": [
+          "V2_S06_MRS_CHEN_10"
+        ],
+        "models": [
+          "V2_S06_LINH_11",
+          "V2_S06_LINH_12"
+        ],
+        "instruction": "Nghe bà báo cảm giác mới. Bạn là Linh: nói và làm điều cần làm ngay.",
+        "check": "Tôi đã dừng ngay, đặt dụng cụ xuống và gọi quản lý.",
+        "retry": "Dừng ngay và gọi quản lý; không làm tiếp hay tự đổi sản phẩm."
+      },
+      {
+        "prompts": [
+          "V2_S06_SUSAN_02"
+        ],
+        "models": [
+          "V2_S06_LINH_24"
+        ],
+        "instruction": "Susan hỏi lại. Hãy báo đúng cảm giác bà vừa nói, không tự thêm nguyên nhân.",
+        "check": "Tôi đã báo bà nói ngón tay nóng, không đổi thành rát hoặc tự chẩn đoán.",
+        "retry": "Nghe lại lời bà ở lượt trước rồi báo đúng cảm giác đó."
+      }
+    ]
+  },
+  "L-S07": {
+    "safetyRequired": false,
+    "canDo": "Báo giá niêm yết, xác nhận phần gồm trong giá, hỏi khách đồng ý; nghe 30 đô và sơn thường.",
+    "comprehension": [
+      {
+        "focus": "1. bối cảnh và ngân sách",
+        "listen": [
+          "V2_S07_AMY_01",
+          "V2_S07_AMY_02",
+          "V2_S07_AMY_04"
+        ],
+        "question": "Vì sao Amy muốn giữ riêng một phần tiền?",
+        "options": [
+          "Để in ảnh tốt nghiệp gửi bà",
+          "Để đặt lịch cho mẹ",
+          "Để mua chậu cây"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, Amy còn để dành tiền in ảnh cho bà.",
+        "retry": "Nghe lại chuyện tấm ảnh và người nhận ảnh."
+      },
+      {
+        "focus": "2. giá dịch vụ",
+        "listen": [
+          "V2_S07_AMY_05",
+          "V2_S07_LINH_05"
+        ],
+        "question": "Linh báo giá làm tay sơn thường bao nhiêu?",
+        "options": [
+          "13 đô",
+          "30 đô",
+          "40 đô"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, giá dịch vụ là 30 đô, chưa tính thuế và tiền tip.",
+        "retry": "Nghe lại số tiền Linh báo, chú ý phân biệt 13 và 30."
+      },
+      {
+        "focus": "3. phần gồm trong giá",
+        "listen": [
+          "V2_S07_AMY_06",
+          "V2_S07_LINH_06"
+        ],
+        "question": "Khoản giá vừa báo gồm phần nào?",
+        "options": [
+          "Sơn gel và mọi họa tiết",
+          "Sơn thường",
+          "Tiền in ảnh tặng bà"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, giá này gồm sơn thường.",
+        "retry": "Nghe đúng loại sơn được xác nhận, đừng tự thêm dịch vụ."
+      },
+      {
+        "focus": "4. xin đồng ý",
+        "listen": [
+          "V2_S07_LINH_07",
+          "V2_S07_AMY_08"
+        ],
+        "question": "Sau khi giải thích giá và phần đã gồm, Linh làm gì?",
+        "options": [
+          "Hỏi khách có muốn tiến hành không",
+          "Tự thêm dịch vụ",
+          "Thu luôn cả tiền in ảnh"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, để khách đồng ý rồi mới bắt đầu.",
+        "retry": "Nghe câu Linh hỏi trước lời đồng ý của Amy."
+      }
+    ],
+    "cards": [
+      {
+        "focus": "1. dựa vào bảng giá",
+        "cue": "V2_S07_LINH_04",
+        "english": "A regular manicure is on our price board.",
+        "vietnamese": "Dịch vụ móng tay sơn thường có trên bảng giá ạ.",
+        "vocabulary": "regular manicure — làm tay thông thường (Dịch vụ sơn thường trong bài.); price board — bảng giá (Nguồn để kiểm tra giá dịch vụ.)",
+        "note": "Nêu dịch vụ trên bảng để khách biết mình đang nói giá của phần nào.",
+        "check": "Tôi đã chỉ đúng dịch vụ trên bảng giá."
+      },
+      {
+        "focus": "2. báo đúng giá",
+        "cue": "V2_S07_LINH_05",
+        "english": "It’s thirty dollars.",
+        "vietnamese": "Dạ ba mươi đô ạ.",
+        "vocabulary": "thirty — ba mươi (Phân biệt với số mười ba.); dollars — đô la (Đơn vị tiền trong câu báo giá.)",
+        "note": "Nói số tiền đi cùng đơn vị để khách nghe rõ giá.",
+        "check": "Tôi đã báo 30 đô; nghe và nói rõ để phân biệt với 13."
+      },
+      {
+        "focus": "3. phạm vi giá",
+        "cue": "V2_S07_LINH_06",
+        "english": "Yes, regular polish is included.",
+        "vietnamese": "Dạ, đã gồm sơn thường ạ.",
+        "vocabulary": "regular polish — sơn thường (Không tự hiểu thành sơn gel.); included — đã gồm (Phần đã có trong giá vừa báo.)",
+        "note": "Câu này xác nhận phần đã gồm trong giá, không tự thêm các dịch vụ khác.",
+        "check": "Tôi đã xác nhận giá gồm sơn thường, chưa gồm thuế và tiền tip."
+      },
+      {
+        "focus": "4. xin đồng ý",
+        "cue": "V2_S07_LINH_07",
+        "english": "Would you like to go ahead?",
+        "vietnamese": "Chị muốn làm dịch vụ này luôn không ạ?",
+        "vocabulary": "Would you like — chị có muốn (Cách hỏi lịch sự về lựa chọn.); go ahead — tiến hành (Ở đây là bắt đầu dịch vụ đã trao đổi.)",
+        "note": "Hỏi khách có muốn tiến hành sau khi đã nói rõ giá và phạm vi.",
+        "check": "Tôi đã hỏi khách có muốn tiến hành rồi chờ đồng ý."
+      }
+    ],
+    "recognition": [
+      {
+        "cue": "V2_S07_LINH_21",
+        "options": [
+          "13",
+          "30"
+        ],
+        "key": 0,
+        "afterCard": 1
+      },
+      {
+        "cue": "V2_S07_LINH_22",
+        "options": [
+          "13",
+          "30"
+        ],
+        "key": 1,
+        "afterCard": 1
+      },
+      {
+        "cue": "V2_S07_LINH_23",
+        "options": [
+          "14",
+          "40"
+        ],
+        "key": 0,
+        "afterCard": 1
+      },
+      {
+        "cue": "V2_S07_LINH_24",
+        "options": [
+          "14",
+          "40"
+        ],
+        "key": 1,
+        "afterCard": 1
+      }
+    ],
+    "turns": [
+      {
+        "prompts": [
+          "V2_S07_AMY_11"
+        ],
+        "models": [
+          "V2_S07_LINH_27"
+        ],
+        "instruction": "Bảng giá mới: làm tay sơn gel · 45 đô · đã gồm sơn gel, chưa tính thuế và tiền tip. Hãy trả lời đúng dịch vụ Amy hỏi.",
+        "check": "Tôi đã báo 45 đô cho dịch vụ gel theo bảng, không dùng giá sơn thường.",
+        "retry": "Xem đúng dòng dịch vụ khách hỏi trên bảng rồi nói lại."
+      },
+      {
+        "prompts": [
+          "V2_S07_AMY_12"
+        ],
+        "models": [
+          "V2_S07_LINH_28"
+        ],
+        "instruction": "Nghe câu hỏi tiếp của Amy và giải thích phần đã gồm theo bảng giá.",
+        "check": "Tôi đã nói giá gồm sơn gel, không tự thêm dịch vụ khác.",
+        "retry": "Đối chiếu phần đã gồm trên bảng trước khi trả lời."
+      },
+      {
+        "prompts": [
+          "V2_S07_CUSTOMER_01"
+        ],
+        "models": [
+          "V2_S07_LINH_29"
+        ],
+        "instruction": "Khách hỏi thêm phần chưa có giá trên bảng. Hãy trả lời bằng lời; bạn chưa biết giá phần này.",
+        "check": "Tôi đã xin kiểm tra giá vẽ móng, không tự đoán.",
+        "retry": "Chưa biết giá thì xin kiểm tra trước khi báo khách."
+      }
+    ]
+  },
+  "L-S08": {
+    "safetyRequired": false,
+    "canDo": "Xin nhắc lại khi chưa rõ, kiểm tra vị trí rồi xác nhận và nói hành động; nghe chuyển cây vào trong, giữa bàn.",
+    "comprehension": [
+      {
+        "focus": "1. bối cảnh",
+        "listen": [
+          "V2_S08_MRS_CHEN_01",
+          "V2_S08_LINH_02"
+        ],
+        "question": "Vì sao món cây nhỏ hợp với Linh?",
+        "options": [
+          "Phòng Linh nhỏ",
+          "Linh cần che cả ban công",
+          "Cây cần rất nhiều chỗ"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, cây nhỏ hợp căn phòng của Linh.",
+        "retry": "Nghe Linh nói về chỗ ở của mình."
+      },
+      {
+        "focus": "2. yêu cầu di chuyển",
+        "listen": [
+          "V2_S08_MRS_CHEN_04",
+          "V2_S08_MRS_CHEN_05"
+        ],
+        "question": "Bà muốn Linh xử lý chậu cây thế nào?",
+        "options": [
+          "Đưa lại cho bà",
+          "Đẩy vào trong, xa mép bàn",
+          "Để nguyên sát mép"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, đẩy vào trong bàn để cây khỏi rơi.",
+        "retry": "Ở đây bà muốn cây xa mép, không phải trả cây lại."
+      },
+      {
+        "focus": "3. hỏi lại khi chưa rõ",
+        "listen": [
+          "V2_S08_MRS_CHEN_04",
+          "V2_S08_LINH_04"
+        ],
+        "question": "Khi chưa rõ lời bà, Linh nên làm gì?",
+        "options": [
+          "Gật đầu rồi tự đoán",
+          "Xin bà nói lại",
+          "Mang cây ra cửa"
+        ],
+        "key": 1,
+        "correct": "Đúng rồi, xin nhắc lại trước khi xác nhận.",
+        "retry": "Chưa rõ thì hỏi lại; không cần đoán cho nhanh."
+      },
+      {
+        "focus": "4. hiểu rồi hành động",
+        "listen": [
+          "V2_S08_LINH_05",
+          "V2_S08_MRS_CHEN_06",
+          "V2_S08_LINH_06",
+          "V2_S08_LINH_07"
+        ],
+        "question": "Điều gì giúp lời xác nhận của Linh đáng tin?",
+        "options": [
+          "Linh đã kiểm tra vị trí, bà đồng ý rồi Linh nói sẽ chuyển cây",
+          "Linh chỉ nói đã hiểu ngay từ đầu",
+          "Linh đổi sang chuyện khác"
+        ],
+        "key": 0,
+        "correct": "Đúng rồi, hiểu rõ và được xác nhận rồi mới làm.",
+        "retry": "Nghe theo thứ tự: kiểm tra chỗ đặt, bà đồng ý, rồi hành động."
+      }
+    ],
+    "cards": [
+      {
+        "focus": "1. xin nhắc lại",
+        "cue": "V2_S08_LINH_04",
+        "english": "Could you say that again, please?",
+        "vietnamese": "Bà nói lại giúp cháu được không ạ?",
+        "vocabulary": "say — nói (Dùng trong lời nhờ khách nói lại.); again — lại lần nữa (Dùng khi chưa nghe rõ.)",
+        "note": "Dùng cả câu để xin nhắc lại lịch sự; chưa rõ thì chưa xác nhận đã hiểu.",
+        "check": "Tôi đã xin bà nói lại khi chưa rõ."
+      },
+      {
+        "focus": "2. kiểm tra vị trí",
+        "cue": "V2_S08_LINH_05",
+        "english": "Back here, in the middle?",
+        "vietnamese": "Vào đây, giữa bàn, đúng không bà?",
+        "vocabulary": "Back here — vào trong này (Ở đây là xa mép bàn hơn.); in the middle — ở giữa (Chỉ rõ chỗ đặt cây.)",
+        "note": "Hỏi kèm vị trí chỉ cụ thể rồi chờ bà đồng ý.",
+        "check": "Tôi đã kiểm tra chỗ giữa bàn, không hiểu thành trả cây lại."
+      },
+      {
+        "focus": "3. xác nhận sau hiểu",
+        "cue": "V2_S08_LINH_06",
+        "english": "Okay, got it.",
+        "vietnamese": "Dạ, cháu hiểu rồi.",
+        "vocabulary": "Okay — dạ được (Tiếp nhận lời vừa nói.); got it — đã hiểu (Chỉ dùng khi yêu cầu đã rõ.)",
+        "note": "Chỉ xác nhận đã hiểu sau khi nghe rõ và kiểm tra đúng yêu cầu.",
+        "check": "Tôi đã hiểu rồi mới xác nhận; không cần bắt chước kiểu nối âm mới được tính đủ ý."
+      },
+      {
+        "focus": "4. nói hành động",
+        "cue": "V2_S08_LINH_07",
+        "english": "I'll move it back for you.",
+        "vietnamese": "Cháu để cây vào trong nhé.",
+        "vocabulary": "move it back — chuyển vào trong (Ở đây chuyển cây xa mép bàn.); for you — giúp bà (Cho biết mình làm giúp người nghe.)",
+        "note": "Câu nói việc sắp làm cần khớp với yêu cầu vừa xác nhận.",
+        "check": "Tôi đã nói sẽ chuyển cây vào trong và làm đúng vị trí bà đồng ý."
+      }
+    ],
+    "recognition": [
+      {
+        "cue": "V2_S08_LINH_13",
+        "options": [
+          "Chuyển vào trong",
+          "Trả lại cho bà"
+        ],
+        "key": 0,
+        "afterCard": 3
+      },
+      {
+        "cue": "V2_S08_LINH_14",
+        "options": [
+          "Ở giữa",
+          "Ở sát mép"
+        ],
+        "key": 0,
+        "afterCard": 1
+      }
+    ],
+    "turns": [
+      {
+        "prompts": [
+          "V2_S08_MRS_CHEN_11"
+        ],
+        "models": [
+          "V2_S08_LINH_22"
+        ],
+        "instruction": "Nghe yêu cầu mới rồi nói bạn sẽ làm gì cho bà. Nếu chưa rõ, hãy xin nghe lại; tiệm có nước uống.",
+        "check": "Tôi đã hiểu bà xin nước uống và nói sẽ lấy nước, không chuyển cây.",
+        "retry": "Nghe lại yêu cầu mới rồi nói hành động phù hợp."
+      }
+    ]
+  }
+}

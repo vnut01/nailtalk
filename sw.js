@@ -1,12 +1,14 @@
 // Local static assets only. No telemetry, uploads or external requests.
 import {rangeResponse} from './range.mjs';
-const CACHE='nailtalk-APP_PROTO-v016-DRAFT-3';
-const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','player.mjs','storage.mjs','media.mjs','cinematic.mjs','lipsync.mjs','range.mjs','catalog.json','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
+const CACHE='nailtalk-APP_PROTO-v017-DRAFT-1';
+const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','parts.mjs','lesson-content.json','player.mjs','storage.mjs','media.mjs','cinematic.mjs','lipsync.mjs','range.mjs','catalog.json','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
 const PACKS=['L-S01','L-S02','L-S03','L-S04','L-S05','L-S06','L-S07','L-S08'];
 const url=p=>new URL(p,self.registration.scope).href;
 const FORMAT=url('audio-format');
 const marker=id=>url('offline-ready/'+id);
-const needed=(file,format)=>!file.path.startsWith('audio/') || file.path.endsWith('.'+format);
+// S06's approved safety review uses the existing MP3 sources in either codec mode.
+const safetyMP3=/V2_S06_(?:LINDA_0[12]|LINH_2[5-8]|SUSAN_03)\.mp3$/;
+const needed=(file,format)=>!file.path.startsWith('audio/') || file.path.endsWith('.'+format) || safetyMP3.test(file.path);
 async function sha(response){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',await response.arrayBuffer()))].map(b=>b.toString(16).padStart(2,'0')).join('');}
 async function currentFormat(){return (await (await caches.open(CACHE)).match(FORMAT))?.text();}
 async function status(){
