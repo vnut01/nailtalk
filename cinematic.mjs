@@ -5,6 +5,23 @@ export function motionEnabled(saved, reduced) {
 export function characterForCue(pack, cue) {
     return pack.cinematic?.speakers[cue?.speaker] || null;
 }
+// Legacy packs keep their exact sprite bindings and timing. New packs provide
+// the same contract explicitly under characters, keyed by stable character ID.
+export function charactersFor(pack) {
+    const c = pack.cinematic || {};
+    if (c.characters) return c.characters;
+    const mouthMap = c.mouthMap || {};
+    return Object.fromEntries(['mark','linh'].map(id => [id, {
+        label: id === 'linh' ? 'Linh' : 'Mark',
+        mouthMap: {...Object.fromEntries('XABCDEFGH'.split('').map(shape =>
+            [shape, `S07_${id.toUpperCase()}_MOUTH_${id === 'mark' ? markShape(shape) : shape}_01`])), ...mouthMap[id]},
+        eyeMap: c.eyeMap ? (c.eyeMap[id] || {}) : Object.fromEntries(['HALF','CLOSED'].map(phase => [phase, `S07_${id.toUpperCase()}_EYE_${phase}_01`])),
+        restUsesOriginal: id === 'linh' && (c.restUsesOriginal ?? false),
+        blinkMode: c.blinkMode || 'closed',
+        blinkTiming: id,
+        deferBlinkOnPlosive: id === 'linh'
+    }]));
+}
 // CSS owns idle motion; the lightweight frame loop samples audio source time and blink state.
 export class CinematicScene {
     constructor(pack) {
@@ -16,7 +33,11 @@ export class CinematicScene {
         try { this.lipSaved = localStorage.getItem('nailtalk-lipsync'); } catch {}
         this.lipEnabled = this.lipSaved !== 'off';
         this.restUsesOriginal = pack.cinematic?.restUsesOriginal ?? false;
-        this.blinkStarts = {mark:nextBlink(performance.now(),Math.random,'mark'),linh:nextBlink(performance.now())};
+        this.characters = charactersFor(pack);
+        // Retain the legacy rest-preview control used by existing review tools.
+        if (!pack.cinematic?.characters && this.characters.linh)
+            Object.defineProperty(this.characters.linh, 'restUsesOriginal', {get: () => this.restUsesOriginal});
+        this.blinkStarts = Object.fromEntries(Object.entries(this.characters).map(([id, config]) => [id, nextBlink(performance.now(), Math.random, config.blinkTiming || id)]));
         this.media.addEventListener('change', () => {
             this.enabled = motionEnabled(this.saved, this.media.matches);
             this.apply();
@@ -92,16 +113,19 @@ export class CinematicScene {
 
         const facial = this.enabled && this.ready && !this.failed && this.spriteReady && !this.spriteFailed && !this.media.matches;
         const active = facial && this.lipEnabled;
-        const playing = active && !document.hidden && !this.recording && this.player?.active;
+        const playing = active && !document.hidden && !this.recording && this.player?.active && !this.player.inGap;
         const cue = playing ? this.player.cues[this.player.index] : null;
         const speaker = characterForCue(this.pack, cue);
         const shape = playing ? visemeAt(this.pack.visemes?.[cue?.id], this.player.audio.currentTime) : 'X';
-        const linh = speaker === 'linh' ? shape : 'X';
-        const mark = speaker === 'mark' ? markShape(shape) : 'CLOSED';
-        const blinks = {linh:null,mark:null};
+        const mouths = {}, blinks = {};
+        for (const [id, config] of Object.entries(this.characters)) {
+            mouths[id] = speaker === id ? shape : 'X';
+            blinks[id] = null;
+        }
         if (active && !document.hidden && !this.recording) {
-            for (const char of ['mark','linh']) if (!this.pack.cinematic?.eyeMap || Object.keys(this.pack.cinematic.eyeMap[char] || {}).length) blinks[char] = characterBlink(now,this.blinkStarts,char,char === 'linh' && linh === 'A', Math.random, this.pack.cinematic?.blinkMode || 'closed');
-        } else for (const char of ['mark','linh']) this.blinkStarts[char] = nextBlink(now,Math.random,char);
+            for (const [id, config] of Object.entries(this.characters)) if (Object.keys(config.eyeMap || {}).length)
+                blinks[id] = characterBlink(now, this.blinkStarts, id, config.deferBlinkOnPlosive && mouths[id] === 'A', Math.random, config.blinkMode || 'closed');
+        } else for (const [id, config] of Object.entries(this.characters)) this.blinkStarts[id] = nextBlink(now, Math.random, config.blinkTiming || id);
         const motion = gestureAt(speaker,cue,this.player?.audio.currentTime,playing,this.pack.cinematic?.gestures?.nodCues);
         const rig = this.root?.querySelector('.gesture-rig');
         if (rig) {
@@ -112,16 +136,19 @@ export class CinematicScene {
         }
         for (const img of this.spriteImages || []) {
             const id = img.dataset.sprite;
-            const mouth = active && (id === (this.pack.cinematic?.mouthMap?.linh?.[linh] || `S07_LINH_MOUTH_${linh}_01`) && !(this.restUsesOriginal && linh === 'X') || id === `S07_MARK_MOUTH_${mark}_01`);
-            const eye = (blinks.mark && id === `S07_MARK_EYE_${blinks.mark}_01`) || (blinks.linh && id === (this.pack.cinematic?.eyeMap?.linh?.[blinks.linh] || `S07_LINH_EYE_${blinks.linh}_01`));
+            const sprite = this.pack.cinematic.sprites[id];
+            const config = this.characters[sprite.character];
+            const mouth = active && config && id === config.mouthMap?.[mouths[sprite.character]] && !(config.restUsesOriginal && mouths[sprite.character] === 'X');
+            const eye = config && blinks[sprite.character] && id === config.eyeMap?.[blinks[sprite.character]];
             img.hidden = !(mouth || eye);
         }
         if (this.root) {
             this.root.dataset.lipsync = active ? 'on' : 'off';
-            this.root.dataset.linhMouth = active && !(this.restUsesOriginal && linh === 'X') ? linh : 'original';
-            this.root.dataset.markMouth = active ? mark : 'original';
-            this.root.dataset.markBlink = blinks.mark || 'original';
-            this.root.dataset.linhBlink = blinks.linh || 'original';
+            for (const [id, config] of Object.entries(this.characters)) {
+                const value = config.blinkTiming === 'mark' ? markShape(mouths[id]) : mouths[id];
+                this.root.dataset[id+'Mouth'] = active && !(config.restUsesOriginal && mouths[id] === 'X') ? value : 'original';
+                this.root.dataset[id+'Blink'] = blinks[id] || 'original';
+            }
             this.root.dataset.headDegrees = String(motion.head);
             this.root.dataset.armDegrees = String(motion.arm);
             this.root.dataset.gestures = active ? 'on' : 'off';
@@ -143,7 +170,7 @@ export class CinematicScene {
     update(player) {
         if (!player.active && this.player?.active && this.player !== player) return;
         this.player = player;
-        this.speaker = player.active ? characterForCue(this.pack, player.cues[player.index]) : null;
+        this.speaker = player.active && !player.inGap ? characterForCue(this.pack, player.cues[player.index]) : null;
         this.apply();
     }
     apply() {
@@ -153,7 +180,7 @@ export class CinematicScene {
             this.root.dataset.speaker = this.speaker || '';
             this.root.classList.toggle('scene-paused', document.hidden || this.recording);
             const tag = this.root.querySelector('.speaker-tag');
-            tag.textContent = this.speaker ? `${this.speaker === 'linh' ? 'Linh' : 'Mark'} đang nói` : (this.pack.ui?.scene_label || 'Linh và Mark');
+            tag.textContent = this.speaker ? `${this.characters[this.speaker]?.label || this.speaker} đang nói` : (this.pack.ui?.scene_label || 'Linh và Mark');
         }
         this.renderFaces();
         const toggle = document.getElementById('motion-toggle');

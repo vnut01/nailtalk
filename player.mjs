@@ -14,16 +14,12 @@ export function timeline(cues) {
     let total = 0;
     const offsets = cues.map(c => {
         const start = total;
-        total += c.duration_ms || 0;
+        total += (c.duration_ms || 0) + (c.gap_after_ms || 0);
         return start;
     });
     return { offsets, total };
 }
 export const adjacent = (index, delta, length) => Math.max(0, Math.min(length - 1, index + delta));
-// Only a new full listen consumes a turn; transport within it is free.
-export function listenCount(count, action) {
-    return action === "begin" ? Math.min(2, count + 1) : count;
-}
 const clock = ms => `${Math.floor(ms / 60000)}:${String(Math.floor(ms / 1000) % 60).padStart(2, "0")}`;
 export class AudioPlayer {
     constructor(cues, options = {}) {
@@ -47,8 +43,14 @@ export class AudioPlayer {
         };
         this.audio.onended = () => {
             if (!this.active) return;
-            if (this.index < this.cues.length - 1)
-                this.go(this.index + 1, 0, true);
+            if (this.index < this.cues.length - 1) {
+                const gap = this.cues[this.index].gap_after_ms || 0;
+                if (gap) {
+                    this.inGap = true;
+                    this.update();
+                    this.gapTimer = setTimeout(() => this.go(this.index + 1, 0, true), gap / this.rate);
+                } else this.go(this.index + 1, 0, true);
+            }
             else {
                 this.active = false;
                 this.position = this.track.total;
@@ -62,7 +64,6 @@ export class AudioPlayer {
         this.root = root;
         const compact = this.options.compact && this.cues.length === 1;
         root.innerHTML = this.options.scene ? `<button class="audio-toggle primary" type="button"></button>
-<span class="listen-count"></span><span class="listen-limit" role="status"></span>
 ${this.options.slower ? '<div class="scene-transport"><button data-action="speed" aria-label="Tốc độ nghe">1×</button></div>' : ""}
 <div class="audio-progress" role="progressbar" aria-label="Tiến độ nghe" aria-valuemin="0" aria-valuemax="${this.track.total}" aria-valuenow="0"><div class="progress-fill"></div></div>` : compact ? `<button class="audio-toggle primary" type="button"></button>${this.options.slower ? '<button data-action="speed" aria-label="Tốc độ nghe">1×</button>' : ''}` : `<button class="audio-toggle primary" type="button">
 </button>
@@ -102,13 +103,13 @@ ${this.options.slower ? '<div class="scene-transport"><button data-action="speed
             this.stop();
             return;
         }
-        if (this.options.allowed && !this.options.allowed())
-            return;
         this.options.onBegin?.();
         this.options.activate?.(this);
         this.go(0, 0, true);
     }
     go(index, offset = 0, start = false) {
+        clearTimeout(this.gapTimer);
+        this.inGap = false;
         this.audio.pause();
         this.index = index;
         this.position = this.track.offsets[index] + offset;
@@ -125,6 +126,8 @@ ${this.options.slower ? '<div class="scene-transport"><button data-action="speed
         this.update();
     }
     stop() {
+        clearTimeout(this.gapTimer);
+        this.inGap = false;
         this.active = false;
         this.audio.pause();
         this.audio.currentTime = 0;
@@ -152,16 +155,9 @@ ${this.options.slower ? '<div class="scene-transport"><button data-action="speed
 <span class="sound-waves" aria-hidden="true">▂▆▃</span>`;
         toggle.setAttribute("aria-pressed", String(this.active));
         toggle.setAttribute("aria-label", `${label} · ${this.options.label || "audio"}`);
-        toggle.disabled = !this.active && this.options.allowed && !this.options.allowed();
         this.root.classList.toggle("is-playing", this.active);
         const speed = this.root.querySelector('[data-action="speed"]');
         if (speed) speed.textContent = this.rate === 1 ? "1×" : "0,75×";
-        if (this.options.scene) {
-            this.root.querySelector(".listen-count").textContent = `${this.options.count ? this.options.count() + "/2" : ""}`;
-            this.root.querySelector(".listen-limit").textContent = toggle.disabled ? "Đã dùng 2 lượt nghe" : "";
-            toggle.setAttribute("aria-describedby", "listen-reason");
-            this.root.querySelector(".listen-limit").id = "listen-reason";
-        }
         if (compact) {
             this.options.onUpdate?.(this);
             return;

@@ -2415,5 +2415,8 @@
   "supplement_manifest": {
     "path": "07_Production_Assets/audio/app_v008/CUE_MANIFEST_v008_DRAFT.json",
     "sha256": "67898184cfc65b40f30972bd2087050ace774040646d51b266a5e98aed6a5716"
+  },
+  "ui": {
+    "listen": "Nghe tình huống. Nghe lại thoải mái."
   }
 }

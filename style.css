@@ -70,3 +70,8 @@ body{padding-top:0}.player>aside{top:80px}
  .step-crop .scene-frame{aspect-ratio:var(--phone-scene-ratio)}
  .step-crop .scene-canvas{width:var(--phone-scene-width);left:var(--phone-scene-left);top:var(--phone-scene-top)}
 }
+
+/* Recognition diagrams: length and corner shape, no production artwork. */
+.nail-option{display:inline-block;width:24px;height:30px;border:2px solid currentColor;border-radius:50% 50% 4px 4px;margin-right:14px;vertical-align:middle;background:#f5d9ce}
+.nail-option.long{height:44px}
+.nail-option.square{border-radius:3px}

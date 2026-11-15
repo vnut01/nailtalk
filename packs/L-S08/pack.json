@@ -344,7 +344,7 @@
   "ui": {
     "kind": "native",
     "scene_label": "Linh · khách ngoài khung hình",
-    "listen": "Nghe tình huống. Được nghe 2 lượt."
+    "listen": "Nghe tình huống. Nghe lại thoải mái."
   },
   "scene": {
     "full": "scene-1920.webp",

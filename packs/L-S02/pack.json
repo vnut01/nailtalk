@@ -374,7 +374,7 @@
   "ui": {
     "kind": "clarification",
     "scene_label": "Linh · Linda ngoài khung hình",
-    "listen": "Nghe Linh xác nhận màu. Được nghe 2 lượt."
+    "listen": "Nghe Linh xác nhận màu. Nghe lại thoải mái."
   },
   "flags": [
     "G → B; H → C: nearest-shape fallback (data only)"
