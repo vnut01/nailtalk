@@ -1,4 +1,6 @@
-# NailTalk PWA — APP_PROTO v027-DRAFT-1
+# NailTalk PWA — APP_PROTO v028-DRAFT-1
+
+Batch94 DRAFT (NTE-DEC-086, owner: scoring too strict for non-native speakers; show how to say it "bồi" style with pauses and rises/falls): `logic.mjs` scores leniently (small words count half; dropped final s/t/d, th→t/d and one-letter slips count as heard; square-root curve) and the app shows 0–3 stars with an encouraging line instead of /100. `pronounce.mjs` holds a DRAFT Vietnamese-spelling reading guide for all 89 speaking sentences (UPPER CASE stress, ‖ pause, ↗/↘ intonation, one tip), shown under the sentence in parts 4–6. L-S10 M1 no longer shows the stage direction.
 
 Batch93 DRAFT (owner request): play buttons use the line-drawn speaker icon from before v017 (`speakerIcon` in player.mjs) instead of the 🔊 emoji.
 

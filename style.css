@@ -138,3 +138,13 @@ input[type=checkbox]{width:44px;height:44px}
 #record.is-recording{background:#f6c343;border-color:#d9a514;color:#2b2100}
 .meter{display:block;flex:1 1 100%;height:6px;border-radius:3px;background:rgba(0,0,0,.08);overflow:hidden;margin-top:6px}
 .meter i{display:block;height:100%;width:0;background:#205d56;transition:width .1s linear}
+
+/* Batch94: reading guide ("đọc bồi") and star score. */
+.say-guide{margin:8px 0 12px;padding:10px 12px;border-radius:10px;background:#fff8e1;border:1px solid #f0d27a}
+.say-guide p{margin:2px 0}
+.say-label{font-size:.85em;color:#6b5a1e;font-weight:600}
+.say{font-size:1.15em;font-weight:600;color:#2b2100;letter-spacing:.01em;line-height:1.5}
+.say-tip{font-size:.95em}
+.say-legend{font-size:.78em;color:#6b6b6b}
+.stars{color:#e0a100;font-size:1.3em;letter-spacing:2px}
+.score-words .miss{color:#a35a00;text-decoration:underline dotted}

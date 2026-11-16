@@ -67,17 +67,33 @@ export function speechWords(text) {
     .replace(/\d+/g,d=>d.length>2||d[0]==='0'?d.split('').map(c=>ONES[c]).join(' '):numberWords(d))
     .replace(/[’']/g,'').replace(/\bok\b/g,'okay').replace(/[^a-z]+/g,' ').trim().split(' ').filter(Boolean);
 }
+// Batch94 (NTE-DEC-086): lenient scoring for Vietnamese speakers. Small words (a, the, to …) count half;
+// a word with a typical accent slip (dropped final s/t/d, th said as t/d, one letter off) counts as heard.
+const LIGHT=new Set(['a','an','the','to','of','and','or']);
+function lev(a,b){const d=Array.from({length:b.length+1},(_,j)=>j);for(let i=1;i<=a.length;i++){let p=d[0];d[0]=i;for(let j=1;j<=b.length;j++){const t=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=t;}}return d[b.length];}
+const stem=w=>w.replace(/th/g,'t').replace(/(es|s|ed|d|t)$/,'').replace(/(.)\1+/g,'$1').replace(/e$/,'');
+export function nearWord(a,b){
+  if(a===b)return true;
+  const x=stem(a),y=stem(b);
+  if(x&&(x===y||stem(x)===y||x===stem(y)))return true;
+  const L=Math.max(a.length,b.length);
+  return L>=4&&lev(a,b)<=(L>=7?2:1);
+}
 export function speechScore(target, heard) {
   const shown=String(target).split(/\s+/).filter(Boolean), owner=[], want=[];
   shown.forEach((w,i)=>{for(const t of speechWords(w)){want.push(t);owner.push(i);}});
   const got=speechWords(heard), m=want.length, n=got.length;
   const table=Array.from({length:m+1},()=>new Array(n+1).fill(0));
-  for(let i=m-1;i>=0;i--)for(let j=n-1;j>=0;j--)table[i][j]=want[i]===got[j]?table[i+1][j+1]+1:Math.max(table[i+1][j],table[i][j+1]);
+  for(let i=m-1;i>=0;i--)for(let j=n-1;j>=0;j--)table[i][j]=nearWord(want[i],got[j])?table[i+1][j+1]+1:Math.max(table[i+1][j],table[i][j+1]);
   const hit=new Array(m).fill(false);
-  for(let i=0,j=0;i<m&&j<n;){if(want[i]===got[j]){hit[i]=true;i++;j++;}else if(table[i+1][j]>=table[i][j+1])i++;else j++;}
-  const words=shown.map((text,i)=>({text,ok:owner.some(o=>o===i)&&owner.every((o,k)=>o!==i||hit[k])}));
-  return {score:m?Math.round(100*hit.filter(Boolean).length/m):0,words};
+  for(let i=0,j=0;i<m&&j<n;){if(nearWord(want[i],got[j])){hit[i]=true;i++;j++;}else if(table[i+1][j]>=table[i][j+1])i++;else j++;}
+  const weight=w=>LIGHT.has(w)?0.5:1;
+  const total=want.reduce((a,w)=>a+weight(w),0), gotW=want.reduce((a,w,k)=>a+(hit[k]?weight(w):0),0);
+  const words=shown.map((text,i)=>({text,ok:owner.some(o=>o===i)&&owner.every((o,k)=>o!==i||hit[k]||LIGHT.has(want[k]))}));
+  // The square root lifts partial attempts (half the words heard → 71) so effort is rewarded.
+  return {score:total?Math.round(100*Math.sqrt(gotW/total)):0,words};
 }
+export function scoreStars(score){return score>=85?3:score>=60?2:score>=30?1:0;}
 export function bestSpeechScore(target, candidates) {
   return candidates.filter(Boolean).map(heard=>({...speechScore(target,heard),heard})).sort((a,b)=>b.score-a.score)[0]||null;
 }
