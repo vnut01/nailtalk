@@ -133,3 +133,8 @@ input[type=checkbox]{width:44px;height:44px}
 .scene-insert{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff4e4;opacity:0;pointer-events:none;transition:opacity 160ms ease,visibility 0s linear 160ms;visibility:hidden}
 .scene-insert.is-visible{opacity:1;visibility:visible;transition-delay:0s}
 @media(prefers-reduced-motion:reduce){.scene-insert{transition:none}}
+
+/* Batch90: one record button that turns into Stop, and a microphone level bar. */
+#record.is-recording{background:#b3261e;border-color:#b3261e;color:#fff}
+.meter{display:block;flex:1 1 100%;height:6px;border-radius:3px;background:rgba(0,0,0,.08);overflow:hidden;margin-top:6px}
+.meter i{display:block;height:100%;width:0;background:#205d56;transition:width .1s linear}

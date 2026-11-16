@@ -1,4 +1,6 @@
-# NailTalk PWA — APP_PROTO v024-DRAFT-1
+# NailTalk PWA — APP_PROTO v025-DRAFT-1
+
+Batch90 DRAFT (owner iPhone report: still only one take per session; owner asked for one record button whose label follows the state): recording no longer uses MediaRecorder. `capture.mjs` opens a fresh microphone stream and AudioContext per take (context created inside the tap), asks Safari for the `play-and-record` audio session where `navigator.audioSession` exists, captures samples with a ScriptProcessor and writes a 16 kHz mono WAV. One button toggles Nói thử / Dừng ghi with a level bar; a take that delivers only zeros for 2 s restarts once; Settings shows the last take's microphone details for diagnosis. Batch89's single shared stream is superseded.
 
 Batch89 DRAFT (owner iPhone report: only the first recording captured sound): one microphone stream is kept for the whole lesson and reused for every take; it is released when leaving the lesson, going to the background or closing the page. Recording uses a 500 ms timeslice; if no audio data arrives within 2.5 s the stream is replaced and the take restarts once.
 

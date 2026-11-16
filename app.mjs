@@ -1,8 +1,9 @@
-export const APP_VERSION = "v024-DRAFT-1";
+export const APP_VERSION = "v025-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
 import { AudioPlayer } from "./player.mjs";
+import { createAudioContext, openCapture } from "./capture.mjs";
 import { STEPS, nextStep, initialState, completeStep, outcome, normalizeState, bestSpeechScore } from "./logic.mjs";
 import * as store from "./storage.mjs";
 const $ = s => document.querySelector(s);
@@ -30,7 +31,7 @@ const Recognizer=window.SpeechRecognition||window.webkitSpeechRecognition;
 const isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
 const isStandalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
 const asrAvailable=!!Recognizer&&!(isIOS&&isStandalone);
-let lastASR=null;
+let lastASR=null, micDiag=null;
 let scoringOn=localStorage.getItem('nailtalk-scoring')!=='false', asrBroken=false, asr=null;
 const enabled = step => STEPS.includes(step);
 const advance = step => { let next = nextStep(step); while(next !== 'summary' && !enabled(next)) next = nextStep(next); return next; };
@@ -70,10 +71,6 @@ function disposeTake() {
 function releaseMic() {
     stream?.getTracks().forEach(t => t.stop());
     stream = null;
-}
-function micLive() {
-    const tracks=stream?.getAudioTracks()||[];
-    return tracks.length>0&&tracks.every(t=>t.readyState==='live'&&!t.muted);
 }
 function stopMedia() {
     document.querySelectorAll("audio").forEach(audio => audio.pause());
@@ -308,8 +305,8 @@ function speechUI(id,type) {
     const history=type==='E'?state.e[`${id}:${attempt}`]:state.g[gIndex];
     const captured=pending?.id===id&&pending.evidence!=='không có bằng chứng';
     const allowed=type==='E'||captured||(lessonId==='L-S04'&&gIndex===0?history?.some(a=>a.id===id&&a.evidence!=='không có bằng chứng'):spoken(history));
-    if(type==='E')return `<div class="controls">${button('record','🎤 Nói thử','primary microphone',busy)}${button('stop','Dừng ghi','',!busy)}</div><p id="timer" class="recording" role="status"></p>${!captured?`<div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div>`:''}${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio>${button('play-take','Nghe lại bản ghi')}`:''}${captured?`${scoreHTML()}${playerHTML('compare',[id],{label:'Nghe mẫu để so sánh'})}<p>${escape(lesson.cards[index].check)}</p>${button('accept-take','Được rồi','primary')}${button('delete-take','Luyện lại')}`:''}${history?.length?'<p>Đã lưu lần luyện nói.</p>':''}${attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu'):''}`;
-    return `<div class="controls">${button('record','🎤 Nói thử','primary microphone',busy)}${button('stop','Dừng ghi','',!busy)}</div><div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div><p id="timer" class="recording" role="status"></p>${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio><button id="play-take" aria-label="Nghe bản ghi của bạn">🔊</button>${button('delete-take','Luyện lại')}`:''}${allowed&&(captured||showText)?`${type==='E'&&attempt===2&&!showText?`<p class="target">${escape(lesson.cards[index].english)}</p><p>${escape(lesson.cards[index].vietnamese)}</p>`:''}${captured?`${scoreHTML()}<form id="check"><label><input type="checkbox" name="meaning">Tôi đã nói đủ ý chính của câu.</label><label><input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label><label><input type="checkbox" name="other">Tôi nói đủ câu hỏi / lời xác nhận cần có.</label>${lessonId==='L-S06'?'<label><input type="checkbox" name="invented">Tôi đã tiếp tục, chẩn đoán, khuyên chữa trị hoặc trì hoãn giúp khẩn cấp.</label>':''}<button type="submit">Được rồi</button></form>`:''}`:''}${history?.length?`<p>${escape(history.at(-1).outcome)} · ${history.at(-1).assisted?'Có hỗ trợ':'Không nhìn câu mẫu'}</p>`:''}${type==='E'&&attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu hỗ trợ'):''}`;
+    if(type==='E')return `<div class="controls">${recordButton()}</div><p id="timer" class="recording" role="status"></p>${!captured?`<div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div>`:''}${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio>${button('play-take','Nghe lại bản ghi')}`:''}${captured?`${scoreHTML()}${playerHTML('compare',[id],{label:'Nghe mẫu để so sánh'})}<p>${escape(lesson.cards[index].check)}</p>${button('accept-take','Được rồi','primary')}${button('delete-take','Luyện lại')}`:''}${history?.length?'<p>Đã lưu lần luyện nói.</p>':''}${attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu'):''}`;
+    return `<div class="controls">${recordButton()}</div><div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div><p id="timer" class="recording" role="status"></p>${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio><button id="play-take" aria-label="Nghe bản ghi của bạn">🔊</button>${button('delete-take','Luyện lại')}`:''}${allowed&&(captured||showText)?`${type==='E'&&attempt===2&&!showText?`<p class="target">${escape(lesson.cards[index].english)}</p><p>${escape(lesson.cards[index].vietnamese)}</p>`:''}${captured?`${scoreHTML()}<form id="check"><label><input type="checkbox" name="meaning">Tôi đã nói đủ ý chính của câu.</label><label><input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label><label><input type="checkbox" name="other">Tôi nói đủ câu hỏi / lời xác nhận cần có.</label>${lessonId==='L-S06'?'<label><input type="checkbox" name="invented">Tôi đã tiếp tục, chẩn đoán, khuyên chữa trị hoặc trì hoãn giúp khẩn cấp.</label>':''}<button type="submit">Được rồi</button></form>`:''}`:''}${history?.length?`<p>${escape(history.at(-1).outcome)} · ${history.at(-1).assisted?'Có hỗ trợ':'Không nhìn câu mẫu'}</p>`:''}${type==='E'&&attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu hỗ trợ'):''}`;
 }
 function bindCommon() {
     bind('part-menu',()=>{$('#part-list').hidden=!$('#part-list').hidden;});
@@ -386,8 +383,7 @@ function bindSpeech(id, type) {
         pending = { id, evidence: "không có bằng chứng", assisted: true };
         saveSpeech(id, type, { meaning: false, clear: false, other: false, invented: false });
     });
-    bind("record", () => startRecording(id, type));
-    bind("stop", () => recorder?.state === "recording" && recorder.stop());
+    bind("record", () => (busy && recorder?.state === "recording") ? recorder.stop() : startRecording(id, type));
     const form = $("#check");
     if (form)
         form.onsubmit = e => {
@@ -396,50 +392,56 @@ function bindSpeech(id, type) {
             saveSpeech(id, type, { meaning: f.has("meaning"), clear: f.has("clear"), other: f.has("other"), invented: f.has("invented") });
         };
 }
+function recordButton() {
+    return `<button id="record" class="primary microphone" data-state="idle">${takeURL?'🎤 Ghi lại':'🎤 Nói thử'}</button><span class="meter" aria-hidden="true"><i id="meter-fill"></i></span>`;
+}
+function showRecording(on) {
+    const b=$("#record");
+    if(!b)return;
+    b.dataset.state=on?"recording":"idle";
+    b.textContent=on?"■ Dừng ghi":(takeURL?"🎤 Ghi lại":"🎤 Nói thử");
+    b.classList.toggle("is-recording",on);
+    b.setAttribute("aria-pressed",String(on));
+    const fill=$("#meter-fill");if(fill&&!on)fill.style.width="0";
+}
+function micDiagText() {
+    if(!micDiag)return "Chưa có lần ghi nào.";
+    const d=micDiag;
+    return `Lần ghi gần nhất: ${d.seconds} giây · âm lớn nhất ${d.peak} · ${d.sampleRate} Hz · micro ${d.trackMuted?'bị tắt tiếng':'mở'} (${d.trackState}) · âm thanh ${d.contextState} · phiên ${d.session}${d.retried?' · đã thử lại':''}`;
+}
 async function startRecording(id, type, retry=false) {
     if (busy)
         return;
-    // Let the previous recognizer release the microphone before the recorder asks for it again.
+    // Created inside the tap, before any await, so iPhone lets audio run.
+    const ctx = createAudioContext();
     const prev=lastASR;lastASR=null;
     if(prev&&!prev.ended){prev.abort();await Promise.race([prev.done,new Promise(r=>setTimeout(r,1500))]);}
-    const hadASR=!!prev;
     for (const player of players.values())
         player.stop();
     disposeTake();
     pending = null;
     micError = "";
+    busy = true;
     try {
-        if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder)
-            throw Error("unavailable");
-        if (!micLive()) {
-            releaseMic();
-            stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        }
-        recorder = new MediaRecorder(stream);
-        const chunks = [];
-        let gotData = false;
-        recorder.ondataavailable = e => {
-            if (e.data.size) {
-                chunks.push(e.data);
-                gotData = true;
-            }
-        };
-        recorder.onstop = () => {
+        const cap = recorder = await openCapture(ctx);
+        cap.onstop = () => {
             clearTimeout(recordTimer);
-            clearTimeout(silenceTimer);
+            clearTimeout(deadTimer);
             clearInterval(timerTick);
             busy = false;
+            recorder = null;
             scene.recording = false; scene.apply();
+            micDiag = {...cap.diag, retried: retry};
             const session=asr;asr=null;session?.stop();lastASR=session;
-            take = new Blob(chunks, { type: recorder.mimeType });
+            take = cap.blob;
             if (!take.size) {
-                releaseMic();
-                // If the recognizer took the microphone away, record without it next time.
+                take = null;
                 if(session){asrBroken=true;session.abort();}
-                micError = session?"Chưa thu được tiếng. Đã tắt chấm điểm trên máy này; bạn thử lại nhé.":"Chưa thu được tiếng. Bạn thử lại hoặc nói không dùng micro.";
+                micError = `Micro chưa thu được tiếng. Bạn thử lại; nếu vẫn vậy, mở Cài đặt và chụp dòng "Micro" gởi nhóm phát triển.`;
             }
             else {
                 takeURL = URL.createObjectURL(take);
+                if (cap.peak === 0) micError = "Bản ghi không có tiếng. Bạn nói gần micro hơn rồi ghi lại nhé.";
                 const mine = pending = { id, evidence: "đã ghi âm trên máy", asrPending: !!session, assisted: showText || (type === "G" && !!state.repeatHelp) || (type === "E" && attempt === 1) || !pack.cues[id].audio };
                 if(session){
                     const target=speechTarget(id,type);
@@ -447,54 +449,47 @@ async function startRecording(id, type, retry=false) {
                     Promise.race([session.done,new Promise(r=>setTimeout(r,4000))]).then(()=>{session.abort();mine.asr=asrResult(session,target);mine.asrPending=false;if(pending===mine&&$('#score-slot'))$('#score-slot').innerHTML=scoreInner();});
                 }
             }
+            const diagEl=$("#mic-diag");if(diagEl)diagEl.textContent=micDiagText();
             render();
             if(type==='E'&&takeURL){const audio=$('#take-audio');audio.onended=()=>players.get('compare')?.toggle();audio.play().catch(()=>{micError='Chạm Nghe lại bản ghi để nghe bạn rồi nghe mẫu.';});}
         };
-        recorder.onerror = () => {
-            stopMedia();
-            micError = "Ghi âm bị ngắt. Bạn thử lại hoặc nói không dùng micro.";
-            render();
-        };
-        recorder.start(500);
         asr = startASR();
-        // If no sound data arrives, the microphone stream is dead: get a fresh one and start again once.
-        const rec = recorder;
-        const silenceTimer = setTimeout(() => {
-            if (gotData || recorder !== rec || rec.state !== "recording") return;
-            recorder.onstop = null;
-            try { recorder.stop(); } catch {}
+        // A microphone that delivers nothing, or only exact zeros, is dead: start once more with a fresh one.
+        const deadTimer = setTimeout(() => {
+            if (recorder !== cap || cap.state !== "recording" || cap.peak > 0) return;
+            cap.onstop = null;
+            cap.stop();
             recorder = null;
+            micDiag = {...cap.diag, retried: retry};
             asr?.abort(); asr = null;
             clearInterval(timerTick); clearTimeout(recordTimer);
             busy = false;
             scene.recording = false; scene.apply();
-            releaseMic();
             if (!retry) { startRecording(id, type, true); return; }
-            micError = "Micro chưa thu được tiếng. Bạn đóng hẳn ứng dụng rồi mở lại, hoặc nói không dùng micro.";
+            micError = `Micro chưa thu được tiếng. Bạn đóng hẳn ứng dụng rồi mở lại, hoặc nói không dùng micro.`;
             render();
-        }, 2500);
-        busy = true;
+        }, 2000);
         scene.recording = true; scene.apply();
-        $("#record").disabled = true;
-        $("#stop").disabled = false;
-        $("#aloud").disabled = true;
-        $("#speak-skip").disabled = true;
+        showRecording(true);
+        $("#aloud") && ($("#aloud").disabled = true);
+        $("#speak-skip") && ($("#speak-skip").disabled = true);
         const started = Date.now();
         timerTick = setInterval(() => {
-            $("#timer").textContent = `Đang ghi · ${Math.floor((Date.now() - started) / 1000)} giây · Tự dừng ở 60 giây, có thể thử lại.`;
-        }, 250);
+            $("#timer").textContent = `Đang ghi · ${Math.floor((Date.now() - started) / 1000)} giây · Bấm Dừng ghi khi nói xong (tự dừng ở 60 giây).`;
+            const fill=$("#meter-fill");if(fill)fill.style.width=`${Math.min(100,Math.round(cap.level*250))}%`;
+        }, 100);
         recordTimer = setTimeout(() => {
-            if (recorder?.state === "recording")
-                recorder.stop();
+            if (recorder === cap && cap.state === "recording")
+                cap.stop();
         }, 60000);
     }
     catch {
-        releaseMic();
         busy = false;
+        recorder = null;
         asr?.abort();asr=null;
         // If scoring was running, assume it blocked the microphone: turn it off here and try once more.
-        if(!retry&&(hadASR||scoringOn)&&asrAvailable&&!asrBroken){asrBroken=true;return startRecording(id,type,true);}
-        micError = "Không mở được micro. Bạn có thể nói không dùng micro hoặc bỏ qua.";
+        if(!retry&&scoringOn&&asrAvailable&&!asrBroken){asrBroken=true;return startRecording(id,type,true);}
+        micError = "Không mở được micro. Bạn kiểm tra quyền micro của trình duyệt, hoặc nói không dùng micro, hoặc bỏ qua.";
         render();
     }
 }
@@ -548,6 +543,7 @@ function scoringLabel() {
 }
 bind("scoring-toggle", () => {scoringOn=!scoringOn;asrBroken=false;localStorage.setItem("nailtalk-scoring",String(scoringOn));scoringLabel();});
 scoringLabel();
+{const el=$("#mic-diag");if(el)el.textContent=micDiagText();}
 scene.apply();
 
 bind("erase", async () => {
