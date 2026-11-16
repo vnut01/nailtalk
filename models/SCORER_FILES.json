@@ -1,0 +1,31 @@
+{
+ "status": "DRAFT",
+ "decision": "NTE-DEC-085",
+ "purpose": "On-device speaking score (Batch 91)",
+ "model": {
+  "id": "Xenova/whisper-tiny.en",
+  "revision": "79fb389fc764e7c395bd330e9531d9d32ada7049",
+  "source": "https://huggingface.co/Xenova/whisper-tiny.en",
+  "license": "apache-2.0 (Hugging Face card); underlying OpenAI Whisper weights MIT",
+  "files_used": "q8 encoder/decoder_merged + configs + tokenizer"
+ },
+ "runtime": {
+  "package": "@huggingface/transformers@3.8.1",
+  "license": "Apache-2.0",
+  "bundles": "onnxruntime-web 1.22.0-dev.20250409-89f8206ba4 (MIT)",
+  "files_used": "dist/transformers.min.js, dist/ort-wasm-simd-threaded.jsep.mjs/.wasm"
+ },
+ "files": {
+  "models/whisper-tiny.en/config.json": "37a1073be00d19118c06557896c7c148598f4d8277edc0f5bc07c9f5554839f1",
+  "models/whisper-tiny.en/generation_config.json": "132c95ba9db45f4498f2eab3fea7c1d6a174005010f8f6b7d20cfd5e9795996b",
+  "models/whisper-tiny.en/onnx/decoder_model_merged_quantized.onnx": "dbb2e063b7fbc41d9803b9698f93ecb035c50cbb3fb87b56cb131e4a5eb99059",
+  "models/whisper-tiny.en/onnx/encoder_model_quantized.onnx": "8cc3c6f8563d1b3fbd2c5af9f64c2bed8b020bc593c402d1ef53b9f08fbf1b90",
+  "models/whisper-tiny.en/preprocessor_config.json": "a6a76d28c93edb273669eb9e0b0636a2bddbb1272c3261e47b7ca6dfdbac1b8d",
+  "models/whisper-tiny.en/tokenizer.json": "c6ee8f089220a5b1188f6426456772572671c6141ae007eecb83c6a8349f5deb",
+  "models/whisper-tiny.en/tokenizer_config.json": "e082c1ad251541bf277967a703252cddd4bb37a71a43737e03d050c22ec08238",
+  "vendor/transformers/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "vendor/transformers/ort-wasm-simd-threaded.jsep.mjs": "08fb86ec433c78bfb032c5d84a68b8e8e5a8d81268fa39e24314179a5767a5b9",
+  "vendor/transformers/ort-wasm-simd-threaded.jsep.wasm": "c46655e8a94afc45338d4cb2b840475f88e5012d524509916e505079c00bfa39",
+  "vendor/transformers/transformers.min.js": "aa5002b70e789798da263f5f99c62bd3e8fcd0c119258a493c40c180648365fa"
+ }
+}

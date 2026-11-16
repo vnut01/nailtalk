@@ -147,7 +147,8 @@ ${this.options.slower ? '<div class="scene-transport"><button data-action="speed
         const toggle = this.root.querySelector(".audio-toggle");
         const label = this.active ? "Dừng" : this.options.scene ? "Phát tình huống" : "Nghe";
         const compact = this.options.compact && this.cues.length === 1;
-        toggle.innerHTML = '<span aria-hidden="true">🔊</span>';
+        // Batch93 (owner request): back to the line-drawn speaker used before v017 instead of the 🔊 emoji.
+        toggle.innerHTML = `<span aria-hidden="true">${speakerIcon}</span>`;
         toggle.setAttribute("aria-pressed", String(this.active));
         toggle.setAttribute("aria-label", `${label} · ${this.options.label || "âm thanh"}`);
         this.root.classList.toggle("is-playing", this.active);

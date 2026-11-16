@@ -1,8 +1,8 @@
-export const APP_VERSION = "v026-DRAFT-1";
+export const APP_VERSION = "v027-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
-import { AudioPlayer } from "./player.mjs";
+import { AudioPlayer, speakerIcon } from "./player.mjs";
 import { createAudioContext, openCapture } from "./capture.mjs";
 import { scorerReady, loadScorer, transcribe, forgetScorer, SCORER_MB } from "./scorer.mjs";
 import { STEPS, nextStep, initialState, completeStep, outcome, normalizeState, bestSpeechScore } from "./logic.mjs";
@@ -302,7 +302,7 @@ function speechUI(id,type) {
     const captured=pending?.id===id&&pending.evidence!=='không có bằng chứng';
     const allowed=type==='E'||captured||(lessonId==='L-S04'&&gIndex===0?history?.some(a=>a.id===id&&a.evidence!=='không có bằng chứng'):spoken(history));
     if(type==='E')return `<div class="controls">${recordButton()}</div><p id="timer" class="recording" role="status"></p>${!captured?`<div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div>`:''}${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio>${button('play-take','Nghe lại bản ghi')}`:''}${captured?`${scoreHTML()}${playerHTML('compare',[id],{label:'Nghe mẫu để so sánh'})}<p>${escape(lesson.cards[index].check)}</p>${button('accept-take','Được rồi','primary')}${button('delete-take','Luyện lại')}`:''}${history?.length?'<p>Đã lưu lần luyện nói.</p>':''}${attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu'):''}`;
-    return `<div class="controls">${recordButton()}</div><div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div><p id="timer" class="recording" role="status"></p>${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio><button id="play-take" aria-label="Nghe bản ghi của bạn">🔊</button>${button('delete-take','Luyện lại')}`:''}${allowed&&(captured||showText)?`${type==='E'&&attempt===2&&!showText?`<p class="target">${escape(lesson.cards[index].english)}</p><p>${escape(lesson.cards[index].vietnamese)}</p>`:''}${captured?`${scoreHTML()}<form id="check"><label><input type="checkbox" name="meaning">Tôi đã nói đủ ý chính của câu.</label><label><input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label><label><input type="checkbox" name="other">Tôi nói đủ câu hỏi / lời xác nhận cần có.</label>${lessonId==='L-S06'?'<label><input type="checkbox" name="invented">Tôi đã tiếp tục, chẩn đoán, khuyên chữa trị hoặc trì hoãn giúp khẩn cấp.</label>':''}<button type="submit">Được rồi</button></form>`:''}`:''}${history?.length?`<p>${escape(history.at(-1).outcome)} · ${history.at(-1).assisted?'Có hỗ trợ':'Không nhìn câu mẫu'}</p>`:''}${type==='E'&&attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu hỗ trợ'):''}`;
+    return `<div class="controls">${recordButton()}</div><div class="controls">${button('aloud','Tôi nói không dùng micro','text-link',busy)}${button('speak-skip','Bỏ qua câu này','text-link',busy)}</div><p id="timer" class="recording" role="status"></p>${takeURL?`<audio id="take-audio" playsinline src="${takeURL}"></audio><button id="play-take" aria-label="Nghe bản ghi của bạn">${speakerIcon}</button>${button('delete-take','Luyện lại')}`:''}${allowed&&(captured||showText)?`${type==='E'&&attempt===2&&!showText?`<p class="target">${escape(lesson.cards[index].english)}</p><p>${escape(lesson.cards[index].vietnamese)}</p>`:''}${captured?`${scoreHTML()}<form id="check"><label><input type="checkbox" name="meaning">Tôi đã nói đủ ý chính của câu.</label><label><input type="checkbox" name="clear">Tôi nghe hiểu lời mình nói (có thể nghe lại).</label><label><input type="checkbox" name="other">Tôi nói đủ câu hỏi / lời xác nhận cần có.</label>${lessonId==='L-S06'?'<label><input type="checkbox" name="invented">Tôi đã tiếp tục, chẩn đoán, khuyên chữa trị hoặc trì hoãn giúp khẩn cấp.</label>':''}<button type="submit">Được rồi</button></form>`:''}`:''}${history?.length?`<p>${escape(history.at(-1).outcome)} · ${history.at(-1).assisted?'Có hỗ trợ':'Không nhìn câu mẫu'}</p>`:''}${type==='E'&&attempt===2&&!showText&&!captured?button('text-help','Cần câu mẫu hỗ trợ'):''}`;
 }
 function bindCommon() {
     bind('part-menu',()=>{$('#part-list').hidden=!$('#part-list').hidden;});
@@ -396,7 +396,7 @@ function showRecording(on) {
     const b=$("#record");
     if(!b)return;
     b.dataset.state=on?"recording":"idle";
-    b.textContent=on?"■ Dừng ghi":(takeURL?"🎤 Ghi lại":"🎤 Nói thử");
+    b.textContent=on?"■ Ghi âm xong":(takeURL?"🎤 Ghi lại":"🎤 Nói thử");
     b.classList.toggle("is-recording",on);
     b.setAttribute("aria-pressed",String(on));
     const fill=$("#meter-fill");if(fill&&!on)fill.style.width="0";
@@ -468,7 +468,7 @@ async function startRecording(id, type, retry=false) {
         $("#speak-skip") && ($("#speak-skip").disabled = true);
         const started = Date.now();
         timerTick = setInterval(() => {
-            $("#timer").textContent = `Đang ghi · ${Math.floor((Date.now() - started) / 1000)} giây · Bấm Dừng ghi khi nói xong (tự dừng ở 60 giây).`;
+            $("#timer").textContent = `Đang ghi · ${Math.floor((Date.now() - started) / 1000)} giây · Bấm Ghi âm xong khi nói xong (tự dừng ở 60 giây).`;
             const fill=$("#meter-fill");if(fill)fill.style.width=`${Math.min(100,Math.round(cap.level*250))}%`;
         }, 100);
         recordTimer = setTimeout(() => {

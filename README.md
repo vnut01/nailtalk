@@ -1,6 +1,10 @@
-# NailTalk PWA — APP_PROTO v026-DRAFT-1
+# NailTalk PWA — APP_PROTO v027-DRAFT-1
 
-Batch91 DRAFT (NTE-DEC-085): the speaking score runs on the device. `scorer.mjs` starts `scorer-worker.mjs`, which runs Whisper tiny.en (q8 ONNX in `models/whisper-tiny.en/`) with Transformers.js 3.8.1 (`vendor/transformers/`), all from this folder; `models/SCORER_FILES.json` pins sources, licenses and SHA-256. The first scored take offers a one-time ~65 MB download; the service worker caches those files in `scorer-v1`. The browser's cloud recognizer is no longer used. Tests replace the model with `globalThis.__nailtalkScorerMock`.
+Batch93 DRAFT (owner request): play buttons use the line-drawn speaker icon from before v017 (`speakerIcon` in player.mjs) instead of the 🔊 emoji.
+
+Batch92 DRAFT (owner request): while recording, the record button reads "■ Ghi âm xong" on a yellow background (#f6c343, dark text for contrast).
+
+Batch91 DRAFT (NTE-DEC-085): the speaking score runs on the device. `scorer.mjs` starts `scorer-worker.mjs`, which runs Whisper tiny.en (q8 ONNX in `models/whisper-tiny.en/`) with Transformers.js 3.8.1 (`vendor/transformers/`), all from this folder; `models/SCORER_FILES.json` pins sources, licenses and SHA-256. The model weights are not committed (repository rule for third-party weights): fetch and verify them with `.venv/bin/python scripts/fetch_scorer_model.py`, and copy `app/models/whisper-tiny.en/` into the deployed site after the `git archive` export. The first scored take offers a one-time ~65 MB download; the service worker caches those files in `scorer-v1`. The browser's cloud recognizer is no longer used. Tests replace the model with `globalThis.__nailtalkScorerMock`.
 
 Batch90 DRAFT (owner iPhone report: still only one take per session; owner asked for one record button whose label follows the state): recording no longer uses MediaRecorder. `capture.mjs` opens a fresh microphone stream and AudioContext per take (context created inside the tap), asks Safari for the `play-and-record` audio session where `navigator.audioSession` exists, captures samples with a ScriptProcessor and writes a 16 kHz mono WAV. One button toggles Nói thử / Dừng ghi with a level bar; a take that delivers only zeros for 2 s restarts once; Settings shows the last take's microphone details for diagnosis. Batch89's single shared stream is superseded.
 
