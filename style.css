@@ -148,3 +148,7 @@ input[type=checkbox]{width:44px;height:44px}
 .say-legend{font-size:.78em;color:#6b6b6b}
 .stars{color:#e0a100;font-size:1.3em;letter-spacing:2px}
 .score-words .miss{color:#a35a00;text-decoration:underline dotted}
+
+/* Batch95: one download bar for the scorer. */
+.dl{height:8px;border-radius:4px;background:rgba(0,0,0,.08);overflow:hidden;margin:6px 0}
+.dl i{display:block;height:100%;background:#205d56;transition:width .2s linear}

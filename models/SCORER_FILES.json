@@ -27,5 +27,18 @@
   "vendor/transformers/ort-wasm-simd-threaded.jsep.mjs": "08fb86ec433c78bfb032c5d84a68b8e8e5a8d81268fa39e24314179a5767a5b9",
   "vendor/transformers/ort-wasm-simd-threaded.jsep.wasm": "c46655e8a94afc45338d4cb2b840475f88e5012d524509916e505079c00bfa39",
   "vendor/transformers/transformers.min.js": "aa5002b70e789798da263f5f99c62bd3e8fcd0c119258a493c40c180648365fa"
+ },
+ "sizes": {
+  "models/whisper-tiny.en/config.json": 2202,
+  "models/whisper-tiny.en/generation_config.json": 1590,
+  "models/whisper-tiny.en/onnx/decoder_model_merged_quantized.onnx": 30727382,
+  "models/whisper-tiny.en/onnx/encoder_model_quantized.onnx": 10124913,
+  "models/whisper-tiny.en/preprocessor_config.json": 339,
+  "models/whisper-tiny.en/tokenizer.json": 2128494,
+  "models/whisper-tiny.en/tokenizer_config.json": 835,
+  "vendor/transformers/LICENSE": 11358,
+  "vendor/transformers/ort-wasm-simd-threaded.jsep.mjs": 44484,
+  "vendor/transformers/ort-wasm-simd-threaded.jsep.wasm": 21596019,
+  "vendor/transformers/transformers.min.js": 888173
  }
 }

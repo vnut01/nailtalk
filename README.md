@@ -1,4 +1,6 @@
-# NailTalk PWA — APP_PROTO v028-DRAFT-1
+# NailTalk PWA — APP_PROTO v029-DRAFT-1
+
+Batch95 DRAFT (owner: one loading process with a status): the scorer download runs as one pass over all files listed with sizes in `models/SCORER_FILES.json` (66 MB), with a single percentage bar, then "Đang chuẩn bị…" and "Đang chấm điểm…". Settings gains "Giới thiệu và giấy phép" (fictional content, AI-made art and voices, third-party licenses, no data collection).
 
 Batch94 DRAFT (NTE-DEC-086, owner: scoring too strict for non-native speakers; show how to say it "bồi" style with pauses and rises/falls): `logic.mjs` scores leniently (small words count half; dropped final s/t/d, th→t/d and one-letter slips count as heard; square-root curve) and the app shows 0–3 stars with an encouraging line instead of /100. `pronounce.mjs` holds a DRAFT Vietnamese-spelling reading guide for all 89 speaking sentences (UPPER CASE stress, ‖ pause, ↗/↘ intonation, one tip), shown under the sentence in parts 4–6. L-S10 M1 no longer shows the stage direction.
 

@@ -1,4 +1,4 @@
-export const APP_VERSION = "v028-DRAFT-1";
+export const APP_VERSION = "v029-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
@@ -271,12 +271,13 @@ function speechTarget(id,type) {
 }
 // Scores one take on the device. The first time, the learner chooses to download the model.
 async function scoreTake(mine,target) {
-    mine.asrPending=true;mine.asrOffer=false;mine.asrProgress='';
+    mine.asrPending=true;mine.asrOffer=false;mine.asrProgress=null;
     const refresh=()=>{if(pending===mine&&$('#score-slot'))$('#score-slot').innerHTML=scoreInner();};
     refresh();
     try {
         if(!scorerReady()||!mine.loaded){
-            await loadScorer(({loaded,total})=>{mine.asrProgress=total?`${Math.round(loaded/1e6)} / ${Math.round(total/1e6)} MB`:'';refresh();});
+            let shown='';
+            await loadScorer(p=>{mine.asrProgress=p;const key=p.phase+Math.floor(100*p.loaded/(p.total||1));if(key!==shown){shown=key;refresh();}});
             mine.loaded=true;
         }
         // Whisper writes non-speech as (beep), [MUSIC], *sigh*: drop those before scoring.
@@ -286,13 +287,19 @@ async function scoreTake(mine,target) {
         asrBroken=true; // stop retrying on this device until scoring is switched off and on again
         mine.asr={note:'Máy này chưa chấm điểm được. Bạn nghe lại bản ghi và so với câu mẫu nhé.'};
     }
-    mine.asrPending=false;mine.samples=null;
+    mine.asrPending=false;mine.samples=null;mine.asrProgress=null;
     refresh();
 }
 function scoreInner() {
     const a=pending?.asr;
     if(!a&&pending?.asrOffer)return `<p class="score-note">Chấm điểm nói chạy ngay trên máy, không gởi giọng nói đi đâu. Lần đầu cần tải khoảng ${SCORER_MB} MB (nên dùng Wi-Fi).</p><button id="scorer-download">Tải bộ chấm điểm</button>`;
-    if(!a)return pending?.asrPending?`<p class="score-note">${pending.asrProgress?`Đang tải bộ chấm điểm… ${pending.asrProgress}`:'Đang chấm điểm…'}</p>`:'';
+    if(!a&&pending?.asrPending){
+        const p=pending.asrProgress;
+        if(p&&p.phase==='download'){const pct=p.total?Math.floor(100*p.loaded/p.total):0;return `<p class="score-note">Đang tải bộ chấm điểm… ${pct}% (${Math.round(p.loaded/1e6)}/${Math.round(p.total/1e6)} MB)</p><div class="dl" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><i style="width:${pct}%"></i></div><p class="score-hint">Chỉ tải một lần. Bạn có thể nghe lại bản ghi trong lúc chờ.</p>`;}
+        if(p&&p.phase==='prepare')return `<p class="score-note">Đang chuẩn bị bộ chấm điểm…</p><div class="dl"><i style="width:100%"></i></div>`;
+        return '<p class="score-note">Đang chấm điểm…</p>';
+    }
+    if(!a)return '';
     if(a.note)return `<p class="score-note">${escape(a.note)}</p>`;
     const label=['Bạn đã dám nói, giỏi lắm! Nghe mẫu rồi thử lại nhé.','Khá rồi! Thử nói chậm lại các từ màu cam.','Tốt lắm! Máy nghe được gần đủ câu.','Rất tốt! Máy nghe rõ cả câu.'][scoreStars(a.score)];
     return `<p class="score-number"><span class="stars" aria-label="${scoreStars(a.score)} trên 3 sao">${starText(a.score)}</span> ${label}</p><p class="score-words">${a.words.map(w=>`<span class="${w.ok?'hit':'miss'}">${escape(w.text)}</span>`).join(' ')}</p><p class="score-heard">Máy nghe được: “${escape(a.heard)}”</p><p class="score-hint">Sao cho biết máy nghe được bao nhiêu từ; giọng Việt vẫn được tính. Chấm ngay trên máy.</p>`;

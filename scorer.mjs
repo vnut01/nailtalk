@@ -1,6 +1,6 @@
 // Batch91 (NTE-DEC-085): main-thread side of the on-device speaking score.
 const READY_KEY = 'nailtalk-scorer';
-export const SCORER_MB = 65;
+export const SCORER_MB = 66;
 let worker = null, seq = 0, onProgress = null;
 const waits = new Map();
 
@@ -38,16 +38,36 @@ export function forgetScorer() {
     try { localStorage.removeItem(READY_KEY); } catch {}
     worker?.terminate(); worker = null;
 }
-// Downloads (first time) and starts the model. progress({loaded,total}) reports bytes across files.
+// Batch95 (owner: one loading process with a status): download every scorer file in one pass against a
+// fixed total from SCORER_FILES.json, then start the model. progress({phase,loaded,total}) with phase
+// 'download' then 'prepare'. Files go through the service worker, which keeps them in its scorer cache.
 export async function loadScorer(progress) {
     if (mock()) return;
-    const files = new Map();
-    onProgress = m => {
-        files.set(m.file, { loaded: m.loaded || 0, total: m.total || 0 });
-        let loaded = 0, total = 0;
-        for (const f of files.values()) { loaded += f.loaded; total += f.total; }
-        progress?.({ loaded, total });
-    };
+    const pin = await (await fetch(new URL('./models/SCORER_FILES.json', import.meta.url))).json();
+    const entries = Object.entries(pin.sizes || {});
+    const total = entries.reduce((a, [, n]) => a + n, 0);
+    let loaded = 0;
+    progress?.({ phase: 'download', loaded, total });
+    for (const [rel, size] of entries) {
+        const r = await fetch(new URL('./' + rel, import.meta.url));
+        if (!r.ok) throw Error('scorer file unavailable: ' + rel);
+        if (r.body?.getReader) {
+            const reader = r.body.getReader();
+            let got = 0;
+            for (;;) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                got += value.length;
+                progress?.({ phase: 'download', loaded: loaded + Math.min(got, size), total });
+            }
+        } else {
+            await r.arrayBuffer();
+        }
+        loaded += size;
+        progress?.({ phase: 'download', loaded, total });
+    }
+    progress?.({ phase: 'prepare', loaded: total, total });
+    onProgress = null;
     await call({ cmd: 'load' });
     try { localStorage.setItem(READY_KEY, 'ready'); } catch {}
 }
