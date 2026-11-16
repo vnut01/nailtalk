@@ -3,7 +3,7 @@
   "title": "Amy spots one little line",
   "subtitle": "Amy thấy một vệt nhỏ",
   "estimated_minutes": 8,
-  "pack_version": "APP_PROTO_v019-DRAFT-1_L-S12",
+  "pack_version": "APP_PROTO_v022-DRAFT-1_L-S12",
   "rubric_version": "lesson-set-v3.2",
   "available": true,
   "homeCanDo": "Sau bài này bạn nói được: hỏi chỗ khách muốn sửa và xin phép sửa đúng phần đó.",
@@ -2437,7 +2437,8 @@
     "07_Production_Assets/audio/lessons_v3/L-S12/B82_S12_T1.wav": "317d5440dad88a3529a33d8f346e51247b70caf5e3dbbaafd582e4b37a2d79c5",
     "07_Production_Assets/audio/lessons_v3/L-S12/CUE_MANIFEST_v002_DRAFT.json": "244b592c8cd2cb85055bdbea80e9f7bb5acda55902795f75b9abdf8507d9fc79",
     "07_Production_Assets/audio/lessons_v3/L-S12/VISEMES_v002_DRAFT.json": "6e230409aca7739f626d8c80974547dd99e5f0897d6abcdcf09722cb04848a4d",
-    "07_Production_Assets/audio/lessons_v3/L-S12/PREVIEW_TIMINGS_v002_DRAFT.json": "212cc222c7ad507bc4c62487b26e3fb3a81c3627fc82ddd23a860ca2d31a9a84"
+    "07_Production_Assets/audio/lessons_v3/L-S12/PREVIEW_TIMINGS_v002_DRAFT.json": "212cc222c7ad507bc4c62487b26e3fb3a81c3627fc82ddd23a860ca2d31a9a84",
+    "07_Production_Assets/scenes/S02/batch86_inserts/L-S12_AMY_NAIL_BEFORE_AFTER_v002_DRAFT.png": "31df652920f02ae9b8f90f9a0a8376845eb70e46103c704e4e3471bd40b96ae6"
   },
   "files": [
     {
@@ -2716,6 +2717,11 @@
       "sha256": "518eb316077f7b0683b8e30c3761c51c4a66b33b019dadf3a641e4d03582a32d"
     },
     {
+      "path": "insert.webp",
+      "bytes": 82242,
+      "sha256": "a84b0bb73414feb3f7d6c051481c2dfbef185b9d3ba11e077a76dfade35b89c8"
+    },
+    {
       "path": "lesson-content.json",
       "bytes": 4825,
       "sha256": "3431425816075c397c21634e9386000dab9f2a9cdce901c96b174023283fe460"
@@ -2729,6 +2735,15 @@
       "path": "scene-960.webp",
       "bytes": 92050,
       "sha256": "30b6eca3259fcc3b7ad0e9675679abf0e4ca2dd7dbfbd69fec14eb83a869f364"
+    }
+  ],
+  "inserts": [
+    {
+      "image": "insert.webp",
+      "alt": "Cùng ngón cái của Amy: bên trái có vệt sơn hồng trên da cạnh móng, bên phải đã sạch.",
+      "cues": [
+        "B82_S12_D09"
+      ]
     }
   ]
 }

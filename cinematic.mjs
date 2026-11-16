@@ -5,6 +5,10 @@ export function motionEnabled(saved, reduced) {
 export function characterForCue(pack, cue) {
     return pack.cinematic?.speakers[cue?.speaker] || null;
 }
+// Inserts follow the shown dialogue cue, including a paused cue and its gap.
+export function insertForCue(pack, cueId) {
+    return pack.inserts?.find(insert => insert.cues.includes(cueId)) || null;
+}
 // Legacy packs keep their exact sprite bindings and timing. New packs provide
 // the same contract explicitly under characters, keyed by stable character ID.
 export function charactersFor(pack) {
@@ -49,7 +53,20 @@ export class CinematicScene {
         this.root = root;
         this.ready = false;
         this.failed = false;
-        if (!root || !this.pack.cinematic) return;
+        this.player = null;
+        this.insertImages = [];
+        if (!root) return;
+        for (const insert of this.pack.inserts || []) {
+            const img = document.createElement('img');
+            img.className = 'scene-insert'; img.alt = insert.alt;
+            img.src = `packs/${this.pack.id}/${insert.image}`;
+            img.setAttribute('aria-hidden', 'true');
+            const entry = {insert, img, ready: false};
+            this.insertImages.push(entry);
+            root.querySelector('.scene-frame').append(img);
+            img.decode().then(() => { if (this.root === root) { entry.ready = true; this.apply(); } }).catch(() => {});
+        }
+        if (!this.pack.cinematic) return;
         const c = this.pack.cinematic;
         root.querySelector('.scene-layers').innerHTML = c.layers.map(l =>
             `<span class="scene-layer ${l.character ? 'character' : ''}" data-character="${l.character || ''}" style="left:${100*l.x/c.width}%;top:${100*l.y/c.height}%;width:${100*l.width/c.width}%;height:${100*l.height/c.height}%"><img class="character-base" alt="" src="packs/${this.pack.id}/${l.path}">${l.character ? '<span class="character-overlay"></span>' : ''}</span>`).join('');
@@ -125,8 +142,18 @@ export class CinematicScene {
             if (lip.textContent !== label) lip.textContent = label;
         }
 
+        const currentCue = this.player?.cues?.[this.player.index]?.id;
+        const insert = insertForCue(this.pack, currentCue);
+        this.insertVisible = false;
+        for (const entry of this.insertImages || []) {
+            const shown = entry.ready && entry.insert === insert && !this.recording;
+            entry.img.classList.toggle('is-visible', shown);
+            entry.img.setAttribute('aria-hidden', String(!shown));
+            this.insertVisible ||= shown;
+        }
+        if (this.root) this.root.dataset.insert = this.insertVisible ? currentCue : '';
         const facial = this.enabled && this.ready && !this.failed && this.spriteReady && !this.spriteFailed && !this.media.matches;
-        const active = facial && this.lipEnabled;
+        const active = facial && this.lipEnabled && !this.insertVisible;
         const playing = active && !document.hidden && !this.recording && this.player?.active && !this.player.inGap;
         const cue = playing ? this.player.cues[this.player.index] : null;
         const speaker = characterForCue(this.pack, cue);

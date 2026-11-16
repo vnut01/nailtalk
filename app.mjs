@@ -1,4 +1,4 @@
-export const APP_VERSION = "v021-DRAFT-1";
+export const APP_VERSION = "v022-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";

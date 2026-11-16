@@ -3,7 +3,7 @@
   "title": "Amy leaves room for the peaches",
   "subtitle": "Amy còn chỗ cho túi đào",
   "estimated_minutes": 8,
-  "pack_version": "APP_PROTO_v019-DRAFT-1_L-S09",
+  "pack_version": "APP_PROTO_v022-DRAFT-1_L-S09",
   "rubric_version": "lesson-set-v3.2",
   "available": true,
   "homeCanDo": "Sau bài này bạn nói được: hỏi cách trả tiền, chỉ máy thẻ, xác nhận thanh toán và hỏi biên lai; không gây áp lực tip.",
@@ -2402,7 +2402,8 @@
     "07_Production_Assets/audio/lessons_v3/L-S09/B82_S09_T1.wav": "b5dec1026e1212445297361df5a1f5a9188eada02028c069930ae4fd870a96f9",
     "07_Production_Assets/audio/lessons_v3/L-S09/CUE_MANIFEST_v002_DRAFT.json": "4cbc990de39a7c4e7c4b94dd809fa2b2d621c570778487ed6f17d638ff90cdeb",
     "07_Production_Assets/audio/lessons_v3/L-S09/VISEMES_v002_DRAFT.json": "7c5d975642cbb59d0b1b3b434a1b12843e5feb885ad7102e318d14d4f52dbdb8",
-    "07_Production_Assets/audio/lessons_v3/L-S09/PREVIEW_TIMINGS_v002_DRAFT.json": "eee33537262da8fcc2880444ef7a9a42b9542e57317699b7f44d78725d8f7fa3"
+    "07_Production_Assets/audio/lessons_v3/L-S09/PREVIEW_TIMINGS_v002_DRAFT.json": "eee33537262da8fcc2880444ef7a9a42b9542e57317699b7f44d78725d8f7fa3",
+    "07_Production_Assets/scenes/S07/batch86_inserts/L-S09_POS_RECEIPT_CASH_v002_DRAFT.png": "72ac21dd51c7dfd9170b8b543327a1732a65023b8ac6e1ff93eee34a0546fdf5"
   },
   "files": [
     {
@@ -2701,6 +2702,11 @@
       "sha256": "2a6014b64be5a09e312cc2fc675907d4dee07f5da97db7a9066c6c45269e7e92"
     },
     {
+      "path": "insert.webp",
+      "bytes": 120632,
+      "sha256": "13d08394929ccb12dfb4e16bf6ffb75013c0c13a3cfd76117daec5fc1bf8b490"
+    },
+    {
       "path": "lesson-content.json",
       "bytes": 4852,
       "sha256": "b5f2c1334df2239b9c3c8e93ded72841265b8d8ec1552f61b4d4ed2aa70506d1"
@@ -2714,6 +2720,16 @@
       "path": "scene-960.webp",
       "bytes": 95194,
       "sha256": "e427f964928125df1826ad1873bda4fe925c3002248d71e5486f98695fb255a5"
+    }
+  ],
+  "inserts": [
+    {
+      "image": "insert.webp",
+      "alt": "Máy báo đã thanh toán, biên lai và tiền tip trên quầy.",
+      "cues": [
+        "B82_S09_D12",
+        "B82_S09_D16"
+      ]
     }
   ]
 }

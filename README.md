@@ -1,4 +1,4 @@
-# NailTalk PWA — APP_PROTO v021-DRAFT-1
+# NailTalk PWA — APP_PROTO v022-DRAFT-1
 
 Batch85 DRAFT (NTE-DEC-083): the last item of each part moves the learner on, the lesson ends on a results page, answer options are in English, and speaking gets a word-match score from the browser's own speech recognizer where one exists (settings toggle; falls back to listen-and-compare). The score is not a pronunciation grade and is unverified on a physical iPhone.
 
@@ -7,3 +7,6 @@ Batch79 DRAFT implements the six-part structure transcribed from LESSON_STRUCTUR
 Headless Chrome evidence is not a physical iPhone review. Owner content review, physical iPhone media/UI review and specialist S06 safety QA remain manual gates.
 
 Batch84 DRAFT adds seven playable v3.2 lessons from existing art and exact Batch83 audio/visemes. Rebuild with `.venv/bin/python scripts/build_batch84.py`. Batch86 adds L-S10 at step 12 with locally composited DRAFT pedicure art, nine mouth/blink patches, and exact existing Batch83 audio. Rebuild S10 with `.venv/bin/python scripts/build_batch86.py`. The 16-position path has 16 playable lessons and 64 speaking sentences. Reviews and next/continue include L-S10 between L-S13 and L-S11. All new art requires owner and independent identity review; headless Chrome is not physical iPhone evidence. v018 progress keeps all evidence, answers and positions. Offline downloads still prioritize the opened lesson before background packs. The first eight lessons’ content index stays byte-identical; new text is fetched with each new pack only when needed. New compositions have derivation sidecars under cinematic/batch84; no approved art/audio is edited.
+
+Batch87 DRAFT inserts: packs may declare `inserts: [{image, alt, cues}]` with Vietnamese alt text and dialogue cue IDs. Parts 1–2 show the full insert above the scene crop for its current cue, pause lip sync, then restore the scene on the next cue. Reduced motion disables the fade; decode failure keeps the scene visible. Pack file hashes include each phone WEBP (maximum width 1280).
+Reproduce the local image composites from retained received bytes with `.venv/bin/python scripts/build_batch87_art.py`; after older pack builders, run `.venv/bin/python scripts/build_batch87.py` to reproduce the three pack additions. No generation call is needed to rebuild.

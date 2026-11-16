@@ -3,7 +3,7 @@
   "title": "Linda keeps her keys handy",
   "subtitle": "Linda để sẵn chìa khóa",
   "estimated_minutes": 8,
-  "pack_version": "APP_PROTO_v019-DRAFT-1_L-S11",
+  "pack_version": "APP_PROTO_v022-DRAFT-1_L-S11",
   "rubric_version": "lesson-set-v3.2",
   "available": true,
   "homeCanDo": "Sau bài này bạn nói được: nhắc khách giữ tay yên, báo sơn chưa khô và đề nghị giúp lấy đồ.",
@@ -2397,7 +2397,8 @@
     "07_Production_Assets/audio/lessons_v3/L-S11/B82_S11_T1.wav": "595f8e3fde8183938187000f7de638d822b4c9026a7a175bcc360af1897b220b",
     "07_Production_Assets/audio/lessons_v3/L-S11/CUE_MANIFEST_v002_DRAFT.json": "38c6f5f21b6ceeb81fdf2fc353646200907b4917ae7f2aa57735d8ad604c6720",
     "07_Production_Assets/audio/lessons_v3/L-S11/VISEMES_v002_DRAFT.json": "67891b0db4abfd7a80509902a63afb23ea6539845640bfd8714eea445f894c46",
-    "07_Production_Assets/audio/lessons_v3/L-S11/PREVIEW_TIMINGS_v002_DRAFT.json": "25af2a976aec13d07c66d2517f69550ca3320fb512f0ebb3d69800913da063e1"
+    "07_Production_Assets/audio/lessons_v3/L-S11/PREVIEW_TIMINGS_v002_DRAFT.json": "25af2a976aec13d07c66d2517f69550ca3320fb512f0ebb3d69800913da063e1",
+    "07_Production_Assets/scenes/S02/batch86_inserts/L-S11_LINDA_KEYS_v001_DRAFT.png": "d73ee998d4f32d1ca34a48a9d85437dede17ac0e1120aaa694ba816be1e242bf"
   },
   "files": [
     {
@@ -2651,6 +2652,11 @@
       "sha256": "09d53f3cace3e6accd265652a022166187a20a597b1755999f8b71fb5e684a3b"
     },
     {
+      "path": "insert.webp",
+      "bytes": 138886,
+      "sha256": "513cf920052049a9ba5dee84a6a7cdafbe5d4c8d2a8c93a1d98879c097e55466"
+    },
+    {
       "path": "lesson-content.json",
       "bytes": 4703,
       "sha256": "86f41b9472598ec1f26acc456b322023aa865fd3f1346b05f0d1f588409e3004"
@@ -2689,6 +2695,16 @@
       "path": "scene-960.webp",
       "bytes": 103762,
       "sha256": "873b7b7bb3e30023327302065949dd3fdf728c0089ccc16c89d0a5e8680e73e6"
+    }
+  ],
+  "inserts": [
+    {
+      "image": "insert.webp",
+      "alt": "Chìa khóa của Linda được đặt cạnh túi, xa lớp sơn còn ướt.",
+      "cues": [
+        "B82_S11_D10",
+        "B82_S11_D14"
+      ]
     }
   ]
 }

@@ -128,3 +128,8 @@ input[type=checkbox]{width:44px;height:44px}
 .result-tile{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px}.result-tile strong{display:block;font-size:28px;color:var(--green)}.result-tile span{font-size:14px}
 .score-chip{display:inline-block;font-size:13px;font-weight:700;padding:2px 8px;border-radius:999px;background:#dceee3;color:var(--green);vertical-align:middle}
 .panel>button.primary,.panel article+button.primary{display:block;width:100%;min-height:52px;margin-top:12px}
+
+/* Full-frame inserts sit outside the scene crop, keeping all details visible. */
+.scene-insert{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff4e4;opacity:0;pointer-events:none;transition:opacity 160ms ease,visibility 0s linear 160ms;visibility:hidden}
+.scene-insert.is-visible{opacity:1;visibility:visible;transition-delay:0s}
+@media(prefers-reduced-motion:reduce){.scene-insert{transition:none}}
