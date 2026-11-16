@@ -1,9 +1,10 @@
-export const APP_VERSION = "v025-DRAFT-1";
+export const APP_VERSION = "v026-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
 import { AudioPlayer } from "./player.mjs";
 import { createAudioContext, openCapture } from "./capture.mjs";
+import { scorerReady, loadScorer, transcribe, forgetScorer, SCORER_MB } from "./scorer.mjs";
 import { STEPS, nextStep, initialState, completeStep, outcome, normalizeState, bestSpeechScore } from "./logic.mjs";
 import * as store from "./storage.mjs";
 const $ = s => document.querySelector(s);
@@ -24,15 +25,11 @@ const extraPacks = {};
 for(const id of AVAILABLE_LESSONS.filter(id=>reachedPhrases(progress[id])||!onHome&&id===lesson.review?.lesson))extraPacks[id]=await (await fetch(`./packs/${id}/pack.json`)).json();
 let reviewing=!onHome && !!lesson.review && (!progress[lessonId].reviewDone && progress[lessonId].step==='1' && (!location.hash.includes('/')||location.hash.endsWith('/1')) || location.hash.endsWith('/review'));
 let meaningOn=localStorage.getItem('nailtalk-meaning')==='true', subtitleLast=null;
-// Speech check uses the browser's own recognizer when it has one; everything else works without it.
-const Recognizer=window.SpeechRecognition||window.webkitSpeechRecognition;
-// iPhone/iPad: the recognizer and the recorder share one microphone. In a home-screen app it takes the
-// microphone away from the recorder, so scoring only runs in a Safari tab there (owner report, Batch 88).
-const isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
-const isStandalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
-const asrAvailable=!!Recognizer&&!(isIOS&&isStandalone);
-let lastASR=null, micDiag=null;
-let scoringOn=localStorage.getItem('nailtalk-scoring')!=='false', asrBroken=false, asr=null;
+// Batch91 (NTE-DEC-085): the speaking score runs on the device (Whisper tiny.en in a worker). The browser's
+// cloud recognizer is no longer used: it fought the recorder for the microphone on iPhone and sent speech away.
+const asrAvailable=typeof Worker!=='undefined'&&typeof WebAssembly!=='undefined';
+let micDiag=null;
+let scoringOn=localStorage.getItem('nailtalk-scoring')!=='false', asrBroken=false;
 const enabled = step => STEPS.includes(step);
 const advance = step => { let next = nextStep(step); while(next !== 'summary' && !enabled(next)) next = nextStep(next); return next; };
 export const scene = new CinematicScene(pack);
@@ -83,7 +80,6 @@ function stopMedia() {
     }
     clearTimeout(recordTimer);
     clearInterval(timerTick);
-    asr?.abort();asr=null;
     recorder = null;
     busy = false;
     scene.recording = false; scene.apply();
@@ -272,33 +268,33 @@ function speechTarget(id,type) {
     const t=currentTurn();
     return t.modelText||t.models.map(m=>pack.cues[m].english).join(' ');
 }
-function startASR() {
-    if(!asrAvailable||!scoringOn||asrBroken)return null;
-    const session={texts:[],error:null,ended:false};
+// Scores one take on the device. The first time, the learner chooses to download the model.
+async function scoreTake(mine,target) {
+    mine.asrPending=true;mine.asrOffer=false;mine.asrProgress='';
+    const refresh=()=>{if(pending===mine&&$('#score-slot'))$('#score-slot').innerHTML=scoreInner();};
+    refresh();
     try {
-        const r=new Recognizer();
-        r.lang='en-US';r.continuous=true;r.interimResults=false;r.maxAlternatives=3;
-        r.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++)if(e.results[i].isFinal)session.texts.push(Array.from(e.results[i]).map(a=>a.transcript));};
-        r.onerror=e=>{session.error=e.error;};
-        session.done=new Promise(resolve=>{r.onend=()=>{session.ended=true;resolve();};});
-        session.stop=()=>{try{r.stop();}catch{}};
-        session.abort=()=>{try{r.abort();}catch{}};
-        r.start();
-    } catch { return null; }
-    return session;
-}
-function asrResult(session,target) {
-    if(['not-allowed','service-not-allowed','audio-capture','language-not-supported'].includes(session.error)){asrBroken=true;return {note:'Máy này chưa chấm điểm được. Bạn nghe lại bản ghi và so với câu mẫu nhé.'};}
-    if(session.error==='network')return {note:'Cần có mạng để chấm điểm. Bạn nghe lại bản ghi và so với câu mẫu nhé.'};
-    if(!session.texts.length)return {note:'Máy chưa nghe được câu nào. Thử nói to và rõ hơn nhé.'};
-    return bestSpeechScore(target,[0,1,2].map(k=>session.texts.map(a=>a[k]??a[0]).join(' ')));
+        if(!scorerReady()||!mine.loaded){
+            await loadScorer(({loaded,total})=>{mine.asrProgress=total?`${Math.round(loaded/1e6)} / ${Math.round(total/1e6)} MB`:'';refresh();});
+            mine.loaded=true;
+        }
+        // Whisper writes non-speech as (beep), [MUSIC], *sigh*: drop those before scoring.
+        const text=String(await transcribe(mine.samples)).replace(/\[[^\]]*\]|\([^)]*\)|\*[^*]*\*/g,' ').replace(/\s+/g,' ').trim();
+        mine.asr=text?bestSpeechScore(target,[text]):{note:'Máy chưa nghe được câu nào. Thử nói to và rõ hơn nhé.'};
+    } catch {
+        asrBroken=true; // stop retrying on this device until scoring is switched off and on again
+        mine.asr={note:'Máy này chưa chấm điểm được. Bạn nghe lại bản ghi và so với câu mẫu nhé.'};
+    }
+    mine.asrPending=false;mine.samples=null;
+    refresh();
 }
 function scoreInner() {
     const a=pending?.asr;
-    if(!a)return pending?.asrPending?'<p class="score-note">Đang chấm điểm…</p>':'';
+    if(!a&&pending?.asrOffer)return `<p class="score-note">Chấm điểm nói chạy ngay trên máy, không gởi giọng nói đi đâu. Lần đầu cần tải khoảng ${SCORER_MB} MB (nên dùng Wi-Fi).</p><button id="scorer-download">Tải bộ chấm điểm</button>`;
+    if(!a)return pending?.asrPending?`<p class="score-note">${pending.asrProgress?`Đang tải bộ chấm điểm… ${pending.asrProgress}`:'Đang chấm điểm…'}</p>`:'';
     if(a.note)return `<p class="score-note">${escape(a.note)}</p>`;
     const label=a.score>=80?'Rõ rồi!':a.score>=50?'Gần được. Thử lại các từ màu cam.':'Máy chưa nghe rõ. Thử nói chậm và to hơn.';
-    return `<p class="score-number"><strong>${a.score}</strong>/100 · ${label}</p><p class="score-words">${a.words.map(w=>`<span class="${w.ok?'hit':'miss'}">${escape(w.text)}</span>`).join(' ')}</p><p class="score-heard">Máy nghe được: “${escape(a.heard)}”</p><p class="score-hint">Điểm cho biết máy nghe được bao nhiêu từ trong câu, chưa phải chấm giọng.</p>`;
+    return `<p class="score-number"><strong>${a.score}</strong>/100 · ${label}</p><p class="score-words">${a.words.map(w=>`<span class="${w.ok?'hit':'miss'}">${escape(w.text)}</span>`).join(' ')}</p><p class="score-heard">Máy nghe được: “${escape(a.heard)}”</p><p class="score-hint">Điểm cho biết máy nghe được bao nhiêu từ trong câu, chưa phải chấm giọng. Chấm ngay trên máy.</p>`;
 }
 const scoreHTML=()=>`<div id="score-slot" class="score" role="status">${scoreInner()}</div>`;
 function speechUI(id,type) {
@@ -384,6 +380,7 @@ function bindSpeech(id, type) {
         saveSpeech(id, type, { meaning: false, clear: false, other: false, invented: false });
     });
     bind("record", () => (busy && recorder?.state === "recording") ? recorder.stop() : startRecording(id, type));
+    $("#score-slot")?.addEventListener("click", e => { if (e.target.id === "scorer-download" && pending?.samples) scoreTake(pending, speechTarget(id, type)); });
     const form = $("#check");
     if (form)
         form.onsubmit = e => {
@@ -414,8 +411,6 @@ async function startRecording(id, type, retry=false) {
         return;
     // Created inside the tap, before any await, so iPhone lets audio run.
     const ctx = createAudioContext();
-    const prev=lastASR;lastASR=null;
-    if(prev&&!prev.ended){prev.abort();await Promise.race([prev.done,new Promise(r=>setTimeout(r,1500))]);}
     for (const player of players.values())
         player.stop();
     disposeTake();
@@ -432,28 +427,27 @@ async function startRecording(id, type, retry=false) {
             recorder = null;
             scene.recording = false; scene.apply();
             micDiag = {...cap.diag, retried: retry};
-            const session=asr;asr=null;session?.stop();lastASR=session;
             take = cap.blob;
             if (!take.size) {
                 take = null;
-                if(session){asrBroken=true;session.abort();}
                 micError = `Micro chưa thu được tiếng. Bạn thử lại; nếu vẫn vậy, mở Cài đặt và chụp dòng "Micro" gởi nhóm phát triển.`;
             }
             else {
                 takeURL = URL.createObjectURL(take);
                 if (cap.peak === 0) micError = "Bản ghi không có tiếng. Bạn nói gần micro hơn rồi ghi lại nhé.";
-                const mine = pending = { id, evidence: "đã ghi âm trên máy", asrPending: !!session, assisted: showText || (type === "G" && !!state.repeatHelp) || (type === "E" && attempt === 1) || !pack.cues[id].audio };
-                if(session){
-                    const target=speechTarget(id,type);
-                    // The score fills its slot when the recognizer finishes; playback is not interrupted.
-                    Promise.race([session.done,new Promise(r=>setTimeout(r,4000))]).then(()=>{session.abort();mine.asr=asrResult(session,target);mine.asrPending=false;if(pending===mine&&$('#score-slot'))$('#score-slot').innerHTML=scoreInner();});
+                const mine = pending = { id, evidence: "đã ghi âm trên máy", assisted: showText || (type === "G" && !!state.repeatHelp) || (type === "E" && attempt === 1) || !pack.cues[id].audio };
+                if(scoringOn&&asrAvailable&&!asrBroken){
+                    mine.samples=cap.samples;
+                    // Too quiet to hold words: say so instead of letting the model guess.
+                    if(cap.peak<0.02)mine.asr={note:'Máy chưa nghe được câu nào. Thử nói to và rõ hơn nhé.'};
+                    else if(scorerReady())queueMicrotask(()=>scoreTake(mine,speechTarget(id,type)));
+                    else mine.asrOffer=true;
                 }
             }
             const diagEl=$("#mic-diag");if(diagEl)diagEl.textContent=micDiagText();
             render();
             if(type==='E'&&takeURL){const audio=$('#take-audio');audio.onended=()=>players.get('compare')?.toggle();audio.play().catch(()=>{micError='Chạm Nghe lại bản ghi để nghe bạn rồi nghe mẫu.';});}
         };
-        asr = startASR();
         // A microphone that delivers nothing, or only exact zeros, is dead: start once more with a fresh one.
         const deadTimer = setTimeout(() => {
             if (recorder !== cap || cap.state !== "recording" || cap.peak > 0) return;
@@ -461,7 +455,6 @@ async function startRecording(id, type, retry=false) {
             cap.stop();
             recorder = null;
             micDiag = {...cap.diag, retried: retry};
-            asr?.abort(); asr = null;
             clearInterval(timerTick); clearTimeout(recordTimer);
             busy = false;
             scene.recording = false; scene.apply();
@@ -486,9 +479,6 @@ async function startRecording(id, type, retry=false) {
     catch {
         busy = false;
         recorder = null;
-        asr?.abort();asr=null;
-        // If scoring was running, assume it blocked the microphone: turn it off here and try once more.
-        if(!retry&&scoringOn&&asrAvailable&&!asrBroken){asrBroken=true;return startRecording(id,type,true);}
         micError = "Không mở được micro. Bạn kiểm tra quyền micro của trình duyệt, hoặc nói không dùng micro, hoặc bỏ qua.";
         render();
     }
@@ -539,7 +529,7 @@ function scoringLabel() {
     const el=$("#scoring-toggle");if(!el)return;
     el.disabled=!asrAvailable;
     el.setAttribute("aria-pressed",String(asrAvailable&&scoringOn));
-    el.textContent=(Recognizer&&!asrAvailable)?"Chấm điểm nói: chỉ chạy khi mở bằng Safari":asrAvailable?`Chấm điểm nói (thử nghiệm): ${scoringOn?"Bật":"Tắt"}`:"Chấm điểm nói: trình duyệt này chưa hỗ trợ";
+    el.textContent=asrAvailable?`Chấm điểm nói (thử nghiệm, trên máy): ${scoringOn?"Bật":"Tắt"}`:"Chấm điểm nói: trình duyệt này chưa hỗ trợ";
 }
 bind("scoring-toggle", () => {scoringOn=!scoringOn;asrBroken=false;localStorage.setItem("nailtalk-scoring",String(scoringOn));scoringLabel();});
 scoringLabel();
@@ -552,6 +542,7 @@ bind("erase", async () => {
         await store.clear();
         scene.reset();
         await workerMessage("CLEAR");
+        forgetScorer();
         state = initialState();
         for(const id of LESSON_ORDER)progress[id]=migrateProgress(null,id);
         packAvailable = false;

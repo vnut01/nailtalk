@@ -1,9 +1,13 @@
 // Local static assets only. No telemetry, uploads or external requests.
 import {rangeResponse} from './range.mjs';
-const CACHE='nailtalk-APP_PROTO-v025-DRAFT-1';
-const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','parts.mjs','path.mjs','lesson-content.json','player.mjs','capture.mjs','storage.mjs','media.mjs','cinematic.mjs','lipsync.mjs','range.mjs','catalog.json','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
+const CACHE='nailtalk-APP_PROTO-v026-DRAFT-1';
+const SHELL=['./','index.html','style.css','app.mjs','logic.mjs','parts.mjs','path.mjs','lesson-content.json','player.mjs','capture.mjs','scorer.mjs','scorer-worker.mjs','storage.mjs','media.mjs','cinematic.mjs','lipsync.mjs','range.mjs','catalog.json','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
 const PACKS=['L-S01','L-S08','L-S02','L-S05','L-S07','L-S06','L-S03','L-S04','L-S09','L-S14','L-S13','L-S10','L-S11','L-S12','L-S15','L-S16'];
 const url=p=>new URL(p,self.registration.scope).href;
+// Batch91: the on-device scoring model and runtime (about 65 MB) are cached on first use in their own cache,
+// kept across app versions; only "Xóa dữ liệu" removes them.
+const SCORER_CACHE='scorer-v1';
+const scorerAsset=u=>/\/(models|vendor)\//.test(new URL(u).pathname);
 const FORMAT=url('audio-format');
 const marker=id=>url('offline-ready/'+id);
 // S06's approved safety review uses the existing MP3 sources in either codec mode.
@@ -87,6 +91,12 @@ self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin)return;
   event.respondWith((async()=>{
+    if(scorerAsset(event.request.url)){
+      const sc=await caches.open(SCORER_CACHE), hit=await sc.match(event.request,{ignoreSearch:true});
+      if(hit)return hit;
+      try{const r=await fetch(event.request);if(r.ok&&r.status===200)await sc.put(event.request,r.clone());return r;}catch{}
+      return new Response('Scorer asset unavailable',{status:503});
+    }
     const cache=await caches.open(CACHE), cached=await cache.match(event.request,{ignoreSearch:true});
     if(cached){
       if(event.request.headers.has('Range')&&/\/audio\//.test(event.request.url))return rangeResponse(cached,event.request.headers.get('Range'));
@@ -118,7 +128,7 @@ self.addEventListener('message',event=>{
   event.waitUntil(serialize(async()=>{
     const cache=await caches.open(CACHE);
     switch(type){
-      case 'CLEAR':for(const key of await caches.keys())if(key.startsWith('nailtalk-'))await caches.delete(key);await self.registration.unregister();break;
+      case 'CLEAR':for(const key of await caches.keys())if(key.startsWith('nailtalk-')||key===SCORER_CACHE)await caches.delete(key);await self.registration.unregister();break;
       case 'REMOVE_PACK':for(const r of await cache.keys())if(r.url.includes('/packs/')||r.url.includes('/offline-ready/'))await cache.delete(r);break;
       case 'CHECK':{
         let ready=!!await currentFormat();
