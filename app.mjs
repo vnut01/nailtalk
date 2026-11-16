@@ -1,4 +1,4 @@
-export const APP_VERSION = "v023-DRAFT-1";
+export const APP_VERSION = "v024-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
@@ -65,6 +65,16 @@ function disposeTake() {
     takeURL = null;
     take = null;
 }
+// iPhone: asking for the microphone again after stopping it gives a silent stream (owner report, Batch 89),
+// so one microphone stream is kept for the whole lesson and released only when leaving it or going to background.
+function releaseMic() {
+    stream?.getTracks().forEach(t => t.stop());
+    stream = null;
+}
+function micLive() {
+    const tracks=stream?.getAudioTracks()||[];
+    return tracks.length>0&&tracks.every(t=>t.readyState==='live'&&!t.muted);
+}
 function stopMedia() {
     document.querySelectorAll("audio").forEach(audio => audio.pause());
     for (const player of players.values())
@@ -74,8 +84,6 @@ function stopMedia() {
         recorder.onstop = null;
         recorder.stop();
     }
-    stream?.getTracks().forEach(t => t.stop());
-    stream = null;
     clearTimeout(recordTimer);
     clearInterval(timerTick);
     asr?.abort();asr=null;
@@ -176,7 +184,7 @@ function navigation() {
 }
 function openLesson(id){if(!AVAILABLE_LESSONS.includes(id))return;const s=progress[id];location.hash=`${id}/${s?.step||'1'}`;if(id===lessonId&&onHome)location.reload();}
 function renderHome() {
-    stopMedia();playerConfigs.clear();document.body.classList.remove('in-lesson');scene.mount(null);
+    stopMedia();releaseMic();playerConfigs.clear();document.body.classList.remove('in-lesson');scene.mount(null);
     const id=continueLesson(progress),total=AVAILABLE_LESSONS.reduce((n,id)=>n+practiced(progress[id],content[id]).length,0);
     const first=!LESSON_ORDER.some(id=>progress[id]?.visited?.length);
     $('#app').innerHTML=`<section class="intro"><h1>Mỗi bài, dùng được ngay</h1><article class="lesson"><h2>Học tiếp</h2><p>${total}/${AVAILABLE_LESSONS.length*4} câu đã luyện nói</p>${button('continue',first?'Bắt đầu Bài 1':`Học tiếp Bài ${LESSON_ORDER.indexOf(id)+1}`,'primary')}</article></section>${button('phrases','Sổ câu của tôi')}<div class="lessons">${LESSON_ORDER.map((id,n)=>{const p=catalog.find(p=>p.id===id);return `<article class="lesson"><span>Bài ${n+1}</span><h2>${escape(p.subtitle)}</h2><small>${escape(p.title)}</small><p>${escape(content[id].homeCanDo)}</p><p>${AVAILABLE_LESSONS.includes(id)?lessonStatus(progress[id],content[id]):'Sắp có'}</p>${button('start-'+id,AVAILABLE_LESSONS.includes(id)?'Mở bài':'Sắp có','',!AVAILABLE_LESSONS.includes(id))}</article>`;}).join('')}</div>${button('install','Cài lên màn hình chính','',!installPrompt)}`;
@@ -185,7 +193,7 @@ function renderHome() {
     bind('install',async()=>{await installPrompt?.prompt();installPrompt=null;renderHome();});
 }
 async function renderPhrases() {
-    stopMedia();playerConfigs.clear();scene.mount(null);document.body.classList.remove('in-lesson');
+    stopMedia();releaseMic();playerConfigs.clear();scene.mount(null);document.body.classList.remove('in-lesson');
     const ids=AVAILABLE_LESSONS.filter(id=>reachedPhrases(progress[id]));
     await Promise.all(ids.map(async id=>{extraPacks[id]||=await (await fetch(`./packs/${id}/pack.json`)).json();}));
     $('#app').innerHTML=`<h1>Sổ câu của tôi</h1>${ids.length?ids.map(id=>`<section><h2>Bài ${LESSON_ORDER.indexOf(id)+1} · ${escape(catalog.find(p=>p.id===id).subtitle)}</h2>${content[id].cards.map(c=>`<article class="phrase"><div class="cue-row">${playerHTML('phrase-'+c.cue,[c.cue],{compact:true,sourcePack:extraPacks[id],label:'Nghe câu trong sổ'})}<p class="target">${escape(c.english)}</p></div><p>${escape(c.vietnamese)}</p><p>${escape(c.useWhen)}</p></article>`).join('')}</section>`).join(''):'<p>Học đến phần Câu và từ, câu của bạn sẽ ở đây.</p>'}`;
@@ -403,23 +411,29 @@ async function startRecording(id, type, retry=false) {
     try {
         if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder)
             throw Error("unavailable");
-        stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        if (!micLive()) {
+            releaseMic();
+            stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        }
         recorder = new MediaRecorder(stream);
         const chunks = [];
+        let gotData = false;
         recorder.ondataavailable = e => {
-            if (e.data.size)
+            if (e.data.size) {
                 chunks.push(e.data);
+                gotData = true;
+            }
         };
         recorder.onstop = () => {
-            stream?.getTracks().forEach(t => t.stop());
-            stream = null;
             clearTimeout(recordTimer);
+            clearTimeout(silenceTimer);
             clearInterval(timerTick);
             busy = false;
             scene.recording = false; scene.apply();
             const session=asr;asr=null;session?.stop();lastASR=session;
             take = new Blob(chunks, { type: recorder.mimeType });
             if (!take.size) {
+                releaseMic();
                 // If the recognizer took the microphone away, record without it next time.
                 if(session){asrBroken=true;session.abort();}
                 micError = session?"Chưa thu được tiếng. Đã tắt chấm điểm trên máy này; bạn thử lại nhé.":"Chưa thu được tiếng. Bạn thử lại hoặc nói không dùng micro.";
@@ -441,8 +455,24 @@ async function startRecording(id, type, retry=false) {
             micError = "Ghi âm bị ngắt. Bạn thử lại hoặc nói không dùng micro.";
             render();
         };
-        recorder.start();
+        recorder.start(500);
         asr = startASR();
+        // If no sound data arrives, the microphone stream is dead: get a fresh one and start again once.
+        const rec = recorder;
+        const silenceTimer = setTimeout(() => {
+            if (gotData || recorder !== rec || rec.state !== "recording") return;
+            recorder.onstop = null;
+            try { recorder.stop(); } catch {}
+            recorder = null;
+            asr?.abort(); asr = null;
+            clearInterval(timerTick); clearTimeout(recordTimer);
+            busy = false;
+            scene.recording = false; scene.apply();
+            releaseMic();
+            if (!retry) { startRecording(id, type, true); return; }
+            micError = "Micro chưa thu được tiếng. Bạn đóng hẳn ứng dụng rồi mở lại, hoặc nói không dùng micro.";
+            render();
+        }, 2500);
         busy = true;
         scene.recording = true; scene.apply();
         $("#record").disabled = true;
@@ -459,8 +489,7 @@ async function startRecording(id, type, retry=false) {
         }, 60000);
     }
     catch {
-        stream?.getTracks().forEach(t => t.stop());
-        stream = null;
+        releaseMic();
         busy = false;
         asr?.abort();asr=null;
         // If scoring was running, assume it blocked the microphone: turn it off here and try once more.
@@ -482,13 +511,14 @@ document.addEventListener("visibilitychange", () => {
         const was = busy;
         if (was)
             stopMedia();
+        releaseMic();
         if (was) {
             micError = "Đã dừng khi ứng dụng ra nền. Hãy bắt đầu lượt mới.";
             render();
         }
     }
 });
-window.addEventListener("pagehide", stopMedia);
+window.addEventListener("pagehide", () => { stopMedia(); releaseMic(); });
 window.addEventListener("hashchange", () => {
     const requested = location.hash.slice(1).split("/")[0];
     if (catalog.some(p => p.id === requested) && (requested !== lessonId || onHome)) { stopMedia(); location.reload(); return; }

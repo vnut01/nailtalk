@@ -1,4 +1,6 @@
-# NailTalk PWA — APP_PROTO v023-DRAFT-1
+# NailTalk PWA — APP_PROTO v024-DRAFT-1
+
+Batch89 DRAFT (owner iPhone report: only the first recording captured sound): one microphone stream is kept for the whole lesson and reused for every take; it is released when leaving the lesson, going to the background or closing the page. Recording uses a 500 ms timeslice; if no audio data arrives within 2.5 s the stream is replaced and the take restarts once.
 
 Batch88 DRAFT (owner iPhone report): recording takes priority over scoring. On iPhone/iPad in a home-screen app the recognizer is not started (it took the microphone from the recorder); in Safari the next recording waits until the previous recognizer has ended; if the microphone cannot be opened while scoring is on, scoring is turned off on this device and the recording is retried once.
 
