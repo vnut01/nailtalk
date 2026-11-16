@@ -1,4 +1,6 @@
-# NailTalk PWA — APP_PROTO v022-DRAFT-1
+# NailTalk PWA — APP_PROTO v023-DRAFT-1
+
+Batch88 DRAFT (owner iPhone report): recording takes priority over scoring. On iPhone/iPad in a home-screen app the recognizer is not started (it took the microphone from the recorder); in Safari the next recording waits until the previous recognizer has ended; if the microphone cannot be opened while scoring is on, scoring is turned off on this device and the recording is retried once.
 
 Batch85 DRAFT (NTE-DEC-083): the last item of each part moves the learner on, the lesson ends on a results page, answer options are in English, and speaking gets a word-match score from the browser's own speech recognizer where one exists (settings toggle; falls back to listen-and-compare). The score is not a pronunciation grade and is unverified on a physical iPhone.
 

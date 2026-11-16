@@ -1,4 +1,4 @@
-export const APP_VERSION = "v022-DRAFT-1";
+export const APP_VERSION = "v023-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
@@ -25,6 +25,12 @@ let reviewing=!onHome && !!lesson.review && (!progress[lessonId].reviewDone && p
 let meaningOn=localStorage.getItem('nailtalk-meaning')==='true', subtitleLast=null;
 // Speech check uses the browser's own recognizer when it has one; everything else works without it.
 const Recognizer=window.SpeechRecognition||window.webkitSpeechRecognition;
+// iPhone/iPad: the recognizer and the recorder share one microphone. In a home-screen app it takes the
+// microphone away from the recorder, so scoring only runs in a Safari tab there (owner report, Batch 88).
+const isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const isStandalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+const asrAvailable=!!Recognizer&&!(isIOS&&isStandalone);
+let lastASR=null;
 let scoringOn=localStorage.getItem('nailtalk-scoring')!=='false', asrBroken=false, asr=null;
 const enabled = step => STEPS.includes(step);
 const advance = step => { let next = nextStep(step); while(next !== 'summary' && !enabled(next)) next = nextStep(next); return next; };
@@ -262,14 +268,14 @@ function speechTarget(id,type) {
     return t.modelText||t.models.map(m=>pack.cues[m].english).join(' ');
 }
 function startASR() {
-    if(!Recognizer||!scoringOn||asrBroken)return null;
-    const session={texts:[],error:null};
+    if(!asrAvailable||!scoringOn||asrBroken)return null;
+    const session={texts:[],error:null,ended:false};
     try {
         const r=new Recognizer();
         r.lang='en-US';r.continuous=true;r.interimResults=false;r.maxAlternatives=3;
         r.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++)if(e.results[i].isFinal)session.texts.push(Array.from(e.results[i]).map(a=>a.transcript));};
         r.onerror=e=>{session.error=e.error;};
-        session.done=new Promise(resolve=>{r.onend=resolve;});
+        session.done=new Promise(resolve=>{r.onend=()=>{session.ended=true;resolve();};});
         session.stop=()=>{try{r.stop();}catch{}};
         session.abort=()=>{try{r.abort();}catch{}};
         r.start();
@@ -382,9 +388,13 @@ function bindSpeech(id, type) {
             saveSpeech(id, type, { meaning: f.has("meaning"), clear: f.has("clear"), other: f.has("other"), invented: f.has("invented") });
         };
 }
-async function startRecording(id, type) {
+async function startRecording(id, type, retry=false) {
     if (busy)
         return;
+    // Let the previous recognizer release the microphone before the recorder asks for it again.
+    const prev=lastASR;lastASR=null;
+    if(prev&&!prev.ended){prev.abort();await Promise.race([prev.done,new Promise(r=>setTimeout(r,1500))]);}
+    const hadASR=!!prev;
     for (const player of players.values())
         player.stop();
     disposeTake();
@@ -407,7 +417,7 @@ async function startRecording(id, type) {
             clearInterval(timerTick);
             busy = false;
             scene.recording = false; scene.apply();
-            const session=asr;asr=null;session?.stop();
+            const session=asr;asr=null;session?.stop();lastASR=session;
             take = new Blob(chunks, { type: recorder.mimeType });
             if (!take.size) {
                 // If the recognizer took the microphone away, record without it next time.
@@ -450,7 +460,11 @@ async function startRecording(id, type) {
     }
     catch {
         stream?.getTracks().forEach(t => t.stop());
+        stream = null;
         busy = false;
+        asr?.abort();asr=null;
+        // If scoring was running, assume it blocked the microphone: turn it off here and try once more.
+        if(!retry&&(hadASR||scoringOn)&&asrAvailable&&!asrBroken){asrBroken=true;return startRecording(id,type,true);}
         micError = "Không mở được micro. Bạn có thể nói không dùng micro hoặc bỏ qua.";
         render();
     }
@@ -498,9 +512,9 @@ bind("lipsync-toggle", () => scene.setLipEnabled(!scene.lipEnabled));
 bind("motion-toggle", () => scene.setEnabled(!scene.enabled));
 function scoringLabel() {
     const el=$("#scoring-toggle");if(!el)return;
-    el.disabled=!Recognizer;
-    el.setAttribute("aria-pressed",String(!!Recognizer&&scoringOn));
-    el.textContent=Recognizer?`Chấm điểm nói (thử nghiệm): ${scoringOn?"Bật":"Tắt"}`:"Chấm điểm nói: trình duyệt này chưa hỗ trợ";
+    el.disabled=!asrAvailable;
+    el.setAttribute("aria-pressed",String(asrAvailable&&scoringOn));
+    el.textContent=(Recognizer&&!asrAvailable)?"Chấm điểm nói: chỉ chạy khi mở bằng Safari":asrAvailable?`Chấm điểm nói (thử nghiệm): ${scoringOn?"Bật":"Tắt"}`:"Chấm điểm nói: trình duyệt này chưa hỗ trợ";
 }
 bind("scoring-toggle", () => {scoringOn=!scoringOn;asrBroken=false;localStorage.setItem("nailtalk-scoring",String(scoringOn));scoringLabel();});
 scoringLabel();
