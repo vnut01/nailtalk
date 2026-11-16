@@ -98,9 +98,9 @@
     "title": "Jenny takes the morning off",
     "subtitle": "Jenny được nghỉ buổi sáng",
     "estimated_minutes": 8,
-    "pack_version": "APP_PROTO_v019-DRAFT-1_L-S10",
+    "pack_version": "APP_PROTO_v021-DRAFT-1_L-S10",
     "rubric_version": "lesson-set-v3.2",
-    "available": false,
+    "available": true,
     "homeCanDo": "Sau bài này bạn nói được: hỏi nước đã vừa chưa, chờ khách thử và xác nhận trước khi bắt đầu."
   },
   {

@@ -1,4 +1,4 @@
-export const APP_VERSION = "v020-DRAFT-1";
+export const APP_VERSION = "v021-DRAFT-1";
 import { subtitleCue } from "./parts.mjs";
 import { CinematicScene } from "./cinematic.mjs";
 import { audioFormat } from "./media.mjs";
@@ -10,7 +10,6 @@ import {LESSON_ORDER, AVAILABLE_LESSONS, migrateProgress, practiced, reachedPhra
 const content = await (await fetch('./lesson-content.json')).json();
 const progress = Object.fromEntries(await Promise.all(LESSON_ORDER.map(async id=>[id,migrateProgress(await store.load(id),id)])));
 const catalog = await (await fetch('./catalog.json')).json();
-if(location.hash.slice(1).split('/')[0]==='L-S10')location.replace('#home');
 const onHome = !location.hash || location.hash === '#home' || location.hash === '#phrases';
 // Give a newly opened lesson the network before fetching its manifest or art.
 if (!onHome) navigator.serviceWorker?.controller?.postMessage({type:'PAUSE'});

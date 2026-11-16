@@ -1,0 +1,121 @@
+{
+  "sceneSetter": "Jenny và Linh chuẩn bị cho buổi pedicure.",
+  "homeCanDo": "Sau bài này bạn nói được: hỏi nước đã vừa chưa, chờ khách thử và xác nhận trước khi bắt đầu.",
+  "review": {
+    "lesson": "L-S13",
+    "cues": [
+      "B82_S13_D06",
+      "B82_S13_D08"
+    ]
+  },
+  "safetyRequired": false,
+  "canDo": "hỏi nước đã vừa chưa, chờ khách thử và xác nhận trước khi bắt đầu.",
+  "comprehension": [
+    {
+      "focus": "Vì sao Jenny rảnh sáng nay?",
+      "listen": [
+        "B82_S10_D01",
+        "B82_S10_D02",
+        "B82_S10_D03"
+      ],
+      "question": "Vì sao Jenny rảnh sáng nay?",
+      "options": [
+        "She has the day off",
+        "She missed her bus",
+        "She is graduating"
+      ],
+      "key": 0,
+      "correct": "Đúng rồi: Được cửa hàng cho nghỉ.",
+      "retry": "Nghe lại lượt 1–3 rồi thử lại nhé."
+    },
+    {
+      "focus": "Jenny muốn nước thế nào?",
+      "listen": [
+        "B82_S10_D09",
+        "B82_S10_D10",
+        "B82_S10_D11"
+      ],
+      "question": "Jenny muốn nước thế nào?",
+      "options": [
+        "A little cooler",
+        "A little warmer",
+        "No change"
+      ],
+      "key": 1,
+      "correct": "Đúng rồi: Ấm hơn chút.",
+      "retry": "Nghe lại lượt 9–11 rồi thử lại nhé."
+    },
+    {
+      "focus": "Sau khi kiểm tra lại, Jenny nói nước thế nào?",
+      "listen": [
+        "B82_S10_D14",
+        "B82_S10_D15"
+      ],
+      "question": "Sau khi kiểm tra lại, Jenny nói nước thế nào?",
+      "options": [
+        "Still cold",
+        "Too hot",
+        "Just right"
+      ],
+      "key": 2,
+      "correct": "Đúng rồi: Vừa rồi.",
+      "retry": "Nghe lại lượt 14–15 rồi thử lại nhé."
+    }
+  ],
+  "cards": [
+    {
+      "focus": "Chị có muốn nước ấm hơn không ạ?",
+      "cue": "B82_S10_D10",
+      "english": "Would you like it warmer?",
+      "vietnamese": "Chị có muốn nước ấm hơn không ạ?",
+      "useWhen": "Dùng khi: Sau khi khách nói nước hơi mát; nước đã được thợ kiểm an toàn, khách chưa đặt chân vào.",
+      "vocabulary": "warmer → ấm hơn; would you like → có muốn",
+      "note": "Dùng khi: Sau khi khách nói nước hơi mát; nước đã được thợ kiểm an toàn, khách chưa đặt chân vào. <br> Đổi từ: Cả mẫu hỏi nước: Is the water comfortable? Không đổi thành câu chỉ hỏi đủ ấm, vì có thể nước quá nóng.",
+      "check": "Tôi đã hỏi khách muốn nước ấm hơn, không đoán."
+    },
+    {
+      "focus": "Nước có dễ chịu không chị?",
+      "cue": "B82_S10_K2",
+      "english": "Is the water comfortable?",
+      "vietnamese": "Nước có dễ chịu không chị?",
+      "useWhen": "Dùng khi: Mời kiểm tra trước khi đặt chân.",
+      "vocabulary": "water → nước; comfortable → dễ chịu",
+      "note": "Dùng khi: Mời kiểm tra trước khi đặt chân. <br> Đổi từ: water → chair: Is the chair comfortable? Chỉ khi hỏi về ghế.",
+      "check": "Tôi đã hỏi nước có dễ chịu không."
+    },
+    {
+      "focus": "Chị kiểm tra lại giúp em nhé.",
+      "cue": "B82_S10_D14",
+      "english": "Please check it again.",
+      "vietnamese": "Chị kiểm tra lại giúp em nhé.",
+      "useWhen": "Dùng khi: Sau khi điều chỉnh theo quy trình tiệm.",
+      "vocabulary": "check → kiểm tra; again → lại",
+      "note": "Dùng khi: Sau khi điều chỉnh theo quy trình tiệm. <br> Đổi từ: Giữ nguyên; it trỏ nước vừa điều chỉnh trong cảnh này.",
+      "check": "Tôi đã mời kiểm lại sau khi chỉnh và chờ trả lời."
+    },
+    {
+      "focus": "Chị ngồi vậy thoải mái chưa ạ?",
+      "cue": "B82_S10_D16",
+      "english": "Are you comfortable in the chair?",
+      "vietnamese": "Chị ngồi vậy thoải mái chưa ạ?",
+      "useWhen": "Dùng khi: Kiểm tra tư thế ghế.",
+      "vocabulary": "comfortable → thoải mái; in the chair → trên ghế",
+      "note": "Dùng khi: Kiểm tra tư thế ghế. <br> Đổi từ: in the chair → here khi chỉ đúng chỗ: Are you comfortable here?",
+      "check": "Tôi đã hỏi khách ngồi ghế có thoải mái không."
+    }
+  ],
+  "recognition": [],
+  "turns": [
+    {
+      "prompts": [
+        "B82_S10_T1"
+      ],
+      "models": [
+        "B82_S10_M1"
+      ],
+      "instruction": "Thẻ VN: khách thử nước trước khi đặt chân, chưa có đau/rát. Nói tiếp nhận yêu cầu (tối đa một câu). Dừng lượt để thao tác theo quy trình; khi hoàn tất, nói câu mời kiểm tra lại (tối đa một câu). Không hỏi như thể đã chỉnh trong lúc chưa làm.",
+      "check": "Chưa cho khách đặt chân; hỏi lại sau điều chỉnh. Nếu đau/rát: dừng và gọi quản lý theo S06, không coi là đổi nhiệt độ thường lệ.",
+      "retry": "nghe lại prompt, kiểm tra chi tiết đã đổi rồi nói lại. Không tính nghe đúng là nói được."
+    }
+  ]
+}

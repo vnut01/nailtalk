@@ -1,6 +1,6 @@
 import {normalizeState, completeStep} from './logic.mjs';
 export const LESSON_ORDER=['L-S01','L-S08','L-S02','L-S05','L-S07','L-S06','L-S03','L-S04','L-S09','L-S14','L-S13','L-S10','L-S11','L-S12','L-S15','L-S16'];
-export const AVAILABLE_LESSONS=LESSON_ORDER.filter(id=>id!=='L-S10');
+export const AVAILABLE_LESSONS=[...LESSON_ORDER];
 export function migrateProgress(saved,id) {
  const s=normalizeState(saved);
  if(saved && !saved.contentVersion) {

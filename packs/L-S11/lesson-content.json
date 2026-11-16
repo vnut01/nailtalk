@@ -2,10 +2,10 @@
   "sceneSetter": "Linda và Linh trò chuyện sau khi sơn móng.",
   "homeCanDo": "Sau bài này bạn nói được: nhắc khách giữ tay yên, báo sơn chưa khô và đề nghị giúp lấy đồ.",
   "review": {
-    "lesson": "L-S13",
+    "lesson": "L-S10",
     "cues": [
-      "B82_S13_D06",
-      "B82_S13_D08"
+      "B82_S10_D10",
+      "B82_S10_K2"
     ]
   },
   "safetyRequired": false,
